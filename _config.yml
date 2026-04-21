@@ -1,19 +1,27 @@
-title: Quantum Transition Labs
-description: Post-quantum security, cryptography, and AI-driven protection.
+title: "Quantum Transition Labs"
+description: "Quantum-safe cryptography, secure architecture, and PQC migration services."
+
+# Use a simple base theme (we override it with our own layout)
 theme: jekyll-theme-cayman
-navigation:
-  - title: "Home"
-    url: "/"
-  - title: "Team"
-    url: "/team"
-  - title: "Services"
-    url: "/services"
-  - title: "Research"
-    url: "/research"
-  - title: "Contact"
-    url: "/contact"
+
+# Enable Markdown processing
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Ensure GitHub Pages builds your custom layout + CSS
+include:
+  - assets/css
+  - _layouts
+
 sass:
   style: compressed
 
-include:
-  - assets/css
+# GitHub Pages settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# URL settings (GitHub Pages auto-detects repo)
+baseurl: ""
+url: "https://qtransitionlabs.com"
