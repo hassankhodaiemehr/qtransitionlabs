@@ -160,6 +160,10 @@ body.light-mode .hero-button:hover {
   background: #004E9A;
 }
 
+body.light-mode {
+  background: red !important;
+}
+
 /* Toggle icon */
 body.light-mode .theme-toggle {
   color: #1A1F36;
