@@ -1,5 +1,3 @@
----
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +23,7 @@
       border-bottom: 1px solid #30363d;
       display: flex;
       gap: 1.5rem;
+      align-items: center;
     }
 
     nav a {
@@ -52,20 +51,7 @@
     }
   </style>
 </head>
-<footer class="footer">
-  <p>© 2026 Quantum Transition Labs — Quantum‑Safe Security & Cryptographic Modernization</p>
-</footer>
-  <script>
-  const toggle = document.getElementById('theme-toggle');
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-  });
 
-  if (localStorage.getItem('theme') === 'light') {
-    document.body.classList.add('light-mode');
-  }
-</script>
 <body>
 
   <!-- Navigation -->
@@ -81,6 +67,27 @@
   <div class="container">
     {{ content }}
   </div>
+
+  <footer class="footer">
+    <p>© 2026 Quantum Transition Labs — Quantum‑Safe Security & Cryptographic Modernization</p>
+  </footer>
+
+  <!-- Theme Toggle Script (must be at the bottom) -->
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      localStorage.setItem(
+        'theme',
+        document.body.classList.contains('light-mode') ? 'light' : 'dark'
+      );
+    });
+
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-mode');
+    }
+  </script>
 
 </body>
 </html>
