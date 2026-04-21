@@ -1,14 +1,9 @@
 ---
 layout: default
+title: Quantum Transition Labs
 ---
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Quantum Transition Labs</title>
-  </head>
-  <body>
-    <h1>Welcome to Quantum Transition Labs</h1>
-    <p>Your site is now styled by the theme.</p>
-  </body>
-</html>
+# Welcome to Quantum Transition Labs
+We build post‑quantum security solutions for the future.
+
+Your content goes here. You can use Markdown or inline HTML.
