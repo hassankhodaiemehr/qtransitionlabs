@@ -15,11 +15,11 @@ title: Quantum Transition Labs
   </p>
 </div>
 
-## Core Capabilities
+# Core Capabilities
 
 <section>
 
-### Post‑Quantum Cryptography Migration
+# Post‑Quantum Cryptography Migration
 - Cryptographic inventory & dependency mapping  
 - PQC algorithm selection (Kyber, Dilithium, SPHINCS+)  
 - Hybrid classical–quantum transition strategies  
@@ -29,7 +29,7 @@ title: Quantum Transition Labs
 
 <section>
 
-### Secure Architecture & Systems Engineering
+# Secure Architecture & Systems Engineering
 - Zero‑trust, privacy‑by‑design architectures  
 - Secure key management & HSM integration  
 - Cloud‑native cryptographic modernization  
@@ -39,7 +39,7 @@ title: Quantum Transition Labs
 
 <section>
 
-### Blockchain & Distributed Systems Security
+# Blockchain & Distributed Systems Security
 - Quantum‑safe consensus mechanisms  
 - Wallet & key‑lifecycle hardening  
 - Lattice‑based signature integration  
@@ -49,14 +49,14 @@ title: Quantum Transition Labs
 
 <section>
 
-### AI‑Enhanced Security Analysis
+# AI‑Enhanced Security Analysis
 - Automated cryptographic misconfiguration detection  
 - AI‑assisted protocol verification  
 - ML‑driven risk scoring for long‑lived systems  
 
 </section>
 
-## Why Quantum Security Now
+# Why Quantum Security Now
 
 <section>
 
@@ -69,7 +69,7 @@ Organizations that begin migration early reduce cost, risk, and operational disr
 
 </section>
 
-## Work With Us
+# Work With Us
 
 <section>
 
