@@ -12,3 +12,8 @@ navigation:
     url: "/research"
   - title: "Contact"
     url: "/contact"
+sass:
+  style: compressed
+
+include:
+  - assets/css
