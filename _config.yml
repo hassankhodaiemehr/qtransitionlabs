@@ -1,3 +1,14 @@
 title: Quantum Transition Labs
 description: Post-quantum security, cryptography, and AI-driven protection.
 theme: jekyll-theme-cayman
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Team"
+    url: "/team"
+  - title: "Services"
+    url: "/services"
+  - title: "Research"
+    url: "/research"
+  - title: "Contact"
+    url: "/contact"
