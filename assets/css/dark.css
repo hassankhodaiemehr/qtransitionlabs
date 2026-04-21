@@ -21,7 +21,7 @@ h1, h2, h3, h4 {
 
 /* Navigation / Header / Footer */
 nav, header, footer {
-  background: #161B22 !important;
+  background: #161B22;        /* removed !important */
   border-bottom: 1px solid #30363D;
 }
 
@@ -93,6 +93,7 @@ p, li, span {
   cursor: pointer;
   color: #E6EDF3;
 }
+
 /* ENTERPRISE LIGHT MODE */
 body.light-mode {
   background: #FFFFFF;
@@ -158,4 +159,9 @@ body.light-mode .hero-button {
 body.light-mode .button:hover,
 body.light-mode .hero-button:hover {
   background: #004E9A;
+}
+
+/* Toggle icon */
+body.light-mode .theme-toggle {
+  color: #1A1F36;
 }
