@@ -1,0 +1,13 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Custom CSS below */
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
