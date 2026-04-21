@@ -1,13 +1,71 @@
----
----
-
-@import "{{ site.theme }}";
-
-/* Custom CSS below */
-body {
-  font-family: "Inter", sans-serif;
+/* ENTERPRISE LIGHT MODE */
+body.light-mode {
+  background: #FFFFFF;
+  color: #1A1F36; /* deep enterprise navy-gray */
 }
 
-h1, h2, h3 {
-  font-weight: 600;
+/* Text */
+body.light-mode p,
+body.light-mode li,
+body.light-mode span {
+  color: #374151; /* strong neutral gray */
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4 {
+  color: #1A1F36; /* crisp headline color */
+}
+
+/* Navigation */
+body.light-mode nav {
+  background: #F6F8FA;
+  border-bottom: 1px solid #D0D7DE;
+}
+
+body.light-mode nav a {
+  color: #1A1F36;
+}
+
+body.light-mode nav a:hover {
+  color: #0A58CA; /* enterprise blue hover */
+}
+
+/* Sections / Cards */
+body.light-mode section {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB; /* subtle neutral border */
+}
+
+/* Hero */
+body.light-mode .hero {
+  background: #F6F8FA;
+}
+
+body.light-mode .hero p {
+  color: #4B5563; /* readable secondary gray */
+}
+
+/* Footer */
+body.light-mode .footer {
+  border-top: 1px solid #D0D7DE;
+  color: #4B5563;
+}
+
+/* Buttons */
+body.light-mode .button,
+body.light-mode .hero-button {
+  background: #0A66C2; /* enterprise blue */
+  color: white;
+}
+
+body.light-mode .button:hover,
+body.light-mode .hero-button:hover {
+  background: #004E9A;
+}
+
+/* Toggle icon */
+body.light-mode .theme-toggle {
+  color: #1A1F36;
 }
