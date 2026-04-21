@@ -3,6 +3,13 @@ layout: default
 title: Quantum Transition Labs
 ---
 
+<div class="hero">
+  <img src="/assets/img/logo1.png" alt="Quantum Transition Labs" class="hero-logo">
+  <h1>Quantum‑Safe Security for High‑Assurance Systems</h1>
+  <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure and high‑value platforms.</p>
+  <a href="/contact" class="hero-button">Contact Us</a>
+</div>
+
 # Quantum‑Safe Security for High‑Assurance Systems
 
 Quantum Transition Labs (QTL) is a research‑driven security firm specializing in post‑quantum cryptography (PQC), cryptographic modernization, and quantum‑resilient architecture design for critical infrastructure, government, and high‑value digital platforms.
