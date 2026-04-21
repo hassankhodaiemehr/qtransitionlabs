@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | Quantum Transition Labs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Dark Mode CSS -->
+  <link rel="stylesheet" href="/assets/css/dark.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+    }
+
+    nav {
+      background: #161b22;
+      padding: 1rem;
+      border-bottom: 1px solid #30363d;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #e6edf3;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #58a6ff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      background: #161b22;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #30363d;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="/">Home</a>
+    <a href="/team">Team</a>
+    <a href="/services">Services</a>
+    <a href="/research">Research</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    {{ content }}
+  </div>
+
+</body>
+</html>
