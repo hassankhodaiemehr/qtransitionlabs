@@ -1,15 +1,12 @@
 title: "Quantum Transition Labs"
 description: "Quantum-safe cryptography, secure architecture, and PQC migration services."
 
-# Use a simple base theme (we override it with our own layout)
 theme: jekyll-theme-cayman
 
-# Enable Markdown processing
 markdown: kramdown
 kramdown:
   input: GFM
 
-# Ensure GitHub Pages builds your custom layout + CSS
 include:
   - assets/css
   - _layouts
@@ -17,11 +14,9 @@ include:
 sass:
   style: compressed
 
-# GitHub Pages settings
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# URL settings (GitHub Pages auto-detects repo)
 baseurl: ""
 url: "https://qtransitionlabs.com"
