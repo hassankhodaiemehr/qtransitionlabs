@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,6 +9,6 @@
   </head>
   <body>
     <h1>Welcome to Quantum Transition Labs</h1>
-    <p>Your site is now live!</p>
+    <p>Your site is now styled by the theme.</p>
   </body>
 </html>
