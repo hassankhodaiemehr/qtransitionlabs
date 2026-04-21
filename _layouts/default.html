@@ -52,7 +52,20 @@
     }
   </style>
 </head>
+<footer class="footer">
+  <p>© 2026 Quantum Transition Labs — Quantum‑Safe Security & Cryptographic Modernization</p>
+</footer>
+  <script>
+  const toggle = document.getElementById('theme-toggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+  });
 
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-mode');
+  }
+</script>
 <body>
 
   <!-- Navigation -->
@@ -62,6 +75,7 @@
     <a href="/services">Services</a>
     <a href="/research">Research</a>
     <a href="/contact">Contact</a>
+    <button id="theme-toggle" class="theme-toggle">🌓</button>
   </nav>
 
   <div class="container">
