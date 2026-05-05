@@ -4,55 +4,191 @@ title: Quantum Transition Labs
 ---
 
 <style>
-  /* Make this page full-width */
+
+/* FULL‑WIDTH OVERRIDE */
 .page-content, .wrapper, .container {
-  max-width: 95% !important;
-  padding-left: 2 !important;
-  padding-right: 2 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* Optional: add some breathing room */
-.team-page {
+/* GLOBAL PAGE PADDING */
+.homepage {
   padding: 0 2rem;
 }
 
-.team-grid {
+/* ================================
+   ANIMATED QUANTUM GRADIENT HERO
+   ================================ */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 6rem 2rem;
+  border-bottom: 1px solid #30363D;
+  overflow: hidden;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0A0F1F, #001F3F, #003366, #001122);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* Animated gradient */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating quantum particles */
+.hero::before, .hero::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(88,166,255,0.25) 0%, rgba(0,0,0,0) 70%);
+  animation: float 12s infinite ease-in-out;
+  filter: blur(40px);
+}
+
+.hero::before {
+  top: -200px;
+  left: -200px;
+}
+
+.hero::after {
+  bottom: -200px;
+  right: -200px;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(40px) translateX(40px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* HERO CONTENT */
+.hero-logo {
+  width: 140px;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1.4s ease forwards;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #D0D7DE;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  animation: fadeInUp 1.6s ease forwards;
+}
+
+/* Glowing CTA Button */
+.hero-button {
+  background: #58A6FF;
+  color: #0D1117 !important;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1rem;
+  box-shadow: 0 0 18px rgba(88,166,255,0.6);
+  transition: 0.25s ease;
+  animation: fadeInUp 2s ease forwards;
+}
+
+.hero-button:hover {
+  background: #79B8FF;
+  box-shadow: 0 0 28px rgba(88,166,255,0.9);
+  transform: translateY(-3px);
+}
+
+/* Fade‑in animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   SECTION HEADERS
+   ================================ */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #F0F6FC;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #8B949E;
+  margin-bottom: 2rem;
+}
+
+/* ================================
+   CAPABILITY CARDS (Animated)
+   ================================ */
+.capabilities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.2rem;
+  gap: 2rem;
   margin-top: 2rem;
 }
 
-/* Force 3 columns on desktop */
-@media (min-width: 900px) {
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.team-card {
-  background: #ffffff;
-  border-radius: 14px;
+.cap-card {
+  background: #161B22;
+  border: 1px solid #30363D;
   padding: 1.8rem;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  transition: 0.25s ease;
+  animation: fadeIn 1.2s ease forwards;
 }
 
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+.cap-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(88,166,255,0.25);
+  border-color: #58A6FF;
 }
 
-.team-photo {
-  width: 180px;
-  border-radius: 12px;
-  margin-bottom: 1rem;
+.cap-card h3 {
+  color: #F0F6FC;
+  margin-bottom: 0.8rem;
 }
 
-.section-divider {
-  margin: 4rem 0 2rem 0;
-  border-top: 2px solid #e5e5e5;
+.cap-card ul {
+  color: #C9D1D9;
+  line-height: 1.55;
 }
+
+/* Light mode overrides */
+body.light-mode .cap-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+}
+
+body.light-mode .cap-card h3 {
+  color: #1A1F36;
+}
+
+body.light-mode .cap-card ul {
+  color: #374151;
+}
+
 </style>
 
 <div class="hero">
@@ -62,42 +198,63 @@ title: Quantum Transition Labs
   <a href="/contact" class="hero-button">Contact Us</a>
 </div>
 
-# Quantum‑Safe Security for High‑Assurance Systems
+<div class="homepage">
+
+# <div class="section-title">Quantum‑Safe Security for High‑Assurance Systems</div>
+<div class="section-subtitle">Research‑driven. Enterprise‑ready. Built for the quantum era.</div>
 
 Quantum Transition Labs (QTL) is a research‑driven security firm specializing in post‑quantum cryptography (PQC), cryptographic modernization, and quantum‑resilient architecture design for critical infrastructure, government, and high‑value digital platforms.
 
-[Contact Us](/contact)
+---
+
+# <div class="section-title">Core Capabilities</div>
+
+<div class="capabilities-grid">
+
+<div class="cap-card">
+<h3>Post‑Quantum Cryptography Migration</h3>
+<ul>
+  <li>Cryptographic inventory & dependency mapping</li>
+  <li>PQC algorithm selection (Kyber, Dilithium, SPHINCS+)</li>
+  <li>Hybrid classical–quantum transition strategies</li>
+  <li>Protocol redesign & interoperability validation</li>
+</ul>
+</div>
+
+<div class="cap-card">
+<h3>Secure Architecture & Systems Engineering</h3>
+<ul>
+  <li>Zero‑trust, privacy‑by‑design architectures</li>
+  <li>Secure key management & HSM integration</li>
+  <li>Cloud‑native cryptographic modernization</li>
+  <li>Threat modeling for quantum‑capable adversaries</li>
+</ul>
+</div>
+
+<div class="cap-card">
+<h3>Blockchain & Distributed Systems Security</h3>
+<ul>
+  <li>Quantum‑safe consensus mechanisms</li>
+  <li>Wallet & key‑lifecycle hardening</li>
+  <li>Lattice‑based signature integration</li>
+  <li>PQC‑ready smart‑contract frameworks</li>
+</ul>
+</div>
+
+<div class="cap-card">
+<h3>AI‑Enhanced Security Analysis</h3>
+<ul>
+  <li>Automated cryptographic misconfiguration detection</li>
+  <li>AI‑assisted protocol verification</li>
+  <li>ML‑driven risk scoring for long‑lived systems</li>
+</ul>
+</div>
+
+</div>
 
 ---
 
-## Core Capabilities
-
-### Post‑Quantum Cryptography Migration
-- Cryptographic inventory & dependency mapping  
-- PQC algorithm selection (Kyber, Dilithium, SPHINCS+)  
-- Hybrid classical–quantum transition strategies  
-- Protocol redesign & interoperability validation  
-
-### Secure Architecture & Systems Engineering
-- Zero‑trust, privacy‑by‑design architectures  
-- Secure key management & HSM integration  
-- Cloud‑native cryptographic modernization  
-- Threat modeling for quantum‑capable adversaries  
-
-### Blockchain & Distributed Systems Security
-- Quantum‑safe consensus mechanisms  
-- Wallet & key‑lifecycle hardening  
-- Lattice‑based signature integration  
-- PQC‑ready smart‑contract frameworks  
-
-### AI‑Enhanced Security Analysis
-- Automated cryptographic misconfiguration detection  
-- AI‑assisted protocol verification  
-- ML‑driven risk scoring for long‑lived systems  
-
----
-
-## Why Quantum Security Now
+# <div class="section-title">Why Quantum Security Now</div>
 
 - **Harvest‑Now‑Decrypt‑Later (HNDL)** attacks are already occurring  
 - **NIST PQC standards** are finalized and adoption timelines are accelerating  
@@ -108,10 +265,12 @@ Organizations that begin migration early reduce cost, risk, and operational disr
 
 ---
 
-## Work With Us
+# <div class="section-title">Work With Us</div>
 
 QTL provides **advisory, architecture, and implementation support** for organizations preparing for the quantum era.
 
 We help you move from “we should think about PQC” to **a validated, staged, and deployable migration plan**.
 
 [Contact us →](/contact)
+
+</div>
