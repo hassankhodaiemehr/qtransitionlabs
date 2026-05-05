@@ -165,3 +165,19 @@ body.light-mode .hero-button:hover {
 body.light-mode .theme-toggle {
   color: #1A1F36;
 }
+
+/* GLOBAL FULL-WIDTH LAYOUT OVERRIDE */
+.page-content,
+.wrapper,
+.container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Optional: add comfortable global page padding */
+body {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
