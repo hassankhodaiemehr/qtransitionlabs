@@ -1,424 +1,258 @@
 ---
 layout: default
-title: Quantum Transition Labs
+title: Our Team
 ---
 
 <style>
-
-/* ============================
-   GLOBAL LAYOUT
-============================ */
+/* GLOBAL FULL-WIDTH */
 .page-content, .wrapper, .container {
   max-width: 100% !important;
   width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
-.homepage {
-  padding: 2rem 2rem;
+/* Page padding */
+.team-page {
+  padding: 2rem 3rem;
 }
 
-/* ============================
-   HERO SECTION (CINEMATIC)
-============================ */
-.hero {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+/* Header */
+.team-header {
   text-align: center;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 2rem;
-  background: radial-gradient(circle at center, #001F3F 0%, #0A0F1F 70%);
+  margin-bottom: 2.5rem;
 }
 
-/* ============================
-   QUANTUM ORBIT SYSTEM
-============================ */
-.qubit-core {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 26px;
-  height: 26px;
-  background: #58A6FF;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 22px #58A6FF, 0 0 44px #58A6FF;
-  animation: corePulse 6s ease-in-out infinite;
-}
-
-@keyframes corePulse {
-  0%, 100% { box-shadow: 0 0 22px #58A6FF, 0 0 44px #58A6FF; }
-  50% { box-shadow: 0 0 32px #79B8FF, 0 0 60px #79B8FF; }
-}
-
-/* Orbit rings */
-.orbit {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border: 1px solid rgba(88,166,255,0.35);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation: orbitRotate 28s linear infinite;
-}
-
-.orbit:nth-child(1) { width: 180px; height: 180px; animation-duration: 32s; }
-.orbit:nth-child(2) { width: 260px; height: 260px; animation-duration: 44s; }
-.orbit:nth-child(3) { width: 340px; height: 340px; animation-duration: 58s; }
-
-@keyframes orbitRotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* ============================
-   FLOATING PARTICLES
-============================ */
-.particle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: rgba(88,166,255,0.6);
-  border-radius: 50%;
-  animation: particleFloat 12s ease-in-out infinite;
-}
-
-@keyframes particleFloat {
-  0% { transform: translateY(0px); opacity: 0.4; }
-  50% { transform: translateY(-40px); opacity: 1; }
-  100% { transform: translateY(0px); opacity: 0.4; }
-}
-
-/* ============================
-   HERO TEXT
-============================ */
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-top: 2rem;
-  animation: fadeInUp 1.4s ease forwards;
-}
-
-.hero p {
-  font-size: 1.25rem;
-  max-width: 700px;
-  margin: 1rem auto 2rem auto;
-  color: #D0D7DE;
-  animation: fadeInUp 1.8s ease forwards;
-}
-
-.hero-button {
-  background: #58A6FF;
-  color: #0D1117 !important;
-  padding: 0.9rem 2rem;
-  border-radius: 8px;
+.team-header h1 {
+  font-size: 2.8rem;
   font-weight: 700;
-  text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 0 18px rgba(88,166,255,0.6);
-  transition: 0.25s ease;
-  animation: fadeInUp 2.2s ease forwards;
-}
-
-.hero-button:hover {
-  background: #79B8FF;
-  box-shadow: 0 0 28px rgba(88,166,255,0.9);
-  transform: translateY(-3px);
-}
-
-/* Fade-in animation */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================
-   SECTION TITLES
-============================ */
-.section-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  text-align: center;
+  margin-bottom: 0.5rem;
   color: #F0F6FC;
 }
 
-.section-subtitle {
-  text-align: center;
+.team-header p {
   color: #8B949E;
-  margin-bottom: 2rem;
+  font-size: 1.15rem;
+  margin-top: -0.3rem;
 }
 
-/* ============================
-   CAPABILITY CARDS
-============================ */
-.capabilities-grid {
+body.light-mode .team-header h1 {
+  color: #1A1F36;
+}
+
+body.light-mode .team-header p {
+  color: #4B5563;
+}
+
+/* Team Grid */
+.team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 2.2rem;
   margin-top: 2rem;
 }
 
-.cap-card {
+/* Force 3 columns on desktop */
+@media (min-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Team Card — Dark Mode */
+.team-card {
   background: #161B22;
   border: 1px solid #30363D;
-  padding: 1.8rem;
   border-radius: 14px;
+  padding: 1.8rem;
   box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-  transition: 0.25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.cap-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(88,166,255,0.25);
-  border-color: #58A6FF;
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-.cap-card h3 {
+/* Light Mode Override */
+body.light-mode .team-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+body.light-mode .team-card h2,
+body.light-mode .team-card h4 {
+  color: #1A1F36;
+}
+
+body.light-mode .team-card p,
+body.light-mode .team-card li {
+  color: #374151;
+}
+
+/* Photo */
+.team-photo {
+  width: 180px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Headings */
+.team-card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
   color: #F0F6FC;
-  margin-bottom: 0.8rem;
 }
 
-.cap-card ul {
+.team-card h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #C9D1D9;
+  margin-top: -0.4rem;
+  margin-bottom: 1rem;
+}
+
+/* Text — JUSTIFIED */
+.team-card p,
+.team-card li {
   color: #C9D1D9;
   line-height: 1.55;
+  text-align: justify;
 }
 
-/* ============================
-   MOBILE RESPONSIVE
-============================ */
-@media (max-width: 768px) {
-
-  .hero {
-    height: 90vh;
-    padding: 1rem;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .orbit:nth-child(1) { width: 120px; height: 120px; }
-  .orbit:nth-child(2) { width: 180px; height: 180px; }
-  .orbit:nth-child(3) { width: 240px; height: 240px; }
-
-  .qubit-core {
-    width: 18px;
-    height: 18px;
-  }
+/* LinkedIn Button */
+.linkedin-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #0A66C2;
+  color: white !important;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+  font-size: 0.95rem;
 }
 
+.linkedin-btn:hover {
+  background: #0D7BE0;
+  box-shadow: 0 0 12px rgba(10,102,194,0.6);
+  transform: translateY(-2px);
+}
+
+/* Divider */
+.section-divider {
+  margin: 4rem 0 2rem 0;
+  border-top: 2px solid #30363D;
+}
+
+body.light-mode .section-divider {
+  border-top: 2px solid #E5E7EB;
+}
 </style>
 
-<div class="hero">
+<div class="team-page">
 
-  <!-- Quantum Orbit System -->
-  <div class="qubit-core"></div>
-  <div class="orbit"></div>
-  <div class="orbit"></div>
-  <div class="orbit"></div>
-
-  <!-- Floating particles -->
-  <div class="particle" style="top:20%; left:15%; animation-delay:0s;"></div>
-  <div class="particle" style="top:70%; left:80%; animation-delay:2s;"></div>
-  <div class="particle" style="top:40%; left:60%; animation-delay:4s;"></div>
-  <div class="particle" style="top:85%; left:30%; animation-delay:1s;"></div>
-
-  <h1>Quantum‑Safe Security for High‑Assurance Systems</h1>
-  <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure and high‑value platforms.</p>
-  <a href="/contact" class="hero-button">Contact Us</a>
+<div class="team-header">
+  <h1>Leadership Team</h1>
+  <p>Experts in post‑quantum security, distributed systems, and advanced cryptography.</p>
 </div>
 
-<div class="homepage">
+<div class="team-grid">
 
-  <div class="section-title">Quantum‑Safe Security for High‑Assurance Systems</div>
-  <div class="section-subtitle">Research‑driven. Enterprise‑ready. Built for the quantum era.</div>
+<!-- Hassan -->
+<div class="team-card">
+  <img src="/assets/team/hassan.jpeg" alt="Photo of Hassan Khodaiemehr" class="team-photo" />
+  <h2>Dr. Hassan Khodaiemehr</h2>
+  <h4>Co‑Founder & CEO</h4>
 
   <p>
-    Quantum Transition Labs (QTL) is a research‑driven security firm specializing in post‑quantum cryptography (PQC),
-    cryptographic modernization, and quantum‑resilient architecture design for critical infrastructure, government,
-    and high‑value digital platforms.
+    Dr. Khodaiemehr has experience across coding theory, wireless communications, cryptography,
+    blockchain security, quantum error correction, and data science. He holds a PhD in Pure Mathematics
+    and is currently a Postdoctoral Research Fellow at UBC Okanagan. His work spans lattice/LDPC code design,
+    quantum LDPC & GKP codes, post‑quantum cryptography, blockchain security, and privacy‑preserving protocols.
   </p>
 
-  <hr style="border: 0; border-top: 1px solid #30363D; margin: 3rem 0;">
-
-  <div class="section-title">Core Capabilities</div>
-
-  <div class="capabilities-grid">
-
-    <div class="cap-card">
-      <h3>Post‑Quantum Cryptography Migration</h3>
-      <ul>
-        <li>Cryptographic inventory & dependency mapping</li>
-        <li>PQC algorithm selection (Kyber, Dilithium, SPHINCS+)</li>
-        <li>Hybrid classical–quantum transition strategies</li>
-        <li>Protocol redesign & interoperability validation</li>
-      </ul>
-    </div>
-
-    <div class="cap-card">
-      <h3>Secure Architecture & Systems Engineering</h3>
-      <ul>
-        <li>Zero‑trust, privacy‑by‑design architectures</li>
-        <li>Secure key management & HSM integration</li>
-        <li>Cloud‑native cryptographic modernization</li>
-        <li>Threat modeling for quantum‑capable adversaries</li>
-      </ul>
-    </div>
-
-    <div class="cap-card">
-      <h3>Blockchain & Distributed Systems Security</h3>
-      <ul>
-        <li>Quantum‑safe consensus mechanisms</li>
-        <li>Wallet & key‑lifecycle hardening</li>
-        <li>Lattice‑based signature integration</li>
-        <li>PQC‑ready smart‑contract frameworks</li>
-      </ul>
-    </div>
-
-    <div class="cap-card">
-      <h3>AI‑Enhanced Security Analysis</h3>
-      <ul>
-        <li>Automated cryptographic misconfiguration detection</li>
-        <li>AI‑assisted protocol verification</li>
-        <li>ML‑driven risk scoring for long‑lived systems</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <hr style="border: 0; border-top: 1px solid #30363D; margin: 3rem 0;">
-
-  <div class="section-title">Why Quantum Security Now</div>
-
+  <p><strong>Focus areas:</strong></p>
   <ul>
-    <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring</li>
-    <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating</li>
-    <li><strong>Long‑lived data</strong> must remain secure for decades</li>
-    <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans</li>
+    <li>Post‑quantum & quantum‑resistant system architecture</li>
+    <li>Quantum error correction & fault‑tolerant communication</li>
+    <li>Blockchain & privacy‑preserving protocol design</li>
+    <li>Cryptographic modernization for enterprises</li>
+    <li>Wireless & physical‑layer security</li>
   </ul>
 
-  <p>
-    Organizations that begin migration early reduce cost, risk, and operational disruption.
-  </p>
+  <a class="linkedin-btn" href="https://www.linkedin.com/in/hassan-khodaiemehr-b8b7b954/" target="_blank">LinkedIn Profile</a>
+</div>
 
-  <hr style="border: 0; border-top: 1px solid #30363D; margin: 3rem 0;">
-
-  <div class="section-title">Work With Us</div>
-
-  <p>
-    QTL provides <strong>advisory, architecture, and implementation support</strong> for organizations preparing for the quantum era.
-  </p>
+<!-- Chen -->
+<div class="team-card">
+  <img src="/assets/team/chen.jpeg" alt="Photo of Chen Feng" class="team-photo" />
+  <h2>Dr. Chen Feng</h2>
+  <h4>Co‑Founder & Chief Scientist</h4>
 
   <p>
-    We help you move from “we should think about PQC” to <strong>a validated, staged, and deployable migration plan</strong>.
+    Dr. Chen Feng is an Associate Professor at UBC Okanagan and a leading expert in digital and networked
+    technologies. He holds the Canada Research Chair in Blockchain‑based Digital Technologies and is a core
+    executive member of Blockchain@UBC. His research spans blockchain consensus, quantum communications,
+    and information theory, supported by multiple NSERC Quantum grants.
   </p>
 
-  <p style="text-align:center; margin-top:2rem;">
-    <a href="/contact" class="hero-button">Contact us →</a>
+  <p><strong>Focus areas:</strong></p>
+  <ul>
+    <li>Blockchain security, scalability & consensus (Fast‑HotStuff)</li>
+    <li>Quantum communications & quantum error correction</li>
+    <li>Information theory for wireless & cloud systems</li>
+  </ul>
+
+  <a class="linkedin-btn" href="https://www.linkedin.com/in/chen-feng-75272a37/" target="_blank">LinkedIn Profile</a>
+</div>
+
+<!-- Khadijeh -->
+<div class="team-card">
+  <img src="/assets/team/mina.jpeg" alt="Photo of Khadijeh Bagheri" class="team-photo" />
+  <h2>Dr. Khadijeh Bagheri</h2>
+  <h4>Co‑Founder & Chief Cryptographer</h4>
+
+  <p>
+    Dr. Bagheri is a Postdoctoral Research Fellow at UBC Okanagan, working on advanced cryptographic and
+    quantum‑resilient security systems. She earned her PhD in Applied Mathematics and received the Best PhD
+    Thesis Award from the Iranian Society of Cryptology. Her background includes research roles at Sharif
+    University of Technology and IPM, with expertise spanning PQC, blockchain security, and physical‑layer security.
   </p>
+
+  <p><strong>Focus areas:</strong></p>
+  <ul>
+    <li>Post‑quantum cryptography (PQC)</li>
+    <li>Quantum‑resistant blockchain & information‑theoretic security</li>
+    <li>Lattice‑ & code‑based cryptographic constructions</li>
+    <li>Physical‑layer security for wireless systems</li>
+  </ul>
+
+  <a class="linkedin-btn" href="https://www.linkedin.com/in/khadijeh-bagheri-7235b542/" target="_blank">LinkedIn Profile</a>
+</div>
 
 </div>
 
-<script>
-/* ============================================
-   1. PARALLAX MOTION FOR ORBITS & PARTICLES
-============================================ */
-document.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+<div class="section-divider"></div>
 
-  document.querySelectorAll(".orbit").forEach((orbit, i) => {
-    const depth = (i + 1) * 4;
-    orbit.style.transform =
-      `translate(calc(-50% + ${x / depth}px), calc(-50% + ${y / depth}px)) rotate(0deg)`;
-  });
+<h1>Advisory & Research Network</h1>
 
-  document.querySelectorAll(".particle").forEach((p, i) => {
-    const depth = (i + 1) * 10;
-    p.style.transform = `translate(${x / depth}px, ${y / depth}px)`;
-  });
-});
+<p>
+We collaborate with researchers and engineers across:
+</p>
 
-/* ============================================
-   2. SCROLL‑TRIGGERED SECTION ANIMATIONS
-============================================ */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("reveal");
-    }
-  });
-}, { threshold: 0.15 });
+<ul>
+  <li>Applied cryptography</li>
+  <li>Quantum information science</li>
+  <li>Blockchain security</li>
+  <li>Cloud & distributed architecture</li>
+  <li>AI‑driven security tooling</li>
+</ul>
 
-document.querySelectorAll(".section-title, .cap-card, .section-subtitle, .homepage p, .homepage ul")
-  .forEach(el => observer.observe(el));
+<p>
+Our advisory network includes contributors from academia, industry labs, and open‑source security communities.
+</p>
 
-const style = document.createElement("style");
-style.innerHTML = `
-  .reveal {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: 0.9s ease;
-  }
-  .section-title, .cap-card, .section-subtitle, .homepage p, .homepage ul {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-`;
-document.head.appendChild(style);
-
-/* ============================================
-   3. QUANTUM WAVE FOOTER
-============================================ */
-const wave = document.createElement("div");
-wave.className = "quantum-wave";
-document.body.appendChild(wave);
-
-const waveStyle = document.createElement("style");
-waveStyle.innerHTML = `
-  .quantum-wave {
-    position: relative;
-    width: 100%;
-    height: 180px;
-    margin-top: 4rem;
-    background: radial-gradient(circle at 50% 120%, rgba(88,166,255,0.25), transparent 70%);
-    overflow: hidden;
-  }
-
-  .quantum-wave::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: repeating-radial-gradient(
-      circle,
-      rgba(88,166,255,0.15) 0px,
-      rgba(88,166,255,0.15) 2px,
-      transparent 3px,
-      transparent 6px
-    );
-    animation: waveMotion 18s linear infinite;
-    opacity: 0.4;
-  }
-
-  @keyframes waveMotion {
-    0% { transform: rotate(0deg) scale(1); }
-    100% { transform: rotate(360deg) scale(1); }
-  }
-`;
-document.head.appendChild(waveStyle);
-</script>
+</div>
