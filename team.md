@@ -6,9 +6,9 @@ title: Our Team
 <style>
   /* Make this page full-width */
 .page-content, .wrapper, .container {
-  max-width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  max-width: 95% !important;
+  padding-left: 2 !important;
+  padding-right: 2 !important;
 }
 
 /* Optional: add some breathing room */
