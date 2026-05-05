@@ -42,7 +42,7 @@ title: Our Team
 
 <!-- Hassan -->
 <div class="team-card">
-  <img src="/assets/team/hassan.jpg" alt="Photo of Hassan Khodaiemehr" class="team-photo" />
+  <img src="/assets/team/hassan.jpeg" alt="Photo of Hassan Khodaiemehr" class="team-photo" />
   <h2>Dr. Hassan Khodaiemehr</h2>
   <h4>Co‑Founder & CEO</h4>
 
@@ -69,7 +69,7 @@ title: Our Team
 
 <!-- Chen -->
 <div class="team-card">
-  <img src="/assets/team/chen.jpg" alt="Photo of Chen Feng" class="team-photo" />
+  <img src="/assets/team/chen.jpeg" alt="Photo of Chen Feng" class="team-photo" />
   <h2>Dr. Chen Feng</h2>
   <h4>Co‑Founder & Chief Scientist</h4>
 
@@ -93,7 +93,7 @@ title: Our Team
 
 <!-- Khadijeh -->
 <div class="team-card">
-  <img src="/assets/team/khadijeh.jpg" alt="Photo of Khadijeh Bagheri" class="team-photo" />
+  <img src="/assets/team/mina.jpeg" alt="Photo of Khadijeh Bagheri" class="team-photo" />
   <h2>Dr. Khadijeh Bagheri</h2>
   <h4>Co‑Founder & Chief Cryptographer</h4>
 
