@@ -54,14 +54,11 @@ title: Our Team
   <h4>Co‑Founder & CEO</h4>
 
   <p>
-  Dr. Khodaiemehr is the Co‑Founder and CEO of Quantum Transition Lab, with 13+ years of experience across 
+  Dr. Khodaiemehr has experience across 
   <strong>coding theory, wireless communications, cryptography, blockchain security, quantum error correction, and data science</strong>.
-  </p>
-
-  <p>
   He holds a PhD in Pure Mathematics (coding & information theory) and is currently a 
-  <strong>Postdoctoral Research Fellow at UBC Okanagan</strong>. His work spans lattice/LDPC code design, 
-  quantum LDPC & GKP codes, PQC, blockchain security, and privacy‑preserving protocols.
+  Postdoctoral Research Fellow at UBC Okanagan. His work spans lattice/LDPC code design, 
+  quantum LDPC & GKP codes, post-quantum cryptography, blockchain security, and privacy‑preserving protocols.
   </p>
 
   <p><strong>Focus areas:</strong></p>
@@ -82,10 +79,7 @@ title: Our Team
 
   <p>
   Dr. Chen Feng is an Associate Professor at UBC Okanagan and a leading expert in digital and networked technologies. 
-  He holds the <strong>Canada Research Chair (Tier 2) in Blockchain‑based Digital Technologies</strong> and is a core executive member of Blockchain@UBC.
-  </p>
-
-  <p>
+  He holds the Canada Research Chair (Tier 2) in Blockchain‑based Digital Technologies and is a core executive member of Blockchain@UBC.
   Chen completed his MASc/PhD at the University of Toronto and postdoctoral fellowships at Boston University and EPFL. 
   His research spans blockchain consensus, quantum communications, and information theory, supported by multiple NSERC Quantum grants.
   </p>
@@ -105,12 +99,9 @@ title: Our Team
   <h4>Co‑Founder & Chief Cryptographer</h4>
 
   <p>
-  Dr. Bagheri is a Postdoctoral Research Fellow at UBC Okanagan, working with Dr. Chen Feng on advanced cryptographic and quantum‑resilient security systems.
+  Dr. Bagheri is a Postdoctoral Research Fellow at UBC Okanagan, working  on advanced cryptographic and quantum‑resilient security systems.
   She earned her PhD in Applied Mathematics from Amirkabir University of Technology, receiving the 
-  <strong>Best PhD Thesis Award</strong> from the Iranian Society of Cryptology.
-  </p>
-
-  <p>
+ Best PhD Thesis Award from the Iranian Society of Cryptology.
   Her background includes research roles at Sharif University of Technology and IPM, with expertise spanning PQC, blockchain security, and physical‑layer security.
   </p>
 
