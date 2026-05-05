@@ -8,8 +8,8 @@ title: Quantum Transition Labs
 .page-content, .wrapper, .container {
   max-width: 95% !important;
   width: 95% !important;
-  margin: 2 auto !important;
-  padding: 2 !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
 }
 
 /* Page padding */
@@ -174,7 +174,6 @@ body.light-mode .cap-card h3 {
 body.light-mode .cap-card ul {
   color: #374151;
 }
-
 </style>
 
 <div class="hero">
@@ -186,87 +185,91 @@ body.light-mode .cap-card ul {
 
 <div class="homepage">
 
-<div class="section-title">Quantum‑Safe Security for High‑Assurance Systems</div>
-<div class="section-subtitle">Research‑driven. Enterprise‑ready. Built for the quantum era.</div>
+  <div class="section-title">Quantum‑Safe Security for High‑Assurance Systems</div>
+  <div class="section-subtitle">Research‑driven. Enterprise‑ready. Built for the quantum era.</div>
 
-<p>
-Quantum Transition Labs (QTL) is a research‑driven security firm specializing in post‑quantum cryptography (PQC), cryptographic modernization, and quantum‑resilient architecture design for critical infrastructure, government, and high‑value digital platforms.
-</p>
+  <p>
+    Quantum Transition Labs (QTL) is a research‑driven security firm specializing in post‑quantum cryptography (PQC),
+    cryptographic modernization, and quantum‑resilient architecture design for critical infrastructure, government,
+    and high‑value digital platforms.
+  </p>
 
----
+  <hr style="border: 0; border-top: 1px solid #30363D; margin: 3rem 0;">
 
-<div class="section-title">Core Capabilities</div>
+  <div class="section-title">Core Capabilities</div>
 
-<div class="capabilities-grid">
+  <div class="capabilities-grid">
 
-<div class="cap-card">
-<h3>Post‑Quantum Cryptography Migration</h3>
-<ul>
-  <li>Cryptographic inventory & dependency mapping</li>
-  <li>PQC algorithm selection (Kyber, Dilithium, SPHINCS+)</li>
-  <li>Hybrid classical–quantum transition strategies</li>
-  <li>Protocol redesign & interoperability validation</li>
-</ul>
-</div>
+    <div class="cap-card">
+      <h3>Post‑Quantum Cryptography Migration</h3>
+      <ul>
+        <li>Cryptographic inventory & dependency mapping</li>
+        <li>PQC algorithm selection (Kyber, Dilithium, SPHINCS+)</li>
+        <li>Hybrid classical–quantum transition strategies</li>
+        <li>Protocol redesign & interoperability validation</li>
+      </ul>
+    </div>
 
-<div class="cap-card">
-<h3>Secure Architecture & Systems Engineering</h3>
-<ul>
-  <li>Zero‑trust, privacy‑by‑design architectures</li>
-  <li>Secure key management & HSM integration</li>
-  <li>Cloud‑native cryptographic modernization</li>
-  <li>Threat modeling for quantum‑capable adversaries</li>
-</ul>
-</div>
+    <div class="cap-card">
+      <h3>Secure Architecture & Systems Engineering</h3>
+      <ul>
+        <li>Zero‑trust, privacy‑by‑design architectures</li>
+        <li>Secure key management & HSM integration</li>
+        <li>Cloud‑native cryptographic modernization</li>
+        <li>Threat modeling for quantum‑capable adversaries</li>
+      </ul>
+    </div>
 
-<div class="cap-card">
-<h3>Blockchain & Distributed Systems Security</h3>
-<ul>
-  <li>Quantum‑safe consensus mechanisms</li>
-  <li>Wallet & key‑lifecycle hardening</li>
-  <li>Lattice‑based signature integration</li>
-  <li>PQC‑ready smart‑contract frameworks</li>
-</ul>
-</div>
+    <div class="cap-card">
+      <h3>Blockchain & Distributed Systems Security</h3>
+      <ul>
+        <li>Quantum‑safe consensus mechanisms</li>
+        <li>Wallet & key‑lifecycle hardening</li>
+        <li>Lattice‑based signature integration</li>
+        <li>PQC‑ready smart‑contract frameworks</li>
+      </ul>
+    </div>
 
-<div class="cap-card">
-<h3>AI‑Enhanced Security Analysis</h3>
-<ul>
-  <li>Automated cryptographic misconfiguration detection</li>
-  <li>AI‑assisted protocol verification</li>
-  <li>ML‑driven risk scoring for long‑lived systems</li>
-</ul>
-</div>
+    <div class="cap-card">
+      <h3>AI‑Enhanced Security Analysis</h3>
+      <ul>
+        <li>Automated cryptographic misconfiguration detection</li>
+        <li>AI‑assisted protocol verification</li>
+        <li>ML‑driven risk scoring for long‑lived systems</li>
+      </ul>
+    </div>
 
-</div>
+  </div>
 
----
+  <hr style="border: 0; border-top: 1px solid #30363D; margin: 3rem 0;">
 
-<div class="section-title">Why Quantum Security Now</div>
+  <div class="section-title">Why Quantum Security Now</div>
 
-<ul>
-  <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring</li>
-  <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating</li>
-  <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades</li>
-  <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans</li>
-</ul>
+  <ul>
+    <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring</li>
+    <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating</li>
+    <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades</li>
+    <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans</li>
+  </ul>
 
-<p>
-Organizations that begin migration early reduce cost, risk, and operational disruption.
-</p>
+  <p>
+    Organizations that begin migration early reduce cost, risk, and operational disruption.
+  </p>
 
----
+  <hr style="border: 0; border-top: 1px solid #30363D; margin: 3rem 0;">
 
-<div class="section-title">Work With Us</div>
+  <div class="section-title">Work With Us</div>
 
-<p>
-QTL provides <strong>advisory, architecture, and implementation support</strong> for organizations preparing for the quantum era.
-</p>
+  <p>
+    QTL provides <strong>advisory, architecture, and implementation support</strong> for organizations preparing for the quantum era.
+  </p>
 
-<p>
-We help you move from “we should think about PQC” to <strong>a validated, staged, and deployable migration plan</strong>.
-</p>
+  <p>
+    We help you move from “we should think about PQC” to <strong>a validated, staged, and deployable migration plan</strong>.
+  </p>
 
-<p><a href="/contact" class="hero-button">Contact us →</a></p>
+  <p style="text-align:center; margin-top:2rem;">
+    <a href="/contact" class="hero-button">Contact us →</a>
+  </p>
 
 </div>
