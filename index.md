@@ -174,6 +174,59 @@ body.light-mode .cap-card h3 {
 body.light-mode .cap-card ul {
   color: #374151;
 }
+
+/* ================================
+   MOBILE RESPONSIVE FIXES
+   ================================ */
+@media (max-width: 768px) {
+
+  body, html {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    padding: 3.5rem 1.2rem;
+    background-size: 300% 300%;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+    line-height: 1.25;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .hero-button {
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+  }
+
+  .hero::before,
+  .hero::after {
+    width: 300px;
+    height: 300px;
+    filter: blur(25px);
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .cap-card {
+    padding: 1.2rem;
+  }
+
+  .cap-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .cap-card ul {
+    font-size: 0.95rem;
+  }
+}
 </style>
 
 <div class="hero">
