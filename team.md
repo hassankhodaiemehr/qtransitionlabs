@@ -67,7 +67,7 @@ title: Our Team
 
   <p>
   Dr. Khodaiemehr has experience across 
-  <strong>coding theory, wireless communications, cryptography, blockchain security, quantum error correction, and data science</strong>.
+  coding theory, wireless communications, cryptography, blockchain security, quantum error correction, and data science
   He holds a PhD in Pure Mathematics (coding & information theory) and is currently a 
   Postdoctoral Research Fellow at UBC Okanagan. His work spans lattice/LDPC code design, 
   quantum LDPC & GKP codes, post-quantum cryptography, blockchain security, and privacy‑preserving protocols.
