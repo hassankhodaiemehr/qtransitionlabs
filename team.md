@@ -6,9 +6,16 @@ title: Our Team
 <style>
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.2rem;
   margin-top: 2rem;
+}
+
+/* Force 3 columns on desktop */
+@media (min-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .team-card {
