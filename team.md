@@ -121,6 +121,26 @@ body.light-mode .team-card li {
   text-align: justify;
 }
 
+/* LinkedIn Button */
+.linkedin-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #0A66C2;
+  color: white !important;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+  font-size: 0.95rem;
+}
+
+.linkedin-btn:hover {
+  background: #0D7BE0;
+  box-shadow: 0 0 12px rgba(10,102,194,0.6);
+  transform: translateY(-2px);
+}
+
 /* Divider */
 .section-divider {
   margin: 4rem 0 2rem 0;
@@ -162,6 +182,8 @@ body.light-mode .section-divider {
     <li>Cryptographic modernization for enterprises</li>
     <li>Wireless & physical‑layer security</li>
   </ul>
+
+  <a class="linkedin-btn" href="https://www.linkedin.com/in/hassan-khodaiemehr-b8b7b954/" target="_blank">LinkedIn Profile</a>
 </div>
 
 <!-- Chen -->
@@ -183,6 +205,8 @@ body.light-mode .section-divider {
     <li>Quantum communications & quantum error correction</li>
     <li>Information theory for wireless & cloud systems</li>
   </ul>
+
+  <a class="linkedin-btn" href="https://www.linkedin.com/in/chen-feng-75272a37/" target="_blank">LinkedIn Profile</a>
 </div>
 
 <!-- Khadijeh -->
@@ -205,13 +229,15 @@ body.light-mode .section-divider {
     <li>Lattice‑ & code‑based cryptographic constructions</li>
     <li>Physical‑layer security for wireless systems</li>
   </ul>
+
+  <a class="linkedin-btn" href="https://www.linkedin.com/in/khadijeh-bagheri-7235b542/" target="_blank">LinkedIn Profile</a>
 </div>
 
 </div>
 
 <div class="section-divider"></div>
 
-# Advisory & Research Network
+<h1>Advisory & Research Network</h1>
 
 <p>
 We collaborate with researchers and engineers across:
