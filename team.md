@@ -4,6 +4,18 @@ title: Our Team
 ---
 
 <style>
+  /* Make this page full-width */
+.page-content, .wrapper, .container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Optional: add some breathing room */
+.team-page {
+  padding: 0 2rem;
+}
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
