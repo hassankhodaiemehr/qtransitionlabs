@@ -4,18 +4,17 @@ title: Quantum Transition Labs
 ---
 
 <style>
-
-/* FULL‑WIDTH OVERRIDE */
+/* FULL‑WIDTH (95%) */
 .page-content, .wrapper, .container {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  max-width: 95% !important;
+  width: 95% !important;
+  margin: 2 auto !important;
+  padding: 2 !important;
 }
 
-/* GLOBAL PAGE PADDING */
+/* Page padding */
 .homepage {
-  padding: 0 2rem;
+  padding: 2rem 2rem;
 }
 
 /* ================================
@@ -33,14 +32,13 @@ title: Quantum Transition Labs
   animation: gradientShift 12s ease infinite;
 }
 
-/* Animated gradient */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Floating quantum particles */
+/* Floating particles */
 .hero::before, .hero::after {
   content: "";
   position: absolute;
@@ -51,16 +49,8 @@ title: Quantum Transition Labs
   filter: blur(40px);
 }
 
-.hero::before {
-  top: -200px;
-  left: -200px;
-}
-
-.hero::after {
-  bottom: -200px;
-  right: -200px;
-  animation-delay: 4s;
-}
+.hero::before { top: -200px; left: -200px; }
+.hero::after { bottom: -200px; right: -200px; animation-delay: 4s; }
 
 @keyframes float {
   0% { transform: translateY(0px) translateX(0px); }
@@ -121,9 +111,7 @@ title: Quantum Transition Labs
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ================================
-   SECTION HEADERS
-   ================================ */
+/* SECTION TITLES */
 .section-title {
   font-size: 2.2rem;
   font-weight: 700;
@@ -139,9 +127,7 @@ title: Quantum Transition Labs
   margin-bottom: 2rem;
 }
 
-/* ================================
-   CAPABILITY CARDS (Animated)
-   ================================ */
+/* CAPABILITY CARDS */
 .capabilities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -200,14 +186,16 @@ body.light-mode .cap-card ul {
 
 <div class="homepage">
 
-# <div class="section-title">Quantum‑Safe Security for High‑Assurance Systems</div>
+<div class="section-title">Quantum‑Safe Security for High‑Assurance Systems</div>
 <div class="section-subtitle">Research‑driven. Enterprise‑ready. Built for the quantum era.</div>
 
+<p>
 Quantum Transition Labs (QTL) is a research‑driven security firm specializing in post‑quantum cryptography (PQC), cryptographic modernization, and quantum‑resilient architecture design for critical infrastructure, government, and high‑value digital platforms.
+</p>
 
 ---
 
-# <div class="section-title">Core Capabilities</div>
+<div class="section-title">Core Capabilities</div>
 
 <div class="capabilities-grid">
 
@@ -254,23 +242,31 @@ Quantum Transition Labs (QTL) is a research‑driven security firm specializing 
 
 ---
 
-# <div class="section-title">Why Quantum Security Now</div>
+<div class="section-title">Why Quantum Security Now</div>
 
-- **Harvest‑Now‑Decrypt‑Later (HNDL)** attacks are already occurring  
-- **NIST PQC standards** are finalized and adoption timelines are accelerating  
-- **Long‑lived data** (health, financial, government) must remain secure for decades  
-- **Regulators** are beginning to mandate quantum‑safe transition plans  
+<ul>
+  <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring</li>
+  <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating</li>
+  <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades</li>
+  <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans</li>
+</ul>
 
+<p>
 Organizations that begin migration early reduce cost, risk, and operational disruption.
+</p>
 
 ---
 
-# <div class="section-title">Work With Us</div>
+<div class="section-title">Work With Us</div>
 
-QTL provides **advisory, architecture, and implementation support** for organizations preparing for the quantum era.
+<p>
+QTL provides <strong>advisory, architecture, and implementation support</strong> for organizations preparing for the quantum era.
+</p>
 
-We help you move from “we should think about PQC” to **a validated, staged, and deployable migration plan**.
+<p>
+We help you move from “we should think about PQC” to <strong>a validated, staged, and deployable migration plan</strong>.
+</p>
 
-[Contact us →](/contact)
+<p><a href="/contact" class="hero-button">Contact us →</a></p>
 
 </div>
