@@ -4,17 +4,44 @@ title: Services
 ---
 
 <style>
-/* Full-width layout */
+/* GLOBAL FULL-WIDTH */
 .page-content, .wrapper, .container {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  max-width: 95% !important;
+  width: 95% !important;
+  padding-left: 2 !important;
+  padding-right: 2 !important;
 }
 
 /* Page padding */
 .services-page {
   padding: 2rem 3rem;
+}
+
+/* Header */
+.services-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.services-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #F0F6FC;
+}
+
+.services-subtitle {
+  color: #8B949E;
+  font-size: 1.15rem;
+  margin-top: -0.3rem;
+}
+
+body.light-mode .services-header h1 {
+  color: #1A1F36;
+}
+
+body.light-mode .services-subtitle {
+  color: #4B5563;
 }
 
 /* Services Grid */
@@ -32,7 +59,7 @@ title: Services
   }
 }
 
-/* Service Card */
+/* Service Card — Dark Mode */
 .service-card {
   background: #161B22;
   border: 1px solid #30363D;
@@ -47,6 +74,25 @@ title: Services
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
+/* Light Mode Card Override */
+body.light-mode .service-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+body.light-mode .service-card h3 {
+  color: #1A1F36;
+}
+
+body.light-mode .service-card p {
+  color: #374151;
+}
+
+body.light-mode .service-icon {
+  color: #0A66C2;
+}
+
 /* Icon */
 .service-icon {
   font-size: 2.4rem;
@@ -59,6 +105,8 @@ title: Services
   margin-top: 0.5rem;
   margin-bottom: 0.8rem;
   color: #F0F6FC;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 /* Text */
@@ -70,7 +118,12 @@ title: Services
 
 <div class="services-page">
 
-# Our Services
+<div class="services-header">
+  <h1>Our Services</h1>
+  <p class="services-subtitle">
+    Enterprise‑grade post‑quantum security solutions designed for real‑world systems.
+  </p>
+</div>
 
 <div class="services-grid">
 
