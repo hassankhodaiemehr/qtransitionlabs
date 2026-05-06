@@ -3,6 +3,8 @@ layout: default
 title: Research
 ---
 
+{% raw %}
+
 <style>
 /* ============================
    GLOBAL LAYOUT
@@ -300,7 +302,7 @@ body.light-mode .bibtex-box {
 <div class="research-layout">
 
 <!-- ============================
-     LEFT SIDEBAR (OLD CARDS)
+     LEFT SIDEBAR
 ============================ -->
 <div class="sidebar">
   <div class="sidebar-title">Research Areas</div>
@@ -353,7 +355,7 @@ body.light-mode .bibtex-box {
 </div>
 
 <!-- ============================
-     RIGHT COLUMN (PUBLICATIONS)
+     RIGHT COLUMN
 ============================ -->
 <div class="right-column">
 
@@ -518,3 +520,5 @@ document.querySelectorAll(".bibtex-toggle").forEach(toggle => {
   });
 });
 </script>
+
+{% endraw %}
