@@ -576,7 +576,7 @@ body.light-mode .partner-label {
     <img src="/assets/css/img/logo1.png" alt="Quantum Transition Labs" class="hero-logo">
 
 
-    <h1>Quantum‑Safe Security for High‑Assurance Systems</h1>
+    <h1>Quantum Transition Labs (QTL)</h1>
     <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
 
     <div class="hero-cta-row">
