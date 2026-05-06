@@ -622,7 +622,7 @@ body.light-mode .partner-label {
 
   <hr style="border: 0; border-top: 1px solid #1F2937; margin: 3rem 0;">
 
-  <div class="section-title reveal-target">Core Capabilities</div>
+  <div class="section-title reveal-target">Services</div>
 
   <div class="capabilities-grid">
 
