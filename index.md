@@ -44,7 +44,7 @@ title: Quantum Transition Labs
     rgba(56,189,248,0.08)
   );
   mix-blend-mode: screen;
-  opacity: 0.9;
+  opacity: 0.7; /* reduced from 0.9 */
   animation: spinGradient 32s linear infinite;
 }
 
@@ -58,14 +58,73 @@ title: Quantum Transition Labs
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px);
+    linear-gradient(rgba(148,163,184,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,0.06) 1px, transparent 1px);
   background-size: 40px 40px;
-  opacity: 0.35;
+  opacity: 0.25; /* reduced from 0.35 */
   mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
 }
 
-/* orbit system container */
+/* ============================
+   FIX: REDUCE OVERLAP WITH TEXT
+============================ */
+
+/* Darken center behind text */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.45) 35%,
+    rgba(0,0,0,0.25) 60%,
+    rgba(0,0,0,0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Push orbit system deeper */
+.hero-orbit-layer {
+  opacity: 0.32;          /* was ~1.0 → now much softer */
+  filter: blur(1.5px);    /* slight blur to reduce sharp overlap */
+  z-index: 0;             /* behind text */
+}
+
+/* Dim orbit rings */
+.orbit {
+  border-color: rgba(148,163,184,0.22);
+  box-shadow: 0 0 10px rgba(15,23,42,0.45);
+}
+
+/* Dim orbit nodes */
+.orbit-node {
+  background: rgba(56,189,248,0.45);
+  box-shadow: 0 0 8px rgba(56,189,248,0.45);
+}
+
+/* Dim particles */
+.particle {
+  opacity: 0.28;
+  filter: blur(1.2px);
+}
+
+/* Text always stays above everything */
+.hero-inner {
+  position: relative;
+  z-index: 3;
+}
+
+/* stronger text contrast */
+.hero h1,
+.hero p {
+  text-shadow: 0 0 14px rgba(0,0,0,0.65);
+}
+
+/* ============================
+   ORBIT SYSTEM
+============================ */
 .hero-orbit-layer {
   position: absolute;
   inset: 0;
@@ -93,7 +152,7 @@ title: Quantum Transition Labs
   border-radius: 999px;
   border: 1px solid rgba(148,163,184,0.4);
   box-shadow: 0 0 30px rgba(148,163,184,0.4);
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 @keyframes corePulse {
@@ -106,22 +165,12 @@ title: Quantum Transition Labs
   position: absolute;
   border-radius: 50%;
   border: 1px solid rgba(148,163,184,0.45);
-  box-shadow: 0 0 18px rgba(15,23,42,0.9);
   animation: orbitSpin 40s linear infinite;
 }
 
-.orbit:nth-child(1) {
-  width: 180px; height: 180px;
-  animation-duration: 34s;
-}
-.orbit:nth-child(2) {
-  width: 260px; height: 260px;
-  animation-duration: 46s;
-}
-.orbit:nth-child(3) {
-  width: 340px; height: 340px;
-  animation-duration: 60s;
-}
+.orbit:nth-child(1) { width: 180px; height: 180px; animation-duration: 34s; }
+.orbit:nth-child(2) { width: 260px; height: 260px; animation-duration: 46s; }
+.orbit:nth-child(3) { width: 340px; height: 340px; animation-duration: 60s; }
 
 @keyframes orbitSpin {
   from { transform: rotate(0deg); }
@@ -135,7 +184,6 @@ title: Quantum Transition Labs
   height: 7px;
   border-radius: 50%;
   background: #38BDF8;
-  box-shadow: 0 0 12px rgba(56,189,248,0.9);
 }
 
 .orbit-node:nth-child(1) { top: -3px; left: 50%; transform: translateX(-50%); }
@@ -150,7 +198,6 @@ title: Quantum Transition Labs
   background: rgba(148,163,184,0.9);
   border-radius: 50%;
   animation: particleFloat 14s ease-in-out infinite;
-  opacity: 0.6;
 }
 
 @keyframes particleFloat {
@@ -159,79 +206,27 @@ title: Quantum Transition Labs
   100% { transform: translateY(0px); opacity: 0.3; }
 }
 
-/* HERO CONTENT */
-.hero-inner {
-  position: relative;
-  z-index: 3;
-}
-
+/* ============================
+   HERO CONTENT
+============================ */
 .hero-logo {
   width: 140px;
   margin-bottom: 1.5rem;
   animation: fadeIn 1.1s ease forwards;
 }
 
-.hero-badge-row {
-  display: inline-flex;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.hero-badge {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.6);
-  color: #E5E7EB;
-  background: rgba(15,23,42,0.7);
-}
-
 .hero h1 {
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  position: relative;
   animation: fadeInUp 1.2s ease forwards;
-}
-
-.hero h1::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -0.6rem;
-  width: 0;
-  height: 3px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #38BDF8, #60A5FA, #38BDF8);
-  transform: translateX(-50%);
-  animation: titleUnderline 1.8s ease 0.8s forwards;
-}
-
-@keyframes titleUnderline {
-  0%   { width: 0; opacity: 0; }
-  40%  { width: 40%; opacity: 1; }
-  100% { width: 26%; opacity: 1; }
 }
 
 .hero p {
   font-size: 1.25rem;
-  color: #D0D7DE;
   max-width: 720px;
   margin: 0 auto 2rem auto;
   animation: fadeInUp 1.6s ease forwards;
-}
-
-/* CTA row */
-.hero-cta-row {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  animation: fadeInUp 2s ease forwards;
 }
 
 .hero-button {
@@ -252,56 +247,6 @@ title: Quantum Transition Labs
   transform: translateY(-2px);
 }
 
-.hero-secondary {
-  padding: 0.85rem 1.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.7);
-  color: #E5E7EB;
-  text-decoration: none;
-  font-size: 0.98rem;
-  background: rgba(15,23,42,0.7);
-  backdrop-filter: blur(6px);
-  transition: 0.25s ease;
-}
-
-.hero-secondary:hover {
-  border-color: #38BDF8;
-  color: #F9FAFB;
-  transform: translateY(-2px);
-}
-
-/* hero stats strip */
-.hero-stats {
-  margin-top: 2.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  font-size: 0.9rem;
-  color: #9CA3AF;
-}
-
-.hero-stat {
-  min-width: 150px;
-}
-
-.hero-stat strong {
-  display: block;
-  font-size: 1.1rem;
-  color: #E5E7EB;
-}
-
-/* animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.96); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 /* ============================
    SECTION TITLES
 ============================ */
@@ -312,20 +257,10 @@ title: Quantum Transition Labs
   margin-bottom: 1rem;
   text-align: center;
   color: #F9FAFB;
-  position: relative;
 }
 
-.section-title::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 190px;
-  height: 60px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(56,189,248,0.18), transparent 70%);
-  opacity: 0.7;
-  z-index: -1;
+body.light-mode .section-title {
+  color: #0F172A;
 }
 
 .section-subtitle {
@@ -334,21 +269,7 @@ title: Quantum Transition Labs
   margin-bottom: 2rem;
 }
 
-/* light mode overrides for titles */
-body.light-mode .section-title {
-  color: #0F172A;
-}
-
-body.light-mode .section-title::before {
-  background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%);
-}
-
 body.light-mode .section-subtitle {
-  color: #4B5563;
-}
-
-body.light-mode .homepage p,
-body.light-mode .homepage ul {
   color: #374151;
 }
 
@@ -368,50 +289,17 @@ body.light-mode .homepage ul {
   padding: 1.8rem;
   border-radius: 16px;
   box-shadow: 0 18px 40px rgba(15,23,42,0.7);
-  transition: 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: 0.25s ease;
+  opacity: 0;
   transform: translateY(18px);
-  opacity: 0;
-}
-
-.cap-card h3 {
-  color: #E5E7EB;
-  margin-bottom: 0.8rem;
-}
-
-.cap-card ul {
-  color: #CBD5F5;
-  line-height: 1.55;
-  font-size: 0.97rem;
-}
-
-/* accent bar */
-.cap-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(56,189,248,0.4), transparent, rgba(129,140,248,0.4));
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.cap-card:hover::before {
-  opacity: 1;
 }
 
 .cap-card:hover {
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 24px 60px rgba(15,23,42,0.9);
   border-color: #38BDF8;
+  box-shadow: 0 24px 60px rgba(15,23,42,0.9);
 }
 
-/* light mode cards */
 body.light-mode .cap-card {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
@@ -424,48 +312,6 @@ body.light-mode .cap-card h3 {
 
 body.light-mode .cap-card ul {
   color: #374151;
-}
-
-/* ============================
-   PARTNER / CONTEXT STRIP
-============================ */
-.partner-strip {
-  margin-top: 3rem;
-  padding: 1.2rem 1.5rem;
-  border-radius: 999px;
-  border: 1px solid #1F2937;
-  background: radial-gradient(circle at left, rgba(56,189,248,0.18), transparent 60%);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  color: #9CA3AF;
-}
-
-.partner-label {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.7rem;
-  color: #E5E7EB;
-}
-
-.partner-pill {
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.7);
-}
-
-/* light mode partner strip */
-body.light-mode .partner-strip {
-  border-color: #E5E7EB;
-  background: radial-gradient(circle at left, rgba(59,130,246,0.12), transparent 60%);
-  color: #4B5563;
-}
-
-body.light-mode .partner-label {
-  color: #111827;
 }
 
 /* ============================
@@ -486,58 +332,20 @@ body.light-mode .partner-label {
    MOBILE
 ============================ */
 @media (max-width: 768px) {
-
-  body, html {
-    overflow-x: hidden;
-  }
-
   .hero {
     padding: 4rem 1.2rem 3.5rem 1.2rem;
   }
 
   .hero h1 {
     font-size: 2rem;
-    line-height: 1.25;
   }
 
   .hero p {
     font-size: 1rem;
-    max-width: 95%;
-  }
-
-  .hero-cta-row {
-    flex-direction: column;
-  }
-
-  .hero-button,
-  .hero-secondary {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .hero-stats {
-    gap: 1.5rem;
-  }
-
-  .section-title {
-    font-size: 1.7rem;
   }
 
   .cap-card {
     padding: 1.3rem;
-  }
-
-  .cap-card h3 {
-    font-size: 1.15rem;
-  }
-
-  .cap-card ul {
-    font-size: 0.95rem;
-  }
-
-  .partner-strip {
-    border-radius: 1.25rem;
   }
 }
 </style>
@@ -562,9 +370,9 @@ body.light-mode .partner-label {
       <div class="orbit-node"></div>
       <div class="orbit-node"></div>
     </div>
+
     <div class="qubit-core"></div>
 
-    <!-- floating particles -->
     <div class="particle" style="top:18%; left:16%; animation-delay:0s;"></div>
     <div class="particle" style="top:72%; left:78%; animation-delay:2s;"></div>
     <div class="particle" style="top:40%; left:60%; animation-delay:4s;"></div>
@@ -575,34 +383,10 @@ body.light-mode .partner-label {
   <div class="hero-inner">
     <img src="/assets/css/img/logo1.png" alt="Quantum Transition Labs" class="hero-logo">
 
-    <div class="hero-badge-row">
-      <span class="hero-badge">Post‑Quantum Cryptography</span>
-      <span class="hero-badge">Quantum‑Resilient Architecture</span>
-      <span class="hero-badge">High‑Assurance Systems</span>
-    </div>
-
     <h1>Quantum‑Safe Security for High‑Assurance Systems</h1>
-    <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
+    <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure and high‑value platforms.</p>
 
-    <div class="hero-cta-row">
-      <a href="/contact" class="hero-button">Engage with QTL</a>
-      <a href="/research" class="hero-secondary">View research & publications</a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <strong>10+ years</strong>
-        PQC, coding theory & blockchain security
-      </div>
-      <div class="hero-stat">
-        <strong>IEEE / IACR</strong>
-        Peer‑reviewed cryptography & security research
-      </div>
-      <div class="hero-stat">
-        <strong>Global</strong>
-        Remote & on‑site engagements
-      </div>
-    </div>
+    <a href="/contact" class="hero-button">Contact Us</a>
   </div>
 </div>
 
@@ -616,14 +400,6 @@ body.light-mode .partner-label {
     cryptographic modernization, and quantum‑resilient architecture design for critical infrastructure, government,
     and high‑value digital platforms.
   </p>
-
-  <div class="partner-strip reveal-target">
-    <span class="partner-label">Who we work with</span>
-    <span class="partner-pill">Critical infrastructure operators</span>
-    <span class="partner-pill">Financial & fintech platforms</span>
-    <span class="partner-pill">Cloud & SaaS providers</span>
-    <span class="partner-pill">Research & innovation labs</span>
-  </div>
 
   <hr style="border: 0; border-top: 1px solid #1F2937; margin: 3rem 0;">
 
@@ -679,7 +455,7 @@ body.light-mode .partner-label {
   <ul class="reveal-target">
     <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring.</li>
     <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating.</li>
-    <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades.</li>
+    <li><strong>Long‑lived data</strong> must remain secure for decades.</li>
     <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans.</li>
   </ul>
 
@@ -726,5 +502,4 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll(".reveal-target").forEach(el => observer.observe(el));
-</script>
+document
