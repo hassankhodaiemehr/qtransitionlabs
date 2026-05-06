@@ -399,7 +399,7 @@ body.light-mode .bibtex-box {
     <!-- SILMARILS -->
     <div class="pub-item" data-tags="pqc signatures">
       <div class="pub-title">SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures</div>
-      <div class="pub-authors"><strong>Hassan Khodaiemehr</strong>, Khadijeh Bagheri, Chen Feng, Dariia Porechna</div>
+      <div class="pub-authors"><strong>Hassan Khodaiemehr, Khadijeh Bagheri, Chen Feng</strong>, Dariia Porechna</div>
       <div class="pub-venue">arXiv preprint, 2026. <a href="https://arxiv.org/abs/2605.03230" target="_blank">arXiv:2605.03230</a></div>
       <div class="pub-tags">
         <span class="pub-tag">PQC</span>
@@ -423,7 +423,7 @@ body.light-mode .bibtex-box {
     <!-- NIROPoK -->
     <div class="pub-item" data-tags="blockchain pqc">
       <div class="pub-title">NIROPoK-Based Post-Quantum Sidechain Design on Ethereum</div>
-      <div class="pub-authors"><strong>Hassan Khodaiemehr</strong>, Khadijeh Bagheri, Saeid Yazdinejad, Chen Feng</div>
+      <div class="pub-authors"><strong>Hassan Khodaiemehr</strong>, </strong>Khadijeh Bagheri</strong>, Saeid Yazdinejad, </strong>Chen Feng</strong></div>
       <div class="pub-venue">Cryptology ePrint Archive, 2026. <a href="https://eprint.iacr.org/2026/401" target="_blank">ePrint</a></div>
       <div class="pub-tags">
         <span class="pub-tag">Blockchain</span>
@@ -469,7 +469,7 @@ body.light-mode .bibtex-box {
     <!-- Elsevier CSR -->
     <div class="pub-item" data-tags="surveys blockchain">
       <div class="pub-title">Navigating the Quantum Computing Threat Landscape for Blockchains: A Comprehensive Survey</div>
-      <div class="pub-authors"><strong>Hassan Khodaiemehr</strong>, Khadijeh Bagheri, Chen Feng</div>
+      <div class="pub-authors"><strong>Hassan Khodaiemehr, Khadijeh Bagheri, Chen Feng</strong></div>
       <div class="pub-venue">Computer Science Review, 2026. <a href="https://www.sciencedirect.com/science/article/pii/S1574013725001224" target="_blank">ScienceDirect</a></div>
       <div class="pub-tags">
         <span class="pub-tag">Surveys</span>
