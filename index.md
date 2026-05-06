@@ -4,7 +4,9 @@ title: Quantum Transition Labs
 ---
 
 <style>
-/* FULL‑WIDTH (95%) */
+/* ============================
+   GLOBAL LAYOUT
+============================ */
 .page-content, .wrapper, .container {
   max-width: 95% !important;
   width: 95% !important;
@@ -12,69 +14,182 @@ title: Quantum Transition Labs
   padding: 0 !important;
 }
 
-/* Page padding */
 .homepage {
-  padding: 2rem 2rem;
+  padding: 2.5rem 2rem 3.5rem 2rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* ================================
-   ANIMATED QUANTUM GRADIENT HERO
-   ================================ */
+/* ============================
+   HERO: QUANTUM CINEMATIC
+============================ */
 .hero {
   position: relative;
   text-align: center;
-  padding: 6rem 2rem;
+  padding: 6rem 2rem 5rem 2rem;
   border-bottom: 1px solid #30363D;
   overflow: hidden;
   color: #ffffff;
-  background: linear-gradient(135deg, #0A0F1F, #001F3F, #003366, #001122);
-  background-size: 400% 400%;
-  animation: gradientShift 14s ease infinite;
+  background: radial-gradient(circle at top, #1F2937 0%, #020617 55%, #000000 100%);
 }
 
-/* subtle parallax container */
-.hero-inner {
+/* animated gradient overlay */
+.hero-gradient {
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 180deg,
+    rgba(56,189,248,0.08),
+    rgba(59,130,246,0.18),
+    rgba(147,51,234,0.12),
+    rgba(56,189,248,0.08)
+  );
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: spinGradient 32s linear infinite;
+}
+
+@keyframes spinGradient {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* subtle grid */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+}
+
+/* orbit system container */
+.hero-orbit-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* qubit core */
+.qubit-core {
   position: relative;
-  z-index: 2;
+  width: 26px;
+  height: 26px;
+  background: #58A6FF;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #58A6FF, 0 0 44px #58A6FF;
+  animation: corePulse 6s ease-in-out infinite;
 }
 
-/* gradient animation */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Floating glow fields */
-.hero::before,
-.hero::after {
+.qubit-core::after {
   content: "";
   position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(88,166,255,0.25) 0%, rgba(0,0,0,0) 70%);
-  animation: float 16s infinite ease-in-out;
-  filter: blur(40px);
-  opacity: 0.9;
+  inset: -18px;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.4);
+  box-shadow: 0 0 30px rgba(148,163,184,0.4);
+  opacity: 0.6;
 }
 
-.hero::before { top: -220px; left: -220px; }
-.hero::after  { bottom: -220px; right: -220px; animation-delay: 4s; }
+@keyframes corePulse {
+  0%, 100% { box-shadow: 0 0 22px #58A6FF, 0 0 44px #58A6FF; }
+  50%      { box-shadow: 0 0 32px #79B8FF, 0 0 64px #79B8FF; }
+}
 
-@keyframes float {
-  0%   { transform: translateY(0px) translateX(0px); }
-  50%  { transform: translateY(40px) translateX(40px); }
-  100% { transform: translateY(0px) translateX(0px); }
+/* orbit rings */
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(148,163,184,0.45);
+  box-shadow: 0 0 18px rgba(15,23,42,0.9);
+  animation: orbitSpin 40s linear infinite;
+}
+
+.orbit:nth-child(1) {
+  width: 180px; height: 180px;
+  animation-duration: 34s;
+}
+.orbit:nth-child(2) {
+  width: 260px; height: 260px;
+  animation-duration: 46s;
+}
+.orbit:nth-child(3) {
+  width: 340px; height: 340px;
+  animation-duration: 60s;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* orbit nodes */
+.orbit-node {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 12px rgba(56,189,248,0.9);
+}
+
+.orbit-node:nth-child(1) { top: -3px; left: 50%; transform: translateX(-50%); }
+.orbit-node:nth-child(2) { bottom: -3px; left: 18%; }
+.orbit-node:nth-child(3) { top: 22%; right: -3px; }
+
+/* floating particles */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(148,163,184,0.9);
+  border-radius: 50%;
+  animation: particleFloat 14s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes particleFloat {
+  0%   { transform: translateY(0px); opacity: 0.3; }
+  50%  { transform: translateY(-40px); opacity: 1; }
+  100% { transform: translateY(0px); opacity: 0.3; }
 }
 
 /* HERO CONTENT */
+.hero-inner {
+  position: relative;
+  z-index: 3;
+}
+
 .hero-logo {
   width: 140px;
   margin-bottom: 1.5rem;
-  animation: fadeIn 1.2s ease forwards;
+  animation: fadeIn 1.1s ease forwards;
 }
 
-/* shimmer underline for title */
+.hero-badge-row {
+  display: inline-flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.6);
+  color: #E5E7EB;
+  background: rgba(15,23,42,0.7);
+}
+
 .hero h1 {
   font-size: 3rem;
   font-weight: 800;
@@ -91,7 +206,7 @@ title: Quantum Transition Labs
   width: 0;
   height: 3px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #58A6FF, #79B8FF, #58A6FF);
+  background: linear-gradient(90deg, #38BDF8, #60A5FA, #38BDF8);
   transform: translateX(-50%);
   animation: titleUnderline 1.8s ease 0.8s forwards;
 }
@@ -105,34 +220,80 @@ title: Quantum Transition Labs
 .hero p {
   font-size: 1.25rem;
   color: #D0D7DE;
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto 2rem auto;
   animation: fadeInUp 1.6s ease forwards;
 }
 
-/* Glowing CTA Button */
-.hero-button {
-  background: #58A6FF;
-  color: #0D1117 !important;
-  padding: 0.9rem 2rem;
-  border-radius: 8px;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 0 18px rgba(88,166,255,0.6);
-  transition: 0.25s ease;
+/* CTA row */
+.hero-cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
   animation: fadeInUp 2s ease forwards;
 }
 
-.hero-button:hover {
-  background: #79B8FF;
-  box-shadow: 0 0 28px rgba(88,166,255,0.9);
-  transform: translateY(-3px);
+.hero-button {
+  background: #38BDF8;
+  color: #0F172A !important;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.05rem;
+  box-shadow: 0 0 18px rgba(56,189,248,0.6);
+  transition: 0.25s ease;
 }
 
-/* Fade‑in animations */
+.hero-button:hover {
+  background: #60A5FA;
+  box-shadow: 0 0 26px rgba(56,189,248,0.9);
+  transform: translateY(-2px);
+}
+
+.hero-secondary {
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.7);
+  color: #E5E7EB;
+  text-decoration: none;
+  font-size: 0.98rem;
+  background: rgba(15,23,42,0.7);
+  backdrop-filter: blur(6px);
+  transition: 0.25s ease;
+}
+
+.hero-secondary:hover {
+  border-color: #38BDF8;
+  color: #F9FAFB;
+  transform: translateY(-2px);
+}
+
+/* hero stats strip */
+.hero-stats {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #9CA3AF;
+}
+
+.hero-stat {
+  min-width: 150px;
+}
+
+.hero-stat strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #E5E7EB;
+}
+
+/* animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.96); }
   to   { opacity: 1; transform: scale(1); }
 }
 
@@ -141,57 +302,59 @@ title: Quantum Transition Labs
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* SECTION TITLES */
+/* ============================
+   SECTION TITLES
+============================ */
 .section-title {
   font-size: 2.2rem;
   font-weight: 700;
   margin-top: 3rem;
   margin-bottom: 1rem;
   text-align: center;
-  color: #F0F6FC;
+  color: #F9FAFB;
   position: relative;
 }
 
-/* subtle glow behind titles */
 .section-title::before {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 180px;
+  width: 190px;
   height: 60px;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(88,166,255,0.18), transparent 70%);
+  background: radial-gradient(circle, rgba(56,189,248,0.18), transparent 70%);
   opacity: 0.7;
   z-index: -1;
 }
 
 .section-subtitle {
   text-align: center;
-  color: #8B949E;
+  color: #9CA3AF;
   margin-bottom: 2rem;
 }
 
-/* Light mode overrides for titles & subtitles */
+/* light mode overrides for titles */
 body.light-mode .section-title {
-  color: #0A0F1F;
+  color: #0F172A;
 }
 
 body.light-mode .section-title::before {
-  background: radial-gradient(circle, rgba(37,99,235,0.12), transparent 70%);
+  background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%);
 }
 
 body.light-mode .section-subtitle {
-  color: #374151;
+  color: #4B5563;
 }
 
-/* Body text light mode */
 body.light-mode .homepage p,
 body.light-mode .homepage ul {
   color: #374151;
 }
 
-/* CAPABILITY CARDS */
+/* ============================
+   CAPABILITY CARDS
+============================ */
 .capabilities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -200,38 +363,59 @@ body.light-mode .homepage ul {
 }
 
 .cap-card {
-  background: #161B22;
-  border: 1px solid #30363D;
+  background: #020617;
+  border: 1px solid #1F2937;
   padding: 1.8rem;
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-  transition: 0.25s ease, border-color 0.25s ease;
-  transform: translateY(10px);
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(15,23,42,0.7);
+  transition: 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transform: translateY(18px);
   opacity: 0;
 }
 
 .cap-card h3 {
-  color: #F0F6FC;
+  color: #E5E7EB;
   margin-bottom: 0.8rem;
 }
 
 .cap-card ul {
-  color: #C9D1D9;
+  color: #CBD5F5;
   line-height: 1.55;
+  font-size: 0.97rem;
 }
 
-/* hover effect */
+/* accent bar */
+.cap-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(56,189,248,0.4), transparent, rgba(129,140,248,0.4));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.cap-card:hover::before {
+  opacity: 1;
+}
+
 .cap-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 8px 24px rgba(88,166,255,0.25);
-  border-color: #58A6FF;
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 24px 60px rgba(15,23,42,0.9);
+  border-color: #38BDF8;
 }
 
-/* Light mode overrides */
+/* light mode cards */
 body.light-mode .cap-card {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
-  box-shadow: 0 4px 14px rgba(15,23,42,0.06);
+  box-shadow: 0 18px 40px rgba(15,23,42,0.08);
 }
 
 body.light-mode .cap-card h3 {
@@ -242,60 +426,51 @@ body.light-mode .cap-card ul {
   color: #374151;
 }
 
-/* ================================
-   MOBILE RESPONSIVE FIXES
-   ================================ */
-@media (max-width: 768px) {
-
-  body, html {
-    overflow-x: hidden;
-  }
-
-  .hero {
-    padding: 3.5rem 1.2rem;
-    background-size: 300% 300%;
-  }
-
-  .hero h1 {
-    font-size: 1.9rem;
-    line-height: 1.25;
-  }
-
-  .hero p {
-    font-size: 1rem;
-    max-width: 90%;
-  }
-
-  .hero-button {
-    padding: 0.7rem 1.4rem;
-    font-size: 1rem;
-  }
-
-  .hero::before,
-  .hero::after {
-    width: 300px;
-    height: 300px;
-    filter: blur(25px);
-  }
-
-  .section-title {
-    font-size: 1.7rem;
-  }
-
-  .cap-card {
-    padding: 1.2rem;
-  }
-
-  .cap-card h3 {
-    font-size: 1.2rem;
-  }
-
-  .cap-card ul {
-    font-size: 0.95rem;
-  }
+/* ============================
+   PARTNER / CONTEXT STRIP
+============================ */
+.partner-strip {
+  margin-top: 3rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid #1F2937;
+  background: radial-gradient(circle at left, rgba(56,189,248,0.18), transparent 60%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #9CA3AF;
 }
 
-/* initial state for scroll reveal */
+.partner-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  color: #E5E7EB;
+}
+
+.partner-pill {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.7);
+}
+
+/* light mode partner strip */
+body.light-mode .partner-strip {
+  border-color: #E5E7EB;
+  background: radial-gradient(circle at left, rgba(59,130,246,0.12), transparent 60%);
+  color: #4B5563;
+}
+
+body.light-mode .partner-label {
+  color: #111827;
+}
+
+/* ============================
+   SCROLL REVEAL
+============================ */
 .reveal-target {
   opacity: 0;
   transform: translateY(24px);
@@ -306,14 +481,128 @@ body.light-mode .cap-card ul {
   transform: translateY(0) !important;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
+/* ============================
+   MOBILE
+============================ */
+@media (max-width: 768px) {
+
+  body, html {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    padding: 4rem 1.2rem 3.5rem 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+
+  .hero-cta-row {
+    flex-direction: column;
+  }
+
+  .hero-button,
+  .hero-secondary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .cap-card {
+    padding: 1.3rem;
+  }
+
+  .cap-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .cap-card ul {
+    font-size: 0.95rem;
+  }
+
+  .partner-strip {
+    border-radius: 1.25rem;
+  }
+}
 </style>
 
 <div class="hero">
+  <div class="hero-gradient"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-orbit-layer">
+    <div class="orbit">
+      <div class="orbit-node"></div>
+      <div class="orbit-node"></div>
+      <div class="orbit-node"></div>
+    </div>
+    <div class="orbit">
+      <div class="orbit-node"></div>
+      <div class="orbit-node"></div>
+      <div class="orbit-node"></div>
+    </div>
+    <div class="orbit">
+      <div class="orbit-node"></div>
+      <div class="orbit-node"></div>
+      <div class="orbit-node"></div>
+    </div>
+    <div class="qubit-core"></div>
+
+    <!-- floating particles -->
+    <div class="particle" style="top:18%; left:16%; animation-delay:0s;"></div>
+    <div class="particle" style="top:72%; left:78%; animation-delay:2s;"></div>
+    <div class="particle" style="top:40%; left:60%; animation-delay:4s;"></div>
+    <div class="particle" style="top:82%; left:28%; animation-delay:1s;"></div>
+    <div class="particle" style="top:28%; left:82%; animation-delay:3s;"></div>
+  </div>
+
   <div class="hero-inner">
     <img src="/assets/css/img/logo1.png" alt="Quantum Transition Labs" class="hero-logo">
+
+    <div class="hero-badge-row">
+      <span class="hero-badge">Post‑Quantum Cryptography</span>
+      <span class="hero-badge">Quantum‑Resilient Architecture</span>
+      <span class="hero-badge">High‑Assurance Systems</span>
+    </div>
+
     <h1>Quantum‑Safe Security for High‑Assurance Systems</h1>
-    <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure and high‑value platforms.</p>
-    <a href="/contact" class="hero-button">Contact Us</a>
+    <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
+
+    <div class="hero-cta-row">
+      <a href="/contact" class="hero-button">Engage with QTL</a>
+      <a href="/research" class="hero-secondary">View research & publications</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>10+ years</strong>
+        PQC, coding theory & blockchain security
+      </div>
+      <div class="hero-stat">
+        <strong>IEEE / IACR</strong>
+        Peer‑reviewed cryptography & security research
+      </div>
+      <div class="hero-stat">
+        <strong>Global</strong>
+        Remote & on‑site engagements
+      </div>
+    </div>
   </div>
 </div>
 
@@ -328,7 +617,15 @@ body.light-mode .cap-card ul {
     and high‑value digital platforms.
   </p>
 
-  <hr style="border: 0; border-top: 1px solid #30363D; margin: 3rem 0;">
+  <div class="partner-strip reveal-target">
+    <span class="partner-label">Who we work with</span>
+    <span class="partner-pill">Critical infrastructure operators</span>
+    <span class="partner-pill">Financial & fintech platforms</span>
+    <span class="partner-pill">Cloud & SaaS providers</span>
+    <span class="partner-pill">Research & innovation labs</span>
+  </div>
+
+  <hr style="border: 0; border-top: 1px solid #1F2937; margin: 3rem 0;">
 
   <div class="section-title reveal-target">Core Capabilities</div>
 
@@ -375,22 +672,22 @@ body.light-mode .cap-card ul {
 
   </div>
 
-  <hr style="border: 0; border-top: 1px solid #30363D; margin: 3rem 0;">
+  <hr style="border: 0; border-top: 1px solid #1F2937; margin: 3rem 0;">
 
   <div class="section-title reveal-target">Why Quantum Security Now</div>
 
   <ul class="reveal-target">
-    <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring</li>
-    <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating</li>
-    <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades</li>
-    <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans</li>
+    <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring.</li>
+    <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating.</li>
+    <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades.</li>
+    <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans.</li>
   </ul>
 
   <p class="reveal-target">
     Organizations that begin migration early reduce cost, risk, and operational disruption.
   </p>
 
-  <hr style="border: 0; border-top: 1px solid #30363D; margin: 3rem 0;">
+  <hr style="border: 0; border-top: 1px solid #1F2937; margin: 3rem 0;">
 
   <div class="section-title reveal-target">Work With Us</div>
 
@@ -409,13 +706,14 @@ body.light-mode .cap-card ul {
 </div>
 
 <script>
-// Parallax on hero glow fields
+// Parallax: subtle hero gradient shift
 document.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 20;
-  const hero = document.querySelector(".hero");
-  if (!hero) return;
-  hero.style.backgroundPosition = `${50 + x / 4}% ${50 + y / 4}%`;
+  const x = (e.clientX / window.innerWidth - 0.5) * 16;
+  const y = (e.clientY / window.innerHeight - 0.5) * 16;
+  const gradient = document.querySelector(".hero-gradient");
+  if (gradient) {
+    gradient.style.transform = `translate(${x}px, ${y}px) rotate(0deg)`;
+  }
 });
 
 // Scroll reveal
