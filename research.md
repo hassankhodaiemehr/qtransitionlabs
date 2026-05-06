@@ -423,7 +423,7 @@ body.light-mode .bibtex-box {
     <!-- NIROPoK -->
     <div class="pub-item" data-tags="blockchain pqc">
       <div class="pub-title">NIROPoK-Based Post-Quantum Sidechain Design on Ethereum</div>
-      <div class="pub-authors"><strong>Hassan Khodaiemehr, Khadijeh Bagheri</strong>, Saeid Yazdinejad, </strong>Chen Feng</strong></div>
+      <div class="pub-authors"><strong>Hassan Khodaiemehr, Khadijeh Bagheri</strong>, Saeid Yazdinejad, <strong>Chen Feng</strong></div>
       <div class="pub-venue">Cryptology ePrint Archive, 2026. <a href="https://eprint.iacr.org/2026/401" target="_blank">ePrint</a></div>
       <div class="pub-tags">
         <span class="pub-tag">Blockchain</span>
