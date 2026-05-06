@@ -575,11 +575,6 @@ body.light-mode .partner-label {
   <div class="hero-inner">
     <img src="/assets/css/img/logo1.png" alt="Quantum Transition Labs" class="hero-logo">
 
-    <div class="hero-badge-row">
-      <span class="hero-badge">Post‑Quantum Cryptography</span>
-      <span class="hero-badge">Quantum‑Resilient Architecture</span>
-      <span class="hero-badge">High‑Assurance Systems</span>
-    </div>
 
     <h1>Quantum‑Safe Security for High‑Assurance Systems</h1>
     <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
