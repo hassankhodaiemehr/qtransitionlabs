@@ -96,16 +96,16 @@ body.light-mode .contact-badge {
   font-size: clamp(2.1rem, 2.5vw + 1.4rem, 2.9rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: #F9FAFB; /* light on dark */
+  color: #F9FAFB !important; /* light on dark */
   margin: 0 0 0.8rem 0;
 }
 
 body.light-mode .contact-header-card .contact-header h1 {
-  color: #0B1120; /* dark on light */
+  color: #0B1120 !important; /* dark on light */
 }
 
 .contact-header-card .contact-header p {
-  color: #D1D5DB; /* lighter gray on dark bg */
+  color: #D1D5DB !important; /* light gray on dark */
   font-size: 1.02rem;
   max-width: 520px;
   margin: 0 0 1.6rem 0;
@@ -113,7 +113,7 @@ body.light-mode .contact-header-card .contact-header h1 {
 }
 
 body.light-mode .contact-header-card .contact-header p {
-  color: #4B5563; /* dark gray on light bg */
+  color: #4B5563 !important; /* dark gray on light */
 }
 
 /* PILL STATS */
@@ -250,7 +250,7 @@ body.light-mode .contact-item-label {
 .contact-item-value a {
   color: #58A6FF;
   text-decoration: none;
-  border-bottom: 1px dashed rgba(88,166,255,0.6);
+  border-bottom: 1 dashed rgba(88,166,255,0.6);
   padding-bottom: 1px;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -531,7 +531,6 @@ body.light-mode .contact-response-time strong {
       </div>
 
       <!-- PROFESSIONAL MESSAGE FORM -->
-      <!-- Replace the action URL below with your real Formspree (or other) endpoint -->
       <form
         class="contact-form"
         method="post"
