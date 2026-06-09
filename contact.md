@@ -133,10 +133,16 @@ body.light-mode .contact-item strong {
   </div>
 
   <div class="contact-item">
-    <strong>Location:</strong> Suite 250 - #1725
-997 Seymour St.
-Vancouver, BC, Canada
-V6B 3M1
+    <strong>Location:</strong> Suite 250 — PMB 1725
+
+    
+997 Seymour St
+
+
+VANCOUVER, BC, V6B 3M1
+
+
+CANADA
   </div>
 
   <div class="contact-item">
