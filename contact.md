@@ -91,29 +91,29 @@ body.light-mode .contact-badge {
   box-shadow: 0 0 0 6px rgba(34,197,94,0.25);
 }
 
-/* HEADER TEXT */
-.contact-header h1 {
+/* HEADER TEXT – FORCE GOOD CONTRAST */
+.contact-header-card .contact-header h1 {
   font-size: clamp(2.1rem, 2.5vw + 1.4rem, 2.9rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: #F9FAFB;
+  color: #F9FAFB; /* light on dark */
   margin: 0 0 0.8rem 0;
 }
 
-body.light-mode .contact-header h1 {
-  color: #0B1120;
+body.light-mode .contact-header-card .contact-header h1 {
+  color: #0B1120; /* dark on light */
 }
 
-.contact-header p {
-  color: #9CA3AF;
+.contact-header-card .contact-header p {
+  color: #D1D5DB; /* lighter gray on dark bg */
   font-size: 1.02rem;
   max-width: 520px;
   margin: 0 0 1.6rem 0;
   line-height: 1.65;
 }
 
-body.light-mode .contact-header p {
-  color: #4B5563;
+body.light-mode .contact-header-card .contact-header p {
+  color: #4B5563; /* dark gray on light bg */
 }
 
 /* PILL STATS */
@@ -531,10 +531,11 @@ body.light-mode .contact-response-time strong {
       </div>
 
       <!-- PROFESSIONAL MESSAGE FORM -->
+      <!-- Replace the action URL below with your real Formspree (or other) endpoint -->
       <form
         class="contact-form"
         method="post"
-        action="https://formspree.io/f/your-form-id"  <!-- replace with your endpoint -->
+        action="https://formspree.io/f/your-form-id"
       >
         <div class="contact-form-row">
           <div class="contact-form-group">
