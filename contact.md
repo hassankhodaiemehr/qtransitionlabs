@@ -202,7 +202,7 @@ body.light-mode .contact-card h2 {
 }
 
 .contact-card-sub {
-  margin: 0 0 1.6rem 0;
+  margin: 0 0 1.4rem 0;
   font-size: 0.96rem;
   color: #9CA3AF;
 }
@@ -270,9 +270,95 @@ body.light-mode .contact-item-value a:hover {
   border-color: rgba(37,99,235,0.9);
 }
 
-/* CTA FOOTER */
-.contact-footer {
-  margin-top: 1.6rem;
+/* FORM */
+.contact-form {
+  margin-top: 1.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(55,65,81,0.7);
+}
+
+body.light-mode .contact-form {
+  border-top-color: #E5E7EB;
+}
+
+.contact-form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-form-group {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.contact-form-group label {
+  font-size: 0.83rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #9CA3AF;
+}
+
+body.light-mode .contact-form-group label {
+  color: #6B7280;
+}
+
+.contact-input,
+.contact-textarea {
+  background: #050814;
+  border-radius: 10px;
+  border: 1px solid #30363D;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  color: #E5E7EB;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  font-family: inherit;
+}
+
+body.light-mode .contact-input,
+body.light-mode .contact-textarea {
+  background: #F9FAFB;
+  border-color: #E5E7EB;
+  color: #111827;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: #6B7280;
+}
+
+body.light-mode .contact-input::placeholder,
+body.light-mode .contact-textarea::placeholder {
+  color: #9CA3AF;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.6);
+  background: #020617;
+}
+
+body.light-mode .contact-input:focus,
+body.light-mode .contact-textarea:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.3);
+  background: #FFFFFF;
+}
+
+.contact-textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* FORM FOOTER */
+.contact-form-footer {
+  margin-top: 0.8rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -296,6 +382,7 @@ body.light-mode .contact-item-value a:hover {
   border: none;
   box-shadow: 0 0 0 1px rgba(15,23,42,0.9), 0 16px 40px rgba(59,130,246,0.55);
   transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  cursor: pointer;
 }
 
 .contact-button-icon {
@@ -354,7 +441,8 @@ body.light-mode .contact-response-time strong {
     padding: 1.6rem 1.4rem;
   }
 
-  .contact-footer {
+  .contact-footer,
+  .contact-form-footer {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -409,14 +497,15 @@ body.light-mode .contact-response-time strong {
       </div>
     </section>
 
-    <!-- RIGHT: CONTACT DETAILS -->
-    <section class="contact-card" aria-label="Contact details">
+    <!-- RIGHT: CONTACT DETAILS + MESSAGE FORM -->
+    <section class="contact-card" aria-label="Contact details and form">
       <h2>Get in Touch</h2>
       <p class="contact-card-sub">
-        Reach out by email to start a conversation. If appropriate, we’ll propose a follow‑up
+        Reach out by email or use the form below. If appropriate, we’ll propose a follow‑up
         call or workshop.
       </p>
 
+      <!-- STATIC CONTACT INFO -->
       <div class="contact-item">
         <div class="contact-item-label">Email</div>
         <div class="contact-item-value">
@@ -441,16 +530,84 @@ body.light-mode .contact-response-time strong {
         </div>
       </div>
 
-      <div class="contact-footer">
-        <a href="mailto:contact@qtransitionlabs.com" class="contact-button">
-          <span class="contact-button-icon">✉</span>
-          <span>Send an Email</span>
-        </a>
+      <!-- PROFESSIONAL MESSAGE FORM -->
+      <form
+        class="contact-form"
+        method="post"
+        action="https://formspree.io/f/your-form-id"  <!-- replace with your endpoint -->
+      >
+        <div class="contact-form-row">
+          <div class="contact-form-group">
+            <label for="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              class="contact-input"
+              placeholder="Your full name"
+              required
+            >
+          </div>
 
-        <div class="contact-response-time">
-          Typical response time: <strong>under 24 hours</strong> on business days.
+          <div class="contact-form-group">
+            <label for="email">Work Email</label>
+            <input
+              id="email"
+              name="_replyto"
+              type="email"
+              class="contact-input"
+              placeholder="you@company.com"
+              required
+            >
+          </div>
         </div>
-      </div>
+
+        <div class="contact-form-row">
+          <div class="contact-form-group">
+            <label for="company">Company / Organization</label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              class="contact-input"
+              placeholder="Your organization (optional)"
+            >
+          </div>
+
+          <div class="contact-form-group">
+            <label for="topic">Topic</label>
+            <input
+              id="topic"
+              name="topic"
+              type="text"
+              class="contact-input"
+              placeholder="e.g., strategy, research, advisory"
+            >
+          </div>
+        </div>
+
+        <div class="contact-form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            class="contact-textarea"
+            placeholder="Briefly describe your project, timeline, and what you’d like to explore together."
+            required
+          ></textarea>
+        </div>
+
+        <div class="contact-form-footer">
+          <button type="submit" class="contact-button">
+            <span class="contact-button-icon">✉</span>
+            <span>Send Message</span>
+          </button>
+
+          <div class="contact-response-time">
+            Typical response time: <strong>under 24 hours</strong> on business days.
+          </div>
+        </div>
+      </form>
     </section>
 
   </div>
