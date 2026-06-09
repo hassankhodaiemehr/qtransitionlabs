@@ -136,6 +136,7 @@ body.light-mode .contact-item strong {
     <strong>Location:</strong> Suite 250 — PMB 1725
     
 997 Seymour St
+
 VANCOUVER, BC, V6B 3M1, CANADA
   </div>
 
