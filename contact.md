@@ -133,7 +133,10 @@ body.light-mode .contact-item strong {
   </div>
 
   <div class="contact-item">
-    <strong>Location:</strong> Kelowna, BC, Canada
+    <strong>Location:</strong> Suite 250 - #1725
+997 Seymour St.
+Vancouver, BC, Canada
+V6B 3M1
   </div>
 
   <div class="contact-item">
