@@ -198,7 +198,7 @@ body.light-mode .contact-meta-pill {
   background: #22C55E;
 }
 
-/* RIGHT: CONTACT CARD + FORM (unchanged, except for small bug fix) */
+/* RIGHT: CONTACT CARD + FORM */
 .contact-card {
   background: #0D1117;
   border-radius: 18px;
@@ -356,7 +356,7 @@ body.light-mode .contact-textarea {
 }
 
 body.light-mode .contact-input::placeholder,
-body.light-mode .contact-textarea::placeholder {
+body-light-mode .contact-textarea::placeholder {
   color: #9CA3AF;
 }
 
@@ -472,7 +472,7 @@ body.light-mode .contact-response-time strong {
 <div class="contact-page">
   <div class="contact-grid">
 
-    <!-- LEFT: COOLER, MORE PROFESSIONAL INFO PANEL -->
+    <!-- LEFT: INFO PANEL -->
     <section class="contact-info-panel" aria-label="About engagements">
       <div class="contact-eyebrow">Strategic quantum engagements</div>
 
@@ -560,13 +560,18 @@ body.light-mode .contact-response-time strong {
         </div>
       </div>
 
-      <!-- PROFESSIONAL MESSAGE FORM -->
-      <!-- Replace the action URL with your real Formspree (or other) endpoint -->
+      <!-- FORM USING FORMSUBMIT -->
       <form
         class="contact-form"
-        method="post"
-        action="https://formspree.io/f/your-form-id"
+        method="POST"
+        action="https://formsubmit.co/contact@qtransitionlabs.com"
       >
+        <!-- FormSubmit options -->
+        <input type="hidden" name="_subject" value="New message from QTransition Labs contact page">
+        <input type="hidden" name="_captcha" value="true">
+        <!-- Optional: redirect after submit -->
+        <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html"> -->
+
         <div class="contact-form-row">
           <div class="contact-form-group">
             <label for="name">Name</label>
@@ -584,7 +589,7 @@ body.light-mode .contact-response-time strong {
             <label for="email">Work Email</label>
             <input
               id="email"
-              name="_replyto"
+              name="email"
               type="email"
               class="contact-input"
               placeholder="you@company.com"
@@ -635,7 +640,8 @@ body.light-mode .contact-response-time strong {
           </button>
 
           <div class="contact-response-time">
-            Typical response time: <strong>under 24 hours</strong> on business days.
+            Messages are delivered directly to our inbox. Typical response time:
+            <strong>under 24 hours</strong> on business days.
           </div>
         </div>
       </form>
@@ -643,4 +649,3 @@ body.light-mode .contact-response-time strong {
 
   </div>
 </div>
-
