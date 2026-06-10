@@ -673,7 +673,7 @@ body.light-mode .partner-label {
 
 <ul class="reveal-target">
   <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring.</li>
-  <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating.</li>
+  <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating (<a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank">NIST PQC</a>).</li>
   <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades.</li>
   <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans:
     <ul>
@@ -684,6 +684,7 @@ body.light-mode .partner-label {
     </ul>
   </li>
 </ul>
+
 
 
 
