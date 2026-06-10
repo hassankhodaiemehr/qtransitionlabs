@@ -671,12 +671,20 @@ body.light-mode .partner-label {
 
   <div class="section-title reveal-target">Why Quantum Security Now</div>
 
-  <ul class="reveal-target">
-    <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring.</li>
-    <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating.</li>
-    <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades.</li>
-    <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans.</li>
-  </ul>
+<ul class="reveal-target">
+  <li><strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring.</li>
+  <li><strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating.</li>
+  <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades.</li>
+  <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans:
+    <ul>
+      <li>Canada’s Cyber Centre requires federal departments to develop PQC migration plans by <a href="https://www.cyber.gc.ca/en/guidance/itsm40001-roadmap-migration-post-quantum-cryptography" target="_blank">2026</a>.</li>
+      <li>The G7 Cybersecurity Working Group issued a coordinated PQC migration statement (<a href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration" target="_blank">2026</a>).</li>
+      <li>The European Commission published a PQC transition roadmap for EU institutions (<a href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography" target="_blank">2025</a>).</li>
+      <li>The U.S. OMB mandates PQC migration across all federal agencies (<a href="https://www.whitehouse.gov/wp-content/uploads/2022/11/M-23-02-Memo.pdf" target="_blank">OMB M‑23‑02</a>).</li>
+    </ul>
+  </li>
+</ul>
+
 
   <p class="reveal-target">
     Organizations that begin migration early reduce cost, risk, and operational disruption.
