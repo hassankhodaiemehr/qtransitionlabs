@@ -677,13 +677,14 @@ body.light-mode .partner-label {
   <li><strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades.</li>
   <li><strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans:
     <ul>
-      <li>Canada’s Cyber Centre requires federal departments to plan PQC migration (see PQC guidance <a href="https://www.cyber.gc.ca/en/guidance?field_topics_tid=All&field_keywords_value=post-quantum" target="_blank">here</a>).</li>
+      <li>Canada’s Cyber Centre requires federal departments to migrate to PQC (<a href="https://www.cyber.gc.ca/en/guidance/roadmap-migration-post-quantum-cryptography-government-canada-itsm40001" target="_blank">ITSM.40.001 Roadmap</a>).</li>
       <li>The G7 Cybersecurity Working Group issued a coordinated PQC migration statement (<a href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration" target="_blank">2026</a>).</li>
       <li>The European Commission published a PQC transition roadmap for EU institutions (<a href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography" target="_blank">2025</a>).</li>
-      <li>The U.S. OMB mandates PQC migration across federal agencies (see memo M‑23‑02 in the OMB memoranda list <a href="https://www.whitehouse.gov/omb/information-for-agencies/memoranda/" target="_blank">here</a>).</li>
+      <li>The U.S. government emphasized PQC migration as part of national cybersecurity reprioritization (<a href="https://www.whitehouse.gov/fact-sheets/2025/06/fact-sheet-president-donald-j-trump-reprioritizes-cybersecurity-efforts-to-protect-america/" target="_blank">White House Fact Sheet</a>).</li>
     </ul>
   </li>
 </ul>
+
 
 
 
