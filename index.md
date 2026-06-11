@@ -672,21 +672,22 @@ body.light-mode .partner-label {
   <div class="section-title reveal-target">Why Quantum Security Now</div>
 
 <ul class="reveal-target">
-  <li class="fade-in delay-1"><span class="icon">🔐</span> <strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already occurring.</li>
+  <li class="fade-in"><span class="icon">🔐</span> <strong>Harvest‑Now‑Decrypt‑Later (HNDL)</strong> attacks are already underway, putting long‑term sensitive data at risk.</li>
 
-  <li class="fade-in delay-2"><span class="icon">🚀</span> <strong>NIST PQC standards</strong> are finalized and adoption timelines are accelerating (<a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank">NIST PQC</a>).</li>
+  <li class="fade-in delay-1"><span class="icon">🏛️</span> <strong>NIST PQC standards</strong> are finalized (<a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank">link</a>), and global adoption timelines are accelerating across government and industry.</li>
 
-  <li class="fade-in delay-3"><span class="icon">⏳</span> <strong>Long‑lived data</strong> (health, financial, government) must remain secure for decades.</li>
+  <li class="fade-in delay-2"><span class="icon">📚</span> <strong>Long‑lived data</strong>—including health, financial, and government records—must remain secure for decades, far beyond the lifespan of today’s cryptography.</li>
 
-  <li class="fade-in delay-4"><span class="icon">🏛️</span> <strong>Regulators</strong> are beginning to mandate quantum‑safe transition plans:
+  <li class="fade-in delay-3"><span class="icon">⚖️</span> <strong>Regulators</strong> are now mandating quantum‑safe transition plans:
     <ul>
-      <li>Canada’s PQC Roadmap (<a href="https://www.cyber.gc.ca/en/guidance/roadmap-migration-post-quantum-cryptography-government-canada-itsm40001" target="_blank">ITSM.40.001</a>).</li>
-      <li>G7 PQC migration statement (<a href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration" target="_blank">2026</a>).</li>
-      <li>EU PQC transition roadmap (<a href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography" target="_blank">2025</a>).</li>
-      <li>U.S. PQC reprioritization (<a href="https://www.whitehouse.gov/fact-sheets/2025/06/fact-sheet-president-donald-j-trump-reprioritizes-cybersecurity-efforts-to-protect-america/" target="_blank">White House Fact Sheet</a>).</li>
+      <li><a href="https://www.cyber.gc.ca/en/guidance/roadmap-migration-post-quantum-cryptography-government-canada-itsm40001" target="_blank">Canada’s PQC Roadmap</a> requires federal departments to migrate to PQC.</li>
+      <li><a href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration" target="_blank">G7 Cybersecurity Working Group</a> calls for coordinated PQC migration.</li>
+      <li><a href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography" target="_blank">European Commission</a> mandates PQC transition across EU institutions.</li>
+      <li><a href="https://www.whitehouse.gov/fact-sheets/2025/06/fact-sheet-president-donald-j-trump-reprioritizes-cybersecurity-efforts-to-protect-america/" target="_blank">U.S. White House</a> prioritizes PQC migration as part of national cybersecurity strategy.</li>
     </ul>
   </li>
 </ul>
+
 
 
 
