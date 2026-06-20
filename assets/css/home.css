@@ -248,9 +248,28 @@
   z-index: 3;
 }
 
-.brand-logo-slot--hero {
-  margin: 0 auto 1.5rem;
+.hero-logo-wrap {
+  margin-bottom: 1.5rem;
   animation: heroFadeIn 1.1s ease forwards;
+  line-height: 0;
+}
+
+.hero-logo-wrap .brand-logo--on-light {
+  display: none;
+}
+
+body.light-mode .hero-logo-wrap .brand-logo--on-dark {
+  display: none;
+}
+
+body.light-mode .hero-logo-wrap .brand-logo--on-light {
+  display: inline-block;
+}
+
+.hero-logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
 }
 
 .hero-badge-row {

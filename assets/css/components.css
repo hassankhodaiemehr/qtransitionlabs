@@ -68,42 +68,25 @@
   color: #FFFFFF !important;
 }
 
-.brand-logo-slot {
-  position: relative;
-  display: block;
+.brand-logo {
   width: 36px;
   height: 36px;
-  flex-shrink: 0;
-}
-
-.brand-logo-slot .brand-logo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
   border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
 .brand-logo--on-light {
-  visibility: hidden;
-  opacity: 0;
+  display: none;
 }
 
 body.light-mode .brand-logo--on-dark {
-  visibility: hidden;
-  opacity: 0;
+  display: none;
 }
 
 body.light-mode .brand-logo--on-light {
-  visibility: visible;
-  opacity: 1;
-}
-
-.brand-logo-slot--hero {
-  width: 140px;
-  height: 140px;
+  display: block;
 }
 
 .brand-text {

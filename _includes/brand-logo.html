@@ -1,12 +1,33 @@
-<span class="brand-logo-slot{% if include.hero %} brand-logo-slot--hero{% endif %}">
+{% if include.hero %}
+<div class="hero-logo-wrap">
   <img
     src="{{ '/assets/img/favicon.png' | relative_url }}"
-    alt=""
-    class="brand-logo brand-logo--on-dark"
+    alt="Quantum Transition Labs logo"
+    class="hero-logo brand-logo brand-logo--on-dark"
+    width="140"
+    height="140"
   >
   <img
     src="{{ '/assets/css/img/logo1.png' | relative_url }}"
-    alt=""
-    class="brand-logo brand-logo--on-light"
+    alt="Quantum Transition Labs logo"
+    class="hero-logo brand-logo brand-logo--on-light"
+    width="140"
+    height="140"
   >
-</span>
+</div>
+{% else %}
+<img
+  src="{{ '/assets/img/favicon.png' | relative_url }}"
+  alt=""
+  class="brand-logo brand-logo--on-dark"
+  width="36"
+  height="36"
+>
+<img
+  src="{{ '/assets/css/img/logo1.png' | relative_url }}"
+  alt=""
+  class="brand-logo brand-logo--on-light"
+  width="36"
+  height="36"
+>
+{% endif %}
