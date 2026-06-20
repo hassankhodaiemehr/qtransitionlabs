@@ -1,12 +1,12 @@
-<img
-  src="{{ '/assets/img/favicon.png' | relative_url }}"
-  alt=""
-  class="brand-logo brand-logo--on-dark{% if include.hero %} hero-logo{% endif %}"
-  {% unless include.hero %}width="36" height="36"{% endunless %}
->
-<img
-  src="{{ '/assets/css/img/logo1.png' | relative_url }}"
-  alt=""
-  class="brand-logo brand-logo--on-light{% if include.hero %} hero-logo{% endif %}"
-  {% unless include.hero %}width="36" height="36"{% endunless %}
->
+<span class="brand-logo-slot{% if include.hero %} brand-logo-slot--hero{% endif %}">
+  <img
+    src="{{ '/assets/img/favicon.png' | relative_url }}"
+    alt=""
+    class="brand-logo brand-logo--on-dark"
+  >
+  <img
+    src="{{ '/assets/css/img/logo1.png' | relative_url }}"
+    alt=""
+    class="brand-logo brand-logo--on-light"
+  >
+</span>
