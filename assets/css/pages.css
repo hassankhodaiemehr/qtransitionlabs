@@ -30,6 +30,18 @@
   }
 }
 
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.team-card h2,
+.team-card h4 {
+  width: 100%;
+}
+
 .team-photo {
   width: 180px;
   height: 180px;
@@ -81,7 +93,8 @@ body.light-mode .team-card h4 {
 
 .team-card p,
 .team-card li {
-  text-align: justify;
+  text-align: left;
+  width: 100%;
 }
 
 .linkedin-btn {

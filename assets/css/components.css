@@ -277,13 +277,16 @@ body.light-mode .theme-toggle {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 
   .fade-in,
@@ -314,6 +317,17 @@ body.light-mode .theme-toggle {
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #F0F6FC;
+  letter-spacing: -0.02em;
+}
+
+.page-header h1::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin: 0.85rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38BDF8, #818CF8);
 }
 
 .page-subtitle {
@@ -475,19 +489,40 @@ body.light-mode .cap-card ul {
 
 .service-card,
 .team-card {
+  position: relative;
   background: #161B22;
   border: 1px solid #30363D;
   border-radius: 14px;
   padding: 1.8rem;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+}
+
+.service-card::after,
+.team-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38BDF8, #818CF8);
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .service-card:hover,
   .team-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+    border-color: rgba(56, 189, 248, 0.35);
+  }
+
+  .service-card:hover::after,
+  .team-card:hover::after {
+    opacity: 1;
   }
 }
 
@@ -535,4 +570,119 @@ body.light-mode .service-icon {
 
 body.light-mode .page-cta p {
   color: #374151;
+}
+
+/* Footer */
+.footer {
+  margin-top: 4rem;
+  padding: 2.5rem 1.5rem 2rem;
+  border-top: 1px solid #30363D;
+  background: #161B22;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-brand strong {
+  display: block;
+  font-size: 1rem;
+  color: #F0F6FC;
+  margin-bottom: 0.35rem;
+}
+
+.footer-brand p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #8B949E;
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.footer-nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #C9D1D9 !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: #38BDF8 !important;
+}
+
+.footer-copy {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #30363D;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8B949E;
+}
+
+body.light-mode .footer {
+  background: #F6F8FA;
+  border-top-color: #D0D7DE;
+}
+
+body.light-mode .footer-brand strong {
+  color: #1A1F36;
+}
+
+body.light-mode .footer-brand p,
+body.light-mode .footer-copy {
+  color: #6B7280;
+}
+
+body.light-mode .footer-nav a {
+  color: #374151 !important;
+}
+
+body.light-mode .footer-nav a:hover {
+  color: #0284C7 !important;
+}
+
+body.light-mode .footer-copy {
+  border-top-color: #E5E7EB;
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+}
+
+/* Focus states */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #38BDF8;
+  outline-offset: 2px;
+}
+
+body.light-mode a:focus-visible,
+body.light-mode button:focus-visible,
+body.light-mode input:focus-visible,
+body.light-mode textarea:focus-visible {
+  outline-color: #0284C7;
 }

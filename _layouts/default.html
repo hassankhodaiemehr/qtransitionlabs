@@ -29,7 +29,19 @@
   </main>
 
   <footer class="footer">
-    <p>© {{ site.time | date: '%Y' }} {{ site.title }} — {{ site.tagline }}</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>{{ site.title }}</strong>
+        <p>{{ site.tagline }}</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="{{ '/team/' | relative_url }}">Team</a>
+        <a href="{{ '/services/' | relative_url }}">Services</a>
+        <a href="{{ '/research/' | relative_url }}">Research</a>
+        <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
   </footer>
 
   <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
