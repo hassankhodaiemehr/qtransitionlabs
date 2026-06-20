@@ -61,7 +61,7 @@ script: /assets/js/home.js
   </div>
 
   <div class="hero-inner">
-    {% include logo-qtl.html hero=true %}
+    <img src="/assets/css/img/logo1.png" alt="Quantum Transition Labs logo" class="hero-logo brand-logo">
 
     <h1>Quantum Transition Labs</h1>
     <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
