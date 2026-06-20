@@ -1,6 +1,7 @@
 title: "Quantum Transition Labs"
 title_separator: " | "
-description: "Post-quantum cryptography, secure architecture, and PQC migration for critical infrastructure, government, and enterprise."tagline: "Quantum-Safe Security & Cryptographic Modernization"
+description: "Post-quantum cryptography, secure architecture, and PQC migration for critical infrastructure, government, and enterprise."
+tagline: "Quantum-Safe Security & Cryptographic Modernization"
 lang: en
 
 theme: jekyll-theme-cayman
