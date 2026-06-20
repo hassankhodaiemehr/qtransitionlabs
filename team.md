@@ -15,7 +15,9 @@ permalink: /team/
 <div class="card-grid card-grid-3">
 
 <div class="card team-card">
-  <img src="/assets/team/hassan.jpeg" alt="Photo of Dr. Hassan Khodaiemehr" class="team-photo" width="180" height="180">
+  <div class="team-photo-frame team-photo-frame--hassan">
+    <img src="/assets/team/hassan.jpeg" alt="Photo of Dr. Hassan Khodaiemehr" class="team-photo team-photo--hassan" width="720" height="960">
+  </div>
   <h2>Dr. Hassan Khodaiemehr</h2>
   <h4>Co‑Founder &amp; CEO</h4>
 
