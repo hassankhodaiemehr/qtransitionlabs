@@ -7,14 +7,17 @@ permalink: /team/
 
 <div class="page-section team-page">
 
-<div class="page-header">
+<div class="page-banner-group">
+  {% include page-banner-bg.html %}
+  <div class="page-header reveal-target">
   <h1>Leadership Team</h1>
   <p class="page-subtitle">Experts in post‑quantum security, distributed systems, and advanced cryptography.</p>
+  </div>
 </div>
 
 <div class="card-grid card-grid-3">
 
-<div class="card team-card">
+<div class="card team-card reveal-target">
   <img src="/assets/team/hassan.jpeg" alt="Photo of Dr. Hassan Khodaiemehr" class="team-photo" width="180" height="180">
   <h2>Dr. Hassan Khodaiemehr</h2>
   <h4>Co‑Founder &amp; CEO</h4>
@@ -38,7 +41,7 @@ permalink: /team/
   <a class="linkedin-btn" href="https://www.linkedin.com/in/hassan-khodaiemehr-b8b7b954/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
 </div>
 
-<div class="card team-card">
+<div class="card team-card reveal-target">
   <img src="/assets/team/chen.jpeg" alt="Photo of Dr. Chen Feng" class="team-photo" width="180" height="180">
   <h2>Dr. Chen Feng</h2>
   <h4>Co‑Founder &amp; Chief Scientist</h4>
@@ -60,7 +63,7 @@ permalink: /team/
   <a class="linkedin-btn" href="https://www.linkedin.com/in/chen-feng-75272a37/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
 </div>
 
-<div class="card team-card">
+<div class="card team-card reveal-target">
   <img src="/assets/team/mina.jpeg" alt="Photo of Dr. Khadijeh Bagheri" class="team-photo" width="180" height="180">
   <h2>Dr. Khadijeh Bagheri</h2>
   <h4>Co‑Founder &amp; Chief Cryptographer</h4>
@@ -87,13 +90,13 @@ permalink: /team/
 
 <hr class="section-divider-thick">
 
-<h1>Advisory &amp; Research Network</h1>
+<h1 class="reveal-target">Advisory &amp; Research Network</h1>
 
-<p>
+<p class="reveal-target">
 We collaborate with researchers and engineers across:
 </p>
 
-<ul>
+<ul class="reveal-target">
   <li>Applied cryptography</li>
   <li>Quantum information science</li>
   <li>Blockchain security</li>
@@ -101,11 +104,11 @@ We collaborate with researchers and engineers across:
   <li>AI‑driven security tooling</li>
 </ul>
 
-<p>
+<p class="reveal-target">
 Our advisory network includes contributors from academia, industry labs, and open‑source security communities.
 </p>
 
-<div class="page-cta">
+<div class="page-cta reveal-target">
   <a href="/contact/" class="hero-button">Work With Our Team</a>
 </div>
 

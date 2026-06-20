@@ -1,0 +1,228 @@
+/* ==========================================================================
+   Shared animations — page banners, scroll reveal, ambient motion
+   ========================================================================== */
+
+/* --- Inner-page banner backgrounds --- */
+.page-banner-group,
+.research-header-banner {
+  position: relative;
+  overflow: hidden;
+  margin: -2rem -1rem 2.5rem;
+  padding: 2.75rem 1rem 2.25rem;
+  border-bottom: 1px solid #30363D;
+}
+
+@media (min-width: 768px) {
+  .page-banner-group,
+  .research-header-banner {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.page-banner-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.page-banner-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(56px);
+  will-change: transform;
+}
+
+.page-banner-orb--1 {
+  width: 260px;
+  height: 260px;
+  background: rgba(56, 189, 248, 0.22);
+  top: -55%;
+  left: 8%;
+  animation: bannerOrbDrift 20s ease-in-out infinite;
+}
+
+.page-banner-orb--2 {
+  width: 200px;
+  height: 200px;
+  background: rgba(129, 140, 248, 0.18);
+  bottom: -45%;
+  right: 12%;
+  animation: bannerOrbDrift 24s ease-in-out infinite reverse;
+  animation-delay: -8s;
+}
+
+.page-banner-orb--3 {
+  width: 140px;
+  height: 140px;
+  background: rgba(34, 211, 238, 0.12);
+  top: 20%;
+  right: 28%;
+  animation: bannerOrbDrift 16s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.page-banner-grid {
+  position: absolute;
+  inset: -60%;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.45;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black, transparent 72%);
+  animation: gridPan 36s linear infinite;
+}
+
+@keyframes bannerOrbDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(28px, -18px) scale(1.06); }
+  66% { transform: translate(-22px, 12px) scale(0.94); }
+}
+
+@keyframes gridPan {
+  from { transform: translate(0, 0); }
+  to { transform: translate(28px, 28px); }
+}
+
+.page-banner-group .page-header,
+.research-header-banner .research-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+body.light-mode .page-banner-group,
+body.light-mode .research-header-banner {
+  border-bottom-color: #E5E7EB;
+}
+
+body.light-mode .page-banner-orb--1 {
+  background: rgba(59, 130, 246, 0.14);
+}
+
+body.light-mode .page-banner-orb--2 {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+body.light-mode .page-banner-orb--3 {
+  background: rgba(14, 165, 233, 0.08);
+}
+
+/* --- Contact page ambient panel --- */
+.contact-page {
+  position: relative;
+}
+
+.contact-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 40% at 15% 20%, rgba(56, 189, 248, 0.1), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 85% 75%, rgba(129, 140, 248, 0.08), transparent 70%);
+  animation: contactAmbient 22s ease-in-out infinite alternate;
+}
+
+@keyframes contactAmbient {
+  from { opacity: 0.65; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.04); }
+}
+
+body.light-mode .contact-page::before {
+  background:
+    radial-gradient(ellipse 50% 40% at 15% 20%, rgba(59, 130, 246, 0.08), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 85% 75%, rgba(99, 102, 241, 0.06), transparent 70%);
+}
+
+.contact-grid > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Research layout banner --- */
+.research-layout {
+  position: relative;
+}
+
+.research-header-banner {
+  margin-top: -2rem;
+}
+
+/* --- Scroll reveal (shared with homepage) --- */
+.reveal-target {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-fade {
+  transform: none;
+}
+
+.reveal-fade.reveal-active {
+  transform: none !important;
+}
+
+/* --- Card entrance polish --- */
+@media (prefers-reduced-motion: no-preference) {
+  .service-card.reveal-target,
+  .team-card.reveal-target,
+  .research-card.reveal-target {
+    transform: translateY(26px) scale(0.98);
+  }
+
+  .service-card.reveal-active,
+  .team-card.reveal-active,
+  .research-card.reveal-active {
+    transform: translateY(0) scale(1) !important;
+  }
+
+  .pub-item.reveal-target {
+    transform: translateX(-12px);
+    opacity: 0;
+  }
+
+  .pub-item.reveal-active {
+    transform: translateX(0) !important;
+  }
+
+  .metric-box.reveal-target {
+    transform: translateY(16px) scale(0.96);
+  }
+
+  .metric-box.reveal-active {
+    transform: translateY(0) scale(1) !important;
+  }
+
+  .thanks-card.reveal-target {
+    transform: translateY(20px) scale(0.97);
+  }
+
+  .thanks-card.reveal-active {
+    transform: translateY(0) scale(1) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-banner-orb,
+  .page-banner-grid,
+  .contact-page::before {
+    animation: none !important;
+  }
+
+  .reveal-target {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

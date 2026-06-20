@@ -8,7 +8,7 @@ permalink: /contact/
 <div class="contact-page">
   <div class="contact-grid">
 
-    <section class="contact-info-panel" aria-label="About engagements">
+    <section class="contact-info-panel reveal-target" aria-label="About engagements">
       <div class="contact-eyebrow">Strategic quantum engagements</div>
 
       <h1 class="contact-info-title">Partner with Quantum Transition Labs</h1>
@@ -62,7 +62,7 @@ permalink: /contact/
       </div>
     </section>
 
-    <section class="contact-card" aria-label="Contact details and form">
+    <section class="contact-card reveal-target" aria-label="Contact details and form">
       <h2>Get in Touch</h2>
       <p class="contact-card-sub">
         Use the form below or email us directly. We'll follow up with next steps and, if

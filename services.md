@@ -7,16 +7,19 @@ permalink: /services/
 
 <div class="page-section">
 
-<div class="page-header">
+<div class="page-banner-group">
+  {% include page-banner-bg.html %}
+  <div class="page-header reveal-target">
   <h1>Our Services</h1>
   <p class="page-subtitle">
     Enterprise‑grade post‑quantum security solutions designed for real‑world systems.
   </p>
+  </div>
 </div>
 
 <div class="card-grid card-grid-3">
 
-<div class="card service-card">
+<div class="card service-card reveal-target">
   <div class="service-icon" aria-hidden="true">🔍</div>
   <h3>PQC Readiness Assessment</h3>
   <p>
@@ -25,7 +28,7 @@ permalink: /services/
   </p>
 </div>
 
-<div class="card service-card">
+<div class="card service-card reveal-target">
   <div class="service-icon" aria-hidden="true">🛠️</div>
   <h3>PQC Migration Roadmap</h3>
   <p>
@@ -34,7 +37,7 @@ permalink: /services/
   </p>
 </div>
 
-<div class="card service-card">
+<div class="card service-card reveal-target">
   <div class="service-icon" aria-hidden="true">🏗️</div>
   <h3>Architecture &amp; Protocol Design</h3>
   <p>
@@ -43,7 +46,7 @@ permalink: /services/
   </p>
 </div>
 
-<div class="card service-card">
+<div class="card service-card reveal-target">
   <div class="service-icon" aria-hidden="true">🔐</div>
   <h3>Blockchain &amp; Web3 Hardening</h3>
   <p>
@@ -52,7 +55,7 @@ permalink: /services/
   </p>
 </div>
 
-<div class="card service-card">
+<div class="card service-card reveal-target">
   <div class="service-icon" aria-hidden="true">🤖</div>
   <h3>AI‑Enhanced Security Analysis</h3>
   <p>
@@ -61,7 +64,7 @@ permalink: /services/
   </p>
 </div>
 
-<div class="card service-card">
+<div class="card service-card reveal-target">
   <div class="service-icon" aria-hidden="true">📘</div>
   <h3>Training &amp; Executive Briefings</h3>
   <p>
@@ -72,7 +75,7 @@ permalink: /services/
 
 </div>
 
-<div class="page-cta">
+<div class="page-cta reveal-target">
   <p>Ready to assess your organization's quantum readiness?</p>
   <a href="/contact/" class="hero-button">Schedule a Consultation</a>
 </div>

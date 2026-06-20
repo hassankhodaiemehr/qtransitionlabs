@@ -8,8 +8,14 @@ script: /assets/js/home.js
 ---
 
 <div class="hero">
-  <div class="hero-gradient"></div>
-  <div class="hero-grid"></div>
+  <div class="hero-bg-layer" aria-hidden="true">
+    <div class="hero-gradient-wrap">
+      <div class="hero-gradient"></div>
+      <div class="hero-aurora"></div>
+    </div>
+    <div class="hero-grid"></div>
+    <div class="hero-beam"></div>
+  </div>
 
   <div class="hero-orbit-layer">
     <div class="orbit">
@@ -29,11 +35,13 @@ script: /assets/js/home.js
     </div>
     <div class="qubit-core"></div>
 
-    <div class="particle" style="top:18%; left:16%; animation-delay:0s;"></div>
+    <div class="particle particle--sm" style="top:18%; left:16%; animation-delay:0s;"></div>
     <div class="particle" style="top:72%; left:78%; animation-delay:2s;"></div>
-    <div class="particle" style="top:40%; left:60%; animation-delay:4s;"></div>
-    <div class="particle" style="top:82%; left:28%; animation-delay:1s;"></div>
+    <div class="particle particle--lg" style="top:40%; left:60%; animation-delay:4s;"></div>
+    <div class="particle particle--sm" style="top:82%; left:28%; animation-delay:1s;"></div>
     <div class="particle" style="top:28%; left:82%; animation-delay:3s;"></div>
+    <div class="particle particle--sm" style="top:55%; left:12%; animation-delay:5s;"></div>
+    <div class="particle particle--lg" style="top:12%; left:68%; animation-delay:1.5s;"></div>
   </div>
 
   <div class="hero-inner">

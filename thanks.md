@@ -6,7 +6,7 @@ permalink: /thanks/
 ---
 
 <div class="thanks-page">
-  <div class="thanks-card">
+  <div class="thanks-card reveal-target">
     <div class="thanks-icon" aria-hidden="true">✓</div>
     <h1>Thank You</h1>
     <p>
