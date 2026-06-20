@@ -130,7 +130,7 @@ permalink: /research/
       <div class="bibtex-box">
 @misc{cryptoeprint:2026/401,
   author = {Hassan Khodaiemehr and Khadijeh Bagheri and Saeid Yazdinejad and Chen Feng},
-  title = {{NIROPoK}-Based Post-Quantum Sidechain Design on Ethereum},
+  title = {% raw %}{{NIROPoK}{% endraw %}-Based Post-Quantum Sidechain Design on Ethereum},
   howpublished = {Cryptology {ePrint} Archive, Paper 2026/401},
   year = {2026},
   url = {https://eprint.iacr.org/2026/401}
