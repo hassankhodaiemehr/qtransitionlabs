@@ -73,6 +73,30 @@
   height: 36px;
   border-radius: 8px;
   object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-logo--themed {
+  color: #BAE6FD;
+  transition: color 0.25s ease, filter 0.25s ease;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.35));
+}
+
+body.light-mode .brand-logo--themed {
+  color: #1e40af;
+  filter: none;
+}
+
+.hero .brand-logo--themed.hero-logo {
+  width: 140px;
+  height: 140px;
+  color: #E0F2FE;
+  filter: drop-shadow(0 0 22px rgba(56, 189, 248, 0.4));
+}
+
+body.light-mode .hero .brand-logo--themed.hero-logo {
+  color: #1e3a8a;
+  filter: drop-shadow(0 0 14px rgba(37, 99, 235, 0.2));
 }
 
 .brand-text {

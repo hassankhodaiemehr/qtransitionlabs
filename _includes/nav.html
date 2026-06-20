@@ -1,13 +1,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="{{ '/' | relative_url }}" class="brand" aria-label="Quantum Transition Labs home">
-      <img
-        src="{{ '/assets/css/img/logo1.png' | relative_url }}"
-        alt=""
-        class="brand-logo"
-        width="36"
-        height="36"
-      >
+      {% include logo-qtl.html %}
       <span class="brand-text">
         <span class="brand-name">Quantum Transition Labs</span>
         <span class="brand-abbr">QTL</span>

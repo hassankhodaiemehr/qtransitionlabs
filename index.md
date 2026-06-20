@@ -9,12 +9,28 @@ script: /assets/js/home.js
 
 <div class="hero">
   <div class="hero-bg-layer" aria-hidden="true">
-    <div class="hero-gradient-wrap">
-      <div class="hero-gradient"></div>
+    <div class="hero-quantum-field">
+      <div class="hero-lattice"></div>
       <div class="hero-aurora"></div>
     </div>
-    <div class="hero-grid"></div>
-    <div class="hero-beam"></div>
+    <svg class="hero-qmesh" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g class="hero-qmesh-links" stroke="rgba(56, 189, 248, 0.12)" stroke-width="1">
+        <line x1="120" y1="180" x2="280" y2="120"/><line x1="280" y1="120" x2="420" y2="200"/>
+        <line x1="420" y1="200" x2="560" y2="140"/><line x1="560" y1="140" x2="680" y2="220"/>
+        <line x1="200" y1="320" x2="360" y2="280"/><line x1="360" y1="280" x2="500" y2="340"/>
+        <line x1="500" y1="340" x2="640" y2="300"/><line x1="280" y1="120" x2="360" y2="280"/>
+        <line x1="420" y1="200" x2="500" y2="340"/><line x1="120" y1="180" x2="200" y2="320"/>
+      </g>
+      <g class="hero-qmesh-nodes" fill="rgba(56, 189, 248, 0.35)">
+        <circle cx="120" cy="180" r="3"/><circle cx="280" cy="120" r="4"/><circle cx="420" cy="200" r="3.5"/>
+        <circle cx="560" cy="140" r="3"/><circle cx="680" cy="220" r="4"/><circle cx="200" cy="320" r="3"/>
+        <circle cx="360" cy="280" r="5"/><circle cx="500" cy="340" r="3.5"/><circle cx="640" cy="300" r="3"/>
+      </g>
+    </svg>
+    <svg class="hero-qwaves" viewBox="0 0 1200 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="hero-qwave hero-qwave--1" d="M0,80 C150,40 300,120 450,80 S750,40 900,80 S1050,120 1200,80" fill="none" stroke="rgba(56,189,248,0.18)" stroke-width="1.5"/>
+      <path class="hero-qwave hero-qwave--2" d="M0,100 C150,140 300,60 450,100 S750,140 900,100 S1050,60 1200,100" fill="none" stroke="rgba(129,140,248,0.14)" stroke-width="1.5"/>
+    </svg>
   </div>
 
   <div class="hero-orbit-layer">
@@ -45,7 +61,7 @@ script: /assets/js/home.js
   </div>
 
   <div class="hero-inner">
-    <img src="/assets/css/img/logo1.png" alt="Quantum Transition Labs logo" class="hero-logo">
+    {% include logo-qtl.html hero=true %}
 
     <h1>Quantum Transition Labs</h1>
     <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>

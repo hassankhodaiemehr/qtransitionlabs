@@ -68,24 +68,22 @@
 .page-banner-grid {
   position: absolute;
   inset: -60%;
-  background-image:
-    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity: 0.45;
+  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.5;
   mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black, transparent 72%);
-  animation: gridPan 36s linear infinite;
+  animation: latticePulse 14s ease-in-out infinite;
+}
+
+@keyframes latticePulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.65; }
 }
 
 @keyframes bannerOrbDrift {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33% { transform: translate(28px, -18px) scale(1.06); }
   66% { transform: translate(-22px, 12px) scale(0.94); }
-}
-
-@keyframes gridPan {
-  from { transform: translate(0, 0); }
-  to { transform: translate(28px, 28px); }
 }
 
 .page-banner-group .page-header,
