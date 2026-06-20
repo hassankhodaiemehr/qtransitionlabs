@@ -74,25 +74,23 @@
   border-radius: 8px;
   object-fit: contain;
   flex-shrink: 0;
-  transition: filter 0.25s ease;
 }
 
-/* Original logo is dark blue — lighten on dark backgrounds for contrast */
-body:not(.light-mode) .brand-logo {
-  filter: brightness(1.85) saturate(1.15) drop-shadow(0 0 10px rgba(125, 211, 252, 0.45));
+.brand-logo--on-light {
+  display: none;
 }
 
-body.light-mode .brand-logo {
-  filter: none;
+body.light-mode .brand-logo--on-dark {
+  display: none;
+}
+
+body.light-mode .brand-logo--on-light {
+  display: block;
 }
 
 .hero-logo.brand-logo {
   width: 140px;
   height: 140px;
-}
-
-body:not(.light-mode) .hero .brand-logo {
-  filter: brightness(2) saturate(1.2) drop-shadow(0 0 20px rgba(125, 211, 252, 0.5));
 }
 
 .brand-text {
