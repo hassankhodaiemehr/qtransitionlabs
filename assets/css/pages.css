@@ -44,40 +44,20 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.team-photo-frame {
-  width: 180px;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.team-photo-frame img {
-  width: 180px;
-  height: auto;
-  display: block;
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  .team-card:hover .team-photo,
-  .team-card:hover .team-photo-frame {
+  .team-card:hover .team-photo {
     transform: scale(1.03);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
   }
 }
 
-body.light-mode .team-photo,
-body.light-mode .team-photo-frame {
+body.light-mode .team-photo {
   border-color: rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  body.light-mode .team-card:hover .team-photo,
-  body.light-mode .team-card:hover .team-photo-frame {
+  body.light-mode .team-card:hover .team-photo {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   }
 }
