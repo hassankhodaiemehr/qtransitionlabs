@@ -127,6 +127,21 @@ body.light-mode .team-card h4 {
 @media (max-width: 900px) {
   .research-layout {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .sidebar {
+    position: static;
+    top: auto;
+    height: auto;
+    z-index: auto;
+  }
+
+  .right-column {
+    position: relative;
+    min-width: 0;
+    isolation: isolate;
   }
 }
 
@@ -162,10 +177,14 @@ body.light-mode .sidebar-title {
   transition: 0.25s ease;
 }
 
-.research-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(88, 166, 255, 0.25);
-  border-color: #58A6FF;
+@media (prefers-reduced-motion: no-preference) {
+  @media (min-width: 901px) {
+    .research-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(88, 166, 255, 0.25);
+      border-color: #58A6FF;
+    }
+  }
 }
 
 .research-icon {

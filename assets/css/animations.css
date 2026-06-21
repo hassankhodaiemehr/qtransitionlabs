@@ -151,6 +151,23 @@ body.light-mode .contact-page::before {
   margin-top: -2rem;
 }
 
+@media (max-width: 900px) {
+  .research-header-banner {
+    margin-top: 0;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  /* Avoid transform stacking glitches with sticky/overlap on iOS */
+  .research-layout .reveal-target {
+    transform: none !important;
+  }
+
+  .research-layout .reveal-active {
+    transform: none !important;
+  }
+}
+
 /* --- Scroll reveal (shared with homepage) --- */
 .reveal-target {
   opacity: 0;
