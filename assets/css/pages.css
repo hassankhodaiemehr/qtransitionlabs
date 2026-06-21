@@ -124,31 +124,54 @@ body.light-mode .team-card h4 {
   padding: 2rem 1rem;
 }
 
+.sidebar {
+  height: fit-content;
+}
+
+@media (min-width: 901px) {
+  .sidebar {
+    position: sticky;
+    top: 5rem;
+  }
+}
+
 @media (max-width: 900px) {
   .research-layout {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     padding: 1.5rem 1rem 2rem;
+    overflow-x: clip;
   }
 
   .sidebar {
     position: static;
     top: auto;
-    height: auto;
+    width: 100%;
     z-index: auto;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #30363D;
+  }
+
+  body.light-mode .sidebar {
+    border-bottom-color: #E5E7EB;
   }
 
   .right-column {
-    position: relative;
+    position: static;
+    width: 100%;
     min-width: 0;
-    isolation: isolate;
+    overflow: visible;
   }
-}
 
-.sidebar {
-  position: sticky;
-  top: 5rem;
-  height: fit-content;
+  /* No scroll-reveal on mobile — prevents iOS overlap/compositing glitches */
+  .research-layout .reveal-target,
+  .research-layout .reveal-active {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 .sidebar-title {
