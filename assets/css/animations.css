@@ -143,33 +143,6 @@ body.light-mode .contact-page::before {
 }
 
 /* --- Research layout banner --- */
-.research-layout {
-  position: relative;
-}
-
-.research-header-banner {
-  margin-top: -2rem;
-}
-
-.research-header-banner .page-banner-bg {
-  contain: paint;
-}
-
-@media (max-width: 900px) {
-  .research-header-banner {
-    margin: 0 -1rem 2rem;
-    padding: 2rem 1rem 1.75rem;
-  }
-
-  /* Disable animated banner layers on research mobile — blur/filter causes iOS paint bleed */
-  .research-header-banner .page-banner-orb,
-  .research-header-banner .page-banner-grid {
-    animation: none;
-    opacity: 0.35;
-  }
-}
-
-/* --- Scroll reveal (shared with homepage) --- */
 .reveal-target {
   opacity: 0;
   transform: translateY(22px);

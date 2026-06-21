@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Research page layout — plain block stack on mobile, flex columns on desktop
+   ========================================================================== */
+
+.research-page {
+  padding: 1.5rem 0 2.5rem;
+}
+
+.research-areas-section,
+.research-pubs-section {
+  display: block;
+  width: 100%;
+}
+
+.research-areas-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #30363D;
+}
+
+body.light-mode .research-areas-section {
+  border-bottom-color: #E5E7EB;
+}
+
+.research-areas-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+  color: #F0F6FC;
+}
+
+body.light-mode .research-areas-title {
+  color: #1A1F36;
+}
+
+.research-areas-list {
+  display: block;
+}
+
+.research-areas-list .research-card {
+  margin-bottom: 1.25rem;
+}
+
+.research-areas-list .research-card:last-child {
+  margin-bottom: 0;
+}
+
+.research-pubs-header {
+  margin-bottom: 2rem;
+}
+
+.research-pubs-header h1 {
+  font-size: clamp(1.85rem, 5vw, 2.4rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: #F0F6FC;
+}
+
+.research-pubs-header p {
+  margin: 0;
+  color: #8B949E;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+body.light-mode .research-pubs-header h1 {
+  color: #1A1F36;
+}
+
+body.light-mode .research-pubs-header p {
+  color: #4B5563;
+}
+
+@media (min-width: 901px) {
+  .research-page {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 0 3rem;
+  }
+
+  .research-areas-section {
+    flex: 0 0 300px;
+    position: sticky;
+    top: 5rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .research-pubs-section {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .research-areas-list .research-card {
+    margin-bottom: 1.5rem;
+  }
+}
