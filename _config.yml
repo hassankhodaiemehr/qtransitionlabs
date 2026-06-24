@@ -32,8 +32,21 @@ twitter:
 author:
   name: Quantum Transition Labs
 
+collections:
+  news:
+    output: true
+    permalink: /news/:name/
+    sort_by: date
+    sort_order: descending
+
 defaults:
   - scope:
       path: ""
     values:
       image: "/assets/css/img/logo1.png"
+  - scope:
+      path: ""
+      type: news
+    values:
+      layout: news
+      stylesheet: /assets/css/news.css

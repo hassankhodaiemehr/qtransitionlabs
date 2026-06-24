@@ -1,0 +1,40 @@
+---
+layout: default
+stylesheet: /assets/css/news.css
+---
+<article class="news-article-page">
+  <div class="page-section">
+    <header class="news-article-header reveal-target">
+      <a href="{{ '/news/' | relative_url }}" class="news-back-link">← Back to News</a>
+      {% if page.category %}
+      <span class="news-category">{{ page.category }}</span>
+      {% endif %}
+      <h1>{{ page.title }}</h1>
+      <p class="news-article-meta">
+        <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %d, %Y' }}</time>
+        {% if page.source_name %}
+        <span class="news-meta-sep" aria-hidden="true">·</span>
+        <span>{{ page.source_name }}</span>
+        {% endif %}
+      </p>
+    </header>
+
+    <div class="news-article-body reveal-target">
+      {{ content }}
+    </div>
+
+    {% if page.source_url %}
+    <footer class="news-article-footer reveal-target">
+      <p class="news-source-label">Original source</p>
+      <a href="{{ page.source_url }}" class="news-source-link" target="_blank" rel="noopener noreferrer">
+        {{ page.source_title | default: page.source_url }}
+      </a>
+    </footer>
+    {% endif %}
+
+    <div class="page-cta reveal-target">
+      <p>Need help aligning your cryptographic roadmap with evolving federal quantum policy?</p>
+      <a href="{{ '/contact/' | relative_url }}" class="hero-button">Contact QTL</a>
+    </div>
+  </div>
+</article>
