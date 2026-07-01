@@ -97,7 +97,7 @@ permalink: /research/
     <div class="pub-item" data-tags="pqc signatures">
       <div class="pub-title">SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures</div>
       <div class="pub-authors"><strong>Hassan Khodaiemehr, Khadijeh Bagheri, Chen Feng</strong>, Dariia Porechna</div>
-      <div class="pub-venue">arXiv preprint, 2026. <a href="https://arxiv.org/abs/2605.03230" target="_blank" rel="noopener noreferrer">arXiv:2605.03230</a></div>
+      <div class="pub-venue">arXiv preprint, 2026. <a href="https://arxiv.org/abs/2605.03230" target="_blank" rel="noopener noreferrer">arXiv:2605.03230</a> · <a href="{{ '/demo/' | relative_url }}">Interactive demo</a></div>
       <div class="pub-tags">
         <span class="pub-tag">PQC</span>
         <span class="pub-tag">Signatures</span>

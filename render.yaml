@@ -1,0 +1,13 @@
+# Render Blueprint — SILMARILS interactive demo
+# Dashboard: New > Blueprint > connect this repo
+services:
+  - type: web
+    name: silmarils-demo
+    runtime: docker
+    rootDir: demo
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 8765

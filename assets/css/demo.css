@@ -1,0 +1,89 @@
+/* SILMARILS demo embed page — QTL site */
+
+.demo-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.demo-eyebrow {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.demo-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.demo-intro {
+  max-width: 720px;
+  margin: 0 auto 1.25rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.demo-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button-ghost {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-default);
+  color: var(--text-primary) !important;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.button-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+}
+
+.demo-frame-wrap {
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0d1117;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+#silmarils-demo-frame {
+  display: block;
+  width: 100%;
+  min-height: 980px;
+  border: 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.demo-note {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  #silmarils-demo-frame {
+    min-height: 1200px;
+  }
+}
