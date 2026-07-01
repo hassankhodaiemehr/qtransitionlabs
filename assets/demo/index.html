@@ -7,18 +7,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260702" />
+  <link rel="stylesheet" href="styles.css?v=20260703" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
-  <script src="silmarils-crypto.js?v=20260702" defer></script>
-  <script src="models.js?v=20260702" defer></script>
-  <script src="app.js?v=20260702" defer></script>
+  <script src="silmarils-crypto.js?v=20260703" defer></script>
+  <script src="models.js?v=20260703" defer></script>
+  <script src="app.js?v=20260703" defer></script>
 </head>
 <body>
   <div class="page">
     <header class="hero">
       <div class="hero__top">
         <div class="hero__badge">Quantum Transition Labs · QTL</div>
-        <a class="hero__link" href="https://www.qtransitionlabs.com/research/" target="_blank" rel="noopener">Research ↗</a>
+        <div class="hero__actions">
+          <button type="button" class="theme-toggle-btn" id="demo-theme-toggle" aria-label="Switch theme">Light mode</button>
+          <a class="hero__link" href="https://www.qtransitionlabs.com/research/" target="_blank" rel="noopener">Research ↗</a>
+        </div>
       </div>
       <h1>SILMARILS on Permissioned Ledgers</h1>
       <p class="hero__lead">
@@ -51,6 +54,13 @@
             <li><strong>Simulate as DV</strong> — P3 verifies a <em>simulated</em> receipt (same size, different randomness) to show TDV behavior without re-signing.</li>
             <li>Timings are local micro-benchmarks only — not network latency or batch verification.</li>
           </ul>
+          <div class="formula-block">
+            <p class="formula-block__title">Formulas</p>
+            <pre class="formula">σ ← Sign(k_sig, m)                 // P1 produces 160-byte receipt
+valid ← Verify(k_sig, m, σ) ∈ {0,1} // P3 designated verifier
+|σ| = 160 B                          // fixed TDV receipt size
+t_sign, t_verify = local wall-clock (µs)</pre>
+          </div>
         </details>
         <div class="flow">
           <div class="flow__node">P1<br><small>Signer</small></div>
@@ -94,6 +104,26 @@
             <li><strong>SILMARILS Hybrid</strong> — fixed ~2% CPU overhead (session-layer SLH-DSA + SILMARILS on hot path); bandwidth uses SILMARILS auth bytes.</li>
             <li><strong>Full PQ retrofit</strong> — separate industry benchmark (~87% loss); not derived from the same CPU/bandwidth formulas.</li>
           </ul>
+          <div class="formula-block">
+            <p class="formula-block__title">Formulas</p>
+            <pre class="formula">T_block = 60 000 / (blocks/min)                     // block interval (ms)
+
+CPU_loss% = min(95, 100 × CPU_auth / T_block)
+CPU_auth = (N_sign × t_sign + N_verify × t_verify) / 1000   // ms per block
+
+BlockCap_loss% = min(95, 100 × (1 − B_cap / B_auth))   if B_auth > B_cap, else 0
+Net_loss%      = min(95, 100 × (1 − C_link / R_auth))  if R_auth > C_link, else 0
+  R_auth = B_auth × (blocks/min) / 60                  // auth bytes/sec
+  C_link = (Mbps × 10⁶) / 8                            // link bytes/sec
+
+BW_loss% = max(BlockCap_loss%, Net_loss%)
+TPS_CPU  = TPS_base × (1 − CPU_loss% / 100)
+TPS_BW   = TPS_base × (1 − BW_loss% / 100)
+TPS_eff  = min(TPS_CPU, TPS_BW)                      // combined bottleneck
+
+Hybrid: CPU_loss% = 2% (fixed architecture estimate)
+Retrofit: TPS_eff = TPS_base × 0.13                  // ~87% industry loss</pre>
+          </div>
         </details>
         <div class="controls controls--tps">
           <label>Base chain TPS <output id="out-base-tps">10,000</output>
@@ -136,7 +166,14 @@
         </div>
         <div class="chart-card chart-card--full">
           <h3>Effective TPS: CPU vs bandwidth vs combined</h3>
-          <p class="chart-legend-note">Grouped bars per scheme — teal/gold = CPU/bandwidth limits; accent/red = combined bottleneck TPS.</p>
+          <p class="chart-legend-note">Grouped bars per scheme — blue/gold = CPU/bandwidth limits; accent/red = combined bottleneck TPS.</p>
+          <details class="explain">
+            <summary>Chart formula</summary>
+            <pre class="formula">For each scheme s:
+  bar₁ = TPS_CPU(s)    = TPS_base × (1 − CPU_loss%(s) / 100)
+  bar₂ = TPS_BW(s)     = TPS_base × (1 − BW_loss%(s) / 100)
+  bar₃ = TPS_eff(s)    = min(bar₁, bar₂)</pre>
+          </details>
           <canvas id="chart-tps"></canvas>
         </div>
         <div class="table-wrap">
@@ -171,6 +208,14 @@
             <li><strong>Verify CPU</strong> assumes each validator verifies user txs once and incoming consensus msgs from peers.</li>
             <li>Charts compare raw signature size and total auth payload — this is where SILMARILS’s 160 B vs Dilithium’s 2.4 KiB shows up most clearly.</li>
           </ul>
+          <div class="formula-block">
+            <p class="formula-block__title">Workload formulas</p>
+            <pre class="formula">N_user  = ⌊txPerBlock × 0.85⌋
+N_cons  = V × (V − 1) × R              // V validators, R consensus rounds
+B_auth  = |σ| × (N_user + N_cons)     // auth bytes per block
+MiB/min = B_auth × (blocks/min) / (1024²)
+CPU_verify (ms) = (N_user + N_cons × (V−1)) × t_verify / 1000</pre>
+          </div>
         </details>
         <div class="controls">
           <label>Validators <output id="out-validators">7</output>
@@ -186,10 +231,21 @@
         <div class="chart-grid">
           <div class="chart-card">
             <h3>Signature sizes (log scale)</h3>
+            <details class="explain">
+              <summary>Chart formula</summary>
+              <pre class="formula">Y-axis (log₁₀): |σ| in bytes
+X-axis: scheme name
+Source: catalog sigBytes per PQC primitive</pre>
+            </details>
             <canvas id="chart-sizes"></canvas>
           </div>
           <div class="chart-card">
             <h3>Auth bytes per block</h3>
+            <details class="explain">
+              <summary>Chart formula</summary>
+              <pre class="formula">Y-axis: B_auth = |σ| × (N_user + N_cons)
+Uses slider values: V (validators), txPerBlock, blocks/min</pre>
+            </details>
             <canvas id="chart-ledger"></canvas>
           </div>
         </div>

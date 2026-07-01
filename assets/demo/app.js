@@ -4,6 +4,8 @@ let sizeChart;
 let ledgerChart;
 let tpsChart;
 let cryptoKeys;
+let comparisonCache;
+let tpsChartCache;
 
 function debounce(fn, ms = 200) {
   let t;
@@ -11,6 +13,61 @@ function debounce(fn, ms = 200) {
     clearTimeout(t);
     t = setTimeout(() => fn(...args), ms);
   };
+}
+
+function isLightTheme() {
+  return document.body.classList.contains("light-mode");
+}
+
+function chartTheme() {
+  const light = isLightTheme();
+  return {
+    tick: light ? "#4b5563" : "#8b949e",
+    grid: light ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.06)",
+    silmarils: light ? "#0284c7" : "#38bdf8",
+    other: light ? "#dc2626" : "#f87171",
+    cpuBar: light ? "rgba(2, 132, 199, 0.45)" : "rgba(56, 189, 248, 0.45)",
+    bwBar: light ? "rgba(202, 138, 4, 0.55)" : "rgba(232, 176, 32, 0.55)",
+  };
+}
+
+function applyTheme(theme) {
+  const light = theme === "light";
+  document.body.classList.toggle("light-mode", light);
+  document.documentElement.style.colorScheme = light ? "light" : "dark";
+  updateThemeToggleLabel();
+  if (comparisonCache) updateCharts(comparisonCache);
+  if (tpsChartCache) updateTpsChart(tpsChartCache);
+}
+
+function updateThemeToggleLabel() {
+  const btn = $("#demo-theme-toggle");
+  if (!btn) return;
+  const light = isLightTheme();
+  btn.textContent = light ? "Dark mode" : "Light mode";
+  btn.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
+}
+
+function initTheme() {
+  const stored = localStorage.getItem("theme") === "light" ? "light" : "dark";
+  applyTheme(stored);
+
+  window.addEventListener("storage", (e) => {
+    if (e.key === "theme") applyTheme(e.newValue === "light" ? "light" : "dark");
+  });
+
+  window.addEventListener("message", (e) => {
+    if (e.data && e.data.type === "qtl-theme") applyTheme(e.data.theme);
+  });
+
+  const btn = $("#demo-theme-toggle");
+  if (btn) {
+    btn.addEventListener("click", () => {
+      const next = isLightTheme() ? "dark" : "light";
+      localStorage.setItem("theme", next);
+      applyTheme(next);
+    });
+  }
 }
 
 function statusClass(ok) {
@@ -123,12 +180,24 @@ async function runLive(simulateOnly = false) {
 }
 
 function chartColors(items) {
-  return items.map((s) => (s.is_silmarils || s.is_hybrid ? "#38bdf8" : "#f87171"));
+  const t = chartTheme();
+  return items.map((s) => (s.is_silmarils || s.is_hybrid ? t.silmarils : t.other));
+}
+
+function scaleOptions(extra = {}) {
+  const t = chartTheme();
+  return {
+    ticks: { color: t.tick, ...(extra.ticks || {}) },
+    grid: { color: t.grid, ...(extra.grid || {}) },
+  };
 }
 
 function updateCharts(data) {
+  comparisonCache = data;
   const labels = data.schemes.map((s) => s.short_name);
   const colors = chartColors(data.schemes);
+  const yScale = scaleOptions();
+  const xScale = scaleOptions({ grid: { display: false } });
 
   if (sizeChart) sizeChart.destroy();
   sizeChart = new Chart($("#chart-sizes"), {
@@ -141,8 +210,8 @@ function updateCharts(data) {
       responsive: true,
       plugins: { legend: { display: false } },
       scales: {
-        y: { type: "logarithmic", ticks: { color: "#8b949e" }, grid: { color: "rgba(255,255,255,0.06)" } },
-        x: { ticks: { color: "#8b949e" }, grid: { display: false } },
+        y: { type: "logarithmic", ...yScale },
+        x: xScale,
       },
     },
   });
@@ -162,8 +231,11 @@ function updateCharts(data) {
       responsive: true,
       plugins: { legend: { display: false } },
       scales: {
-        y: { ticks: { color: "#8b949e", callback: (v) => fmtBytes(v) }, grid: { color: "rgba(255,255,255,0.06)" } },
-        x: { ticks: { color: "#8b949e" }, grid: { display: false } },
+        y: {
+          ...yScale,
+          ticks: { ...yScale.ticks, callback: (v) => fmtBytes(v) },
+        },
+        x: xScale,
       },
     },
   });
@@ -224,7 +296,11 @@ function updateTpsBreakdownTable(rows) {
 }
 
 function updateTpsChart(items) {
+  tpsChartCache = items;
   const labels = items.map((i) => i.short_name);
+  const t = chartTheme();
+  const yScale = scaleOptions();
+  const xScale = scaleOptions({ ticks: { maxRotation: 22 }, grid: { display: false } });
 
   if (tpsChart) tpsChart.destroy();
   tpsChart = new Chart($("#chart-tps"), {
@@ -235,20 +311,20 @@ function updateTpsChart(items) {
         {
           label: "CPU-limited TPS",
           data: items.map((i) => i.cpu_effective_tps ?? i.effective_tps),
-          backgroundColor: "rgba(56, 189, 248, 0.45)",
+          backgroundColor: t.cpuBar,
           borderRadius: 4,
         },
         {
           label: "Bandwidth-limited TPS",
           data: items.map((i) => i.bandwidth_effective_tps ?? i.effective_tps),
-          backgroundColor: "rgba(232, 176, 32, 0.55)",
+          backgroundColor: t.bwBar,
           borderRadius: 4,
         },
         {
           label: "Combined (bottleneck)",
           data: items.map((i) => i.effective_tps),
           backgroundColor: items.map((i) =>
-            i.is_hybrid || i.is_silmarils ? "#38bdf8" : "#f87171"
+            i.is_hybrid || i.is_silmarils ? t.silmarils : t.other
           ),
           borderRadius: 4,
         },
@@ -257,11 +333,11 @@ function updateTpsChart(items) {
     options: {
       responsive: true,
       plugins: {
-        legend: { labels: { color: "#8b949e", boxWidth: 12 } },
+        legend: { labels: { color: t.tick, boxWidth: 12 } },
       },
       scales: {
-        y: { ticks: { color: "#8b949e" }, grid: { color: "rgba(255,255,255,0.06)" } },
-        x: { ticks: { color: "#8b949e", maxRotation: 22 }, grid: { display: false } },
+        y: yScale,
+        x: xScale,
       },
     },
   });
@@ -332,6 +408,7 @@ function bindControls() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  initTheme();
   bindControls();
   refreshComparison();
   refreshTps();

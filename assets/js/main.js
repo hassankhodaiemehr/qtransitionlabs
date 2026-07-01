@@ -26,8 +26,19 @@
         body.classList.contains('light-mode') ? 'light' : 'dark'
       );
       updateThemeLabel();
+      broadcastThemeToDemo();
     });
   }
+
+  function broadcastThemeToDemo() {
+    var theme = body.classList.contains('light-mode') ? 'light' : 'dark';
+    var frame = document.getElementById('silmarils-demo-frame');
+    if (frame && frame.contentWindow) {
+      frame.contentWindow.postMessage({ type: 'qtl-theme', theme: theme }, '*');
+    }
+  }
+
+  broadcastThemeToDemo();
 
   if (navToggle && siteNav) {
     navToggle.addEventListener('click', function () {
