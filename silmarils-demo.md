@@ -19,25 +19,22 @@ permalink: /demo/
     <div class="demo-links">
       <a href="https://arxiv.org/abs/2605.03230" class="hero-button" target="_blank" rel="noopener noreferrer">Read the paper</a>
       <a href="{{ '/research/' | relative_url }}" class="button button-ghost">All publications</a>
+      <a href="{{ '/assets/demo/index.html' | relative_url }}" class="button button-ghost" target="_blank" rel="noopener">Open full screen</a>
     </div>
   </header>
 
   <div class="demo-frame-wrap">
     <iframe
       id="silmarils-demo-frame"
-      src="{{ site.demo_url }}"
+      src="{{ '/assets/demo/index.html' | relative_url }}"
       title="SILMARILS interactive demo"
       loading="lazy"
-      allow="clipboard-read; clipboard-write"
     ></iframe>
-    <noscript>
-      <p>Enable JavaScript to load the interactive demo, or visit <a href="{{ site.demo_url }}">{{ site.demo_url }}</a> directly.</p>
-    </noscript>
   </div>
 
   <p class="demo-note">
-    The demo runs on QTL research infrastructure. If the embed does not load, open
-    <a href="{{ site.demo_url }}" target="_blank" rel="noopener noreferrer">{{ site.demo_url }}</a>.
+    Runs entirely in your browser — no external server required.
+    <a href="{{ '/assets/demo/index.html' | relative_url }}" target="_blank" rel="noopener">Open demo directly</a> if the embed does not load.
   </p>
 </section>
 
