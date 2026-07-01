@@ -249,6 +249,16 @@ textarea {
   margin-bottom: 1rem;
 }
 
+.controls--tps {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .controls--tps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .controls label {
   display: block;
   color: var(--text-muted);
@@ -269,9 +279,15 @@ textarea {
 
 .tps-highlight {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.85rem;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .tps-highlight {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .tps-card {
@@ -402,4 +418,68 @@ tr.highlight td {
   .stat-row, .result-grid, .controls, .chart-grid, .panel--split, .tps-highlight {
     grid-template-columns: 1fr;
   }
+}
+
+.explain {
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.explain summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--accent);
+  list-style: none;
+}
+
+.explain summary::-webkit-details-marker { display: none; }
+
+.explain ul {
+  margin: 0.5rem 0 0 1.1rem;
+  padding: 0;
+}
+
+.explain li { margin-bottom: 0.35rem; }
+
+.explain code {
+  font-size: 0.82em;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+.tps-breakdown td, .tps-breakdown th {
+  font-size: 0.82rem;
+}
+
+.tag-bottleneck {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.tag-bottleneck--bw {
+  background: rgba(232, 176, 32, 0.15);
+  color: var(--gold);
+}
+
+.tag-bottleneck--cpu {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent);
+}
+
+.chart-legend-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0.35rem 0 0.75rem;
 }

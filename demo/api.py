@@ -87,6 +87,8 @@ def get_tps(
     tx_per_block: int = Query(500, ge=50, le=10000),
     blocks_per_minute: float = Query(2.0, ge=0.1, le=60.0),
     consensus_rounds_per_block: int = Query(3, ge=1, le=10),
+    block_auth_cap_bytes: int = Query(262144, ge=65536, le=4_194_304),
+    network_mbps: float = Query(100.0, ge=1.0, le=10_000.0),
 ) -> dict:
     return build_tps_comparison(
         base_tps=base_tps,
@@ -94,6 +96,8 @@ def get_tps(
         tx_per_block=tx_per_block,
         blocks_per_minute=blocks_per_minute,
         consensus_rounds_per_block=consensus_rounds_per_block,
+        block_auth_cap_bytes=block_auth_cap_bytes,
+        network_mbps=network_mbps,
     )
 
 

@@ -31,6 +31,17 @@ function fmtTps(n) {
   return n >= 1000 ? `${(n / 1000).toFixed(1)}k` : `${n}`;
 }
 
+function bottleneckTag(row) {
+  const b = row.bottleneck || "—";
+  if (b === "bandwidth" || b === "block cap" || b === "network") {
+    return `<span class="tag-bottleneck tag-bottleneck--bw">${b}</span>`;
+  }
+  if (b === "cpu") {
+    return `<span class="tag-bottleneck tag-bottleneck--cpu">${b}</span>`;
+  }
+  return `<span class="tag-bottleneck">${b}</span>`;
+}
+
 function ledgerConfigFromUi() {
   const base = DemoModels.defaultConfig();
   return {
@@ -46,6 +57,14 @@ function tpsConfigFromUi() {
     ...ledgerConfigFromUi(),
     validators: +$("#tps-validators").value,
     txPerBlock: +$("#tps-tx-per-block").value,
+    blocksPerMinute: +$("#blocks-per-minute").value,
+  };
+}
+
+function tpsLimitsFromUi() {
+  return {
+    blockAuthCapBytes: +$("#block-auth-cap").value,
+    networkMbps: +$("#network-mbps").value,
   };
 }
 
@@ -185,28 +204,64 @@ function refreshComparison() {
   updateHighlights(data);
 }
 
+function updateTpsBreakdownTable(rows) {
+  const tbody = $("#tps-breakdown tbody");
+  tbody.innerHTML = "";
+  for (const r of rows) {
+    const tr = document.createElement("tr");
+    if (r.is_silmarils || r.is_hybrid) tr.classList.add("highlight");
+    tr.innerHTML = `
+      <td>${r.short_name}</td>
+      <td>${fmtTps(r.cpu_effective_tps || r.effective_tps)}</td>
+      <td>${r.cpu_loss_pct != null ? r.cpu_loss_pct + "%" : "—"}</td>
+      <td>${fmtTps(r.bandwidth_effective_tps || r.effective_tps)}</td>
+      <td>${r.bandwidth_loss_pct != null ? r.bandwidth_loss_pct + "%" : "—"}</td>
+      <td><strong>${fmtTps(r.effective_tps)}</strong></td>
+      <td>${bottleneckTag(r)}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+}
+
 function updateTpsChart(items) {
   const labels = items.map((i) => i.short_name);
-  const colors = items.map((i) => {
-    if (i.is_hybrid) return "#38bdf8";
-    if (i.is_silmarils) return "#60a5fa";
-    if ((i.short_name || "").includes("retrofit")) return "#f87171";
-    return "#fb923c";
-  });
 
   if (tpsChart) tpsChart.destroy();
   tpsChart = new Chart($("#chart-tps"), {
     type: "bar",
     data: {
       labels,
-      datasets: [{ data: items.map((i) => i.effective_tps), backgroundColor: colors, borderRadius: 6 }],
+      datasets: [
+        {
+          label: "CPU-limited TPS",
+          data: items.map((i) => i.cpu_effective_tps ?? i.effective_tps),
+          backgroundColor: "rgba(56, 189, 248, 0.45)",
+          borderRadius: 4,
+        },
+        {
+          label: "Bandwidth-limited TPS",
+          data: items.map((i) => i.bandwidth_effective_tps ?? i.effective_tps),
+          backgroundColor: "rgba(232, 176, 32, 0.55)",
+          borderRadius: 4,
+        },
+        {
+          label: "Combined (bottleneck)",
+          data: items.map((i) => i.effective_tps),
+          backgroundColor: items.map((i) =>
+            i.is_hybrid || i.is_silmarils ? "#38bdf8" : "#f87171"
+          ),
+          borderRadius: 4,
+        },
+      ],
     },
     options: {
       responsive: true,
-      plugins: { legend: { display: false } },
+      plugins: {
+        legend: { labels: { color: "#8b949e", boxWidth: 12 } },
+      },
       scales: {
         y: { ticks: { color: "#8b949e" }, grid: { color: "rgba(255,255,255,0.06)" } },
-        x: { ticks: { color: "#8b949e", maxRotation: 20 }, grid: { display: false } },
+        x: { ticks: { color: "#8b949e", maxRotation: 22 }, grid: { display: false } },
       },
     },
   });
@@ -215,30 +270,47 @@ function updateTpsChart(items) {
 function refreshTps() {
   const baseTps = +$("#base-tps").value;
   const cfg = tpsConfigFromUi();
+  const limits = tpsLimitsFromUi();
 
   $("#out-base-tps").textContent = baseTps.toLocaleString();
   $("#out-tps-validators").textContent = cfg.validators;
   $("#out-tps-tx").textContent = cfg.txPerBlock;
+  $("#out-block-cap").textContent = fmtBytes(limits.blockAuthCapBytes);
+  $("#out-network-mbps").textContent = limits.networkMbps;
 
-  const data = DemoModels.buildTps(baseTps, cfg);
+  const data = DemoModels.buildTps(
+    baseTps,
+    cfg,
+    limits.blockAuthCapBytes,
+    limits.networkMbps
+  );
+
   const hybrid = data.hybrid_stack;
   const dil = data.schemes.find((s) => s.short_name.includes("Dilithium"));
+  const sil = data.schemes.find((s) => s.is_silmarils);
   const retrofit = data.full_pq_retrofit;
 
   $("#tps-hybrid").textContent = `${fmtTps(hybrid.effective_tps)} TPS`;
-  $("#tps-hybrid-loss").textContent = `${hybrid.tps_loss_pct}% overhead · unbundled stack`;
+  $("#tps-hybrid-loss").textContent = `combined ${hybrid.tps_loss_pct}% · ${hybrid.bottleneck}`;
   $("#tps-dilithium").textContent = `${fmtTps(dil.effective_tps)} TPS`;
-  $("#tps-dilithium-loss").textContent = `${dil.tps_loss_pct}% overhead · CPU model`;
+  $("#tps-dilithium-loss").textContent = `combined ${dil.tps_loss_pct}% · bottleneck: ${dil.bottleneck}`;
+  $("#tps-silmarils").textContent = `${fmtTps(sil.effective_tps)} TPS`;
+  $("#tps-silmarils-loss").textContent = `combined ${sil.tps_loss_pct}% · bottleneck: ${sil.bottleneck}`;
   $("#tps-retrofit").textContent = `${fmtTps(retrofit.effective_tps)} TPS`;
-  $("#tps-retrofit-loss").textContent = `${retrofit.tps_loss_pct}% overhead · industry benchmark`;
+  $("#tps-retrofit-loss").textContent = `${retrofit.tps_loss_pct}% · whole-chain PQ migration estimate`;
 
   $("#stat-tps-gain").textContent = `+${data.highlights.hybrid_vs_retrofit_tps_gain_pct}%`;
 
-  updateTpsChart([
+  const chartItems = [
     hybrid,
-    ...data.schemes.filter((s) => s.is_silmarils || s.short_name.includes("Dilithium") || s.short_name.includes("SPHINCS")),
+    sil,
+    dil,
+    ...data.schemes.filter((s) => s.short_name.includes("SPHINCS")),
     retrofit,
-  ]);
+  ];
+
+  updateTpsChart(chartItems);
+  updateTpsBreakdownTable(chartItems);
 }
 
 function bindControls() {
@@ -246,9 +318,12 @@ function bindControls() {
   const debouncedTps = debounce(refreshTps);
 
   for (const id of ["validators", "tx-per-block", "blocks-per-minute"]) {
-    $(`#${id}`).addEventListener("input", debouncedCompare);
+    $(`#${id}`).addEventListener("input", () => {
+      debouncedCompare();
+      debouncedTps();
+    });
   }
-  for (const id of ["base-tps", "tps-validators", "tps-tx-per-block"]) {
+  for (const id of ["base-tps", "tps-validators", "tps-tx-per-block", "block-auth-cap", "network-mbps"]) {
     $(`#${id}`).addEventListener("input", debouncedTps);
   }
 
