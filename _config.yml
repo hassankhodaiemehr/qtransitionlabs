@@ -12,6 +12,7 @@ kramdown:
 
 include:
   - assets/css
+  - assets/demo
   - _layouts
 
 sass:
