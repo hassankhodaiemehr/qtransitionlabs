@@ -7,69 +7,45 @@ stylesheet: /assets/css/home.css
 script: /assets/js/home.js
 ---
 
-<div class="hero">
-  <div class="hero-bg-layer" aria-hidden="true">
+<div class="hero hero--enterprise">
+  <div class="hero-bg-layer hero-bg-layer--minimal" aria-hidden="true">
     <div class="hero-quantum-field">
       <div class="hero-lattice"></div>
-      <div class="hero-aurora"></div>
     </div>
-    <svg class="hero-qmesh" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <g class="hero-qmesh-links" stroke="rgba(56, 189, 248, 0.12)" stroke-width="1">
-        <line x1="120" y1="180" x2="280" y2="120"/><line x1="280" y1="120" x2="420" y2="200"/>
-        <line x1="420" y1="200" x2="560" y2="140"/><line x1="560" y1="140" x2="680" y2="220"/>
-        <line x1="200" y1="320" x2="360" y2="280"/><line x1="360" y1="280" x2="500" y2="340"/>
-        <line x1="500" y1="340" x2="640" y2="300"/><line x1="280" y1="120" x2="360" y2="280"/>
-        <line x1="420" y1="200" x2="500" y2="340"/><line x1="120" y1="180" x2="200" y2="320"/>
-      </g>
-      <g class="hero-qmesh-nodes" fill="rgba(56, 189, 248, 0.35)">
-        <circle cx="120" cy="180" r="3"/><circle cx="280" cy="120" r="4"/><circle cx="420" cy="200" r="3.5"/>
-        <circle cx="560" cy="140" r="3"/><circle cx="680" cy="220" r="4"/><circle cx="200" cy="320" r="3"/>
-        <circle cx="360" cy="280" r="5"/><circle cx="500" cy="340" r="3.5"/><circle cx="640" cy="300" r="3"/>
-      </g>
-    </svg>
-    <svg class="hero-qwaves" viewBox="0 0 1200 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path class="hero-qwave hero-qwave--1" d="M0,80 C150,40 300,120 450,80 S750,40 900,80 S1050,120 1200,80" fill="none" stroke="rgba(56,189,248,0.18)" stroke-width="1.5"/>
-      <path class="hero-qwave hero-qwave--2" d="M0,100 C150,140 300,60 450,100 S750,140 900,100 S1050,60 1200,100" fill="none" stroke="rgba(129,140,248,0.14)" stroke-width="1.5"/>
-    </svg>
-  </div>
-
-  <div class="hero-orbit-layer">
-    <div class="orbit">
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-    </div>
-    <div class="orbit">
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-    </div>
-    <div class="orbit">
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-    </div>
-    <div class="qubit-core"></div>
-
-    <div class="particle particle--sm" style="top:18%; left:16%; animation-delay:0s;"></div>
-    <div class="particle" style="top:72%; left:78%; animation-delay:2s;"></div>
-    <div class="particle particle--lg" style="top:40%; left:60%; animation-delay:4s;"></div>
-    <div class="particle particle--sm" style="top:82%; left:28%; animation-delay:1s;"></div>
-    <div class="particle" style="top:28%; left:82%; animation-delay:3s;"></div>
-    <div class="particle particle--sm" style="top:55%; left:12%; animation-delay:5s;"></div>
-    <div class="particle particle--lg" style="top:12%; left:68%; animation-delay:1.5s;"></div>
   </div>
 
   <div class="hero-inner">
-    {% include brand-logo.html hero=true %}
+    <div class="hero-content">
+      <span class="hero-eyebrow">Post‑quantum security</span>
+      <h1>Quantum Transition Labs</h1>
+      <p class="hero-tagline">Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
 
-    <h1>Quantum Transition Labs</h1>
-    <p>Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
-
-    <div class="hero-cta-row">
-      <a href="/contact/" class="hero-button">Schedule a Consultation</a>
-      <a href="/research/" class="hero-secondary">View Research &amp; Publications</a>
+      <div class="hero-cta-row">
+        <a href="/contact/" class="hero-button">Schedule a consultation</a>
+        <a href="/research/" class="hero-secondary">View research</a>
+      </div>
     </div>
+
+    <aside class="hero-visual" aria-label="Core capabilities">
+      <div class="hero-visual__grid">
+        <div class="hero-visual__cell">
+          <strong>Assess</strong>
+          <span>Cryptographic inventory &amp; quantum risk scoring</span>
+        </div>
+        <div class="hero-visual__cell">
+          <strong>Plan</strong>
+          <span>NIST‑aligned migration roadmaps</span>
+        </div>
+        <div class="hero-visual__cell">
+          <strong>Build</strong>
+          <span>Quantum‑safe architecture &amp; protocols</span>
+        </div>
+        <div class="hero-visual__cell">
+          <strong>Advise</strong>
+          <span>Executive briefings &amp; sector programs</span>
+        </div>
+      </div>
+    </aside>
 
     <div class="hero-stats">
       <div class="hero-stat">
@@ -78,7 +54,7 @@ script: /assets/js/home.js
       </div>
       <div class="hero-stat">
         <strong>IEEE / IACR</strong>
-        Peer‑reviewed cryptography &amp; security research
+        Peer‑reviewed cryptography research
       </div>
       <div class="hero-stat">
         <strong>Global</strong>
@@ -91,6 +67,7 @@ script: /assets/js/home.js
 <div class="homepage">
 
   <section class="home-section home-section--intro" aria-labelledby="home-intro-heading">
+    <span class="section-eyebrow reveal-target">Overview</span>
     <div class="section-title reveal-target" id="home-intro-heading">Quantum‑Safe Security for High‑Assurance Systems</div>
     <div class="section-subtitle reveal-target">Research‑driven. Enterprise‑ready. Built for the quantum era.</div>
 
@@ -155,6 +132,7 @@ script: /assets/js/home.js
   </section>
 
   <section class="home-section home-section--services" aria-labelledby="home-services-heading">
+    <span class="section-eyebrow reveal-target">Capabilities</span>
     <div class="section-title reveal-target" id="home-services-heading">Services</div>
     <p class="section-subtitle reveal-target">End‑to‑end support from discovery through deployment.</p>
 
@@ -169,7 +147,7 @@ script: /assets/js/home.js
           <li>Hybrid classical–quantum transition strategies</li>
           <li>Protocol redesign &amp; interoperability validation</li>
         </ul>
-        <a href="/services/" class="cap-card__link">Explore services →</a>
+        <a href="/services/" class="cap-card__link">Learn more</a>
       </div>
 
       <div class="cap-card reveal-target">
@@ -181,7 +159,7 @@ script: /assets/js/home.js
           <li>Cloud‑native cryptographic modernization</li>
           <li>Threat modeling for quantum‑capable adversaries</li>
         </ul>
-        <a href="/services/" class="cap-card__link">Explore services →</a>
+        <a href="/services/" class="cap-card__link">Learn more</a>
       </div>
 
       <div class="cap-card reveal-target">
@@ -193,7 +171,7 @@ script: /assets/js/home.js
           <li>Lattice‑based signature integration</li>
           <li>PQC‑ready smart‑contract frameworks</li>
         </ul>
-        <a href="/services/" class="cap-card__link">Explore services →</a>
+        <a href="/services/" class="cap-card__link">Learn more</a>
       </div>
 
       <div class="cap-card reveal-target">
@@ -204,13 +182,14 @@ script: /assets/js/home.js
           <li>AI‑assisted protocol verification</li>
           <li>ML‑driven risk scoring for long‑lived systems</li>
         </ul>
-        <a href="/services/" class="cap-card__link">Explore services →</a>
+        <a href="/services/" class="cap-card__link">Learn more</a>
       </div>
 
     </div>
   </section>
 
   <section class="home-section home-section--why" aria-labelledby="home-why-heading">
+    <span class="section-eyebrow reveal-target">Urgency</span>
     <div class="section-title reveal-target" id="home-why-heading">Why Quantum Security Now</div>
     <p class="section-subtitle reveal-target">The threat is already here—even if quantum computers aren't.</p>
 
@@ -239,14 +218,15 @@ script: /assets/js/home.js
 
     <div class="home-signals reveal-target">
       <span class="home-signals__label">Global policy signals</span>
-      <a href="https://www.whitehouse.gov/fact-sheets/2025/06/fact-sheet-president-donald-j-trump-reprioritizes-cybersecurity-efforts-to-protect-america/" class="home-signal" target="_blank" rel="noopener noreferrer">🇺🇸 U.S. PQC mandate</a>
-      <a href="https://www.cyber.gc.ca/en/guidance/roadmap-migration-post-quantum-cryptography-government-canada-itsm40001" class="home-signal" target="_blank" rel="noopener noreferrer">🇨🇦 Canada roadmap</a>
-      <a href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography" class="home-signal" target="_blank" rel="noopener noreferrer">🇪🇺 EU transition</a>
-      <a href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration" class="home-signal" target="_blank" rel="noopener noreferrer">🌐 G7 coordination</a>
+      <a href="https://www.whitehouse.gov/fact-sheets/2025/06/fact-sheet-president-donald-j-trump-reprioritizes-cybersecurity-efforts-to-protect-america/" class="home-signal" target="_blank" rel="noopener noreferrer">U.S. PQC mandate</a>
+      <a href="https://www.cyber.gc.ca/en/guidance/roadmap-migration-post-quantum-cryptography-government-canada-itsm40001" class="home-signal" target="_blank" rel="noopener noreferrer">Canada roadmap</a>
+      <a href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography" class="home-signal" target="_blank" rel="noopener noreferrer">EU transition</a>
+      <a href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration" class="home-signal" target="_blank" rel="noopener noreferrer">G7 coordination</a>
     </div>
   </section>
 
   <section class="home-section home-section--news" aria-labelledby="home-news-heading">
+    <span class="section-eyebrow reveal-target">Insights</span>
     <div class="section-title reveal-target" id="home-news-heading">Latest Signals</div>
     <p class="section-subtitle reveal-target">Policy, standards, and industry developments shaping the quantum transition.</p>
 
@@ -260,7 +240,7 @@ script: /assets/js/home.js
         <time class="home-news-card__date" datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%b %d, %Y' }}</time>
         <h3 class="home-news-card__title"><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
         <p class="home-news-card__excerpt">{{ item.excerpt | truncate: 120 }}</p>
-        <a href="{{ item.url | relative_url }}" class="home-news-card__link">Read analysis →</a>
+        <a href="{{ item.url | relative_url }}" class="home-news-card__link">Read analysis</a>
       </article>
       {% endfor %}
     </div>
