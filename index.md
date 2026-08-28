@@ -68,7 +68,7 @@ script: /assets/js/home.js
 
       <div class="hero-cta-row">
         <a href="/contact/" class="hero-button">Schedule a consultation</a>
-        <a href="/research/" class="hero-secondary">View research</a>
+        <a href="/pqc-readiness/" class="hero-secondary">Check PQC readiness</a>
       </div>
     </div>
 
@@ -283,6 +283,7 @@ script: /assets/js/home.js
     </p>
     <div class="home-cta-band__actions">
       <a href="/contact/" class="hero-button">Schedule a Consultation</a>
+      <a href="/pqc-readiness/" class="hero-secondary">Check PQC Readiness</a>
       <a href="/research/" class="hero-secondary">View Our Research</a>
     </div>
   </section>

@@ -72,6 +72,7 @@ permalink: /services/
     <span class="service-item__tag">Discover</span>
     <span class="service-item__duration">2–4 weeks</span>
   </div>
+  <p class="service-item__link-wrap"><a href="/pqc-readiness/">Start with the free self‑assessment →</a></p>
 </article>
 
 <article class="service-item reveal-target" data-category="plan">

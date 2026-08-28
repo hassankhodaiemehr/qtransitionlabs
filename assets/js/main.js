@@ -81,7 +81,16 @@
   }
 
   initScrollReveal();
+  prefillContactTopic();
 })();
+
+function prefillContactTopic() {
+  var params = new URLSearchParams(window.location.search);
+  var topic = params.get('topic');
+  if (!topic) return;
+  var topicInput = document.getElementById('topic');
+  if (topicInput) topicInput.value = topic;
+}
 
 function initScrollReveal() {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -96,7 +105,7 @@ function initScrollReveal() {
     return;
   }
 
-  const staggerContainers = '.card-grid, .capabilities-grid, .home-pillars, .home-why-grid, .home-news-grid, .home-signals, .services-grid, .services-stats, .services-timeline, .services-engagement__grid, .research-grid, .timeline, .metrics-panel, .contact-grid, .contact-bullets';
+  const staggerContainers = '.card-grid, .capabilities-grid, .home-pillars, .home-why-grid, .home-news-grid, .home-signals, .services-grid, .services-stats, .services-timeline, .services-engagement__grid, .research-grid, .timeline, .metrics-panel, .contact-grid, .contact-bullets, .readiness-faq__list';
   document.querySelectorAll(staggerContainers).forEach(function (container) {
     container.querySelectorAll('.reveal-target').forEach(function (el, index) {
       el.style.transitionDelay = Math.min(index * 0.1, 0.5) + 's';

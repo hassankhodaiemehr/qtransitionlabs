@@ -325,6 +325,21 @@ body.light-mode .service-item__footer {
   border-top-color: #F3F4F6;
 }
 
+.service-item__link-wrap {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+}
+
+.service-item__link-wrap a {
+  color: var(--accent, #0f62fe);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.service-item__link-wrap a:hover {
+  text-decoration: underline;
+}
+
 .service-item__tag {
   font-size: 0.72rem;
   font-weight: 600;

@@ -513,6 +513,26 @@ body.light-mode .contact-meta-strip {
   color: #111827;
 }
 
+.contact-readiness-link {
+  margin-top: 1.25rem;
+  font-size: 0.92rem;
+  color: #D1D5DB;
+  line-height: 1.55;
+}
+
+body.light-mode .contact-readiness-link {
+  color: #4B5563;
+}
+
+.contact-readiness-link a {
+  color: #78A9FF;
+  font-weight: 600;
+}
+
+body.light-mode .contact-readiness-link a {
+  color: #0f62fe;
+}
+
 .contact-meta-pill {
   display: inline-flex;
   align-items: center;

@@ -60,6 +60,10 @@ permalink: /contact/
           Response within 24 hours
         </span>
       </div>
+
+      <p class="contact-readiness-link">
+        Not sure where to begin? Take our <a href="/pqc-readiness/">PQC readiness self‑assessment</a> first.
+      </p>
     </section>
 
     <section class="contact-card reveal-target" aria-label="Contact details and form">
