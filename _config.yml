@@ -21,11 +21,36 @@ sass:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+
+organization:
+  email: contact@qtransitionlabs.com
+  area_served: Worldwide
+  address:
+    street: "Suite 250 — PMB 1725, 997 Seymour St"
+    city: Vancouver
+    region: BC
+    postal: V6B 3M1
+    country: CA
+  knows_about:
+    - Post-quantum cryptography
+    - Cryptographic modernization
+    - NIST PQC standards
+    - Quantum-safe architecture
+    - Blockchain security
+    - Harvest-now-decrypt-later risk
+  service_types:
+    - PQC readiness assessment
+    - PQC migration roadmap
+    - Quantum-safe architecture design
+    - Executive security advisory
+    - Blockchain security engineering
+  same_as: []
 
 baseurl: ""
 url: "https://www.qtransitionlabs.com"
 
-logo: "/assets/css/img/logo1.png"
+logo: "/assets/img/favicon.png"
 
 twitter:
   card: summary
@@ -44,7 +69,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: "/assets/css/img/logo1.png"
+      image: "/assets/img/favicon.png"
   - scope:
       path: ""
       type: news

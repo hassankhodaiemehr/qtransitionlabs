@@ -1,0 +1,94 @@
+{% assign org_logo = site.url | append: '/assets/img/favicon.png' %}
+{% assign org_id = site.url | append: '/#organization' %}
+{% assign site_id = site.url | append: '/#website' %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": {{ org_id | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "alternateName": "QTL",
+      "url": {{ site.url | append: '/' | jsonify }},
+      "logo": {{ org_logo | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "email": {{ site.organization.email | jsonify }},
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": {{ site.organization.address.street | jsonify }},
+        "addressLocality": {{ site.organization.address.city | jsonify }},
+        "addressRegion": {{ site.organization.address.region | jsonify }},
+        "postalCode": {{ site.organization.address.postal | jsonify }},
+        "addressCountry": {{ site.organization.address.country | jsonify }}
+      },
+      "areaServed": {{ site.organization.area_served | jsonify }},
+      "knowsAbout": {{ site.organization.knows_about | jsonify }},
+      "sameAs": {{ site.organization.same_as | jsonify }}
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": {{ site.url | append: '/#professional-service' | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "url": {{ site.url | append: '/' | jsonify }},
+      "image": {{ org_logo | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "provider": { "@id": {{ org_id | jsonify }} },
+      "areaServed": {{ site.organization.area_served | jsonify }},
+      "serviceType": {{ site.organization.service_types | jsonify }},
+      "email": {{ site.organization.email | jsonify }}
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ site_id | jsonify }},
+      "url": {{ site.url | append: '/' | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "publisher": { "@id": {{ org_id | jsonify }} },
+      "inLanguage": {{ site.lang | default: 'en' | jsonify }}
+    }
+    {% if page.url == '/' or page.url == '/index.html' %}
+    ,{
+      "@type": "WebPage",
+      "@id": {{ site.url | append: '/#webpage' | jsonify }},
+      "url": {{ site.url | append: '/' | jsonify }},
+      "name": {{ page.title | default: site.title | jsonify }},
+      "description": {{ page.description | default: site.description | jsonify }},
+      "isPartOf": { "@id": {{ site_id | jsonify }} },
+      "about": { "@id": {{ org_id | jsonify }} }
+    }
+    {% elsif page.url contains '/pqc-readiness/' %}
+    ,{
+      "@type": "FAQPage",
+      "@id": {{ site.url | append: '/pqc-readiness/#faq' | jsonify }},
+      "url": {{ site.url | append: '/pqc-readiness/' | jsonify }},
+      "name": {{ page.title | jsonify }},
+      "description": {{ page.description | jsonify }},
+      "isPartOf": { "@id": {{ site_id | jsonify }} },
+      "mainEntity": [
+        {% for item in site.data.pqc_faq %}
+        {
+          "@type": "Question",
+          "name": {{ item.question | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ item.answer | jsonify }}
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+    {% elsif page.url and page.url != '/' %}
+    ,{
+      "@type": "WebPage",
+      "@id": {{ site.url | append: page.url | append: '#webpage' | jsonify }},
+      "url": {{ site.url | append: page.url | jsonify }},
+      "name": {{ page.title | default: site.title | jsonify }},
+      "description": {{ page.description | default: site.description | jsonify }},
+      "isPartOf": { "@id": {{ site_id | jsonify }} }
+    }
+    {% endif %}
+  ]
+}
+</script>

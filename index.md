@@ -102,6 +102,36 @@ script: /assets/js/home.js
       government, and high‑value digital platforms.
     </p>
 
+    <section class="home-about-facts reveal-target" aria-labelledby="about-qtl-heading">
+      <h2 id="about-qtl-heading" class="home-about-facts__title">At a glance</h2>
+      <dl class="home-about-facts__list">
+        <div class="home-about-facts__row">
+          <dt>Company</dt>
+          <dd>Quantum Transition Labs (QTL)</dd>
+        </div>
+        <div class="home-about-facts__row">
+          <dt>Focus</dt>
+          <dd>Post‑quantum cryptography, secure architecture, cryptographic modernization</dd>
+        </div>
+        <div class="home-about-facts__row">
+          <dt>Clients</dt>
+          <dd>Critical infrastructure, government, financial services, cloud &amp; enterprise platforms</dd>
+        </div>
+        <div class="home-about-facts__row">
+          <dt>Standards</dt>
+          <dd>NIST FIPS 203 (ML‑KEM), FIPS 204 (ML‑DSA), FIPS 205 (SLH‑DSA)</dd>
+        </div>
+        <div class="home-about-facts__row">
+          <dt>Location</dt>
+          <dd>Vancouver, BC, Canada — global remote &amp; on‑site engagements</dd>
+        </div>
+        <div class="home-about-facts__row">
+          <dt>Contact</dt>
+          <dd><a href="mailto:contact@qtransitionlabs.com">contact@qtransitionlabs.com</a></dd>
+        </div>
+      </dl>
+    </section>
+
     <div class="home-pillars">
       <div class="home-pillar reveal-target">
         <span class="home-pillar__icon" aria-hidden="true">⚛️</span>
@@ -122,15 +152,15 @@ script: /assets/js/home.js
 
     <div class="home-metrics reveal-target">
       <div class="home-metric">
-        <span class="home-metric__value" data-count="10" data-suffix="+">0</span>
+        <span class="home-metric__value" data-count="10" data-suffix="+">10+</span>
         <span class="home-metric__label">Years PQC research</span>
       </div>
       <div class="home-metric">
-        <span class="home-metric__value" data-count="3">0</span>
+        <span class="home-metric__value" data-count="3">3</span>
         <span class="home-metric__label">NIST FIPS standards</span>
       </div>
       <div class="home-metric">
-        <span class="home-metric__value" data-count="6">0</span>
+        <span class="home-metric__value" data-count="6">6</span>
         <span class="home-metric__label">Core service lines</span>
       </div>
     </div>

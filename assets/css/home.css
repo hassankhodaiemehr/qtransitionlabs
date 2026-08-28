@@ -647,6 +647,78 @@ body.light-mode .home-lead {
   color: #374151;
 }
 
+.home-about-facts {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--border-default, #525252);
+  border-radius: var(--radius-md, 12px);
+  background: rgba(38, 38, 38, 0.45);
+}
+
+body.light-mode .home-about-facts {
+  background: #ffffff;
+  border-color: #d0d7de;
+}
+
+.home-about-facts__title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, #0f62fe);
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.home-about-facts__list {
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.home-about-facts__row {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .home-about-facts__row {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
+.home-about-facts__row dt {
+  font-weight: 600;
+  color: var(--text-primary, #f4f4f4);
+  margin: 0;
+}
+
+body.light-mode .home-about-facts__row dt {
+  color: #161616;
+}
+
+.home-about-facts__row dd {
+  margin: 0;
+  color: var(--text-body, #c6c6c6);
+}
+
+body.light-mode .home-about-facts__row dd {
+  color: #374151;
+}
+
+.home-about-facts__row a {
+  color: var(--link, #78a9ff);
+}
+
+body.light-mode .home-about-facts__row a {
+  color: #0f62fe;
+}
+
 /* Pillars */
 
 .home-pillars {

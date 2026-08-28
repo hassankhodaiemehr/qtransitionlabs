@@ -6,6 +6,9 @@
 
   {% seo %}
 
+  <link rel="alternate" type="text/plain" href="{{ '/llms.txt' | absolute_url }}" title="LLM-readable site summary">
+  {% include structured-data.html %}
+
   <link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/img/favicon-48.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicon-32.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/img/favicon.png' | relative_url }}">

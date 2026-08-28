@@ -24,6 +24,17 @@
   color: var(--text-muted);
 }
 
+.readiness-noscript {
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm, 8px);
+  background: rgba(15, 98, 254, 0.06);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
 body.light-mode .readiness-disclaimer {
   background: rgba(15, 98, 254, 0.05);
 }

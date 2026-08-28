@@ -40,6 +40,12 @@ permalink: /pqc-readiness/
   </div>
 
   <div class="readiness-wizard" id="readiness-wizard">
+    <noscript>
+      <p class="readiness-noscript">
+        The interactive self‑assessment requires JavaScript. Browse the <a href="#faq-heading">FAQ below</a>
+        or <a href="/contact/">contact us</a> for a tailored PQC readiness assessment.
+      </p>
+    </noscript>
     <div class="readiness-progress" aria-hidden="true">
       <div class="readiness-progress__bar" id="readiness-progress-bar"></div>
     </div>
@@ -146,82 +152,12 @@ permalink: /pqc-readiness/
   </div>
 
   <div class="readiness-faq__list">
+    {% for item in site.data.pqc_faq %}
     <details class="readiness-faq__item">
-      <summary>What is post‑quantum cryptography (PQC)?</summary>
-      <p>
-        PQC refers to cryptographic algorithms designed to resist attacks from large‑scale quantum
-        computers. NIST has standardized ML‑KEM (key encapsulation), ML‑DSA and SLH‑DSA (digital
-        signatures) for deployment alongside or in place of classical RSA and elliptic‑curve schemes.
-      </p>
+      <summary>{{ item.question }}</summary>
+      <p>{{ item.answer }}{% if forloop.last %} <a href="/services/">View our services</a> or <a href="/contact/">get in touch</a>.{% endif %}</p>
     </details>
-
-    <details class="readiness-faq__item">
-      <summary>When do we need to migrate?</summary>
-      <p>
-        There is no single deadline for every organization—but data with long confidentiality
-        requirements is already exposed to harvest‑now‑decrypt‑later risk. Governments and regulators
-        are publishing roadmaps with multi‑year horizons; starting discovery and planning now reduces
-        cost and disruption compared to waiting for a mandate.
-      </p>
-    </details>
-
-    <details class="readiness-faq__item">
-      <summary>What is harvest‑now‑decrypt‑later (HNDL)?</summary>
-      <p>
-        Adversaries can record encrypted traffic today and decrypt it later once quantum computers
-        break current public‑key cryptography. Any secret that must stay confidential for 10–20+
-        years should be protected with quantum‑resilient algorithms—or re‑encrypted—before those
-        systems are considered at risk.
-      </p>
-    </details>
-
-    <details class="readiness-faq__item">
-      <summary>Which algorithms should we use?</summary>
-      <p>
-        NIST FIPS 203 (ML‑KEM), FIPS 204 (ML‑DSA), and FIPS 205 (SLH‑DSA) are the primary
-        standards for new deployments. Selection depends on protocol, performance, certificate
-        infrastructure, and interoperability constraints—often starting with hybrid classical‑plus‑PQC
-        modes during transition.
-      </p>
-    </details>
-
-    <details class="readiness-faq__item">
-      <summary>What is a cryptographic bill of materials (CBOM)?</summary>
-      <p>
-        A CBOM is an inventory of algorithms, libraries, protocols, keys, and dependencies in your
-        systems—similar to a software BOM but focused on cryptography. It is the foundation for
-        prioritizing migration, measuring progress, and reporting to auditors or regulators.
-      </p>
-    </details>
-
-    <details class="readiness-faq__item">
-      <summary>Do we need hybrid cryptography during transition?</summary>
-      <p>
-        Hybrid schemes combine classical and post‑quantum algorithms so you maintain compatibility
-        while PQC support matures across your stack. Many organizations use hybrids in TLS, code
-        signing, or internal PKI during phased rollout, then simplify as ecosystems catch up.
-      </p>
-    </details>
-
-    <details class="readiness-faq__item">
-      <summary>How long does migration typically take?</summary>
-      <p>
-        Full enterprise migration is usually a multi‑year program: discovery (weeks to months),
-        roadmap and architecture (months), pilots (quarters), and phased production rollout
-        (1–3+ years depending on scale and legacy depth). Early inventory and crypto‑agility
-        investments shorten later phases.
-      </p>
-    </details>
-
-    <details class="readiness-faq__item">
-      <summary>How can Quantum Transition Labs help?</summary>
-      <p>
-        We provide PQC readiness assessments, NIST‑aligned migration roadmaps, quantum‑safe
-        architecture design, and executive advisory for critical infrastructure, government, and
-        enterprise programs. Engagements typically begin with a discovery call and scoped assessment.
-        <a href="/services/">View our services</a> or <a href="/contact/">get in touch</a>.
-      </p>
-    </details>
+    {% endfor %}
   </div>
 </section>
 

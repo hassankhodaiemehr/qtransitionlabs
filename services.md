@@ -26,19 +26,19 @@ permalink: /services/
 
 <div class="services-stats reveal-target">
   <div class="services-stat">
-    <span class="services-stat__value" data-count="6">0</span>
+    <span class="services-stat__value" data-count="6">6</span>
     <span class="services-stat__label">Core service lines</span>
   </div>
   <div class="services-stat">
-    <span class="services-stat__value" data-count="3" data-suffix="+">0</span>
+    <span class="services-stat__value" data-count="3" data-suffix="+">3+</span>
     <span class="services-stat__label">NIST FIPS standards</span>
   </div>
   <div class="services-stat">
-    <span class="services-stat__value" data-count="5">0</span>
+    <span class="services-stat__value" data-count="5">5</span>
     <span class="services-stat__label">Phase migration model</span>
   </div>
   <div class="services-stat">
-    <span class="services-stat__value" data-count="100" data-suffix="%">0</span>
+    <span class="services-stat__value" data-count="100" data-suffix="%">100%</span>
     <span class="services-stat__label">Research‑driven delivery</span>
   </div>
 </div>

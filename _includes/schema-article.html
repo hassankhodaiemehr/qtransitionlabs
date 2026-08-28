@@ -1,0 +1,37 @@
+{% assign org_id = site.url | append: '/#organization' %}
+{% assign article_url = site.url | append: page.url %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ article_url | jsonify }}
+  },
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.excerpt | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.date | date_to_xmlschema | jsonify }},
+  "author": {
+    "@type": "Organization",
+    "@id": {{ org_id | jsonify }},
+    "name": {{ site.title | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": {{ org_id | jsonify }},
+    "name": {{ site.title | jsonify }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ site.url | append: '/assets/img/favicon.png' | jsonify }}
+    }
+  },
+  "image": [{{ site.url | append: page.image | jsonify }}],
+  "articleSection": {{ page.category | jsonify }},
+  "inLanguage": {{ site.lang | default: 'en' | jsonify }}
+  {% if page.source_url %}
+  ,"citation": {{ page.source_url | jsonify }}
+  {% endif %}
+}
+</script>

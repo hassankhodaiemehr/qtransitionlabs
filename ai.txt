@@ -1,0 +1,20 @@
+---
+permalink: /ai.txt
+layout: null
+sitemap: false
+---
+# Quantum Transition Labs — AI agent summary
+# Canonical LLM-oriented site guide: {{ site.url }}/llms.txt
+
+> Post-quantum cryptography consultancy for critical infrastructure, government, and enterprise.
+
+- Website: {{ site.url }}/
+- Contact: contact@qtransitionlabs.com
+- Services: {{ site.url }}/services/
+- PQC readiness tool + FAQ: {{ site.url }}/pqc-readiness/
+- Research publications: {{ site.url }}/research/
+- News & policy analysis: {{ site.url }}/news/
+
+QTL provides PQC readiness assessments, NIST-aligned migration roadmaps, quantum-safe architecture, and executive advisory. We are advisors and architects—not a cloud provider or quantum computer manufacturer.
+
+For engagement inquiries, use {{ site.url }}/contact/
