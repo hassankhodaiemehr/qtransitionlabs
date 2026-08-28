@@ -72,27 +72,6 @@ script: /assets/js/home.js
       </div>
     </div>
 
-    <aside class="hero-visual" aria-label="Core capabilities">
-      <div class="hero-visual__grid">
-        <div class="hero-visual__cell">
-          <strong>Assess</strong>
-          <span>Cryptographic inventory &amp; quantum risk scoring</span>
-        </div>
-        <div class="hero-visual__cell">
-          <strong>Plan</strong>
-          <span>NIST‑aligned migration roadmaps</span>
-        </div>
-        <div class="hero-visual__cell">
-          <strong>Build</strong>
-          <span>Quantum‑safe architecture &amp; protocols</span>
-        </div>
-        <div class="hero-visual__cell">
-          <strong>Advise</strong>
-          <span>Executive briefings &amp; sector programs</span>
-        </div>
-      </div>
-    </aside>
-
     <div class="hero-stats">
       <div class="hero-stat">
         <strong>10+ years</strong>
