@@ -165,6 +165,10 @@ body.light-mode .contact-page::before {
 
 /* --- Card entrance polish --- */
 @media (prefers-reduced-motion: no-preference) {
+  .cap-card.reveal-target,
+  .home-pillar.reveal-target,
+  .home-why-card.reveal-target,
+  .home-news-card.reveal-target,
   .service-card.reveal-target,
   .service-item.reveal-target,
   .team-card.reveal-target,
@@ -173,6 +177,10 @@ body.light-mode .contact-page::before {
     transform: translateY(26px) scale(0.98);
   }
 
+  .cap-card.reveal-active,
+  .home-pillar.reveal-active,
+  .home-why-card.reveal-active,
+  .home-news-card.reveal-active,
   .service-card.reveal-active,
   .service-item.reveal-active,
   .team-card.reveal-active,
