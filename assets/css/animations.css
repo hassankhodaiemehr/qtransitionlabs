@@ -166,6 +166,7 @@ body.light-mode .contact-page::before {
 /* --- Card entrance polish --- */
 @media (prefers-reduced-motion: no-preference) {
   .service-card.reveal-target,
+  .service-item.reveal-target,
   .team-card.reveal-target,
   .team-member.reveal-target,
   .research-card.reveal-target {
@@ -173,6 +174,7 @@ body.light-mode .contact-page::before {
   }
 
   .service-card.reveal-active,
+  .service-item.reveal-active,
   .team-card.reveal-active,
   .team-member.reveal-active,
   .research-card.reveal-active {

@@ -96,7 +96,7 @@ function initScrollReveal() {
     return;
   }
 
-  const staggerContainers = '.card-grid, .capabilities-grid, .research-grid, .timeline, .metrics-panel, .contact-grid, .contact-bullets';
+  const staggerContainers = '.card-grid, .capabilities-grid, .services-grid, .services-stats, .services-timeline, .services-engagement__grid, .research-grid, .timeline, .metrics-panel, .contact-grid, .contact-bullets';
   document.querySelectorAll(staggerContainers).forEach(function (container) {
     container.querySelectorAll('.reveal-target').forEach(function (el, index) {
       el.style.transitionDelay = Math.min(index * 0.1, 0.5) + 's';
