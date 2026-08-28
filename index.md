@@ -7,7 +7,7 @@ stylesheet: /assets/css/home.css
 script: /assets/js/home.js
 ---
 
-<div class="hero">
+<div class="hero hero--ibm">
   <div class="hero-bg-layer" aria-hidden="true">
     <div class="hero-quantum-field">
       <div class="hero-lattice"></div>
@@ -61,16 +61,37 @@ script: /assets/js/home.js
   </div>
 
   <div class="hero-inner">
-    {% include brand-logo.html hero=true %}
+    <div class="hero-content">
+      <span class="hero-eyebrow">Post‑quantum security</span>
+      <h1>Quantum Transition Labs</h1>
+      <p class="hero-tagline">Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
 
-    <span class="hero-eyebrow">Post‑quantum security</span>
-    <h1>Quantum Transition Labs</h1>
-    <p class="hero-tagline">Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
-
-    <div class="hero-cta-row">
-      <a href="/contact/" class="hero-button">Schedule a consultation</a>
-      <a href="/research/" class="hero-secondary">View research</a>
+      <div class="hero-cta-row">
+        <a href="/contact/" class="hero-button">Schedule a consultation</a>
+        <a href="/research/" class="hero-secondary">View research</a>
+      </div>
     </div>
+
+    <aside class="hero-visual" aria-label="Core capabilities">
+      <div class="hero-visual__grid">
+        <div class="hero-visual__cell">
+          <strong>Assess</strong>
+          <span>Cryptographic inventory &amp; quantum risk scoring</span>
+        </div>
+        <div class="hero-visual__cell">
+          <strong>Plan</strong>
+          <span>NIST‑aligned migration roadmaps</span>
+        </div>
+        <div class="hero-visual__cell">
+          <strong>Build</strong>
+          <span>Quantum‑safe architecture &amp; protocols</span>
+        </div>
+        <div class="hero-visual__cell">
+          <strong>Advise</strong>
+          <span>Executive briefings &amp; sector programs</span>
+        </div>
+      </div>
+    </aside>
 
     <div class="hero-stats">
       <div class="hero-stat">
