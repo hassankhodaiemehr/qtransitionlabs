@@ -419,6 +419,7 @@ body.light-mode .hero.hero--ibm::after {
   top: clamp(1.5rem, 7vh, 3rem);
   width: 340px;
   height: 340px;
+  transform: translateY(-2cm);
 }
 
 .hero.hero--ibm .orbit-ring--4 {
@@ -447,7 +448,7 @@ body.light-mode .hero.hero--ibm::after {
     top: 38%;
     width: 320px;
     height: 320px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, calc(-50% - 2cm));
     opacity: 0.55;
   }
 

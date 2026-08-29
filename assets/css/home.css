@@ -152,7 +152,7 @@
   top: clamp(2rem, 9vh, 4rem);
   width: 400px;
   height: 400px;
-  transform: none;
+  transform: translateY(-2cm);
 }
 
 .orbit-ring {
