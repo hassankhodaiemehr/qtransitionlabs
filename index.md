@@ -34,10 +34,23 @@ script: /assets/js/home.js
   </div>
 
   <div class="hero-orbit-layer">
-    <div class="hero-atom-stack">
-      <div class="atom-system" aria-hidden="true">
+    <div class="atom-system" aria-hidden="true">
+      <div class="quantum-pulse">
+        <span class="quantum-pulse__ring"></span>
+        <span class="quantum-pulse__ring"></span>
+        <span class="quantum-pulse__ring"></span>
+      </div>
+      <div class="quantum-scan"></div>
+      <svg class="quantum-entangle" viewBox="0 0 320 320" aria-hidden="true">
+        <g class="quantum-entangle__links" fill="none" stroke="rgba(120, 169, 255, 0.4)" stroke-width="1">
+          <line x1="160" y1="160" x2="160" y2="28"/><line x1="160" y1="160" x2="274" y2="92"/>
+          <line x1="160" y1="160" x2="292" y2="200"/><line x1="160" y1="160" x2="88" y2="272"/>
+          <line x1="160" y1="160" x2="46" y2="128"/><line x1="160" y1="160" x2="118" y2="48"/>
+        </g>
+      </svg>
       <div class="orbit-ring orbit-ring--4">
         <div class="orbit">
+          <span class="orbit-comet"></span>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
@@ -45,6 +58,7 @@ script: /assets/js/home.js
       </div>
       <div class="orbit-ring orbit-ring--3">
         <div class="orbit">
+          <span class="orbit-comet"></span>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
@@ -52,6 +66,7 @@ script: /assets/js/home.js
       </div>
       <div class="orbit-ring orbit-ring--2">
         <div class="orbit">
+          <span class="orbit-comet"></span>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
@@ -59,43 +74,15 @@ script: /assets/js/home.js
       </div>
       <div class="orbit-ring orbit-ring--1">
         <div class="orbit">
+          <span class="orbit-comet"></span>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
         </div>
       </div>
-      <div class="qubit-core"></div>
-    </div>
-
-    <aside class="hero-quantum-feed" aria-label="Latest quantum breakthroughs" aria-live="polite">
-      <div class="hero-quantum-feed__header">
-        <span class="hero-quantum-feed__pulse" aria-hidden="true"></span>
-        <span class="hero-quantum-feed__label">Quantum signals</span>
-        <span class="hero-quantum-feed__scan" aria-hidden="true"></span>
+      <div class="qubit-core">
+        <span class="qubit-flare"></span>
       </div>
-      <div class="hero-quantum-feed__viewport">
-        {% assign hero_news = site.news | sort: 'date' | reverse | limit: 5 %}
-        {% for item in hero_news %}
-        <article class="hero-quantum-feed__item{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}">
-          <div class="hero-quantum-feed__meta">
-            <span class="hero-quantum-feed__cat">{{ item.category }}</span>
-            <time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%b %d, %Y' }}</time>
-          </div>
-          <p class="hero-quantum-feed__headline">
-            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-          </p>
-        </article>
-        {% endfor %}
-      </div>
-      <div class="hero-quantum-feed__footer">
-        <div class="hero-quantum-feed__dots" aria-hidden="true">
-          {% for item in hero_news %}
-          <span class="hero-quantum-feed__dot{% if forloop.first %} is-active{% endif %}"></span>
-          {% endfor %}
-        </div>
-        <a href="{{ '/news/' | relative_url }}" class="hero-quantum-feed__more">All signals</a>
-      </div>
-    </aside>
     </div>
 
     <div class="particle particle--sm" style="top:18%; left:16%;"></div>
