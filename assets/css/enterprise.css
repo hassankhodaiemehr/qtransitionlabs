@@ -418,7 +418,8 @@ body.light-mode .hero.hero--ibm::after {
 @media (max-width: 899px) {
   .atom-system {
     left: 50%;
-    transform: translate(-50%, calc(-50% - 1rem));
+    top: 44%;
+    transform: translate(-50%, calc(-50% - 2rem));
     opacity: 0.55;
   }
 
