@@ -149,10 +149,10 @@
 .atom-system {
   position: absolute;
   left: clamp(1.5rem, 9vw, 7rem);
-  top: 46%;
+  top: clamp(2rem, 9vh, 4rem);
   width: 400px;
   height: 400px;
-  transform: translateY(calc(-50% - 2.5rem));
+  transform: none;
 }
 
 .orbit-ring {
