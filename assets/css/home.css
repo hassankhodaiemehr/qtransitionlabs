@@ -173,6 +173,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  margin: 0;
   transform: translate(-50%, -50%);
   transform-style: preserve-3d;
   pointer-events: none;
@@ -194,6 +195,26 @@
   width: 340px;
   height: 340px;
   z-index: 1;
+}
+
+.orbit {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(120, 169, 255, 0.55);
+  box-shadow: 0 0 18px rgba(15, 98, 254, 0.25);
+  animation: orbitSpin 40s linear infinite;
+  transform-origin: center center;
+}
+
+.orbit-ring--1 .orbit { animation-duration: 34s; }
+.orbit-ring--2 .orbit { animation-duration: 46s; animation-direction: reverse; }
+.orbit-ring--3 .orbit { animation-duration: 60s; animation-direction: reverse; }
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .qubit-core {
@@ -224,24 +245,6 @@
 @keyframes corePulse {
   0%, 100% { box-shadow: 0 0 22px #58A6FF, 0 0 44px #58A6FF; }
   50% { box-shadow: 0 0 32px #79B8FF, 0 0 64px #79B8FF; }
-}
-
-.orbit {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(148, 163, 184, 0.45);
-  box-shadow: 0 0 18px rgba(15, 23, 42, 0.9);
-  animation: orbitSpin 40s linear infinite;
-}
-
-.orbit-ring--1 .orbit { animation-duration: 34s; }
-.orbit-ring--2 .orbit { animation-duration: 46s; animation-direction: reverse; }
-.orbit-ring--3 .orbit { animation-duration: 60s; animation-direction: reverse; }
-
-@keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .orbit-node {

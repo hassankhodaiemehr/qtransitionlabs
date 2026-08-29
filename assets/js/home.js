@@ -15,60 +15,68 @@ function initHeroParallax() {
   if (!hero || !quantumField) return;
 
   function onMove(e) {
-    if (!isPointInHero(hero, e.clientX, e.clientY)) {
+    var point = getPoint(e);
+    if (!point || !isPointInHero(hero, point.x, point.y)) {
       quantumField.style.transform = 'translate(0, 0)';
       return;
     }
 
     var rect = hero.getBoundingClientRect();
-    var nx = clamp((e.clientX - rect.left) / rect.width - 0.5, -0.5, 0.5);
-    var ny = clamp((e.clientY - rect.top) / rect.height - 0.5, -0.5, 0.5);
+    var nx = clamp((point.x - rect.left) / rect.width - 0.5, -0.5, 0.5);
+    var ny = clamp((point.y - rect.top) / rect.height - 0.5, -0.5, 0.5);
 
     quantumField.style.transform =
       'translate(' + nx * 16 + 'px, ' + ny * 10 + 'px)';
   }
 
   window.addEventListener('mousemove', onMove, { passive: true });
+  window.addEventListener('touchmove', onMove, { passive: true });
 }
 
 function initAtomCursor() {
-  var hero = document.querySelector('.hero');
   var atomSystem = document.getElementById('atom-system');
-  if (!hero || !atomSystem) return;
+  if (!atomSystem) return;
 
-  var MAX_OFFSET = 0.45;
-  var MAX_TRANSLATE = 32;
-  var MAX_TILT = 18;
-  var CORE_PULL = 14;
-  var LERP = 0.12;
+  var INTERACT_RADIUS = 220;
+  var MAX_TRANSLATE = 54;
+  var MAX_TILT = 22;
+  var CORE_PULL = 22;
+  var LERP = 0.16;
 
   var target = { x: 0, y: 0 };
   var current = { x: 0, y: 0 };
-  var hovering = false;
 
   function onMove(e) {
-    if (!isPointInHero(hero, e.clientX, e.clientY)) {
-      hovering = false;
+    var point = getPoint(e);
+    if (!point) return;
+
+    var rect = atomSystem.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2;
+    var cy = rect.top + rect.height / 2;
+    var dx = point.x - cx;
+    var dy = point.y - cy;
+    var dist = Math.hypot(dx, dy);
+
+    if (dist > INTERACT_RADIUS) {
       target.x = 0;
       target.y = 0;
       return;
     }
 
-    var rect = hero.getBoundingClientRect();
-    var nx = clamp((e.clientX - rect.left) / rect.width - 0.5, -MAX_OFFSET, MAX_OFFSET);
-    var ny = clamp((e.clientY - rect.top) / rect.height - 0.5, -MAX_OFFSET, MAX_OFFSET);
+    var falloff = 1 - dist / INTERACT_RADIUS;
+    target.x = clamp((dx / INTERACT_RADIUS) * falloff * 1.35, -1, 1);
+    target.y = clamp((dy / INTERACT_RADIUS) * falloff * 1.35, -1, 1);
+  }
 
-    target.x = nx / MAX_OFFSET;
-    target.y = ny / MAX_OFFSET;
-    hovering = true;
+  function onLeave() {
+    target.x = 0;
+    target.y = 0;
   }
 
   window.addEventListener('mousemove', onMove, { passive: true });
-  hero.addEventListener('mouseleave', function () {
-    hovering = false;
-    target.x = 0;
-    target.y = 0;
-  });
+  window.addEventListener('touchmove', onMove, { passive: true });
+  window.addEventListener('mouseleave', onLeave);
+  document.addEventListener('touchend', onLeave, { passive: true });
 
   function applyAtom(x, y) {
     var tx = x * MAX_TRANSLATE;
@@ -77,31 +85,21 @@ function initAtomCursor() {
     var tiltY = x * MAX_TILT;
     var coreX = x * CORE_PULL;
     var coreY = y * CORE_PULL;
-    var coreScale = 1 + Math.min(Math.abs(x) + Math.abs(y), 1.2) * 0.05;
+    var coreScale = 1 + Math.min(Math.hypot(x, y), 1.25) * 0.08;
 
-    atomSystem.style.setProperty('--atom-tx', tx + 'px');
-    atomSystem.style.setProperty('--atom-ty', ty + 'px');
-    atomSystem.style.setProperty('--atom-rx', tiltX + 'deg');
-    atomSystem.style.setProperty('--atom-ry', tiltY + 'deg');
-    atomSystem.style.setProperty('--core-x', coreX + 'px');
-    atomSystem.style.setProperty('--core-y', coreY + 'px');
-    atomSystem.style.setProperty('--core-scale', String(coreScale));
+    atomSystem.style.setProperty('--atom-tx', tx.toFixed(2) + 'px');
+    atomSystem.style.setProperty('--atom-ty', ty.toFixed(2) + 'px');
+    atomSystem.style.setProperty('--atom-rx', tiltX.toFixed(2) + 'deg');
+    atomSystem.style.setProperty('--atom-ry', tiltY.toFixed(2) + 'deg');
+    atomSystem.style.setProperty('--core-x', coreX.toFixed(2) + 'px');
+    atomSystem.style.setProperty('--core-y', coreY.toFixed(2) + 'px');
+    atomSystem.style.setProperty('--core-scale', coreScale.toFixed(3));
   }
 
   function tick() {
     current.x += (target.x - current.x) * LERP;
     current.y += (target.y - current.y) * LERP;
-
-    if (
-      hovering ||
-      Math.abs(current.x) > 0.002 ||
-      Math.abs(current.y) > 0.002 ||
-      Math.abs(target.x) > 0.002 ||
-      Math.abs(target.y) > 0.002
-    ) {
-      applyAtom(current.x, current.y);
-    }
-
+    applyAtom(current.x, current.y);
     requestAnimationFrame(tick);
   }
 
@@ -109,14 +107,19 @@ function initAtomCursor() {
   requestAnimationFrame(tick);
 }
 
+function getPoint(e) {
+  if (e.touches && e.touches.length) {
+    return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }
+  if (typeof e.clientX === 'number') {
+    return { x: e.clientX, y: e.clientY };
+  }
+  return null;
+}
+
 function isPointInHero(hero, x, y) {
   var rect = hero.getBoundingClientRect();
-  return (
-    x >= rect.left &&
-    x <= rect.right &&
-    y >= rect.top &&
-    y <= rect.bottom
-  );
+  return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
 }
 
 function clamp(value, min, max) {
