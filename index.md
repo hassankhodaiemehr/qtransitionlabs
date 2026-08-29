@@ -34,22 +34,30 @@ script: /assets/js/home.js
   </div>
 
   <div class="hero-orbit-layer">
-    <div class="orbit">
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
+    <div class="atom-system" id="atom-system" aria-hidden="true">
+      <div class="orbit-track orbit-track--1">
+        <div class="orbit">
+          <div class="orbit-node"></div>
+          <div class="orbit-node"></div>
+          <div class="orbit-node"></div>
+        </div>
+      </div>
+      <div class="orbit-track orbit-track--2">
+        <div class="orbit">
+          <div class="orbit-node"></div>
+          <div class="orbit-node"></div>
+          <div class="orbit-node"></div>
+        </div>
+      </div>
+      <div class="orbit-track orbit-track--3">
+        <div class="orbit">
+          <div class="orbit-node"></div>
+          <div class="orbit-node"></div>
+          <div class="orbit-node"></div>
+        </div>
+      </div>
+      <div class="qubit-core"></div>
     </div>
-    <div class="orbit">
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-    </div>
-    <div class="orbit">
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-      <div class="orbit-node"></div>
-    </div>
-    <div class="qubit-core"></div>
 
     <div class="particle particle--sm" style="top:18%; left:16%; animation-delay:0s;"></div>
     <div class="particle" style="top:72%; left:78%; animation-delay:2s;"></div>

@@ -416,6 +416,7 @@ body.light-mode .hero.hero--ibm::after {
   align-items: center;
   padding-right: clamp(2rem, 12vw, 10rem);
   opacity: 0.9;
+  perspective-origin: 72% 50%;
 }
 
 @media (max-width: 899px) {
@@ -423,6 +424,7 @@ body.light-mode .hero.hero--ibm::after {
     justify-content: center;
     padding-right: 0;
     opacity: 0.6;
+    perspective-origin: 50% 45%;
   }
 
   .hero.hero--ibm::after {
