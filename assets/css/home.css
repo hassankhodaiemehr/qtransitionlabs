@@ -142,58 +142,48 @@
 .hero-orbit-layer {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   pointer-events: none;
-  perspective: 900px;
-  perspective-origin: 50% 50%;
   overflow: visible;
 }
 
 .atom-system {
-  --atom-tx: 0px;
-  --atom-ty: 0px;
-  --atom-rx: 0deg;
-  --atom-ry: 0deg;
-  --core-x: 0px;
-  --core-y: 0px;
-  --core-scale: 1;
-  position: relative;
-  width: 340px;
-  height: 340px;
-  flex-shrink: 0;
-  transform-style: preserve-3d;
-  transform: translate3d(var(--atom-tx), var(--atom-ty), 0)
-    rotateX(var(--atom-rx)) rotateY(var(--atom-ry));
-  will-change: transform;
+  position: absolute;
+  left: clamp(1.5rem, 9vw, 7rem);
+  top: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translateY(calc(-50% - 1.75rem));
 }
 
 .orbit-ring {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: 0;
   transform: translate(-50%, -50%);
-  transform-style: preserve-3d;
   pointer-events: none;
 }
 
 .orbit-ring--1 {
-  width: 180px;
-  height: 180px;
-  z-index: 3;
+  width: 160px;
+  height: 160px;
+  z-index: 4;
 }
 
 .orbit-ring--2 {
-  width: 260px;
-  height: 260px;
-  z-index: 2;
+  width: 230px;
+  height: 230px;
+  z-index: 3;
 }
 
 .orbit-ring--3 {
-  width: 340px;
-  height: 340px;
+  width: 310px;
+  height: 310px;
+  z-index: 2;
+}
+
+.orbit-ring--4 {
+  width: 400px;
+  height: 400px;
   z-index: 1;
 }
 
@@ -202,15 +192,16 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 1px solid rgba(120, 169, 255, 0.55);
-  box-shadow: 0 0 18px rgba(15, 98, 254, 0.25);
+  border: 1px solid rgba(120, 169, 255, 0.5);
+  box-shadow: 0 0 20px rgba(15, 98, 254, 0.2);
   animation: orbitSpin 40s linear infinite;
   transform-origin: center center;
 }
 
-.orbit-ring--1 .orbit { animation-duration: 34s; }
-.orbit-ring--2 .orbit { animation-duration: 46s; animation-direction: reverse; }
-.orbit-ring--3 .orbit { animation-duration: 60s; animation-direction: reverse; }
+.orbit-ring--1 .orbit { animation-duration: 28s; }
+.orbit-ring--2 .orbit { animation-duration: 38s; animation-direction: reverse; }
+.orbit-ring--3 .orbit { animation-duration: 52s; }
+.orbit-ring--4 .orbit { animation-duration: 68s; animation-direction: reverse; }
 
 @keyframes orbitSpin {
   from { transform: rotate(0deg); }
@@ -221,15 +212,14 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 4;
+  z-index: 5;
   width: 26px;
   height: 26px;
+  margin: -13px 0 0 -13px;
   background: #58A6FF;
   border-radius: 50%;
   box-shadow: 0 0 22px #58A6FF, 0 0 44px #58A6FF;
   animation: corePulse 6s ease-in-out infinite;
-  transform: translate(calc(-50% + var(--core-x)), calc(-50% + var(--core-y))) scale(var(--core-scale));
-  will-change: transform;
 }
 
 .qubit-core::after {
@@ -270,24 +260,75 @@
   position: absolute;
   width: 6px;
   height: 6px;
-  background: rgba(148, 163, 184, 0.9);
   border-radius: 50%;
-  animation: particleDrift 16s ease-in-out infinite;
-  opacity: 0.6;
-  box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  animation: particleDrift 16s ease-in-out infinite, particleColor 10s ease-in-out infinite;
+  opacity: 0.7;
 }
 
 .particle--sm {
   width: 4px;
   height: 4px;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
 .particle--lg {
   width: 8px;
   height: 8px;
-  opacity: 0.75;
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.7);
+  opacity: 0.85;
+}
+
+.hero-orbit-layer > .particle:nth-child(2) {
+  animation-duration: 16s, 10s;
+  animation-delay: 0s, 0s;
+}
+
+.hero-orbit-layer > .particle:nth-child(3) {
+  animation-duration: 18s, 11s;
+  animation-delay: 2s, 2.5s;
+}
+
+.hero-orbit-layer > .particle:nth-child(4) {
+  animation-duration: 14s, 9s;
+  animation-delay: 4s, 5s;
+}
+
+.hero-orbit-layer > .particle:nth-child(5) {
+  animation-duration: 20s, 12s;
+  animation-delay: 1s, 7.5s;
+}
+
+.hero-orbit-layer > .particle:nth-child(6) {
+  animation-duration: 17s, 10s;
+  animation-delay: 3s, 1.5s;
+}
+
+.hero-orbit-layer > .particle:nth-child(7) {
+  animation-duration: 15s, 11s;
+  animation-delay: 5s, 4s;
+}
+
+.hero-orbit-layer > .particle:nth-child(8) {
+  animation-duration: 19s, 9s;
+  animation-delay: 1.5s, 6s;
+}
+
+@keyframes particleColor {
+  0%, 100% {
+    background: #0f62fe;
+    box-shadow: 0 0 10px rgba(15, 98, 254, 0.85);
+  }
+  25% {
+    background: #4589ff;
+    box-shadow: 0 0 12px rgba(69, 137, 255, 0.9);
+  }
+  50% {
+    background: #78a9ff;
+    box-shadow: 0 0 14px rgba(120, 169, 255, 0.85);
+  }
+  75% {
+    background: #a6c8ff;
+    box-shadow: 0 0 12px rgba(166, 200, 255, 0.8);
+  }
 }
 
 @keyframes particleDrift {
