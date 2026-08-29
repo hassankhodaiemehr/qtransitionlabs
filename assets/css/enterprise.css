@@ -452,6 +452,19 @@ body.light-mode .hero.hero--ibm::after {
   .hero.hero--ibm .hero-inner {
     padding-top: 0.5rem;
   }
+
+  .hero.hero--ibm .hero-stats {
+    max-width: min(580px, calc(100% - 16rem));
+    margin-left: clamp(13.5rem, 21vw, 17rem);
+    margin-right: auto;
+    width: auto;
+  }
+
+  .hero.hero--ibm .hero-stat {
+    min-width: 0;
+    flex: 1 1 120px;
+    padding: 1rem 1.1rem;
+  }
 }
 
 @media (max-width: 899px) {
