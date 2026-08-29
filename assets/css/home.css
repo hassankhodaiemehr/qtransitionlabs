@@ -148,11 +148,12 @@
 
 .atom-system {
   position: absolute;
-  left: clamp(1.5rem, 9vw, 7rem);
-  top: clamp(2rem, 9vh, 4rem);
-  width: 400px;
-  height: 400px;
-  transform: translateY(-2cm);
+  top: clamp(1.25rem, 5vh, 2rem);
+  right: clamp(1.25rem, 6vw, 4.5rem);
+  left: auto;
+  width: 320px;
+  height: 320px;
+  transform: none;
 }
 
 .orbit-ring {
@@ -182,8 +183,8 @@
 }
 
 .orbit-ring--4 {
-  width: 400px;
-  height: 400px;
+  width: 320px;
+  height: 320px;
   z-index: 1;
 }
 

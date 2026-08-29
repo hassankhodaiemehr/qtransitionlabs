@@ -412,50 +412,43 @@ body.light-mode .hero.hero--ibm::after {
 
 .hero.hero--ibm .hero-orbit-layer {
   z-index: 1;
-  opacity: 0.92;
-  inset: 0 0 6.5rem 0;
+  opacity: 1;
+  inset: 0;
 }
 
 .hero.hero--ibm .atom-system {
-  top: 0.25rem;
-  left: clamp(0.75rem, 5vw, 4rem);
-  width: 260px;
-  height: 260px;
+  top: clamp(1.25rem, 5vh, 2rem);
+  right: clamp(1.25rem, 6vw, 4.5rem);
+  left: auto;
+  width: 320px;
+  height: 320px;
   transform: none;
 }
 
 .hero.hero--ibm .orbit-ring--4 {
-  width: 260px;
-  height: 260px;
+  width: 320px;
+  height: 320px;
 }
 
 .hero.hero--ibm .orbit-ring--3 {
-  width: 200px;
-  height: 200px;
+  width: 248px;
+  height: 248px;
 }
 
 .hero.hero--ibm .orbit-ring--2 {
-  width: 148px;
-  height: 148px;
+  width: 182px;
+  height: 182px;
 }
 
 .hero.hero--ibm .orbit-ring--1 {
-  width: 100px;
-  height: 100px;
+  width: 124px;
+  height: 124px;
 }
 
 @media (min-width: 900px) {
-  .hero.hero--ibm .hero-orbit-layer {
-    inset: 0 0 7rem 0;
-  }
-
-  .hero.hero--ibm .hero-inner {
-    padding-top: 0.5rem;
-  }
-
   .hero.hero--ibm .hero-stats {
-    max-width: min(580px, calc(100% - 16rem));
-    margin-left: clamp(13.5rem, 21vw, 17rem);
+    max-width: min(680px, 100%);
+    margin-left: 0;
     margin-right: auto;
     width: auto;
   }
