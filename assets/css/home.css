@@ -146,58 +146,68 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  perspective: 960px;
+  perspective: 900px;
   perspective-origin: 50% 50%;
+  overflow: visible;
 }
 
 .atom-system {
+  --atom-tx: 0px;
+  --atom-ty: 0px;
+  --atom-rx: 0deg;
+  --atom-ry: 0deg;
+  --core-x: 0px;
+  --core-y: 0px;
+  --core-scale: 1;
   position: relative;
   width: 340px;
   height: 340px;
   flex-shrink: 0;
   transform-style: preserve-3d;
+  transform: translate3d(var(--atom-tx), var(--atom-ty), 0)
+    rotateX(var(--atom-rx)) rotateY(var(--atom-ry));
   will-change: transform;
 }
 
-.orbit-track {
+.orbit-ring {
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   transform-style: preserve-3d;
-  will-change: transform;
+  pointer-events: none;
 }
 
-.orbit-track--1 {
+.orbit-ring--1 {
   width: 180px;
   height: 180px;
-  margin: -90px 0 0 -90px;
+  z-index: 3;
 }
 
-.orbit-track--2 {
+.orbit-ring--2 {
   width: 260px;
   height: 260px;
-  margin: -130px 0 0 -130px;
+  z-index: 2;
 }
 
-.orbit-track--3 {
+.orbit-ring--3 {
   width: 340px;
   height: 340px;
-  margin: -170px 0 0 -170px;
+  z-index: 1;
 }
 
 .qubit-core {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 2;
-  margin: -13px 0 0 -13px;
+  z-index: 4;
   width: 26px;
   height: 26px;
   background: #58A6FF;
   border-radius: 50%;
   box-shadow: 0 0 22px #58A6FF, 0 0 44px #58A6FF;
   animation: corePulse 6s ease-in-out infinite;
-  transform-style: preserve-3d;
+  transform: translate(calc(-50% + var(--core-x)), calc(-50% + var(--core-y))) scale(var(--core-scale));
   will-change: transform;
 }
 
@@ -225,9 +235,9 @@
   animation: orbitSpin 40s linear infinite;
 }
 
-.orbit-track--1 .orbit { animation-duration: 34s; }
-.orbit-track--2 .orbit { animation-duration: 46s; animation-direction: reverse; }
-.orbit-track--3 .orbit { animation-duration: 60s; animation-direction: reverse; }
+.orbit-ring--1 .orbit { animation-duration: 34s; }
+.orbit-ring--2 .orbit { animation-duration: 46s; animation-direction: reverse; }
+.orbit-ring--3 .orbit { animation-duration: 60s; animation-direction: reverse; }
 
 @keyframes orbitSpin {
   from { transform: rotate(0deg); }

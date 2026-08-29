@@ -35,21 +35,21 @@ script: /assets/js/home.js
 
   <div class="hero-orbit-layer">
     <div class="atom-system" id="atom-system" aria-hidden="true">
-      <div class="orbit-track orbit-track--1">
+      <div class="orbit-ring orbit-ring--3">
         <div class="orbit">
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
         </div>
       </div>
-      <div class="orbit-track orbit-track--2">
+      <div class="orbit-ring orbit-ring--2">
         <div class="orbit">
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>
         </div>
       </div>
-      <div class="orbit-track orbit-track--3">
+      <div class="orbit-ring orbit-ring--1">
         <div class="orbit">
           <div class="orbit-node"></div>
           <div class="orbit-node"></div>

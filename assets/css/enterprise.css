@@ -414,9 +414,9 @@ body.light-mode .hero.hero--ibm::after {
   z-index: 1;
   justify-content: flex-end;
   align-items: center;
-  padding-right: clamp(2rem, 12vw, 10rem);
+  padding-right: clamp(1rem, 8vw, 6rem);
   opacity: 0.9;
-  perspective-origin: 72% 50%;
+  perspective-origin: 78% 50%;
 }
 
 @media (max-width: 899px) {
