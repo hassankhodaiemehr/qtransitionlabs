@@ -34,7 +34,8 @@ script: /assets/js/home.js
   </div>
 
   <div class="hero-orbit-layer">
-    <div class="atom-system" aria-hidden="true">
+    <div class="hero-atom-stack">
+      <div class="atom-system" aria-hidden="true">
       <div class="orbit-ring orbit-ring--4">
         <div class="orbit">
           <div class="orbit-node"></div>
@@ -64,6 +65,37 @@ script: /assets/js/home.js
         </div>
       </div>
       <div class="qubit-core"></div>
+    </div>
+
+    <aside class="hero-quantum-feed" aria-label="Latest quantum breakthroughs" aria-live="polite">
+      <div class="hero-quantum-feed__header">
+        <span class="hero-quantum-feed__pulse" aria-hidden="true"></span>
+        <span class="hero-quantum-feed__label">Quantum signals</span>
+        <span class="hero-quantum-feed__scan" aria-hidden="true"></span>
+      </div>
+      <div class="hero-quantum-feed__viewport">
+        {% assign hero_news = site.news | sort: 'date' | reverse | limit: 5 %}
+        {% for item in hero_news %}
+        <article class="hero-quantum-feed__item{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}">
+          <div class="hero-quantum-feed__meta">
+            <span class="hero-quantum-feed__cat">{{ item.category }}</span>
+            <time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%b %d, %Y' }}</time>
+          </div>
+          <p class="hero-quantum-feed__headline">
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          </p>
+        </article>
+        {% endfor %}
+      </div>
+      <div class="hero-quantum-feed__footer">
+        <div class="hero-quantum-feed__dots" aria-hidden="true">
+          {% for item in hero_news %}
+          <span class="hero-quantum-feed__dot{% if forloop.first %} is-active{% endif %}"></span>
+          {% endfor %}
+        </div>
+        <a href="{{ '/news/' | relative_url }}" class="hero-quantum-feed__more">All signals</a>
+      </div>
+    </aside>
     </div>
 
     <div class="particle particle--sm" style="top:18%; left:16%;"></div>
