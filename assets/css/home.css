@@ -1228,48 +1228,16 @@ body.light-mode .home-metric__value {
 
 .partner-marquee {
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
 }
 
 .partner-marquee__track {
   display: flex;
-  gap: 1rem;
-  width: max-content;
-  animation: partnerScroll 28s linear infinite;
-}
-
-.partner-marquee__set {
-  display: flex;
-  gap: 1rem;
-  flex-shrink: 0;
-}
-
-.partner-marquee.is-paused .partner-marquee__track {
-  animation-play-state: paused;
-}
-
-@keyframes partnerScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .partner-marquee__track {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: auto;
-  }
-
-  .partner-marquee__set[aria-hidden="true"] {
-    display: none;
-  }
-
-  .partner-marquee {
-    mask-image: none;
-    -webkit-mask-image: none;
-  }
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem 1rem;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .home-section--partners .partner-pill {

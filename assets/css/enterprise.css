@@ -301,17 +301,16 @@ body.light-mode .footer-copy {
 /* --- Partner strip --- */
 
 .partner-marquee {
-  mask-image: none;
-  -webkit-mask-image: none;
   overflow: visible;
 }
 
 .partner-marquee__track {
-  animation: none !important;
   flex-wrap: wrap;
   justify-content: center;
-  width: auto;
-  gap: 0.65rem;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  gap: 0.65rem 1rem;
 }
 
 .partner-pill {

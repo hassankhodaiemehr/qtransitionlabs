@@ -255,24 +255,13 @@ script: /assets/js/home.js
     <p class="partner-label reveal-target">Who we work with</p>
     <div class="partner-marquee reveal-target">
       <div class="partner-marquee__track">
-        <div class="partner-marquee__set">
-          <span class="partner-pill">Critical infrastructure</span>
-          <span class="partner-pill">Financial &amp; fintech</span>
-          <span class="partner-pill">Government &amp; digital ID</span>
-          <span class="partner-pill">Healthcare &amp; life sciences</span>
-          <span class="partner-pill">Cloud &amp; SaaS</span>
-          <span class="partner-pill">Blockchain &amp; Web3</span>
-          <span class="partner-pill">Research labs</span>
-        </div>
-        <div class="partner-marquee__set" aria-hidden="true">
-          <span class="partner-pill">Critical infrastructure</span>
-          <span class="partner-pill">Financial &amp; fintech</span>
-          <span class="partner-pill">Government &amp; digital ID</span>
-          <span class="partner-pill">Healthcare &amp; life sciences</span>
-          <span class="partner-pill">Cloud &amp; SaaS</span>
-          <span class="partner-pill">Blockchain &amp; Web3</span>
-          <span class="partner-pill">Research labs</span>
-        </div>
+        <span class="partner-pill">Critical infrastructure</span>
+        <span class="partner-pill">Financial &amp; fintech</span>
+        <span class="partner-pill">Government &amp; digital ID</span>
+        <span class="partner-pill">Healthcare &amp; life sciences</span>
+        <span class="partner-pill">Cloud &amp; SaaS</span>
+        <span class="partner-pill">Blockchain &amp; Web3</span>
+        <span class="partner-pill">Research labs</span>
       </div>
     </div>
   </section>
