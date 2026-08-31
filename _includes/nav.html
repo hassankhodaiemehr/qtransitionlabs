@@ -25,7 +25,51 @@
       <a href="{{ '/' | relative_url }}" class="nav-link{% if page.url == '/' or page.url == '/index.html' %} active{% endif %}">Home</a>
       <a href="{{ '/team/' | relative_url }}" class="nav-link{% if page.url contains '/team' %} active{% endif %}">Team</a>
       <a href="{{ '/services/' | relative_url }}" class="nav-link{% if page.url contains '/services' %} active{% endif %}">Services</a>
-      <a href="{{ '/pqc-readiness/' | relative_url }}" class="nav-link{% if page.url contains '/pqc-readiness' %} active{% endif %}">Readiness</a>
+      <div class="nav-dropdown{% if page.url contains '/pqc-readiness' or page.url contains '/qtl-wallet' or page.url contains '/demo' %} is-active{% endif %}" id="nav-solutions">
+        <button
+          type="button"
+          class="nav-link nav-dropdown__toggle{% if page.url contains '/pqc-readiness' or page.url contains '/qtl-wallet' or page.url contains '/demo' %} active{% endif %}"
+          id="nav-solutions-toggle"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="nav-solutions-menu"
+        >
+          Solutions
+          <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="nav-dropdown__menu" id="nav-solutions-menu" role="menu" aria-label="QTL solutions">
+          <li role="none">
+            <a
+              href="{{ '/pqc-readiness/' | relative_url }}"
+              class="nav-dropdown__link{% if page.url contains '/pqc-readiness' %} is-current{% endif %}"
+              role="menuitem"
+            >
+              <strong>PQC Readiness</strong>
+              <span>Self‑assessment &amp; migration FAQ</span>
+            </a>
+          </li>
+          <li role="none">
+            <a
+              href="{{ '/demo/' | relative_url }}"
+              class="nav-dropdown__link{% if page.url contains '/demo' %} is-current{% endif %}"
+              role="menuitem"
+            >
+              <strong>SILMARILS Demo</strong>
+              <span>Live ledger authentication demo</span>
+            </a>
+          </li>
+          <li role="none">
+            <a
+              href="{{ '/qtl-wallet/' | relative_url }}"
+              class="nav-dropdown__link{% if page.url contains '/qtl-wallet' %} is-current{% endif %}"
+              role="menuitem"
+            >
+              <strong>QTL Wallet</strong>
+              <span>Patented with UBC · SIM‑centric custody</span>
+            </a>
+          </li>
+        </ul>
+      </div>
       <a href="{{ '/research/' | relative_url }}" class="nav-link{% if page.url contains '/research' %} active{% endif %}">Research</a>
       <a href="{{ '/demo/' | relative_url }}" class="nav-link{% if page.url contains '/demo' %} active{% endif %}">Demo</a>
       <a href="{{ '/news/' | relative_url }}" class="nav-link{% if page.url contains '/news' %} active{% endif %}">News</a>

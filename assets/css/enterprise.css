@@ -58,6 +58,14 @@ body.light-mode .site-header {
   border-bottom-color: var(--accent);
 }
 
+.nav-dropdown__toggle {
+  border-bottom: 2px solid transparent;
+}
+
+.nav-dropdown__toggle.active {
+  border-bottom-color: var(--accent);
+}
+
 body.light-mode .nav-link:hover,
 body.light-mode .nav-link.active {
   background: transparent !important;

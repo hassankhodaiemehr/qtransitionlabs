@@ -36,6 +36,28 @@ permalink: /demo/
     Runs entirely in your browser — no external server required.
     <a href="{{ '/assets/demo/index.html?v=20260703' | relative_url }}" target="_blank" rel="noopener">Open demo directly</a> if the embed does not load.
   </p>
+
+  <section class="demo-related reveal-target" aria-labelledby="demo-related-heading">
+    <span class="demo-related__eyebrow">More from QTL</span>
+    <h2 id="demo-related-heading">Related solutions</h2>
+    <p class="demo-related__lead">
+      This page is the <strong>live SILMARILS demo</strong>. Explore our other dedicated platforms and architectures below.
+    </p>
+    <div class="demo-related__grid">
+      <a href="{{ '/pqc-readiness/' | relative_url }}" class="demo-related__card">
+        <span class="demo-related__tag">Platform</span>
+        <strong>PQC Readiness</strong>
+        <span class="demo-related__desc">Interactive self‑assessment, CBOM methodology, and migration FAQ to plan your PQC program.</span>
+        <span class="demo-related__cta">Start assessment →</span>
+      </a>
+      <a href="{{ '/qtl-wallet/' | relative_url }}" class="demo-related__card">
+        <span class="demo-related__tag">Architecture</span>
+        <strong>QTL Wallet</strong>
+        <span class="demo-related__desc">Patented with UBC. SIM‑centric key splitting for government ID, banking, healthcare, and regulated signing.</span>
+        <span class="demo-related__cta">Learn about QTL Wallet →</span>
+      </a>
+    </div>
+  </section>
 </section>
 
 <script>
