@@ -53,7 +53,7 @@ permalink: /demo/
       <a href="{{ '/qtl-wallet/' | relative_url }}" class="demo-related__card">
         <span class="demo-related__tag">Architecture</span>
         <strong>QTL Wallet</strong>
-        <span class="demo-related__desc">Patented with UBC. SIM‑centric key splitting for government ID, banking, healthcare, and regulated signing.</span>
+        <span class="demo-related__desc">SIM‑centric key splitting for government ID, banking, healthcare, and regulated signing.</span>
         <span class="demo-related__cta">Learn about QTL Wallet →</span>
       </a>
     </div>

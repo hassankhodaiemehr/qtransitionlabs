@@ -130,8 +130,13 @@ body.light-mode .brand-logo--on-light {
   font-weight: 500;
   font-size: 0.92rem;
   color: #C9D1D9 !important;
-  border-radius: 6px;
+  border-radius: 0;
   transition: color 0.2s ease, background 0.2s ease;
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link.active {
+  background: transparent;
 }
 
 .nav-link:hover {
@@ -147,6 +152,8 @@ body.light-mode .brand-logo--on-light {
 
 .nav-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .nav-dropdown__toggle {
@@ -156,7 +163,12 @@ body.light-mode .brand-logo--on-light {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .nav-dropdown__chevron {
@@ -230,8 +242,6 @@ body.light-mode .brand-logo--on-light {
     box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
   }
 
-  .nav-dropdown:hover .nav-dropdown__menu,
-  .nav-dropdown:focus-within .nav-dropdown__menu,
   .nav-dropdown.is-open .nav-dropdown__menu {
     display: block;
   }

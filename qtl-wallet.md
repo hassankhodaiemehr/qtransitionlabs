@@ -1,7 +1,7 @@
 ---
 layout: default
 title: QTL Wallet
-description: SIM-centric key-splitting wallet architecture patented with the University of British Columbia (UBC)—high-assurance, post-quantum-ready signing, not software-only custody.
+description: SIM-centric key-splitting wallet architecture for high-assurance, post-quantum-ready signing—not software-only custody.
 stylesheet: /assets/css/wallet.css
 permalink: /qtl-wallet/
 ---
@@ -11,7 +11,7 @@ permalink: /qtl-wallet/
 <div class="page-banner-group">
   {% include page-banner-bg.html %}
   <div class="page-header reveal-target">
-    <p class="wallet-eyebrow">Dedicated solution · Patented with UBC</p>
+    <p class="wallet-eyebrow">Dedicated solution</p>
     <h1>QTL Wallet</h1>
     <p class="page-subtitle">
       SIM‑centric key splitting for high‑assurance signing—cryptographic material anchored in the UICC/eSIM,
@@ -34,7 +34,7 @@ permalink: /qtl-wallet/
     long‑lived signing authority—across sectors that already depend on strong identity and long‑lived trust.
   </p>
   <p class="wallet-status">
-    <strong>Status:</strong> Patented architecture (with UBC) in pilot integration—available for scoped
+    <strong>Status:</strong> Pilot integration—available for scoped
     deployment and co‑engineering engagements. <a href="/contact/">Contact us</a> to discuss a pilot.
   </p>
   <p class="wallet-patent">

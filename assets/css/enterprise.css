@@ -38,7 +38,7 @@ body.light-mode .site-header {
 }
 
 .nav-link {
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   font-weight: 400;
   letter-spacing: 0.02em;
   border-bottom: 2px solid transparent;
@@ -62,8 +62,20 @@ body.light-mode .site-header {
   border-bottom: 2px solid transparent;
 }
 
-.nav-dropdown__toggle.active {
+.nav-dropdown__toggle:hover,
+.nav-dropdown.is-open .nav-dropdown__toggle {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  border-bottom-color: var(--border-default);
+}
+
+.nav-dropdown__toggle.active,
+.nav-dropdown.is-open .nav-dropdown__toggle {
   border-bottom-color: var(--accent);
+}
+
+.nav-dropdown.is-open .nav-dropdown__toggle {
+  font-weight: 600;
 }
 
 body.light-mode .nav-link:hover,
