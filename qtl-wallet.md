@@ -1,7 +1,7 @@
 ---
 layout: default
 title: QTL Wallet
-description: SIM-centric key-splitting wallet architecture for high-assurance, post-quantum-ready signing—not software-only custody on the host OS.
+description: Patent-protected SIM-centric key-splitting wallet architecture for high-assurance, post-quantum-ready signing—not software-only custody on the host OS.
 stylesheet: /assets/css/wallet.css
 permalink: /qtl-wallet/
 ---
@@ -11,7 +11,7 @@ permalink: /qtl-wallet/
 <div class="page-banner-group">
   {% include page-banner-bg.html %}
   <div class="page-header reveal-target">
-    <p class="wallet-eyebrow">Dedicated solution</p>
+    <p class="wallet-eyebrow">Dedicated solution · Patent protected</p>
     <h1>QTL Wallet</h1>
     <p class="page-subtitle">
       SIM‑centric key splitting for high‑assurance signing—cryptographic material anchored in the UICC/eSIM,
@@ -34,8 +34,12 @@ permalink: /qtl-wallet/
     long‑lived signing authority.
   </p>
   <p class="wallet-status">
-    <strong>Status:</strong> Architecture and pilot integrations—available for scoped deployment and
-    co‑engineering engagements. <a href="/contact/">Contact us</a> to discuss a pilot.
+    <strong>Status:</strong> Patent‑protected architecture in pilot integration—available for scoped
+    deployment and co‑engineering engagements. <a href="/contact/">Contact us</a> to discuss a pilot.
+  </p>
+  <p class="wallet-patent">
+    The QTL Wallet SIM‑centric key‑splitting approach is <strong>under patent protection</strong>.
+    Licensing and integration terms are available for qualified operators and integrators.
   </p>
 </section>
 

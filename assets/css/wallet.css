@@ -41,6 +41,21 @@ body.light-mode .wallet-status {
   background: rgba(15, 98, 254, 0.05);
 }
 
+.wallet-patent {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(120, 169, 255, 0.35);
+  border-radius: var(--radius-sm, 8px);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-body);
+  background: rgba(15, 98, 254, 0.04);
+}
+
+body.light-mode .wallet-patent {
+  background: rgba(15, 98, 254, 0.03);
+}
+
 .wallet-compare,
 .wallet-flow,
 .wallet-usecases,
