@@ -174,15 +174,16 @@ script: /assets/js/home.js
           </dd>
         </div>
         <div class="home-about-facts__row">
-          <dt>Research &amp; standards</dt>
+          <dt>Research &amp; contributions</dt>
           <dd>
-            Peer‑reviewed cryptography (IEEE, IACR); programs anchored to NIST FIPS&nbsp;203 (ML‑KEM),
-            FIPS&nbsp;204 (ML‑DSA), and FIPS&nbsp;205 (SLH‑DSA). <a href="/research/">Publications</a>.
+            Peer‑reviewed cryptography (IEEE, IACR); original work on SILMARILS designated‑verifier
+            authentication, SIM‑centric wallet architecture, and crypto‑agile migration patterns.
+            <a href="/research/">Publications</a>.
           </dd>
         </div>
         <div class="home-about-facts__row">
           <dt>Sectors</dt>
-          <dd>Critical infrastructure, financial services &amp; digital assets, government, cloud/SaaS, research labs</dd>
+          <dd>Critical infrastructure, financial services &amp; fintech, government &amp; digital ID, healthcare, cloud/SaaS, blockchain &amp; Web3, research labs</dd>
         </div>
         <div class="home-about-facts__row">
           <dt>Headquarters</dt>
@@ -225,7 +226,7 @@ script: /assets/js/home.js
       <div class="home-pillar reveal-target">
         <span class="home-pillar__icon" aria-hidden="true">🏢</span>
         <h3 class="home-pillar__title">Enterprise‑Ready</h3>
-        <p class="home-pillar__text">Phased migration programs aligned with NIST standards and federal guidance.</p>
+        <p class="home-pillar__text">Phased migration programs from discovery and roadmap through pilot and production rollout.</p>
       </div>
       <div class="home-pillar reveal-target">
         <span class="home-pillar__icon" aria-hidden="true">🔒</span>
@@ -241,7 +242,7 @@ script: /assets/js/home.js
       </div>
       <div class="home-metric">
         <span class="home-metric__value" data-count="3">3</span>
-        <span class="home-metric__label">NIST FIPS standards</span>
+        <span class="home-metric__label">Dedicated solutions built</span>
       </div>
       <div class="home-metric">
         <span class="home-metric__value" data-count="6">6</span>
@@ -252,20 +253,26 @@ script: /assets/js/home.js
 
   <section class="home-section home-section--partners" aria-label="Industries we serve">
     <p class="partner-label reveal-target">Who we work with</p>
-    <div class="partner-marquee reveal-target" aria-hidden="true">
+    <div class="partner-marquee reveal-target">
       <div class="partner-marquee__track">
-        <span class="partner-pill">Critical infrastructure</span>
-        <span class="partner-pill">Financial &amp; fintech</span>
-        <span class="partner-pill">Cloud &amp; SaaS</span>
-        <span class="partner-pill">Research labs</span>
-        <span class="partner-pill">Government agencies</span>
-        <span class="partner-pill">Blockchain &amp; Web3</span>
-        <span class="partner-pill">Critical infrastructure</span>
-        <span class="partner-pill">Financial &amp; fintech</span>
-        <span class="partner-pill">Cloud &amp; SaaS</span>
-        <span class="partner-pill">Research labs</span>
-        <span class="partner-pill">Government agencies</span>
-        <span class="partner-pill">Blockchain &amp; Web3</span>
+        <div class="partner-marquee__set">
+          <span class="partner-pill">Critical infrastructure</span>
+          <span class="partner-pill">Financial &amp; fintech</span>
+          <span class="partner-pill">Government &amp; digital ID</span>
+          <span class="partner-pill">Healthcare &amp; life sciences</span>
+          <span class="partner-pill">Cloud &amp; SaaS</span>
+          <span class="partner-pill">Blockchain &amp; Web3</span>
+          <span class="partner-pill">Research labs</span>
+        </div>
+        <div class="partner-marquee__set" aria-hidden="true">
+          <span class="partner-pill">Critical infrastructure</span>
+          <span class="partner-pill">Financial &amp; fintech</span>
+          <span class="partner-pill">Government &amp; digital ID</span>
+          <span class="partner-pill">Healthcare &amp; life sciences</span>
+          <span class="partner-pill">Cloud &amp; SaaS</span>
+          <span class="partner-pill">Blockchain &amp; Web3</span>
+          <span class="partner-pill">Research labs</span>
+        </div>
       </div>
     </div>
   </section>

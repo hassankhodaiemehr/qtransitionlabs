@@ -1239,6 +1239,12 @@ body.light-mode .home-metric__value {
   animation: partnerScroll 28s linear infinite;
 }
 
+.partner-marquee__set {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
 .partner-marquee.is-paused .partner-marquee__track {
   animation-play-state: paused;
 }
@@ -1254,6 +1260,10 @@ body.light-mode .home-metric__value {
     flex-wrap: wrap;
     justify-content: center;
     width: auto;
+  }
+
+  .partner-marquee__set[aria-hidden="true"] {
+    display: none;
   }
 
   .partner-marquee {
