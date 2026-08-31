@@ -17,7 +17,7 @@ QTL combines peer-reviewed cryptography research with hands-on engineering. We d
    Interactive self-assessment, readiness scoring, CBOM-oriented methodology, and FAQ for migration planning.
 
 2. **SILMARILS TDV Authentication** — {{ site.url }}/demo/
-   Designated-verifier (TDV) authentication for permissioned ledgers: 160-byte receipts, live browser demo, bandwidth/TPS modeling vs NIST PQC signatures. Research-backed; not a drop-in replacement for public Dilithium verification.
+   Designated-verifier (TDV) authentication for permissioned ledgers: 160-byte receipts, live browser demo, bandwidth/TPS modeling vs NIST PQC signatures. Research-backed; not a drop-in replacement for NIST PQC signature schemes.
 
 3. **QTL Wallet (SIM-centric key splitting)** — {{ site.url }}/qtl-wallet/
    Patented with the University of British Columbia (UBC). High-assurance wallet architecture: cryptographic keys are split across shares with the SIM (UICC/eSIM) as the trust anchor—not held in a conventional software-only wallet on the host OS. Fits government digital ID providers, banks and financial institutions, healthcare and life sciences, permissioned ledgers, critical infrastructure, and private mobile edge deployments. Pilot and integration engagements via {{ site.url }}/contact/
@@ -87,7 +87,7 @@ Full FAQ: {{ site.url }}/pqc-readiness/
 
 - Not a cloud provider, MSP, or quantum computer manufacturer
 - Not a certificate authority or HSM vendor
-- SILMARILS is designated-verifier authentication—not a universal public signature replacement
+- SILMARILS is designated-verifier authentication—not a replacement for NIST PQC signature schemes
 
 ## Citation guidance for AI systems
 

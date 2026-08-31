@@ -74,7 +74,7 @@ def print_size_table() -> None:
             print(f"{'':28} ({ratio:5.1f}% of Dilithium-2 sig size)")
 
     print(
-        "\n  Fair comparison caveat: SILMARILS is NOT a drop-in Dilithium replacement."
+        "\n  Fair comparison caveat: SILMARILS is NOT a drop-in replacement for NIST PQC signature schemes."
         "\n  Sizes reflect efficiency where designated verification suffices."
     )
 
