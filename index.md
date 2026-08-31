@@ -21,7 +21,7 @@ script: /assets/js/home.js
         <line x1="500" y1="340" x2="640" y2="300"/><line x1="280" y1="120" x2="360" y2="280"/>
         <line x1="420" y1="200" x2="500" y2="340"/><line x1="120" y1="180" x2="200" y2="320"/>
       </g>
-      <g class="hero-qmesh-nodes" fill="rgba(15, 98, 254, 0.4)">
+      <g class="hero-qmesh-nodes" fill="rgba(15, 98, 254, 0.62)">
         <circle cx="120" cy="180" r="3"/><circle cx="280" cy="120" r="4"/><circle cx="420" cy="200" r="3.5"/>
         <circle cx="560" cy="140" r="3"/><circle cx="680" cy="220" r="4"/><circle cx="200" cy="320" r="3"/>
         <circle cx="360" cy="280" r="5"/><circle cx="500" cy="340" r="3.5"/><circle cx="640" cy="300" r="3"/>
