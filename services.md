@@ -136,6 +136,7 @@ permalink: /services/
     <span class="service-item__tag">Build</span>
     <span class="service-item__duration">4–8 weeks</span>
   </div>
+  <p class="service-item__link-wrap"><a href="/qtl-wallet/">Learn about QTL Wallet →</a></p>
 </article>
 
 <article class="service-item reveal-target" data-category="discover">

@@ -105,7 +105,7 @@ function initScrollReveal() {
     return;
   }
 
-  const staggerContainers = '.card-grid, .capabilities-grid, .home-pillars, .home-why-grid, .home-news-grid, .home-signals, .services-grid, .services-stats, .services-timeline, .services-engagement__grid, .research-grid, .timeline, .metrics-panel, .contact-grid, .contact-bullets, .readiness-faq__list';
+  const staggerContainers = '.card-grid, .capabilities-grid, .home-pillars, .home-solutions__grid, .home-why-grid, .home-news-grid, .home-signals, .services-grid, .services-stats, .services-timeline, .services-engagement__grid, .research-grid, .timeline, .metrics-panel, .contact-grid, .contact-bullets, .readiness-faq__list';
   document.querySelectorAll(staggerContainers).forEach(function (container) {
     container.querySelectorAll('.reveal-target').forEach(function (el, index) {
       el.style.transitionDelay = Math.min(index * 0.1, 0.5) + 's';

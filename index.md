@@ -157,7 +157,7 @@ script: /assets/js/home.js
             <ul class="home-about-facts__solutions">
               <li><a href="/pqc-readiness/">PQC Readiness</a> — interactive self‑assessment, CBOM methodology, and migration FAQ</li>
               <li><a href="/demo/">SILMARILS TDV</a> — 160‑byte designated‑verifier authentication for permissioned ledgers</li>
-              <li><strong>QTL Wallet</strong> — SIM‑centric key‑splitting wallet; UICC/eSIM trust anchor for PQC‑ready signing (not software‑only custody)</li>
+              <li><a href="/qtl-wallet/">QTL Wallet</a> — SIM‑anchored key splitting; UICC/eSIM trust anchor for PQC‑ready signing (not software‑only custody)</li>
               <li><a href="/services/">PQC migration programs</a> — discovery, roadmap, pilot, and production rollout</li>
               <li>Quantum‑safe protocol engineering — hybrid TLS, PKI/HSM integration, crypto‑agile reference designs</li>
               <li>Blockchain &amp; custody hardening — wallet architecture, on‑chain signature evaluation, Web3 stacks</li>
@@ -193,6 +193,27 @@ script: /assets/js/home.js
           <dd><a href="mailto:contact@qtransitionlabs.com">contact@qtransitionlabs.com</a> · <a href="/contact/">Schedule a consultation</a></dd>
         </div>
       </dl>
+    </section>
+
+    <section class="home-solutions reveal-target" aria-labelledby="home-solutions-heading">
+      <h2 id="home-solutions-heading" class="home-solutions__title">Dedicated solutions</h2>
+      <div class="home-solutions__grid">
+        <a href="/pqc-readiness/" class="home-solutions__card">
+          <span class="home-solutions__label">Platform</span>
+          <strong>PQC Readiness</strong>
+          <span class="home-solutions__desc">Self‑assessment, CBOM methodology, and migration FAQ</span>
+        </a>
+        <a href="/demo/" class="home-solutions__card">
+          <span class="home-solutions__label">Live demo</span>
+          <strong>SILMARILS TDV</strong>
+          <span class="home-solutions__desc">160‑byte designated‑verifier auth for permissioned ledgers</span>
+        </a>
+        <a href="/qtl-wallet/" class="home-solutions__card">
+          <span class="home-solutions__label">Architecture</span>
+          <strong>QTL Wallet</strong>
+          <span class="home-solutions__desc">SIM‑centric key splitting—not software‑only custody</span>
+        </a>
+      </div>
     </section>
 
     <div class="home-pillars">
