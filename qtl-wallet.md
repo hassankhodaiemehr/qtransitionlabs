@@ -31,7 +31,7 @@ permalink: /qtl-wallet/
   <p>
     The architecture targets <strong>post‑quantum‑ready signing paths</strong>, permissioned network
     participation, and custody workflows where compromise of the host app must not imply compromise of
-    long‑lived signing authority.
+    long‑lived signing authority—across sectors that already depend on strong identity and long‑lived trust.
   </p>
   <p class="wallet-status">
     <strong>Status:</strong> Patented architecture (with UBC) in pilot integration—available for scoped
@@ -97,22 +97,34 @@ permalink: /qtl-wallet/
 <section class="wallet-usecases reveal-target" aria-labelledby="wallet-usecases-heading">
   <span class="section-eyebrow">Use cases</span>
   <h2 id="wallet-usecases-heading">Where QTL Wallet fits</h2>
+  <p class="wallet-usecases__lead">
+    QTL Wallet is designed for regulated, high‑assurance identity and signing—where keys must survive
+    host compromise and migrate toward post‑quantum algorithms without rebuilding trust from scratch.
+  </p>
   <div class="wallet-usecases__grid">
     <article class="wallet-usecase">
-      <h3>Permissioned ledgers</h3>
-      <p>Validator and operator keys for networks that require designated verification and controlled audit—not public mempool semantics.</p>
+      <h3>Government ID &amp; digital identity</h3>
+      <p>National and provincial ID programs, e‑ID credentials, and mobile document providers that need SIM‑anchored signing—not keys stored only in consumer apps.</p>
     </article>
     <article class="wallet-usecase">
-      <h3>Digital asset custody</h3>
-      <p>Institutional and mobile‑first custody where host compromise must not expose signing roots.</p>
+      <h3>Banks &amp; financial institutions</h3>
+      <p>Strong customer authentication, transaction signing, and institutional custody workflows where SIM‑backed keys support audit, policy, and PQC migration paths.</p>
     </article>
     <article class="wallet-usecase">
-      <h3>Supply chain &amp; provenance</h3>
-      <p>High‑assurance attestations on edge devices participating in provenance or supplier identity networks.</p>
+      <h3>Healthcare &amp; life sciences</h3>
+      <p>Clinician credentials, patient‑consent attestations, and long‑lived health records where identity and signing must remain trustworthy for decades.</p>
+    </article>
+    <article class="wallet-usecase">
+      <h3>Permissioned ledgers &amp; digital assets</h3>
+      <p>Validator and operator keys, institutional custody, and designated‑verification networks—not public mempool semantics.</p>
+    </article>
+    <article class="wallet-usecase">
+      <h3>Critical infrastructure &amp; supply chain</h3>
+      <p>Operator identity, provenance attestations, and supplier credentials on edge devices in utilities, telecom, and industrial networks.</p>
     </article>
     <article class="wallet-usecase">
       <h3>Private mobile &amp; edge</h3>
-      <p>Deployments on private 5G and controlled mobile infrastructure where SIM‑backed identity is already in the trust model.</p>
+      <p>Private 5G, enterprise mobility, and controlled field deployments where UICC/eSIM is already part of the trust model.</p>
     </article>
   </div>
 </section>
@@ -140,8 +152,9 @@ permalink: /qtl-wallet/
   <h2 id="wallet-pilot-heading">Pilot &amp; integration</h2>
   <p>
     QTL Wallet is offered as an <strong>architecture and integration engagement</strong>—not a consumer
-    app download. We work with operators, integrators, and security teams to scope SIM provisioning
-    flows, signing policy, PQC algorithm selection, and ledger or API integration.
+    app download. We work with government ID providers, banks and financial institutions, healthcare
+    organizations, operators, and integrators to scope SIM provisioning flows, signing policy, PQC
+    algorithm selection, and API or ledger integration.
   </p>
   <ul class="wallet-pilot__list">
     <li>Architecture review and threat modeling for your trust boundaries</li>

@@ -21,7 +21,7 @@ sitemap: false
 
 1. PQC Readiness Platform — interactive assessment, CBOM methodology, migration FAQ
 2. SILMARILS TDV — 160-byte designated-verifier auth for permissioned ledgers (live demo + TPS models)
-3. QTL Wallet — patented with UBC; SIM-centric key-splitting, UICC/eSIM trust anchor ({{ site.url }}/qtl-wallet/)
+3. QTL Wallet — patented with UBC; government ID, banking, healthcare, and regulated signing ({{ site.url }}/qtl-wallet/)
 4. PQC migration programs — discovery through production rollout (hybrid TLS, PKI/HSM, vendor coordination)
 5. Quantum-safe architecture — protocol redesign, crypto-agility, cloud KMS modernization
 6. Blockchain & custody hardening — on-chain signatures, Web3/crypto dependency audits

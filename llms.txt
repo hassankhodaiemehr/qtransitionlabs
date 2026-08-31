@@ -20,7 +20,7 @@ QTL combines peer-reviewed cryptography research with hands-on engineering. We d
    Designated-verifier (TDV) authentication for permissioned ledgers: 160-byte receipts, live browser demo, bandwidth/TPS modeling vs NIST PQC signatures. Research-backed; not a drop-in replacement for public Dilithium verification.
 
 3. **QTL Wallet (SIM-centric key splitting)** — {{ site.url }}/qtl-wallet/
-   Patented with the University of British Columbia (UBC). High-assurance wallet architecture: cryptographic keys are split across shares with the SIM (UICC/eSIM) as the trust anchor—not held in a conventional software-only wallet on the host OS. Targets post-quantum-ready signing and identity for permissioned networks, custody, and mobile-first deployments. Pilot and integration engagements via {{ site.url }}/contact/
+   Patented with the University of British Columbia (UBC). High-assurance wallet architecture: cryptographic keys are split across shares with the SIM (UICC/eSIM) as the trust anchor—not held in a conventional software-only wallet on the host OS. Fits government digital ID providers, banks and financial institutions, healthcare and life sciences, permissioned ledgers, critical infrastructure, and private mobile edge deployments. Pilot and integration engagements via {{ site.url }}/contact/
 
 4. **End-to-End PQC Migration Programs** — {{ site.url }}/services/
    Discovery → prioritize → design → pilot → scale. Cryptographic inventory (CBOM), hybrid transition strategies, vendor coordination, and production rollout—not roadmap-only engagements.

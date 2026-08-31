@@ -157,7 +157,7 @@ script: /assets/js/home.js
             <ul class="home-about-facts__solutions">
               <li><a href="/pqc-readiness/">PQC Readiness</a> — interactive self‑assessment, CBOM methodology, and migration FAQ</li>
               <li><a href="/demo/">SILMARILS TDV</a> — 160‑byte designated‑verifier authentication for permissioned ledgers</li>
-              <li><a href="/qtl-wallet/">QTL Wallet</a> — patented with UBC; SIM‑anchored key splitting with UICC/eSIM trust anchor (not software‑only custody)</li>
+              <li><a href="/qtl-wallet/">QTL Wallet</a> — patented with UBC; SIM‑anchored signing for government ID, banking, healthcare, and regulated sectors</li>
               <li><a href="/services/">PQC migration programs</a> — discovery, roadmap, pilot, and production rollout</li>
               <li>Quantum‑safe protocol engineering — hybrid TLS, PKI/HSM integration, crypto‑agile reference designs</li>
               <li>Blockchain &amp; custody hardening — wallet architecture, on‑chain signature evaluation, Web3 stacks</li>
@@ -211,7 +211,7 @@ script: /assets/js/home.js
         <a href="/qtl-wallet/" class="home-solutions__card">
           <span class="home-solutions__label">Architecture</span>
           <strong>QTL Wallet</strong>
-          <span class="home-solutions__desc">Patented with UBC · SIM‑centric key splitting—not software‑only custody</span>
+          <span class="home-solutions__desc">Government ID, banking, healthcare—SIM‑anchored, patented with UBC</span>
         </a>
       </div>
     </section>
