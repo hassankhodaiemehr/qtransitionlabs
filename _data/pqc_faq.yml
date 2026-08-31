@@ -47,6 +47,9 @@
 
 - question: How can Quantum Transition Labs help?
   answer: >-
-    We provide PQC readiness assessments, NIST‑aligned migration roadmaps, quantum‑safe
-    architecture design, and executive advisory for critical infrastructure, government, and
-    enterprise programs. Engagements typically begin with a discovery call and scoped assessment.
+    QTL is a research-led post-quantum security engineering firm—not advisory-only. We deliver
+    dedicated solutions including the PQC Readiness self-assessment and FAQ, SILMARILS designated-verifier
+    authentication for permissioned ledgers, end-to-end migration programs (discovery through production),
+    quantum-safe protocol and PKI/HSM engineering, blockchain and custody hardening, and AI-assisted
+    cryptographic analysis. Engagements range from sprint assessments to embedded program partnerships.
+    Start at /pqc-readiness/ or contact contact@qtransitionlabs.com.

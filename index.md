@@ -138,30 +138,58 @@ script: /assets/js/home.js
 
     <section class="home-about-facts reveal-target" aria-labelledby="about-qtl-heading">
       <h2 id="about-qtl-heading" class="home-about-facts__title">At a glance</h2>
+      <p class="home-about-facts__lead">
+        Research‑led security engineering for the quantum era—we build and deploy quantum‑resilient
+        systems, not just advisory decks.
+      </p>
       <dl class="home-about-facts__list">
         <div class="home-about-facts__row">
-          <dt>Company</dt>
-          <dd>Quantum Transition Labs (QTL)</dd>
+          <dt>Who we are</dt>
+          <dd>
+            <strong>Quantum Transition Labs (QTL)</strong> — post‑quantum cryptography, secure
+            architecture, and cryptographic modernization for critical infrastructure, government,
+            financial services, and high‑value digital platforms.
+          </dd>
+        </div>
+        <div class="home-about-facts__row home-about-facts__row--solutions">
+          <dt>Dedicated solutions</dt>
+          <dd>
+            <ul class="home-about-facts__solutions">
+              <li><a href="/pqc-readiness/">PQC Readiness</a> — interactive self‑assessment, CBOM methodology, and migration FAQ</li>
+              <li><a href="/demo/">SILMARILS TDV</a> — 160‑byte designated‑verifier authentication for permissioned ledgers</li>
+              <li><a href="/services/">PQC migration programs</a> — discovery, roadmap, pilot, and production rollout</li>
+              <li>Quantum‑safe protocol engineering — hybrid TLS, PKI/HSM integration, crypto‑agile reference designs</li>
+              <li>Blockchain &amp; custody hardening — wallet architecture, on‑chain signature evaluation, Web3 stacks</li>
+              <li>AI‑assisted crypto analysis — automated misconfiguration detection and protocol risk scoring</li>
+            </ul>
+          </dd>
         </div>
         <div class="home-about-facts__row">
-          <dt>Focus</dt>
-          <dd>Post‑quantum cryptography, secure architecture, cryptographic modernization</dd>
+          <dt>How we deliver</dt>
+          <dd>
+            Hands‑on architecture and implementation support—sprint assessments, embedded program
+            partnerships, and targeted engineering for PKI, blockchain, cloud KMS, and protocol stacks.
+            <a href="/services/">See engagement models</a>.
+          </dd>
         </div>
         <div class="home-about-facts__row">
-          <dt>Clients</dt>
-          <dd>Critical infrastructure, government, financial services, cloud &amp; enterprise platforms</dd>
+          <dt>Research &amp; standards</dt>
+          <dd>
+            Peer‑reviewed cryptography (IEEE, IACR); programs anchored to NIST FIPS&nbsp;203 (ML‑KEM),
+            FIPS&nbsp;204 (ML‑DSA), and FIPS&nbsp;205 (SLH‑DSA). <a href="/research/">Publications</a>.
+          </dd>
         </div>
         <div class="home-about-facts__row">
-          <dt>Standards</dt>
-          <dd>NIST FIPS 203 (ML‑KEM), FIPS 204 (ML‑DSA), FIPS 205 (SLH‑DSA)</dd>
+          <dt>Sectors</dt>
+          <dd>Critical infrastructure, financial services &amp; digital assets, government, cloud/SaaS, research labs</dd>
         </div>
         <div class="home-about-facts__row">
-          <dt>Location</dt>
-          <dd>Vancouver, BC, Canada — global remote &amp; on‑site engagements</dd>
+          <dt>Headquarters</dt>
+          <dd>Vancouver, BC, Canada — global remote and on‑site delivery</dd>
         </div>
         <div class="home-about-facts__row">
           <dt>Contact</dt>
-          <dd><a href="mailto:contact@qtransitionlabs.com">contact@qtransitionlabs.com</a></dd>
+          <dd><a href="mailto:contact@qtransitionlabs.com">contact@qtransitionlabs.com</a> · <a href="/contact/">Schedule a consultation</a></dd>
         </div>
       </dl>
     </section>

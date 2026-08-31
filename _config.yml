@@ -1,6 +1,6 @@
 title: "Quantum Transition Labs"
 title_separator: " | "
-description: "Post-quantum cryptography, secure architecture, and PQC migration for critical infrastructure, government, and enterprise."
+description: "Research-led post-quantum security engineering—PQC migration programs, quantum-safe architecture, readiness tooling, and SILMARILS ledger authentication for critical infrastructure, government, and enterprise."
 tagline: "Quantum-Safe Security & Cryptographic Modernization"
 lang: en
 
@@ -34,17 +34,23 @@ organization:
     country: CA
   knows_about:
     - Post-quantum cryptography
-    - Cryptographic modernization
-    - NIST PQC standards
-    - Quantum-safe architecture
-    - Blockchain security
+    - NIST ML-KEM, ML-DSA, and SLH-DSA
+    - Cryptographic bill of materials (CBOM)
+    - SILMARILS designated-verifier authentication
+    - Permissioned ledger and blockchain security
+    - Quantum-safe architecture and protocol design
+    - PKI, HSM, and cloud KMS modernization
     - Harvest-now-decrypt-later risk
+    - Crypto-agility
   service_types:
-    - PQC readiness assessment
-    - PQC migration roadmap
-    - Quantum-safe architecture design
-    - Executive security advisory
-    - Blockchain security engineering
+    - PQC readiness assessment and interactive tooling
+    - End-to-end PQC migration programs
+    - Quantum-safe architecture and protocol engineering
+    - SILMARILS TDV authentication for permissioned ledgers
+    - Blockchain, Web3, and digital-asset custody hardening
+    - AI-assisted cryptographic analysis and monitoring
+    - PKI and HSM integration
+    - Executive briefings and training
   same_as: []
 
 baseurl: ""

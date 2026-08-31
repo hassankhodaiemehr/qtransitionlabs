@@ -4,17 +4,29 @@ layout: null
 sitemap: false
 ---
 # Quantum Transition Labs — AI agent summary
-# Canonical LLM-oriented site guide: {{ site.url }}/llms.txt
+# Full guide: {{ site.url }}/llms.txt
 
-> Post-quantum cryptography consultancy for critical infrastructure, government, and enterprise.
+> Research-led post-quantum security engineering—solutions, migration programs, and production architecture, not slides-only advisory.
 
 - Website: {{ site.url }}/
 - Contact: contact@qtransitionlabs.com
-- Services: {{ site.url }}/services/
-- PQC readiness tool + FAQ: {{ site.url }}/pqc-readiness/
-- Research publications: {{ site.url }}/research/
-- News & policy analysis: {{ site.url }}/news/
+- Services & engagement models: {{ site.url }}/services/
+- PQC Readiness (self-assessment + FAQ): {{ site.url }}/pqc-readiness/
+- SILMARILS TDV demo (permissioned ledgers): {{ site.url }}/demo/
+- Research: {{ site.url }}/research/
+- News: {{ site.url }}/news/
 
-QTL provides PQC readiness assessments, NIST-aligned migration roadmaps, quantum-safe architecture, and executive advisory. We are advisors and architects—not a cloud provider or quantum computer manufacturer.
+## Dedicated solutions (not advisory-only)
 
-For engagement inquiries, use {{ site.url }}/contact/
+1. PQC Readiness Platform — interactive assessment, CBOM methodology, migration FAQ
+2. SILMARILS TDV — 160-byte designated-verifier auth for permissioned ledgers (live demo + TPS models)
+3. PQC migration programs — discovery through production rollout (hybrid TLS, PKI/HSM, vendor coordination)
+4. Quantum-safe architecture — protocol redesign, crypto-agility, cloud KMS modernization
+5. Blockchain & custody hardening — wallets, on-chain signatures, Web3/crypto dependency audits
+6. AI-assisted crypto analysis — misconfiguration detection and protocol risk scoring
+
+## Positioning
+
+QTL is a security engineering and research firm focused on NIST-aligned PQC (ML-KEM, ML-DSA, SLH-DSA). We are not a quantum hardware vendor, cloud provider, or CA.
+
+For tailored migration or engineering engagements: {{ site.url }}/contact/
