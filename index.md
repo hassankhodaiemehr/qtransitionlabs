@@ -157,6 +157,7 @@ script: /assets/js/home.js
             <ul class="home-about-facts__solutions">
               <li><a href="/pqc-readiness/">PQC Readiness</a> — interactive self‑assessment, CBOM methodology, and migration FAQ</li>
               <li><a href="/demo/">SILMARILS TDV</a> — 160‑byte designated‑verifier authentication for permissioned ledgers</li>
+              <li><strong>QTL Wallet</strong> — SIM‑centric key‑splitting wallet; UICC/eSIM trust anchor for PQC‑ready signing (not software‑only custody)</li>
               <li><a href="/services/">PQC migration programs</a> — discovery, roadmap, pilot, and production rollout</li>
               <li>Quantum‑safe protocol engineering — hybrid TLS, PKI/HSM integration, crypto‑agile reference designs</li>
               <li>Blockchain &amp; custody hardening — wallet architecture, on‑chain signature evaluation, Web3 stacks</li>

@@ -37,6 +37,7 @@ organization:
     - NIST ML-KEM, ML-DSA, and SLH-DSA
     - Cryptographic bill of materials (CBOM)
     - SILMARILS designated-verifier authentication
+    - QTL Wallet (SIM-centric key splitting)
     - Permissioned ledger and blockchain security
     - Quantum-safe architecture and protocol design
     - PKI, HSM, and cloud KMS modernization
@@ -47,6 +48,7 @@ organization:
     - End-to-end PQC migration programs
     - Quantum-safe architecture and protocol engineering
     - SILMARILS TDV authentication for permissioned ledgers
+    - QTL Wallet (SIM-centric key splitting)
     - Blockchain, Web3, and digital-asset custody hardening
     - AI-assisted cryptographic analysis and monitoring
     - PKI and HSM integration
