@@ -1420,7 +1420,8 @@ body.light-mode .home-why-card__text {
 
 .home-signals__panel-inner {
   display: grid;
-  padding: 1rem 1.15rem;
+  padding: 1.15rem 1.25rem;
+  min-height: 11rem;
 }
 
 .home-signal-detail {
@@ -1445,10 +1446,26 @@ body.light-mode .home-why-card__text {
 }
 
 .home-signal-detail__text {
-  margin: 0;
+  margin: 0 0 0.65rem;
   font-size: 0.88rem;
   line-height: 1.55;
   color: #C9D1D9;
+}
+
+.home-signal-detail__list {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #C9D1D9;
+}
+
+.home-signal-detail__list li {
+  margin-bottom: 0.45rem;
+}
+
+.home-signal-detail__list li:last-child {
+  margin-bottom: 0;
 }
 
 body.light-mode .home-signal {
@@ -1480,6 +1497,10 @@ body.light-mode .home-signal-detail__title {
 }
 
 body.light-mode .home-signal-detail__text {
+  color: #4B5563;
+}
+
+body.light-mode .home-signal-detail__list {
   color: #4B5563;
 }
 

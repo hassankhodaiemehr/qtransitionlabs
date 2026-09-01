@@ -48,6 +48,7 @@ Full service catalog: {{ site.url }}/services/
 - QTL Wallet: {{ site.url }}/qtl-wallet/
 - Services: {{ site.url }}/services/
 - PQC Readiness: {{ site.url }}/pqc-readiness/
+- PQC Education (quantum threat & roadmap): {{ site.url }}/education/
 - SILMARILS demo: {{ site.url }}/demo/
 - Research: {{ site.url }}/research/
 - News: {{ site.url }}/news/

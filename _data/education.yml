@@ -1,0 +1,163 @@
+meta:
+  updated: "September 2026"
+  sources:
+    - name: NIST Post-Quantum Cryptography project
+      url: https://csrc.nist.gov/projects/post-quantum-cryptography
+    - name: FIPS 203 ML-KEM · FIPS 204 ML-DSA · FIPS 205 SLH-DSA (Aug 2024)
+      url: https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization
+    - name: NIST IR 8547 — Transition to Post-Quantum Cryptography Standards
+      url: https://csrc.nist.gov/pubs/ir/8547/final
+    - name: OMB M-26-15 (June 24, 2026)
+      url: https://www.whitehouse.gov/wp-content/uploads/2026/06/M-26-15-Execution-of-the-Migration-to-Post-Quantum-Cryptography.pdf
+
+modules:
+  - id: threat
+    label: Quantum threat
+    eyebrow: Module 1
+    title: Why cryptography breaks
+    lead: Large-scale quantum computers — when they arrive — threaten the public-key math that secures TLS, PKI, code signing, and most digital trust today.
+  - id: standards
+    label: NIST standards
+    eyebrow: Module 2
+    title: The new algorithm foundation
+    lead: After an eight-year global evaluation, NIST finalized three primary post-quantum standards in August 2024. They are ready for production planning now.
+  - id: roadmap
+    label: Migration roadmap
+    eyebrow: Module 3
+    title: From standards to execution
+    lead: Governments worldwide are publishing coordinated timelines. U.S. federal guidance (OMB M-26-15, June 2026) is the most detailed phased schedule published to date.
+
+threat_steps:
+  - id: capture
+    title: Adversaries capture ciphertext today
+    detail: TLS sessions, VPN tunnels, encrypted email, and archived backups can be stored at scale — even when breaking RSA or ECC is impossible with classical hardware.
+    stat: "HNDL"
+    stat_label: Harvest now
+  - id: wait
+    title: Quantum capability matures
+    detail: Shor's algorithm (1994) shows that sufficiently large fault-tolerant quantum computers could break RSA, Diffie-Hellman, and elliptic-curve key exchange and signatures in polynomial time.
+    stat: "RSA · ECC"
+    stat_label: At risk
+  - id: decrypt
+    title: Long-lived secrets are exposed
+    detail: Health records, financial data, classified traffic, and PKI roots with 10–20+ year confidentiality requirements face retroactive decryption — not just future sessions.
+    stat: "10–20+ yr"
+    stat_label: Data lifetime
+
+crypto_impact:
+  - name: RSA & ECC (TLS, PKI, signing)
+    level: critical
+    level_label: Critical
+    detail: Broken by Shor's algorithm on a cryptographically relevant quantum computer. Requires migration to ML-KEM, ML-DSA, or SLH-DSA (often via hybrid transition).
+  - name: AES-256 symmetric encryption
+    level: moderate
+    level_label: Moderate
+    detail: Grover's algorithm halves effective key strength. AES-256 remains the practical target for 128-bit quantum security; AES-128 needs reassessment for long-lived data.
+  - name: SHA-2 / SHA-3 hashing
+    level: low
+    level_label: Low
+    detail: Hash functions are less impacted than public-key schemes. Still monitor parameter sizes and protocol binding as part of a full crypto inventory.
+
+algorithms:
+  - id: ml-kem
+    fips: "FIPS 203"
+    name: ML-KEM
+    role: Key encapsulation (KEM)
+    use: TLS key exchange, VPNs, messaging encryption wrappers
+    basis: Module-lattice (CRYSTALS-Kyber)
+    pros: Efficient; moderate key sizes; primary near-term KEM choice
+    cons: Larger payloads than classical ECC; protocol and HSM support still maturing
+  - id: ml-dsa
+    fips: "FIPS 204"
+    name: ML-DSA
+    role: Digital signatures
+    use: Code signing, document signing, certificate authorities, blockchain auth
+    basis: Module-lattice (CRYSTALS-Dilithium)
+    pros: Balanced performance; primary general-purpose PQC signature standard
+    cons: Signatures ~1–2 KB — bandwidth-sensitive systems need planning
+  - id: slh-dsa
+    fips: "FIPS 205"
+    name: SLH-DSA
+    role: Hash-based signatures
+    use: Long-term archival signing, fallback where lattice assumptions are unacceptable
+    basis: Stateless hash-based (SPHINCS+ family)
+    pros: Security relies on hash assumptions — independent of lattice risk
+    cons: Larger signatures; slower signing than ML-DSA
+
+timeline:
+  - year: 1994
+    title: Shor's algorithm published
+    detail: Peter Shor proves quantum computers could factor integers and compute discrete logs — threatening RSA and ECC foundations.
+    phase: research
+  - year: 2016
+    title: NIST PQC competition begins
+    detail: NIST launches a global call for post-quantum algorithms; 82 initial submissions from 25 countries.
+    phase: research
+  - year: 2022
+    title: First algorithms selected
+    detail: NIST announces ML-KEM (Kyber), ML-DSA (Dilithium), and SLH-DSA (SPHINCS+) as primary choices; Falcon and HQC continue toward standardization.
+    phase: standards
+  - year: 2024
+    title: FIPS 203 · 204 · 205 finalized
+    detail: NIST publishes ML-KEM, ML-DSA, and SLH-DSA as official Federal Information Processing Standards — ready for deployment planning.
+    phase: standards
+  - year: 2024
+    title: NIST IR 8547 transition guidance
+    detail: NIST publishes transition roadmap; legacy public-key algorithms targeted for deprecation after 2030 and disallowed after 2035.
+    phase: standards
+  - year: 2026
+    title: EO 14412 & OMB M-26-15
+    detail: White House executive order (June 22) and OMB execution memo (June 24) mandate federal PQC migration with the first published five-phase schedule through 2035.
+    phase: policy
+  - year: 2026
+    title: Agency migration plans due
+    detail: U.S. federal agencies must submit PQC Migration Plans to OMB and ONCD by October 22, 2026 — including CBOM methodology and crypto-agility architecture.
+    phase: policy
+  - year: 2030
+    title: PQC key establishment target
+    detail: EO 14412 / M-26-15 target post-quantum key establishment for high-value assets and high-impact systems by December 31, 2030.
+    phase: migration
+  - year: 2031
+    title: PQC signatures target
+    detail: Federal guidance targets post-quantum digital signatures for priority systems by end of 2031.
+    phase: migration
+  - year: 2035
+    title: Full migration horizon
+    detail: NIST IR 8547 and OMB M-26-15 Phase 5 aim to complete remaining system migrations; legacy RSA/ECC deprecation/disallowance aligned to this window.
+    phase: migration
+
+migration_phases:
+  - id: 1
+    title: Discovery & inventory
+    period: "2026 — now"
+    detail: Build a cryptographic bill of materials (CBOM). Map RSA, ECC, and protocol dependencies across applications, PKI, HSMs, and vendors.
+  - id: 2
+    title: Planning & architecture
+    period: "2026–2027"
+    detail: Risk-based prioritization, hybrid transition design, crypto-agility patterns, and executive governance — U.S. agencies submit plans by Oct 2026.
+  - id: 3
+    title: Pilot & interoperability
+    period: "2027–2029"
+    detail: Test ML-KEM / ML-DSA / SLH-DSA in staging; validate HSM, TLS, and vendor support; measure performance on critical paths.
+  - id: 4
+    title: Priority production rollout
+    period: "2030–2031"
+    detail: Migrate high-value key establishment (2030) and signatures (2031) for federal priority systems; industry follows sector mandates.
+  - id: 5
+    title: Full migration
+    period: "Through 2035"
+    detail: Complete remaining systems; retire legacy public-key algorithms per NIST IR 8547 transition schedule.
+
+global_signals:
+  - region: United States
+    policy: OMB M-26-15 · EO 14412
+    detail: Five-phase federal schedule; Oct 2026 migration plans; 2030/2031 priority targets.
+  - region: Canada
+    policy: ITS M40001 roadmap
+    detail: Phased PQC migration across federal departments, agencies, and Crown corporations.
+  - region: European Union
+    policy: Coordinated implementation roadmap
+    detail: Member-state alignment on PQC transition timelines, standards adoption, and interoperability.
+  - region: G7
+    policy: Cybersecurity Working Group
+    detail: Allied coordination on post-quantum cryptography migration — including financial sector roadmaps.

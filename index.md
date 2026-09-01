@@ -409,7 +409,15 @@ script: /assets/js/home.js
             aria-labelledby="home-signal-tab-us"
           >
             <h4 class="home-signal-detail__title">U.S. PQC mandate</h4>
-            <p class="home-signal-detail__text">U.S. federal agencies must inventory cryptography and submit post‑quantum migration plans under OMB M‑26‑15 and related White House cybersecurity directives.</p>
+            <p class="home-signal-detail__text">
+              Executive Order 14412 (June 22, 2026) and <strong>OMB M‑26‑15</strong> (June 24, 2026) establish the first detailed
+              federal five‑phase post‑quantum migration schedule running through 2035 — the most explicit U.S. government timeline published to date.
+            </p>
+            <ul class="home-signal-detail__list">
+              <li>Every agency must submit a <strong>PQC Migration Plan</strong> to OMB and the Office of the National Cyber Director by <strong>October 22, 2026</strong>, including automated cryptographic inventory methodology, crypto‑agility architecture, and governance roles.</li>
+              <li>Priority targets: post‑quantum <strong>key establishment</strong> for high‑value assets by <strong>December 31, 2030</strong>; <strong>PQC digital signatures</strong> for priority systems by end of <strong>2031</strong>.</li>
+              <li>Primary algorithms: NIST <strong>ML‑KEM</strong> (FIPS 203), <strong>ML‑DSA</strong> (FIPS 204), and <strong>SLH‑DSA</strong> (FIPS 205), with hybrid classical‑plus‑PQC modes expected during transition.</li>
+            </ul>
           </article>
           <article
             class="home-signal-detail"
@@ -420,7 +428,15 @@ script: /assets/js/home.js
             hidden
           >
             <h4 class="home-signal-detail__title">Canada roadmap</h4>
-            <p class="home-signal-detail__text">Government of Canada roadmap (ITS M40001) for phased PQC migration across federal departments, agencies, and Crown corporations.</p>
+            <p class="home-signal-detail__text">
+              The Government of Canada’s <strong>ITS M40001</strong> roadmap sets a phased path for migrating federal departments, agencies,
+              and Crown corporations to post‑quantum cryptography — aligned with NIST standards and allied coordination efforts.
+            </p>
+            <ul class="home-signal-detail__list">
+              <li>Emphasizes <strong>cryptographic discovery</strong>, dependency mapping, and risk‑based prioritization before large‑scale replacement.</li>
+              <li>Coordinates migration across government systems that depend on RSA, ECC, and legacy PKI — including identity, communications, and data‑at‑rest protections.</li>
+              <li>Positions Canada alongside U.S., EU, and G7 timelines so vendors and cross‑border operators can plan interoperable PQC rollouts.</li>
+            </ul>
           </article>
           <article
             class="home-signal-detail"
@@ -431,7 +447,15 @@ script: /assets/js/home.js
             hidden
           >
             <h4 class="home-signal-detail__title">EU transition</h4>
-            <p class="home-signal-detail__text">EU coordinated implementation roadmap aligning member states on PQC transition timelines, standards adoption, and cross‑border interoperability.</p>
+            <p class="home-signal-detail__text">
+              The European Commission’s <strong>Coordinated Implementation Roadmap</strong> aligns EU member states on how and when to
+              transition public‑key cryptography to NIST‑standardized post‑quantum algorithms.
+            </p>
+            <ul class="home-signal-detail__list">
+              <li>Harmonizes national timelines so digital infrastructure, regulated sectors, and cross‑border services move in step rather than fragmenting on incompatible algorithms.</li>
+              <li>Promotes <strong>crypto‑agility</strong> — the ability to swap algorithms as standards and threat models evolve — as a core architectural requirement.</li>
+              <li>Supports sector‑specific guidance for governments, cloud providers, and critical infrastructure operators implementing ML‑KEM and ML‑DSA in production systems.</li>
+            </ul>
           </article>
           <article
             class="home-signal-detail"
@@ -442,7 +466,15 @@ script: /assets/js/home.js
             hidden
           >
             <h4 class="home-signal-detail__title">G7 coordination</h4>
-            <p class="home-signal-detail__text">G7 Cybersecurity Working Group statement urging allied economies to prepare coordinated post‑quantum cryptography migration programs.</p>
+            <p class="home-signal-detail__text">
+              The <strong>G7 Cybersecurity Working Group</strong> issued a joint statement urging allied economies to prepare coordinated
+              post‑quantum cryptography migration programs — treating PQC as a shared resilience priority, not isolated national policy.
+            </p>
+            <ul class="home-signal-detail__list">
+              <li>Calls for aligned timelines, interoperable standards, and orderly <strong>hybrid transition</strong> rather than disruptive overnight replacement.</li>
+              <li>Includes sector‑specific coordination — notably the <strong>G7 Cyber Expert Group roadmap</strong> for financial services, developed with the U.S. Treasury and Bank of England.</li>
+              <li>Signals to multinational vendors and regulated industries that PQC readiness will increasingly shape procurement, audits, and third‑party risk assessments across G7 markets.</li>
+            </ul>
           </article>
         </div>
       </div>

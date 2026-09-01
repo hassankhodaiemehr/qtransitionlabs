@@ -12,6 +12,7 @@ sitemap: false
 - Contact: contact@qtransitionlabs.com
 - Services & engagement models: {{ site.url }}/services/
 - PQC Readiness (self-assessment + FAQ): {{ site.url }}/pqc-readiness/
+- PQC Education (interactive threat & roadmap): {{ site.url }}/education/
 - QTL Wallet (SIM-centric key splitting): {{ site.url }}/qtl-wallet/
 - SILMARILS TDV demo (permissioned ledgers): {{ site.url }}/demo/
 - Research: {{ site.url }}/research/
