@@ -1349,6 +1349,7 @@ body.light-mode .home-why-card__text {
   gap: 0.55rem;
   margin-top: 2rem;
   padding: 1rem;
+  overflow: visible;
 }
 
 .home-signals__label {
@@ -1363,6 +1364,7 @@ body.light-mode .home-why-card__text {
 }
 
 .home-signal {
+  position: relative;
   font-size: 0.82rem;
   font-weight: 600;
   padding: 0.4rem 0.85rem;
@@ -1372,6 +1374,63 @@ body.light-mode .home-why-card__text {
   color: #C9D1D9 !important;
   text-decoration: none;
   transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.home-signal[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.65rem);
+  z-index: 20;
+  width: max-content;
+  max-width: min(18rem, 72vw);
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #30363D;
+  background: #161B22;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  color: #C9D1D9;
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+}
+
+.home-signal[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.35rem);
+  z-index: 21;
+  width: 8px;
+  height: 8px;
+  background: #161B22;
+  border-right: 1px solid #30363D;
+  border-bottom: 1px solid #30363D;
+  transform: translateX(-50%) rotate(45deg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+
+.home-signal[data-tooltip]:hover::after,
+.home-signal[data-tooltip]:focus-visible::after,
+.home-signal[data-tooltip]:hover::before,
+.home-signal[data-tooltip]:focus-visible::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.home-signal[data-tooltip]:hover::after,
+.home-signal[data-tooltip]:focus-visible::after {
+  transform: translateX(-50%) translateY(0);
 }
 
 .home-signal:hover {
@@ -1385,6 +1444,18 @@ body.light-mode .home-signal {
   background: #F9FAFB;
   border-color: #E5E7EB;
   color: #374151 !important;
+}
+
+body.light-mode .home-signal[data-tooltip]::after {
+  background: #ffffff;
+  border-color: #E5E7EB;
+  color: #374151;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+body.light-mode .home-signal[data-tooltip]::before {
+  background: #ffffff;
+  border-color: #E5E7EB;
 }
 
 /* News teaser */

@@ -353,10 +353,34 @@ script: /assets/js/home.js
 
     <div class="home-signals reveal-target">
       <span class="home-signals__label">Global policy signals</span>
-      <a href="https://www.whitehouse.gov/fact-sheets/2025/06/fact-sheet-president-donald-j-trump-reprioritizes-cybersecurity-efforts-to-protect-america/" class="home-signal" target="_blank" rel="noopener noreferrer">U.S. PQC mandate</a>
-      <a href="https://www.cyber.gc.ca/en/guidance/roadmap-migration-post-quantum-cryptography-government-canada-itsm40001" class="home-signal" target="_blank" rel="noopener noreferrer">Canada roadmap</a>
-      <a href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography" class="home-signal" target="_blank" rel="noopener noreferrer">EU transition</a>
-      <a href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration" class="home-signal" target="_blank" rel="noopener noreferrer">G7 coordination</a>
+      <a
+        href="https://www.whitehouse.gov/fact-sheets/2025/06/fact-sheet-president-donald-j-trump-reprioritizes-cybersecurity-efforts-to-protect-america/"
+        class="home-signal"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-tooltip="U.S. federal agencies must inventory cryptography and submit post‑quantum migration plans under OMB M‑26‑15 and related White House cybersecurity directives."
+      >U.S. PQC mandate</a>
+      <a
+        href="https://www.cyber.gc.ca/en/guidance/roadmap-migration-post-quantum-cryptography-government-canada-itsm40001"
+        class="home-signal"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-tooltip="Government of Canada roadmap (ITS M40001) for phased PQC migration across federal departments, agencies, and Crown corporations."
+      >Canada roadmap</a>
+      <a
+        href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography"
+        class="home-signal"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-tooltip="EU coordinated implementation roadmap aligning member states on PQC transition timelines, standards adoption, and cross‑border interoperability."
+      >EU transition</a>
+      <a
+        href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration"
+        class="home-signal"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-tooltip="G7 Cybersecurity Working Group statement urging allied economies to prepare coordinated post‑quantum cryptography migration programs."
+      >G7 coordination</a>
     </div>
   </section>
 
