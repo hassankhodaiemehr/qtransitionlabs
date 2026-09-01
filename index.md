@@ -351,36 +351,101 @@ script: /assets/js/home.js
       </article>
     </div>
 
-    <div class="home-signals reveal-target">
+    <div class="home-signals reveal-target" id="home-policy-signals">
       <span class="home-signals__label">Global policy signals</span>
-      <a
-        href="https://www.whitehouse.gov/fact-sheets/2025/06/fact-sheet-president-donald-j-trump-reprioritizes-cybersecurity-efforts-to-protect-america/"
-        class="home-signal"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-tooltip="U.S. federal agencies must inventory cryptography and submit post‑quantum migration plans under OMB M‑26‑15 and related White House cybersecurity directives."
-      >U.S. PQC mandate</a>
-      <a
-        href="https://www.cyber.gc.ca/en/guidance/roadmap-migration-post-quantum-cryptography-government-canada-itsm40001"
-        class="home-signal"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-tooltip="Government of Canada roadmap (ITS M40001) for phased PQC migration across federal departments, agencies, and Crown corporations."
-      >Canada roadmap</a>
-      <a
-        href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography"
-        class="home-signal"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-tooltip="EU coordinated implementation roadmap aligning member states on PQC transition timelines, standards adoption, and cross‑border interoperability."
-      >EU transition</a>
-      <a
-        href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration"
-        class="home-signal"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-tooltip="G7 Cybersecurity Working Group statement urging allied economies to prepare coordinated post‑quantum cryptography migration programs."
-      >G7 coordination</a>
+      <div class="home-signals__buttons" role="tablist" aria-label="Global policy signals">
+        <a
+          href="https://www.whitehouse.gov/fact-sheets/2025/06/fact-sheet-president-donald-j-trump-reprioritizes-cybersecurity-efforts-to-protect-america/"
+          class="home-signal is-active"
+          data-signal="us"
+          role="tab"
+          aria-selected="true"
+          aria-controls="home-signal-panel-us"
+          id="home-signal-tab-us"
+          target="_blank"
+          rel="noopener noreferrer"
+        >U.S. PQC mandate</a>
+        <a
+          href="https://www.cyber.gc.ca/en/guidance/roadmap-migration-post-quantum-cryptography-government-canada-itsm40001"
+          class="home-signal"
+          data-signal="ca"
+          role="tab"
+          aria-selected="false"
+          aria-controls="home-signal-panel-ca"
+          id="home-signal-tab-ca"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Canada roadmap</a>
+        <a
+          href="https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography"
+          class="home-signal"
+          data-signal="eu"
+          role="tab"
+          aria-selected="false"
+          aria-controls="home-signal-panel-eu"
+          id="home-signal-tab-eu"
+          target="_blank"
+          rel="noopener noreferrer"
+        >EU transition</a>
+        <a
+          href="https://www.cyber.gc.ca/en/news-events/g7-cybersecurity-working-group-statement-preparing-post-quantum-cryptography-migration"
+          class="home-signal"
+          data-signal="g7"
+          role="tab"
+          aria-selected="false"
+          aria-controls="home-signal-panel-g7"
+          id="home-signal-tab-g7"
+          target="_blank"
+          rel="noopener noreferrer"
+        >G7 coordination</a>
+      </div>
+      <div class="home-signals__panel" aria-live="polite">
+        <div class="home-signals__panel-inner">
+          <article
+            class="home-signal-detail is-active"
+            id="home-signal-panel-us"
+            data-signal="us"
+            role="tabpanel"
+            aria-labelledby="home-signal-tab-us"
+          >
+            <h4 class="home-signal-detail__title">U.S. PQC mandate</h4>
+            <p class="home-signal-detail__text">U.S. federal agencies must inventory cryptography and submit post‑quantum migration plans under OMB M‑26‑15 and related White House cybersecurity directives.</p>
+          </article>
+          <article
+            class="home-signal-detail"
+            id="home-signal-panel-ca"
+            data-signal="ca"
+            role="tabpanel"
+            aria-labelledby="home-signal-tab-ca"
+            hidden
+          >
+            <h4 class="home-signal-detail__title">Canada roadmap</h4>
+            <p class="home-signal-detail__text">Government of Canada roadmap (ITS M40001) for phased PQC migration across federal departments, agencies, and Crown corporations.</p>
+          </article>
+          <article
+            class="home-signal-detail"
+            id="home-signal-panel-eu"
+            data-signal="eu"
+            role="tabpanel"
+            aria-labelledby="home-signal-tab-eu"
+            hidden
+          >
+            <h4 class="home-signal-detail__title">EU transition</h4>
+            <p class="home-signal-detail__text">EU coordinated implementation roadmap aligning member states on PQC transition timelines, standards adoption, and cross‑border interoperability.</p>
+          </article>
+          <article
+            class="home-signal-detail"
+            id="home-signal-panel-g7"
+            data-signal="g7"
+            role="tabpanel"
+            aria-labelledby="home-signal-tab-g7"
+            hidden
+          >
+            <h4 class="home-signal-detail__title">G7 coordination</h4>
+            <p class="home-signal-detail__text">G7 Cybersecurity Working Group statement urging allied economies to prepare coordinated post‑quantum cryptography migration programs.</p>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 

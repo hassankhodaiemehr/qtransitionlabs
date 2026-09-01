@@ -1,6 +1,53 @@
 (function () {
   initHomeCounters();
+  initPolicySignalPanel();
 })();
+
+function initPolicySignalPanel() {
+  var root = document.getElementById('home-policy-signals');
+  if (!root) return;
+
+  var buttons = root.querySelectorAll('.home-signal[data-signal]');
+  var details = root.querySelectorAll('.home-signal-detail[data-signal]');
+  var panel = root.querySelector('.home-signals__panel');
+  if (!buttons.length || !details.length || !panel) return;
+
+  var defaultId = buttons[0].getAttribute('data-signal');
+
+  function activate(id) {
+    if (!id) return;
+
+    buttons.forEach(function (btn) {
+      var isActive = btn.getAttribute('data-signal') === id;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    details.forEach(function (detail) {
+      var isActive = detail.getAttribute('data-signal') === id;
+      detail.classList.toggle('is-active', isActive);
+      detail.hidden = !isActive;
+    });
+
+    panel.classList.add('is-open');
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('mouseenter', function () {
+      activate(btn.getAttribute('data-signal'));
+    });
+
+    btn.addEventListener('focus', function () {
+      activate(btn.getAttribute('data-signal'));
+    });
+  });
+
+  root.addEventListener('mouseleave', function () {
+    activate(defaultId);
+  });
+
+  activate(defaultId);
+}
 
 function initHomeCounters() {
   var counters = document.querySelectorAll('.home-metric__value[data-count]');
