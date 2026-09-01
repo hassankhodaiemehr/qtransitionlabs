@@ -1,7 +1,7 @@
 ---
 layout: default
 title: PQC Education
-description: Interactive introduction to the quantum computing threat, NIST post-quantum standards (ML-KEM, ML-DSA, SLH-DSA), and the global PQC migration roadmap.
+description: Interactive introduction to the quantum computing threat, PQC algorithm families (lattice, hash-based, code-based), NIST standards, and the global migration roadmap.
 stylesheet: /assets/css/education.css
 script: /assets/js/education.js
 permalink: /education/
@@ -17,7 +17,8 @@ permalink: /education/
       <h1>Quantum Threat &amp; PQC Roadmap</h1>
       <p class="page-subtitle">
         Explore how quantum computers threaten today's cryptography, what NIST standardized in 2024,
-        and how governments are scheduling the migration — updated {{ edu.meta.updated }}.
+        how algorithm families differ (lattice, hash-based, code-based, and more), and how governments
+        are scheduling the migration — updated {{ edu.meta.updated }}.
       </p>
     </div>
   </div>
@@ -210,6 +211,94 @@ permalink: /education/
         <p>{{ signal.detail }}</p>
       </article>
       {% endfor %}
+    </div>
+  </section>
+
+  <!-- Module 4: PQC families -->
+  <section
+    class="edu-panel reveal-target"
+    id="edu-panel-families"
+    data-module="families"
+    aria-labelledby="edu-families-heading"
+    hidden
+  >
+    {% assign families_mod = edu.modules | where: "id", "families" | first %}
+    <header class="edu-panel__header">
+      <span class="section-eyebrow">{{ families_mod.eyebrow }}</span>
+      <h2 id="edu-families-heading">{{ families_mod.title }}</h2>
+      <p class="edu-panel__lead">{{ families_mod.lead }}</p>
+    </header>
+
+    <div class="edu-families" id="edu-families">
+      <div class="edu-families__nav" role="tablist" aria-label="PQC algorithm families">
+        {% for fam in edu.families %}
+        <button
+          type="button"
+          class="edu-family-pill{% if forloop.first %} is-active{% endif %}"
+          data-family="{{ fam.id }}"
+          role="tab"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+          aria-controls="edu-family-panel-{{ fam.id }}"
+          id="edu-family-tab-{{ fam.id }}"
+        >
+          <span class="edu-family-pill__name">{{ fam.name }}</span>
+          <span class="edu-family-pill__badge edu-family-pill__badge--{{ fam.badge_class }}">{{ fam.badge }}</span>
+        </button>
+        {% endfor %}
+      </div>
+      <div class="edu-families__panel" aria-live="polite">
+        {% for fam in edu.families %}
+        <article
+          class="edu-family-detail{% if forloop.first %} is-active{% endif %}"
+          id="edu-family-panel-{{ fam.id }}"
+          data-family="{{ fam.id }}"
+          role="tabpanel"
+          aria-labelledby="edu-family-tab-{{ fam.id }}"
+          {% unless forloop.first %}hidden{% endunless %}
+        >
+          <header class="edu-family-detail__header">
+            <h3>{{ fam.name }}</h3>
+            <span class="edu-family-detail__badge edu-family-detail__badge--{{ fam.badge_class }}">{{ fam.badge }}</span>
+          </header>
+          <p class="edu-family-detail__summary">{{ fam.summary }}</p>
+          <dl class="edu-family-detail__meta">
+            <div><dt>Security basis</dt><dd>{{ fam.basis }}</dd></div>
+            <div><dt>NIST status</dt><dd>{{ fam.nist_status }}</dd></div>
+            <div><dt>Example schemes</dt><dd>{{ fam.examples }}</dd></div>
+            <div><dt>Strengths</dt><dd>{{ fam.strengths }}</dd></div>
+            <div><dt>Considerations</dt><dd>{{ fam.considerations }}</dd></div>
+            <div><dt>Typical uses</dt><dd>{{ fam.uses }}</dd></div>
+          </dl>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    <h3 class="edu-subheading">Family comparison at a glance</h3>
+    <div class="edu-family-table-wrap reveal-target">
+      <table class="edu-family-table">
+        <caption class="visually-hidden">Comparison of post-quantum algorithm families</caption>
+        <thead>
+          <tr>
+            <th scope="col">Family</th>
+            <th scope="col">Primary KEM</th>
+            <th scope="col">Primary signature</th>
+            <th scope="col">Key / sig size</th>
+            <th scope="col">Deployment status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in edu.family_compare %}
+          <tr>
+            <th scope="row">{{ row.family }}</th>
+            <td>{{ row.kem }}</td>
+            <td>{{ row.signature }}</td>
+            <td>{{ row.key_size }}</td>
+            <td>{{ row.maturity }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </section>
 

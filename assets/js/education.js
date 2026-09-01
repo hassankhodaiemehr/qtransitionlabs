@@ -21,6 +21,7 @@ function initEducation() {
   initTimeline(data);
   initAlgoCards(root);
   initPhases(data);
+  initFamilies(root);
 }
 
 function initModuleTabs(root) {
@@ -188,6 +189,40 @@ function initPhases(data) {
     });
     btn.addEventListener('mouseenter', function () {
       activate(btn.getAttribute('data-phase'));
+    });
+  });
+}
+
+function initFamilies(root) {
+  var container = root.querySelector('#edu-families');
+  if (!container) return;
+
+  var pills = container.querySelectorAll('.edu-family-pill[data-family]');
+  var details = container.querySelectorAll('.edu-family-detail[data-family]');
+  if (!pills.length || !details.length) return;
+
+  function activate(id) {
+    if (!id) return;
+
+    pills.forEach(function (pill) {
+      var active = pill.getAttribute('data-family') === id;
+      pill.classList.toggle('is-active', active);
+      pill.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    details.forEach(function (detail) {
+      var active = detail.getAttribute('data-family') === id;
+      detail.classList.toggle('is-active', active);
+      detail.hidden = !active;
+    });
+  }
+
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      activate(pill.getAttribute('data-family'));
+    });
+    pill.addEventListener('mouseenter', function () {
+      activate(pill.getAttribute('data-family'));
     });
   });
 }

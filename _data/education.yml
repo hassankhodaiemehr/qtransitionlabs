@@ -26,6 +26,95 @@ modules:
     eyebrow: Module 3
     title: From standards to execution
     lead: Governments worldwide are publishing coordinated timelines. U.S. federal guidance (OMB M-26-15, June 2026) is the most detailed phased schedule published to date.
+  - id: families
+    label: PQC families
+    eyebrow: Module 4
+    title: Algorithm families explained
+    lead: Post-quantum schemes are built on distinct mathematical problems — lattice, hash, code, and others. NIST's multi-round process tested each family; only the strongest candidates became FIPS standards.
+
+families:
+  - id: lattice
+    name: Lattice-based
+    badge: Primary · NIST FIPS
+    badge_class: primary
+    summary: The dominant family in deployed PQC — built on hard problems over structured lattices such as Module-LWE and Module-SIS.
+    basis: Hardness of finding short vectors or solving linear equations with small error in high-dimensional lattices.
+    nist_status: "Standardized: ML-KEM (FIPS 203) and ML-DSA (FIPS 204). Falcon (FN-DSA) continues toward standardization as an additional signature option."
+    examples: "CRYSTALS-Kyber → ML-KEM · CRYSTALS-Dilithium → ML-DSA · Falcon → FN-DSA (in progress)"
+    strengths: Strong performance and relatively compact keys compared to other PQC families; broad fit for TLS, PKI, and general-purpose signing.
+    considerations: Newer assumptions than RSA/ECC; requires careful implementation to avoid side-channel leakage; monitor ongoing cryptanalysis.
+    uses: TLS key exchange, certificate authorities, code signing, document signing, permissioned ledger authentication.
+  - id: hash
+    name: Hash-based signatures
+    badge: Standardized · Conservative
+    badge_class: conservative
+    summary: Signatures whose security reduces to the collision and preimage resistance of standard hash functions — no lattice or number-theoretic assumptions.
+    basis: Security of cryptographic hash functions (SHA-2, SHA-3, SHAKE); stateless schemes like SLH-DSA need no secret state between signatures.
+    nist_status: "Standardized: SLH-DSA (FIPS 205, SPHINCS+ family). Stateful hash signatures (LMS, XMSS) appear in NSA CNSA 2.0 for firmware and long-lived roots."
+    examples: "SPHINCS+ → SLH-DSA · LMS / XMSS (stateful, CNSA 2.0)"
+    strengths: Minimal structural assumptions; well-understood security reduction; valuable as a algorithmic diversity fallback.
+    considerations: SLH-DSA signatures are much larger (tens of KB) and signing is slower than ML-DSA; stateful schemes require strict one-time state management.
+    uses: Archival and long-term trust anchors, conservative fallback signatures, firmware signing (LMS/XMSS), high-assurance backup paths.
+  - id: code
+    name: Code-based
+    badge: Niche · Ongoing
+    badge_class: ongoing
+    summary: Cryptography based on the difficulty of decoding random linear error-correcting codes — one of the oldest PQC research directions (McEliece, 1978).
+    basis: Decoding an arbitrary linear code with added errors is computationally hard; public keys embed structured codes with hidden decoders.
+    nist_status: "Classic McEliece selected in NIST process (very large public keys). HQC key encapsulation continues toward standardization as a lattice alternative."
+    examples: "Classic McEliece · HQC (ongoing KEM standardization)"
+    strengths: Decades of cryptanalysis for the McEliece framework; conservative security story for code-based KEMs.
+    considerations: Public keys can be hundreds of KB (Classic McEliece); smaller ecosystem and library support compared to lattice standards.
+    uses: Niche high-assurance KEM deployments that tolerate larger keys; research and specialized air-gapped systems.
+  - id: multivariate
+    name: Multivariate
+    badge: Largely withdrawn
+    badge_class: legacy
+    summary: Schemes built on the difficulty of solving systems of multivariate quadratic equations over finite fields — once a major NIST candidate category.
+    basis: MQ (multivariate quadratic) problem and related structured variants; signature and encryption constructions from polynomial systems.
+    nist_status: "Primary candidates withdrawn after cryptanalysis — e.g. Rainbow broken in 2022. HAWK withdrawn from NIST's additional-signatures process in July 2026 after AI-assisted analysis."
+    examples: "Rainbow (broken) · HAWK (withdrawn 2026)"
+    strengths: Historical diversity in the NIST evaluation — helped stress-test the standardization process.
+    considerations: Not recommended for new deployments; illustrates why migration plans should anchor on finalized FIPS standards and maintain crypto-agility.
+    uses: None for production today — included for context on why NIST's public evaluation process matters.
+  - id: isogeny
+    name: Isogeny-based
+    badge: Withdrawn
+    badge_class: legacy
+    summary: Protocols using morphisms (isogenies) between elliptic curves — attracted interest for compact keys before a breakthrough break.
+    basis: Hardness of finding isogenies between supersingular elliptic curves (SIDH/SIKE framework).
+    nist_status: "SIKE broken in 2022 by classical cryptanalysis — removed from consideration. Not suitable for new systems."
+    examples: "SIKE (broken 2022)"
+    strengths: Demonstrated the value of rigorous public evaluation before widespread deployment.
+    considerations: Reminder that PQC remains active research; designs must support algorithm replacement without full system rebuilds.
+    uses: None for production — historical lesson for crypto-agility planning.
+
+family_compare:
+  - family: Lattice
+    kem: ML-KEM
+    signature: ML-DSA
+    key_size: Moderate
+    maturity: Production planning
+  - family: Hash-based
+    kem: —
+    signature: SLH-DSA
+    key_size: Large signatures
+    maturity: Production planning
+  - family: Code-based
+    kem: McEliece / HQC
+    signature: Limited
+    key_size: Very large PK
+    maturity: Niche / ongoing
+  - family: Multivariate
+    kem: —
+    signature: Withdrawn
+    key_size: —
+    maturity: Not recommended
+  - family: Isogeny
+    kem: Withdrawn
+    signature: —
+    key_size: —
+    maturity: Not recommended
 
 threat_steps:
   - id: capture
