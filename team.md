@@ -89,7 +89,7 @@ permalink: /team/
 <article class="team-member reveal-target">
   <div class="team-member__media">
     <div class="team-member__photo-wrap">
-      <img src="/assets/team/mina.jpeg" alt="Photo of Dr. Khadijeh Bagheri" class="team-member__photo" width="220" height="220">
+      <img src="/assets/team/mina-2026.jpeg" alt="Photo of Dr. Khadijeh Bagheri" class="team-member__photo" width="220" height="220">
     </div>
   </div>
   <div class="team-member__body">
