@@ -202,14 +202,20 @@ def soften_heavy_math(s: str) -> str:
         or re.search(r"\(\s*-", s)
         or re.search(r"log\(L", s)
         or re.search(r"\(\s*[A-Z]\s+[⁻^]", s)
+        or re.search(r"\bK\^", s)
+        or re.search(r"\b2O\(", s)
     )
     if not broken:
         return s
     parts = re.split(r"(?<=[.!?])\s+", s)
-    if parts and len(parts[0]) >= 80:
+    if len(parts) >= 2 and len(parts[0]) >= 80:
         return parts[0].strip()
+    if " using " in s:
+        return s.split(" using ", 1)[0].strip() + "."
     if ":" in s:
         return s.split(":", 1)[0].strip() + "."
+    if parts:
+        return parts[0][:240].rsplit(" ", 1)[0] + "…"
     return s[:240].rsplit(" ", 1)[0] + "…"
 
 

@@ -1118,7 +1118,7 @@
     {
       "id": "087",
       "title": "The Mahler conjectures and symplectic width",
-      "summary": "Resolves the symmetric and nonsymmetric geometric Mahler conjectures in every dimension, with Hanner polytopes and simplices as the respective volume-product minimizers and all equality cases classified. The corresponding sharp functional Mahler inequalities also hold. For n≥2, every symmetric polar product K× K^ in dimension 2n has Gromov width 4.",
+      "summary": "Resolves the symmetric and nonsymmetric geometric Mahler conjectures in every dimension, with Hanner polytopes and simplices as the respective volume-product minimizers and all equality cases classified.",
       "paper_url": "https://github.com/openai/math/blob/main/preprints/The-symmetric-Mahler-conjecture-and-its-equality-cases-September-22-2026/paper.pdf",
       "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/The-symmetric-Mahler-conjecture-and-its-equality-cases-September-22-2026/paper.pdf",
       "pqc_relevant": true,
