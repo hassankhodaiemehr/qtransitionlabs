@@ -6,10 +6,9 @@
   padding-bottom: 3rem;
 }
 
-/* Scroll-reveal uses opacity:0 initially; news must be visible on first paint */
-.news-page .news-card.reveal-target,
-.news-page .page-header.reveal-target,
-.news-page .page-cta.reveal-target {
+/* Scroll-reveal uses opacity:0 initially; news pages must stay readable on first paint */
+.news-page .reveal-target,
+.news-article-page .reveal-target {
   opacity: 1;
   transform: none;
 }
