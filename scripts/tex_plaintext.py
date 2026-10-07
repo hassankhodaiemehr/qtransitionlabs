@@ -174,7 +174,8 @@ def clean_tex(text: str) -> str:
 
     s = s.replace('\\"', '"').replace("''", "'")
     s = re.sub(r"\s+", " ", s).strip()
-    return postprocess_plaintext(s)
+    s = postprocess_plaintext(s)
+    return soften_heavy_math(s)
 
 
 def postprocess_plaintext(s: str) -> str:
@@ -187,11 +188,12 @@ def postprocess_plaintext(s: str) -> str:
     s = re.sub(r"⁾+", ")", s)
     s = re.sub(r"\s+", " ", s)
     s = re.sub(r"\b(over|in|on|to|from|at|of|for|with|and|or|the|a|an|is|are|as)\s+([.,;])", r"\2", s)
+    s = soften_heavy_math(s)
     s = re.sub(r"([A-Za-z0-9ℓ]) - ([A-Za-z0-9])", r"\1-\2", s)
     s = re.sub(r"prime-to-\s+p\b", "prime-to-p", s)
     s = re.sub(r"\s+([.,;])", r"\1", s)
     s = re.sub(r"\s+", " ", s).strip()
-    return soften_heavy_math(s)
+    return s
 
 
 def soften_heavy_math(s: str) -> str:
@@ -200,6 +202,7 @@ def soften_heavy_math(s: str) -> str:
         s.count("^") > 1
         or "⁽" in s
         or re.search(r"\(\s*-", s)
+        or re.search(r"\(-\d", s)
         or re.search(r"log\(L", s)
         or re.search(r"\(\s*[A-Z]\s+[⁻^]", s)
         or re.search(r"\bK\^", s)

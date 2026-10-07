@@ -116,7 +116,7 @@
     {
       "id": "005",
       "title": "Irrationality of Catalan's constant",
-      "summary": "Proves that Catalan's constant G=∑(j≥0)(-1)j/(2j+1)² is…",
+      "summary": "Proves that Catalan's constant G=∑(j≥0)(-1)j/(2j+1)²…",
       "paper_url": "https://github.com/openai/math/blob/main/preprints/Catalans-constant-is-irrational-September-24-2026/paper.pdf",
       "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/Catalans-constant-is-irrational-September-24-2026/paper.pdf",
       "pqc_relevant": false,
@@ -832,7 +832,7 @@
     {
       "id": "063",
       "title": "The generalized Mukai conjecture",
-      "summary": "Proves the generalized Mukai conjecture: every positive-dimensional smooth complex projective Fano manifold of dimension n, Picard number ρ and pseudoindex satisfies ρ( -1)≤ n, with equality exactly for ( P ⁻¹)^ρ.",
+      "summary": "Proves the generalized Mukai conjecture.",
       "paper_url": "https://github.com/openai/math/blob/main/preprints/The-Generalized-Mukai-Conjecture-September-24-2026/article.pdf",
       "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/The-Generalized-Mukai-Conjecture-September-24-2026/article.pdf",
       "pqc_relevant": false,
@@ -1326,7 +1326,7 @@
     {
       "id": "104",
       "title": "Quasipolynomial algorithms for mean-payoff, stochastic and parity games",
-      "summary": "Gives deterministic algorithms using 2O(log(L⁺²)^²) bit operations, for complete binary input length L, for ordinary mean-payoff games and two separate extensions.",
+      "summary": "Gives deterministic algorithms.",
       "paper_url": "https://github.com/openai/math/blob/main/preprints/Turn-Based-Stochastic-Mean-Payoff-Games-in-Deterministic-Quasipolynomial-Time-October-5-2026/stochastic-mean-payoff-games.pdf",
       "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/Turn-Based-Stochastic-Mean-Payoff-Games-in-Deterministic-Quasipolynomial-Time-October-5-2026/stochastic-mean-payoff-games.pdf",
       "pqc_relevant": false,
@@ -2795,7 +2795,7 @@
     {
       "id": "223",
       "title": "Conformal limits of square-lattice random-cluster interfaces",
-      "summary": "Proves chordal SLE_ limits for critical square-lattice random-cluster interfaces for 0<q≤4, with =4π/ (- q/2): bounded Jordan domains are allowed for q≥1, and smooth Jordan domains for q<1, under the stated marked-boundary approximations.",
+      "summary": "Proves chordal SLE_ limits for critical square-lattice random-cluster interfaces for 0<q≤4, with =4π/ (- q/2).",
       "paper_url": "https://github.com/openai/math/blob/main/preprints/Square-lattice-FK-interfaces-and-nested-loops-for-1-leq-q-lt-4-September-23-2026/paper.pdf",
       "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/Square-lattice-FK-interfaces-and-nested-loops-for-1-leq-q-lt-4-September-23-2026/paper.pdf",
       "pqc_relevant": false,
@@ -4215,7 +4215,7 @@
     {
       "id": "334",
       "title": "A smooth surface metric with no local immersion in R³",
-      "summary": "Constructs a smooth positive-definite metric on (-1,1)² for which no neighborhood of the origin admits a smooth isometric immersion into R³.",
+      "summary": "Constructs a smooth positive-definite metric on (-1,1)² for which no neighborhood of the origin admits a smooth isometric immersion into…",
       "paper_url": "https://github.com/openai/math/blob/main/preprints/A-Smooth-Metric-with-No-Local-Isometric-Immersion-into-Three-Space-September-24-2026/paper.pdf",
       "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/A-Smooth-Metric-with-No-Local-Isometric-Immersion-into-Three-Space-September-24-2026/paper.pdf",
       "pqc_relevant": false,
@@ -4748,7 +4748,7 @@
     {
       "id": "375",
       "title": "De Giorgi's conjecture in dimension eight",
-      "summary": "Proves De Giorgi's conjecture at its sharp dimension-eight endpoint: every entire C² solution u: R⁸→(-1,1) of u=u³⁻u that is strictly increasing in one direction depends on only one linear coordinate.",
+      "summary": "Proves De Giorgi's conjecture at its sharp dimension-eight endpoint.",
       "paper_url": "https://github.com/openai/math/blob/main/preprints/De-Giorgis-conjecture-in-dimension-eight-September-26-2026/article.pdf",
       "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/De-Giorgis-conjecture-in-dimension-eight-September-26-2026/article.pdf",
       "pqc_relevant": false,
