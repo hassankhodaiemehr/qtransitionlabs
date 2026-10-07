@@ -60,7 +60,8 @@
         <div class="oai-math-card__top">
           <span class="oai-math-card__id">Family {{ entry.id }}</span>
           {% for c in entry.categories %}
-          <span class="oai-math-tag" data-tag="{{ c }}">{{ c | replace: '-', ' ' }}</span>
+          {% assign cat_obj = map.categories | where: "id", c | first %}
+          <span class="oai-math-tag" data-tag="{{ c }}">{{ cat_obj.label | default: c }}</span>
           {% endfor %}
         </div>
         <h4 class="oai-math-card__title">{{ entry.title }}</h4>
@@ -85,7 +86,8 @@
       <div class="oai-math-card__body">
         <div class="oai-math-card__tags">
           {% for c in entry.categories %}
-          <span class="oai-math-tag" data-tag="{{ c }}">{{ c | replace: '-', ' ' }}</span>
+          {% assign cat_obj = map.categories | where: "id", c | first %}
+          <span class="oai-math-tag" data-tag="{{ c }}">{{ cat_obj.label | default: c }}</span>
           {% endfor %}
         </div>
         <p class="oai-math-card__summary">{{ entry.summary }}</p>

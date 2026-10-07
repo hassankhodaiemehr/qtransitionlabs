@@ -14,23 +14,72 @@ IMPACT = {
     "ai-verification": "Formal proof artifacts improve assurance for crypto implementations and protocol verification pipelines.",
 }
 
+FEATURED_IDS = [
+    "279", "003", "002", "102", "197", "271", "087", "221", "362", "004", "284", "069",
+]
+
+CATEGORY_LABELS = {
+    "quantum-algorithms": "Quantum algorithms & physics",
+    "complexity-hardness": "Complexity & hardness",
+    "number-theory-crypto": "Number theory & ECC",
+    "algebra-structures": "Algebra & structures",
+    "factorization-arithmetic": "Factorization & arithmetic",
+    "spin-statistical": "Spin & statistical physics",
+    "ai-verification": "Formal verification",
+}
+
 RULES = [
     ("quantum-algorithms", r"quantum factoring|quantum quer|quantum depletion|quantum geometric|Bose.?Einstein|Heisenberg|Vlasov.?Maxwell|quantum Heisenberg|relativistic Vlasov|randomized and quantum"),
-    ("complexity-hardness", r"NP-hard|NP hard|undecidable|semidefinite|#P|PSPACE|hardness|approximation|complexity"),
-    ("number-theory-crypto", r"Riemann|zeta|Dirichlet L|elliptic curve|BSD|Selmer|Tate|modularity|prime factor|Goldfeld|Hilbert.?s tenth|rational zero|class number|CM abelian|Hodge|Tate conjecture|Landau.?Siegel|Birch"),
+    (
+        "complexity-hardness",
+        r"NP-hard|NP hard|undecidable|semidefinite|#P\b|PSPACE|unique games|2-to-1 games|approximation ratio|goemans.?williamson",
+    ),
+    (
+        "number-theory-crypto",
+        r"quasi-riemann|riemann hypothesis|riemann zeta|landau.?siegel|dirichlet l|elliptic curve|bsd|selmer|tate.?shaf|modularity|goldfeld|hilbert.?s tenth|rational zero|class number|cm abelian|hodge conjecture|tate conjecture|birch.?swinnerton|hecke l",
+    ),
     ("algebra-structures", r"lattice von Neumann|Kaplansky|Mahler|free group factor|Baum.?Connes|Kadison|isomorphism of.*factor|quasitrace|zero-divisor conjecture"),
-    ("factorization-arithmetic", r"polynomial factorization|factorization over|factoring|totient|prime gap|largest prime factor"),
+    ("factorization-arithmetic", r"polynomial factorization|factorization over|quantum factoring|totient|prime gap|largest prime factor"),
     ("spin-statistical", r"spin glass|Ising|magnetization|Bloch.?s law|Mézard|Mezard.?Parisi"),
     ("ai-verification", r"Lean formal|formalization|\[Lean\]"),
 ]
 
 
 def clean_tex(s: str) -> str:
-    s = re.sub(r"\\[a-zA-Z]+(\*?)(\{[^}]*\})?", " ", s)
-    s = re.sub(r"\$[^$]*\$", " ", s)
+    s = s.replace("\u2019", "'").replace("\u2018", "'").replace("�", "'")
+    s = s.replace('\\"', '"').replace("''", "'")
+    s = s.replace("---", "—").replace("--", "–")
+
+    replacements = [
+        (r"\$\\zeta\(s\)\$", "ζ(s)"),
+        (r"\$\\zeta\(s\)", "ζ(s)"),
+        (r"\$L\$", "L"),
+        (r"\$L\^2\$", "L²"),
+        (r"\$\\Re s>7/8\$", "Re(s) > 7/8"),
+        (r"\$\\Re s>11/12\$", "Re(s) > 11/12"),
+        (r"\$S\^4\$", "S⁴"),
+        (r"\$\\mathbb\{CP\}\^2\$", "CP²"),
+        (r"\$\\mathbb\{S\}\^2\$", "S²"),
+        (r"\\mathbb\{Q\}\(\\sqrt\{-3\}\)", "Q(√−3)"),
+        (r"\\mathbb\{Q\}", "Q"),
+        (r"\\mathbb\{CP\}\^2", "CP²"),
+        (r'K\\"ahler', "Kähler"),
+        (r'M\\"obius', "Möbius"),
+        (r'H\\"older', "Hölder"),
+        (r"\\CP\^2", "CP²"),
+    ]
+    for pattern, repl in replacements:
+        s = re.sub(pattern, repl, s)
+
+    s = re.sub(r"\\[a-zA-Z]+\*?(\{[^}]*\})*", " ", s)
+    s = re.sub(r"\$[^$]+\$", " ", s)
     s = re.sub(r"\\href\{[^}]+\}\{[^}]+\}", " ", s)
     s = re.sub(r"\s+", " ", s).strip()
     return s
+
+
+def clean_title(title: str) -> str:
+    return clean_tex(title) if "\\" in title or "$" in title else title.replace("--", "–")
 
 
 def parse_entries(text: str):
@@ -41,6 +90,7 @@ def parse_entries(text: str):
     entries = []
     for m in pattern.finditer(text):
         fid, title, desc = m.group(1), m.group(2), m.group(3)
+        title = clean_title(title)
         summary = clean_tex(desc)
         if len(summary) > 360:
             summary = summary[:357] + "…"
@@ -74,11 +124,8 @@ def main():
         e["pqc_impact"] = primary_impact(e["categories"])
         e["repo_url"] = f"https://github.com/openai/math/tree/main#result-{e['id']}"
 
-    relevant = [e for e in entries if e["categories"]]
-    # Always include headline families from OpenAI README reasoning traces
-    headline_ids = {"007", "017", "087", "102", "159", "197", "221", "271", "287", "362"}
     by_id = {e["id"]: e for e in entries}
-    for hid in headline_ids:
+    for hid in {"007", "017", "087", "102", "159", "197", "221", "271", "287", "362"}:
         if hid in by_id and not by_id[hid]["categories"]:
             by_id[hid]["categories"] = ["complexity-hardness"]
             by_id[hid]["pqc_impact"] = IMPACT["complexity-hardness"]
@@ -91,14 +138,15 @@ def main():
         "families_total": 372,
         "manuscripts_total": 722,
         "pqc_relevant_count": len(relevant),
+        "featured_ids": FEATURED_IDS,
         "categories": [
-            {"id": k, "label": k.replace("-", " ").title(), "description": v}
+            {"id": k, "label": CATEGORY_LABELS.get(k, k.replace("-", " ").title()), "description": v}
             for k, v in IMPACT.items()
         ],
         "entries": relevant,
     }
     dest = Path("_data/openai_math_pqc_map.json")
-    dest.write_text(json.dumps(out, indent=2), encoding="utf-8")
+    dest.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"Parsed {len(entries)} families; {len(relevant)} PQC-relevant -> {dest}")
 
 

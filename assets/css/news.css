@@ -439,6 +439,33 @@ body.light-mode .oai-math-search {
   margin-bottom: 1rem;
 }
 
+.oai-math-explorer .oai-math-filter .filter-btn {
+  background: #21262d;
+  border-color: #6e7681;
+  color: #f0f6fc;
+  font-weight: 600;
+}
+
+.oai-math-explorer .oai-math-filter .filter-btn:hover,
+.oai-math-explorer .oai-math-filter .filter-btn.active {
+  background: #388bfd;
+  border-color: #388bfd;
+  color: #ffffff;
+}
+
+body.light-mode .oai-math-explorer .oai-math-filter .filter-btn {
+  background: #ffffff;
+  border-color: #64748b;
+  color: #0f172a;
+}
+
+body.light-mode .oai-math-explorer .oai-math-filter .filter-btn:hover,
+body.light-mode .oai-math-explorer .oai-math-filter .filter-btn.active {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+
 .oai-math-legend {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -609,12 +636,18 @@ body.light-mode .oai-math-section-title {
 
 .oai-math-tag {
   font-size: 0.72rem;
-  text-transform: capitalize;
-  padding: 0.12rem 0.45rem;
+  padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  border: 1px solid #484F58;
-  color: #C9D1D9;
-  background: rgba(72, 79, 88, 0.25);
+  border: 1px solid rgba(88, 166, 255, 0.45);
+  color: #e6edf3;
+  background: rgba(88, 166, 255, 0.16);
+  font-weight: 600;
+}
+
+body.light-mode .oai-math-tag {
+  color: #0f172a;
+  background: rgba(2, 132, 199, 0.12);
+  border-color: rgba(2, 132, 199, 0.35);
 }
 
 .oai-math-tag[data-tag="quantum-algorithms"] {

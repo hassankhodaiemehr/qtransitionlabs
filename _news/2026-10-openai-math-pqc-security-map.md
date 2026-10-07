@@ -6,7 +6,7 @@ category: Research
 source_name: OpenAI
 source_title: "openai/math — Mathematics manuscript collection"
 source_url: https://github.com/openai/math/tree/main
-excerpt: "OpenAI released 722 manuscripts across 372 families from large-scale model evaluations. QTL maps 99 families with direct or indirect post-quantum security implications—and why AI-accelerated mathematics belongs in every crypto-agility program."
+excerpt: "OpenAI released 722 manuscripts across 372 families from large-scale model evaluations. QTL maps 49 curated families with direct post-quantum security implications—and why AI-accelerated mathematics belongs in every crypto-agility program."
 script: /assets/js/openai-math-news.js
 ---
 
@@ -24,7 +24,7 @@ Three forces converge:
 
 ## How to read the interactive map below
 
-We classified **99 families** from the OpenAI overview into seven lenses that matter for post-quantum security planning:
+We classified **49 families** from the OpenAI overview into seven lenses that matter for post-quantum security planning (geometry-only false positives such as Families 057, 071, 348, and 360 are excluded):
 
 - **Quantum algorithms & physics** — factoring models, query complexity, quantum many-body results tied to hardware and error correction narratives  
 - **Number theory & ECC** — zeta/L-function progress, elliptic-curve structure, modularity—adjacent to classical PKI analysis  
