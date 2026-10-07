@@ -7,8 +7,9 @@
   var visibleCount = document.getElementById('oai-math-visible-count');
   var filterButtons = root.querySelectorAll('.oai-math-filter-btn');
   var cards = root.querySelectorAll('.oai-math-card[data-oai-categories]');
+  var featuredGrid = root.querySelector('.oai-math-grid--featured');
 
-  var activeFilter = 'all';
+  var activeFilter = 'pqc';
   var query = '';
 
   function normalize(s) {
@@ -17,8 +18,18 @@
 
   function cardMatches(card) {
     var cats = card.getAttribute('data-oai-categories') || '';
+    var isPqc = card.getAttribute('data-oai-pqc') === 'true';
     var text = card.getAttribute('data-oai-text') || '';
-    var filterOk = activeFilter === 'all' || cats.split(/\s+/).indexOf(activeFilter) !== -1;
+    var filterOk = false;
+
+    if (activeFilter === 'all') {
+      filterOk = true;
+    } else if (activeFilter === 'pqc') {
+      filterOk = isPqc;
+    } else {
+      filterOk = cats.split(/\s+/).indexOf(activeFilter) !== -1;
+    }
+
     var searchOk = !query || text.indexOf(query) !== -1;
     return filterOk && searchOk;
   }
@@ -32,9 +43,13 @@
       if (show) shown += 1;
     });
 
+    if (featuredGrid) {
+      featuredGrid.hidden = activeFilter !== 'pqc' && activeFilter !== 'all';
+    }
+
     if (visibleCount) visibleCount.textContent = String(shown);
 
-    var dirty = activeFilter !== 'all' || query.length > 0;
+    var dirty = activeFilter !== 'pqc' || query.length > 0;
     if (resetBtn) resetBtn.hidden = !dirty;
   }
 
@@ -46,7 +61,7 @@
       });
       btn.classList.add('active');
       btn.setAttribute('aria-pressed', 'true');
-      activeFilter = btn.getAttribute('data-oai-filter') || 'all';
+      activeFilter = btn.getAttribute('data-oai-filter') || 'pqc';
       update();
     });
   });
@@ -60,13 +75,14 @@
 
   if (resetBtn) {
     resetBtn.addEventListener('click', function () {
-      activeFilter = 'all';
+      activeFilter = 'pqc';
       query = '';
       if (search) search.value = '';
       filterButtons.forEach(function (b) {
-        var isAll = b.getAttribute('data-oai-filter') === 'all';
-        b.classList.toggle('active', isAll);
-        b.setAttribute('aria-pressed', isAll ? 'true' : 'false');
+        var filter = b.getAttribute('data-oai-filter');
+        var isDefault = filter === 'pqc';
+        b.classList.toggle('active', isDefault);
+        b.setAttribute('aria-pressed', isDefault ? 'true' : 'false');
       });
       update();
     });

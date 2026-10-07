@@ -24,7 +24,7 @@ Three forces converge:
 
 ## How to read the interactive map below
 
-We classified **49 families** from the OpenAI overview into seven lenses that matter for post-quantum security planning (geometry-only false positives such as Families 057, 071, 348, and 360 are excluded):
+We classified **49 families** into seven PQC lenses. The explorer also includes the **full parsed catalog** (filter: **Full catalog** or **General math (non-PQC)**) so Families like **057, 071, 348, and 360** remain browsable on-site with summaries and manuscript links:
 
 - **Quantum algorithms & physics** — factoring models, query complexity, quantum many-body results tied to hardware and error correction narratives  
 - **Number theory & ECC** — zeta/L-function progress, elliptic-curve structure, modularity—adjacent to classical PKI analysis  

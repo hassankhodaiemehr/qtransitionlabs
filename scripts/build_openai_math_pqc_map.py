@@ -1,4 +1,4 @@
-"""Build PQC-relevant map from openai/math overview.tex (run locally after fetching overview)."""
+"""Build OpenAI math catalog map (PQC-curated + full browseable families)."""
 import json
 import re
 import sys
@@ -12,6 +12,7 @@ IMPACT = {
     "factorization-arithmetic": "Affects polynomial or integer factorization—core to RSA/DSA analysis and to comparing classical vs quantum factoring.",
     "spin-statistical": "Quantum many-body and statistical-physics results inform error correction, randomness, and hardware noise models.",
     "ai-verification": "Formal proof artifacts improve assurance for crypto implementations and protocol verification pipelines.",
+    "general-mathematics": "Included for full-catalog browsing. No specific post-quantum migration impact is assigned by QTL.",
 }
 
 FEATURED_IDS = [
@@ -26,7 +27,13 @@ CATEGORY_LABELS = {
     "factorization-arithmetic": "Factorization & arithmetic",
     "spin-statistical": "Spin & statistical physics",
     "ai-verification": "Formal verification",
+    "general-mathematics": "General math (non-PQC)",
 }
+
+GENERAL_NOTE = (
+    "General mathematics result in the OpenAI catalog. QTL does not classify this family "
+    "as directly relevant to post-quantum migration planning."
+)
 
 RULES = [
     ("quantum-algorithms", r"quantum factoring|quantum quer|quantum depletion|quantum geometric|Bose.?Einstein|Heisenberg|Vlasov.?Maxwell|quantum Heisenberg|relativistic Vlasov|randomized and quantum"),
@@ -44,9 +51,14 @@ RULES = [
     ("ai-verification", r"Lean formal|formalization|\[Lean\]"),
 ]
 
+PQC_CATEGORY_IDS = [k for k in IMPACT if k != "general-mathematics"]
+
 
 def clean_tex(s: str) -> str:
     s = s.replace("\u2019", "'").replace("\u2018", "'").replace("�", "'")
+    s = re.sub(r'K\\+"ahler', "Kähler", s, flags=re.I)
+    s = re.sub(r'M\\+"obius', "Möbius", s, flags=re.I)
+    s = re.sub(r'H\\+"older', "Hölder", s, flags=re.I)
     s = s.replace('\\"', '"').replace("''", "'")
     s = s.replace("---", "—").replace("--", "–")
 
@@ -84,23 +96,37 @@ def clean_title(title: str) -> str:
     return clean_tex(title) if "\\" in title or "$" in title else title.replace("--", "–")
 
 
+def github_blob_to_raw(url: str) -> str:
+    if "/blob/" in url:
+        return url.replace("https://github.com/", "https://raw.githubusercontent.com/").replace("/blob/", "/", 1)
+    return url
+
+
 def parse_entries(text: str):
     pattern = re.compile(
-        r"\\resultentry\{(\d+)\}\{([^{}]+)\}\{(.+?)\}\{\\href",
+        r"\\resultentry\{(\d+)\}\{([^{}]+)\}\{(.+?)\}\{\\href\{([^}]+)\}",
         re.DOTALL,
     )
     entries = []
     for m in pattern.finditer(text):
-        fid, title, desc = m.group(1), m.group(2), m.group(3)
+        fid, title, desc, paper_url = m.group(1), m.group(2), m.group(3), m.group(4)
         title = clean_title(title)
         summary = clean_tex(desc)
-        if len(summary) > 360:
-            summary = summary[:357] + "…"
-        entries.append({"id": fid, "title": title, "summary": summary})
+        if len(summary) > 520:
+            summary = summary[:517] + "…"
+        entries.append(
+            {
+                "id": fid,
+                "title": title,
+                "summary": summary,
+                "paper_url": paper_url,
+                "paper_pdf_url": github_blob_to_raw(paper_url) if paper_url.endswith(".pdf") else "",
+            }
+        )
     return entries
 
 
-def classify(entry: dict) -> list[str]:
+def classify_pqc(entry: dict) -> list[str]:
     blob = f"{entry['title']} {entry['summary']}".lower()
     cats = []
     for cat, rx in RULES:
@@ -110,10 +136,11 @@ def classify(entry: dict) -> list[str]:
 
 
 def primary_impact(categories: list[str]) -> str:
-    if not categories:
-        return ""
-    order = list(IMPACT.keys())
-    primary = min(categories, key=lambda c: order.index(c))
+    pqc_cats = [c for c in categories if c in PQC_CATEGORY_IDS]
+    if not pqc_cats:
+        return GENERAL_NOTE
+    order = list(PQC_CATEGORY_IDS)
+    primary = min(pqc_cats, key=lambda c: order.index(c))
     return IMPACT[primary]
 
 
@@ -121,35 +148,41 @@ def main():
     src = Path(sys.argv[1] if len(sys.argv) > 1 else "_tmp_overview.tex")
     text = src.read_text(encoding="utf-8", errors="replace")
     entries = parse_entries(text)
+
+    headline_fallback = {"007", "017", "087", "102", "159", "197", "221", "271", "287", "362"}
+
     for e in entries:
-        e["categories"] = classify(e)
+        pqc_cats = classify_pqc(e)
+        if not pqc_cats and e["id"] in headline_fallback:
+            pqc_cats = ["complexity-hardness"]
+        if pqc_cats:
+            e["pqc_relevant"] = True
+            e["categories"] = pqc_cats
+        else:
+            e["pqc_relevant"] = False
+            e["categories"] = ["general-mathematics"]
         e["pqc_impact"] = primary_impact(e["categories"])
         e["repo_url"] = f"https://github.com/openai/math/tree/main#result-{e['id']}"
 
-    by_id = {e["id"]: e for e in entries}
-    for hid in {"007", "017", "087", "102", "159", "197", "221", "271", "287", "362"}:
-        if hid in by_id and not by_id[hid]["categories"]:
-            by_id[hid]["categories"] = ["complexity-hardness"]
-            by_id[hid]["pqc_impact"] = IMPACT["complexity-hardness"]
-
-    relevant = [e for e in entries if e["categories"]]
-    relevant.sort(key=lambda e: (e["categories"][0], int(e["id"])))
+    entries.sort(key=lambda e: int(e["id"]))
+    pqc_count = sum(1 for e in entries if e["pqc_relevant"])
 
     out = {
         "source": "https://github.com/openai/math",
         "families_total": 372,
         "manuscripts_total": 722,
-        "pqc_relevant_count": len(relevant),
+        "catalog_count": len(entries),
+        "pqc_relevant_count": pqc_count,
         "featured_ids": FEATURED_IDS,
         "categories": [
             {"id": k, "label": CATEGORY_LABELS.get(k, k.replace("-", " ").title()), "description": v}
             for k, v in IMPACT.items()
         ],
-        "entries": relevant,
+        "entries": entries,
     }
     dest = Path("_data/openai_math_pqc_map.json")
     dest.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"Parsed {len(entries)} families; {len(relevant)} PQC-relevant -> {dest}")
+    print(f"Parsed {len(entries)} families; {pqc_count} PQC-relevant -> {dest}")
 
 
 if __name__ == "__main__":
