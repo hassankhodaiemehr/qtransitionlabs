@@ -4,6 +4,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from tex_plaintext import clean_tex, truncate_summary
+
 IMPACT = {
     "quantum-algorithms": "Directly shapes quantum threat models, algorithm timelines, or query-complexity assumptions used in security proofs.",
     "complexity-hardness": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
@@ -54,46 +57,10 @@ RULES = [
 PQC_CATEGORY_IDS = [k for k in IMPACT if k != "general-mathematics"]
 
 
-def clean_tex(s: str) -> str:
-    s = s.replace("\u2019", "'").replace("\u2018", "'").replace("�", "'")
-    s = re.sub(r'K\\+"ahler', "Kähler", s, flags=re.I)
-    s = re.sub(r'M\\+"obius', "Möbius", s, flags=re.I)
-    s = re.sub(r'H\\+"older', "Hölder", s, flags=re.I)
-    s = s.replace('\\"', '"').replace("''", "'")
-    s = s.replace("---", "—").replace("--", "–")
-
-    replacements = [
-        (r"\$\\zeta\(s\)\$", "ζ(s)"),
-        (r"\$\\zeta\(s\)", "ζ(s)"),
-        (r"\$L\$", "L"),
-        (r"\$L\^2\$", "L²"),
-        (r"\$\\Re s>7/8\$", "Re(s) > 7/8"),
-        (r"\$\\Re s>11/12\$", "Re(s) > 11/12"),
-        (r"\$S\^4\$", "S⁴"),
-        (r"\$\\mathbb\{CP\}\^2\$", "CP²"),
-        (r"\$\\mathbb\s+Q\(\\sqrt\{-3\}\)\$", "Q(√−3)"),
-        (r"\$\\mathbb Q\(\\sqrt\{-3\}\)\$", "Q(√−3)"),
-        (r"\$\\mathbb\{S\}\^2\$", "S²"),
-        (r"\\mathbb\{Q\}\(\\sqrt\{-3\}\)", "Q(√−3)"),
-        (r"\\mathbb\{Q\}", "Q"),
-        (r"\\mathbb\{CP\}\^2", "CP²"),
-        (r'K\\"ahler', "Kähler"),
-        (r'M\\"obius', "Möbius"),
-        (r'H\\"older', "Hölder"),
-        (r"\\CP\^2", "CP²"),
-    ]
-    for pattern, repl in replacements:
-        s = re.sub(pattern, repl, s)
-
-    s = re.sub(r"\\[a-zA-Z]+\*?(\{[^}]*\})*", " ", s)
-    s = re.sub(r"\$[^$]+\$", " ", s)
-    s = re.sub(r"\\href\{[^}]+\}\{[^}]+\}", " ", s)
-    s = re.sub(r"\s+", " ", s).strip()
-    return s
-
-
 def clean_title(title: str) -> str:
-    return clean_tex(title) if "\\" in title or "$" in title else title.replace("--", "–")
+    if "\\" in title or "$" in title or "--" in title:
+        return clean_tex(title)
+    return title.replace("--", "–")
 
 
 def github_blob_to_raw(url: str) -> str:
@@ -111,9 +78,7 @@ def parse_entries(text: str):
     for m in pattern.finditer(text):
         fid, title, desc, paper_url = m.group(1), m.group(2), m.group(3), m.group(4)
         title = clean_title(title)
-        summary = clean_tex(desc)
-        if len(summary) > 520:
-            summary = summary[:517] + "…"
+        summary = truncate_summary(clean_tex(desc))
         entries.append(
             {
                 "id": fid,

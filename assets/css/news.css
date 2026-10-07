@@ -600,6 +600,8 @@ body.light-mode .oai-math-section-title {
   font-weight: 600;
   color: #E6EDF3;
   line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .oai-math-card > summary .oai-math-card__title {
@@ -610,8 +612,10 @@ body.light-mode .oai-math-section-title {
 .oai-math-card__impact {
   margin: 0.45rem 0 0;
   font-size: 0.92rem;
-  line-height: 1.5;
+  line-height: 1.55;
   color: #C9D1D9;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .oai-math-card__impact {
