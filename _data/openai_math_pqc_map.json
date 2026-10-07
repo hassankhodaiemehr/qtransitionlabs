@@ -1,0 +1,1051 @@
+{
+  "source": "https://github.com/openai/math",
+  "families_total": 372,
+  "manuscripts_total": 722,
+  "pqc_relevant_count": 99,
+  "featured_ids": ["279", "003", "002", "102", "197", "271", "087", "221", "362", "004", "284", "069"],
+  "categories": [
+    {
+      "id": "quantum-algorithms",
+      "label": "Quantum algorithms & physics",
+      "description": "Directly shapes quantum threat models, algorithm timelines, or query-complexity assumptions used in security proofs."
+    },
+    {
+      "id": "complexity-hardness",
+      "label": "Complexity & hardness",
+      "description": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection."
+    },
+    {
+      "id": "number-theory-crypto",
+      "label": "Number theory & ECC",
+      "description": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography."
+    },
+    {
+      "id": "algebra-structures",
+      "label": "Algebra & structures",
+      "description": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory."
+    },
+    {
+      "id": "factorization-arithmetic",
+      "label": "Factorization & arithmetic",
+      "description": "Affects polynomial or integer factorization\u2014core to RSA/DSA analysis and to comparing classical vs quantum factoring."
+    },
+    {
+      "id": "spin-statistical",
+      "label": "Spin & statistical physics",
+      "description": "Quantum many-body and statistical-physics results inform error correction, randomness, and hardware noise models."
+    },
+    {
+      "id": "ai-verification",
+      "label": "Formal verification",
+      "description": "Formal proof artifacts improve assurance for crypto implementations and protocol verification pipelines."
+    }
+  ],
+  "entries": [
+    {
+      "id": "087",
+      "title": "The Mahler conjectures and symplectic width",
+      "summary": "Resolves the symmetric and nonsymmetric geometric Mahler conjectures in every dimension, with Hanner polytopes and simplices as the respective volume-product minimizers and all equality cases classified. The corresponding sharp functional Mahler inequalities also hold. For , every symmetric polar product in dimension has Gromov width .",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-087"
+    },
+    {
+      "id": "196",
+      "title": "A counterexample to Kaplansky's zero-divisor conjecture",
+      "summary": "Constructs a finitely presented torsion-free group whose group algebra has nonzero zero divisors, disproving Kaplansky's zero-divisor conjecture. The group has a finite two-dimensional classifying space.",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-196"
+    },
+    {
+      "id": "197",
+      "title": "Nonsofic groups and group-ring counterexamples",
+      "summary": "Constructs a finitely presented torsion-free nonsofic group whose group algebra over is not directly finite, disproving Kaplansky's conjecture even without torsion. Companion examples give injective nonsurjective cellular automata on all configurations, refuting Gottschalk's surjunctivity conjecture. Another counterexample is an integral group-ring matrix\u2026",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-197"
+    },
+    {
+      "id": "207",
+      "title": "The $\\ell^1$-Bass and complex Bass trace conjectures",
+      "summary": "Proves the -Bass conjecture for every discrete group: Hattori--Stallings traces of idempotent matrices over are supported on finitely many finite-order conjugacy classes. The algebraic companion proves the integral Bass trace conjecture and Kaplansky's idempotent conjecture for torsion-free groups over every commutative unital characteristic-zero domain.",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-207"
+    },
+    {
+      "id": "285",
+      "title": "Counterexamples to Baum--Connes and Kadison--Kaplansky",
+      "summary": "Disproves the coefficient-free reduced Baum--Connes conjecture through a failure of rational injectivity and a separate failure of surjectivity of assembly. A finitely generated torsion-free example witnesses the injectivity failure. Separately, a torsion-free group has a nontrivial projection in its reduced group -algebra, disproving the Kadison--Kaplans\u2026",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-285"
+    },
+    {
+      "id": "286",
+      "title": "Arithmetic rigidity of lattice von Neumann algebras",
+      "summary": "Classifies finite-index bimodules between scalar-twisted group factors of ICC groups commensurable with property- lattices over characteristic-zero local fields and arbitrary ICC group factors. Every such bimodule is a summand of finite sums of models arising from finite-index subgroup isomorphisms and finite-dimensional projective representations. The cl\u2026",
+      "categories": [
+        "algebra-structures",
+        "spin-statistical"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-286"
+    },
+    {
+      "id": "287",
+      "title": "All nonabelian free group factors are isomorphic",
+      "summary": "Resolves the free group factor isomorphism problem: , and hence all interpolated free group factors, including , are isomorphic. Their common factor has fundamental group .",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-287"
+    },
+    {
+      "id": "288",
+      "title": "Kadison's similarity conjecture",
+      "summary": "Proves Kadison's similarity conjecture: every bounded complex-linear unital algebra homomorphism from a unital complex -algebra to operators on a Hilbert space becomes a -homomorphism after conjugation by a bounded invertible operator.",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-288"
+    },
+    {
+      "id": "289",
+      "title": "The strong Kadison--Kastler conjecture",
+      "summary": "Proves that sufficiently close unital von Neumann algebras on the same Hilbert space are conjugate by a unitary arbitrarily close to the identity, with a universal tolerance in the operator-norm distance between unit balls. Counterexamples show that near-identity conjugacy fails for one-sided near inclusions, and that arbitrarily close norm-separable -alg\u2026",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-289"
+    },
+    {
+      "id": "294",
+      "title": "A counterexample to Kaplansky's quasitrace conjecture",
+      "summary": "Disproves Kaplansky's quasitrace conjecture by constructing a separable unital complex -algebra admitting normalized -quasitraces, all of which are nonadditive. As a consequence, two unital simple stably finite -algebras can have a properly infinite minimal tensor product, with one factor .",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-294"
+    },
+    {
+      "id": "295",
+      "title": "The Kadison--Ringrose cohomology conjecture",
+      "summary": "Proves that every bounded Hochschild cocycle of degree at least two on a complex von Neumann algebra, with coefficients in the algebra itself, has a bounded primitive. Equivalently, all higher bounded Hochschild cohomology groups vanish, resolving the Kadison--Ringrose conjecture.",
+      "categories": [
+        "algebra-structures"
+      ],
+      "pqc_impact": "Advances algebraic structures (factors, lattices, traces) that appear in advanced crypto constructions and side-channel theory.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-295"
+    },
+    {
+      "id": "007",
+      "title": "Two-point Chowla and the corrected binary Elliott conjecture",
+      "summary": "Proves the ordinary two-point Chowla conjecture, with a bound for Liouville correlation sums along fixed nonproportional affine forms, where is absolute. More generally, proves the binary corrected Elliott conjecture for complex multiplicative functions bounded by one when one factor is uniformly nonpretentious against each fixed Dirichlet character times\u2026",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-007"
+    },
+    {
+      "id": "017",
+      "title": "The irrationality exponent of $\\pi$ is $2$",
+      "summary": "Proves that the irrationality exponent of is exactly : for every and all sufficiently large denominators , every rational satisfies . This also proves convergence of the Flint--Hills series , with angles in radians.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-017"
+    },
+    {
+      "id": "024",
+      "title": "An asymptotic formula for the number of totients",
+      "summary": "Gives an asymptotic equivalent for the number of distinct totient values up to , with a positive bounded phase-dependent factor determined by convergent arithmetic approximations. In particular, for every fixed , answering Erd s and Hall\u2019s scaling question.",
+      "categories": [
+        "complexity-hardness",
+        "factorization-arithmetic"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-024"
+    },
+    {
+      "id": "095",
+      "title": "Hyperbolicity cones without semidefinite lifts",
+      "summary": "Disproves the Projected Lax conjecture: some hyperbolicity cones are not spectrahedral shadows. The examples admit no exact finite affine semidefinite lift, regardless of the number of auxiliary variables or the real coefficients used. This also disproves the generalized Lax conjecture that every hyperbolicity cone is spectrahedral.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-095"
+    },
+    {
+      "id": "096",
+      "title": "The Gaussian propeller conjecture",
+      "summary": "Proves that the sum of squared Gaussian first moments of any finite measurable partition is at most . In dimension at least two, three planar sectors of angle , extended orthogonally, attain the bound. Combined with the separate Unique Games theorem, this proves NP-hardness of improving the loss factor for identity-target kernel clustering with fixed on r\u2026",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-096"
+    },
+    {
+      "id": "102",
+      "title": "The Unique Games Conjecture and optimal approximation thresholds",
+      "summary": "Proves Khot's Unique Games Conjecture. Independent direct reductions also establish NP-hardness, on unweighted graphs, of approximation beyond the Goemans--Williamson ratio for Max-Cut, below factor two for Vertex Cover, and within any fixed constant factor for Min-UnCut and directed feedback vertex set. These direct proofs use established PCP and Label C\u2026",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-102"
+    },
+    {
+      "id": "105",
+      "title": "The 2-to-1 Games Conjecture with perfect completeness",
+      "summary": "Proves Khot's 2-to-1 Games Conjecture with perfect completeness: for every fixed rational , it is NP-hard to distinguish satisfiable games from games whose optimum is at most , on explicit unweighted instances. The alphabet depends only on , and every right-hand label has exactly two preimages under each constraint map.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-105"
+    },
+    {
+      "id": "106",
+      "title": "Hardness of coloring three-colorable graphs",
+      "summary": "It is NP-hard to color a three-colorable graph using any fixed number of colors. More strongly, for every fixed , a deterministic polynomial-time reduction from SAT produces simple unweighted graphs that are three-colorable in the satisfiable case and have no independent set of size otherwise, where is the number of vertices.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-106"
+    },
+    {
+      "id": "108",
+      "title": "A cubic permanent--determinant lower bound",
+      "summary": "Proves an lower bound for the border determinantal complexity of the permanent over . Even coefficientwise limits of determinants of affine-linear matrices require matrix size at least , for an absolute and all sufficiently large ; the same bound therefore holds for exact representations.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-108"
+    },
+    {
+      "id": "113",
+      "title": "Approximate counting and the perfect-matching entropy conjecture",
+      "summary": "Gives a fully polynomial randomized approximation scheme for counting perfect matchings in arbitrary finite simple graphs, with exact detection of zero counts. Also proves the perfect-matching entropy conjecture of Anari, Oveis Gharan, and Vinzant, bounding the maximum entropy of a matching law at every feasible edge-marginal vector in a loopless labelled\u2026",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-113"
+    },
+    {
+      "id": "114",
+      "title": "Approximate counting of common integer polymatroid bases",
+      "summary": "Gives a fully polynomial randomized approximation scheme for counting common integer bases of two integral polymatroids of equal total rank, supplied by exact rank-value oracles. Capacities are binary-encoded, each integer vector counts once, and oracle calls and bit operations outside the oracles are polynomial on every execution. For matroids presented \u2026",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-114"
+    },
+    {
+      "id": "115",
+      "title": "Sampling and counting contingency tables with arbitrary margins",
+      "summary": "For nonnegative integer matrices with prescribed row and column sums, gives exact uniform sampling in expected polynomial bit time and almost-uniform sampling in worst-case polynomial bit time. The dimensions and binary-encoded margins are unrestricted. Also gives a fully polynomial randomized approximation scheme for counting such tables with arbitrary i\u2026",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-115"
+    },
+    {
+      "id": "117",
+      "title": "Uniform sparsest cut: hardness and semidefinite gaps",
+      "summary": "Proves that approximating Uniform Sparsest Cut within any fixed constant factor is NP-hard, even with nonnegative rational capacities and unit demands. The Goemans--Linial semidefinite relaxation also has integrality gaps of order at least , approaching the square-root-logarithmic upper bound.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-117"
+    },
+    {
+      "id": "118",
+      "title": "Unbounded bin-packing gaps and the modified integer round-up conjecture",
+      "summary": "Disproves the modified integer round-up conjecture of Scheithauer and Terno: the integral bin-packing optimum can exceed its configuration linear-programming value by an arbitrarily large additive constant. Approximating the optimum within any fixed additive constant is also NP-hard, even when every item exceeds and each bin holds at most five items.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-118"
+    },
+    {
+      "id": "121",
+      "title": "Almost-linear expected-time approximation of edit distance",
+      "summary": "For every fixed rational , gives a randomized approximation to unit-cost edit distance in worst-case expected time , with success probability at least . The strings have total length and polynomially bounded integer symbols. This is an asymptotic guarantee at fixed accuracy.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-121"
+    },
+    {
+      "id": "125",
+      "title": "The approximation threshold for metric $k$-median",
+      "summary": "Gives a deterministic polynomial-time -approximation for finite rational metric -median with specified candidate facilities, for every fixed . Assuming , the optimal infimum approximation factor is .",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-125"
+    },
+    {
+      "id": "126",
+      "title": "Exponential semidefinite complexity of perfect matching",
+      "summary": "Proves that every exact semidefinite lift of the perfect matching polytope has exponential size, answering Rothvoss's polynomial-size lift question negatively. The bound holds even for the positive semidefinite rank of its odd-cut slack matrix after any fixed shift , allowing arbitrary real positive semidefinite factors.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-126"
+    },
+    {
+      "id": "128",
+      "title": "A factor-two approximation for shortest common superstring",
+      "summary": "Gives a deterministic polynomial-time algorithm constructing a common superstring of length at most twice the optimum for every finite family of explicitly represented strings. The running time is polynomial in the full encoded input length, including symbol labels.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-128"
+    },
+    {
+      "id": "133",
+      "title": "The complexity of Weisfeiler--Leman refinement",
+      "summary": "Proves unconditional deterministic time lower bounds for joint and separate -dimensional Weisfeiler--Leman equivalence, for sufficiently large fixed in the specified sequential adjacency-matrix models. With dimension as input, joint equivalence is EXPTIME-complete even on subcubic graphs; deciding whether refinement identifies a graph is also EXPTIME-comp\u2026",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-133"
+    },
+    {
+      "id": "135",
+      "title": "Sharp homogeneous depth-five complexity of matrix products",
+      "summary": "Over every characteristic-zero field, the entry of a product of independent variable matrices requires gates in homogeneous depth-five sum--product circuits. This sharp bound allows shared gates and bottom linear forms involving all variables.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-135"
+    },
+    {
+      "id": "142",
+      "title": "Deterministic polynomial factorization over prime fields",
+      "summary": "Gives a uniform deterministic algorithm that completely factors every nonzero dense degree- polynomial over a prime field , including multiplicities, in bit complexity polynomial in . The prime is supplied in binary. No randomness, integer-factorization or primitive-root oracle, or GRH assumption is required.",
+      "categories": [
+        "complexity-hardness",
+        "factorization-arithmetic"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-142"
+    },
+    {
+      "id": "151",
+      "title": "A $C^1$ counterexample to Shub\u2019s entropy conjecture",
+      "summary": "Constructs a noninvertible self-map of a compact smooth manifold with zero topological entropy but eigenvalue on second homology. This disproves the homological entropy lower bound for general self-maps: homological growth need not force positive orbit complexity.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-151"
+    },
+    {
+      "id": "153",
+      "title": "Arithmetic classification of Bernoulli convolutions",
+      "summary": "Classifies singular and absolutely continuous unbiased Bernoulli convolutions for every by an infinite, one-sided approximation condition using explicit finite sets of algebraic units. It also proves singularity at reciprocals of every quartic Salem number in , giving examples beyond reciprocal Pisot parameters.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-153"
+    },
+    {
+      "id": "223",
+      "title": "Conformal limits of square-lattice random-cluster interfaces",
+      "summary": "Proves chordal limits for critical square-lattice random-cluster interfaces for , with : bounded Jordan domains are allowed for , and smooth Jordan domains for , under the stated marked-boundary approximations. For , complete nested plane loops converge to .",
+      "categories": [
+        "complexity-hardness",
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-223"
+    },
+    {
+      "id": "233",
+      "title": "The joint critical Ashkin--Teller scaling limit",
+      "summary": "Identifies the joint scaling limit of Ashkin--Teller heights and both complete current-cluster collections throughout the critical line, including the four-state Potts endpoint. In bounded Jordan domains with admissible lattice approximations and wired primal/free dual boundaries, the height converges to the predicted Gaussian free field, and the clusters\u2026",
+      "categories": [
+        "complexity-hardness",
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-233"
+    },
+    {
+      "id": "242",
+      "title": "Single-fold Diophantine representations",
+      "summary": "Every recursively enumerable set of tuples of natural numbers has a Diophantine representation with exactly one auxiliary solution for each member and none for nonmembers. This proves the single-fold conjecture and hence the finite-fold conjecture. Diophantine solvability over the nonnegative integers remains undecidable even with an at-most-one-solution \u2026",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-242"
+    },
+    {
+      "id": "265",
+      "title": "The two-dimensional gapped area law",
+      "summary": "Proves an entropy area law for unique ground states of finite-range Hamiltonians on arbitrary finite induced square-lattice domains, using only a uniform full-system spectral gap and bounds on the local interactions. On open squares, uniformly gapped nearest-neighbor ground states also admit projected entangled-pair state approximations with polynomial bo\u2026",
+      "categories": [
+        "complexity-hardness",
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-265"
+    },
+    {
+      "id": "275",
+      "title": "QMA-hardness of continuum Coulomb energy",
+      "summary": "Proves QMA-hardness of approximating the electronic Coulomb energy infimum in three dimensions, minimizing over the full spinful fermionic continuum space. Deterministic polynomial-time reductions work even with only unit-charge nuclei at distinct rational positions, polynomially many electrons and an energy-threshold separation of at least one.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-275"
+    },
+    {
+      "id": "298",
+      "title": "A counterexample to Voiculescu\u2019s free-entropy equality conjecture",
+      "summary": "Constructs a bounded self-adjoint tuple in a tracial von Neumann algebra whose microstates and nonmicrostates free entropies satisfy . This answers Voiculescu\u2019s finite-entropy equality question negatively: the matrix-approximation and free-Fisher-information definitions differ even when both are finite.",
+      "categories": [
+        "complexity-hardness",
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-298"
+    },
+    {
+      "id": "326",
+      "title": "The cotype--cotype conjecture under the approximation property",
+      "summary": "Resolves the cotype--cotype conjecture for real Banach spaces with the approximation property. Such a nonzero space is -convex if and only if both it and its dual have finite Rademacher cotype, with possibly different exponents. Equivalently, these cotype assumptions force nontrivial Rademacher type.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-326"
+    },
+    {
+      "id": "330",
+      "title": "A negative answer to Kalton's Lipschitz-free approximation question",
+      "summary": "Constructs a countable uniformly discrete metric space whose real Lipschitz-free Banach space has the approximation property but not the bounded approximation property, answering Kalton's question negatively. Finite-rank operators approximate the identity on every compact set, but their norms cannot share a finite bound.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-330"
+    },
+    {
+      "id": "368",
+      "title": "The three-dimensional Ball--Evans approximation problem",
+      "summary": "Resolves the three-dimensional Ball--Evans approximation problem: every homeomorphism between arbitrary bounded domains in , for , is a strong limit of smooth diffeomorphisms onto the same target.",
+      "categories": [
+        "complexity-hardness"
+      ],
+      "pqc_impact": "Changes hardness or approximation barriers that underpin cryptographic reductions and parameter selection.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-368"
+    },
+    {
+      "id": "022",
+      "title": "The weak inhomogeneous Duffin--Schaeffer conjecture",
+      "summary": "Proves that for every real shift and finite-valued , divergence of implies for infinitely many , for almost every . Here is Euler's totient and the norm is distance to the nearest integer. Numerators are unrestricted; no monotonicity or Diophantine condition on is needed.",
+      "categories": [
+        "factorization-arithmetic"
+      ],
+      "pqc_impact": "Affects polynomial or integer factorization\u2014core to RSA/DSA analysis and to comparing classical vs quantum factoring.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-022"
+    },
+    {
+      "id": "026",
+      "title": "Positive lower density of large prime gaps",
+      "summary": "For every fixed , a positive proportion of consecutive prime gaps exceed , throughout every sufficiently large initial segment of the primes. The proportion may depend on . Consequently, the indices where increases have positive lower density, answering Erd s and Prachar.",
+      "categories": [
+        "factorization-arithmetic"
+      ],
+      "pqc_impact": "Affects polynomial or integer factorization\u2014core to RSA/DSA analysis and to comparing classical vs quantum factoring.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-026"
+    },
+    {
+      "id": "001",
+      "title": "Milne's rationality conjecture",
+      "summary": "Proves Milne's rationality conjecture for abelian varieties over with good reduction: specialized Hodge classes pair rationally with complementary divisor products, independently of cohomology theory. Together with result 032, every specialized Hodge class is represented by a single rational algebraic cycle simultaneously in all prime-to- and crystalline \u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-001"
+    },
+    {
+      "id": "002",
+      "title": "The full Birch--Swinnerton-Dyer formula in Selmer coranks zero and one",
+      "summary": "Proves the full Birch--Swinnerton-Dyer leading-term formula for every elliptic curve over whose full -power Selmer group has corank zero or one for some prime , including finiteness of the Tate--Shafarevich group. With result 006, this gives full BSD for a density-one set of quadratic twists of every elliptic curve over .",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-002"
+    },
+    {
+      "id": "003",
+      "title": "The quasi-Riemann hypothesis",
+      "summary": "Proves that every Dirichlet -function, including , is zero-free in , resolving the quasi-Riemann hypothesis. The same half-plane is zero-free for every finite-order Hecke -function over . A companion gives a different proof of the zero-free half-plane .",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-003"
+    },
+    {
+      "id": "004",
+      "title": "Hilbert's tenth problem over $\\mathbb Q$",
+      "summary": "Proves that no algorithm decides whether an integer-coefficient polynomial in an arbitrary number of variables has a rational zero, resolving Hilbert's tenth problem over negatively.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-004"
+    },
+    {
+      "id": "006",
+      "title": "Goldfeld's conjecture",
+      "summary": "Proves Goldfeld's conjecture for quadratic twists of every elliptic curve over : analytic ranks zero and one each have density , and the mean analytic rank tends to . Both statements order signed squarefree twist parameters by absolute value.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-006"
+    },
+    {
+      "id": "010",
+      "title": "Fontaine--Mazur modularity at the prime $2$ and $2$-adic pro-modularity",
+      "summary": "Every continuous odd absolutely irreducible two-dimensional -adic representation of unramified outside finitely many primes occurs in a completed Hecke algebra at some odd tame level. Also proves classical modularity up to Tate twist for irreducible odd representations with these finiteness conditions that are de Rham at with distinct Hodge--Tate weights,\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-010"
+    },
+    {
+      "id": "011",
+      "title": "The Ford--Konyagin--Luca conjecture on prime predecessors",
+      "summary": "Proves that the normalized ordered logarithms of the prime factors of , counted with multiplicity, converge jointly to the Poisson--Dirichlet law as ranges uniformly over primes up to and . This resolves the Ford--Konyagin--Luca conjecture. It also proves that infinitely many integers have more than totient preimages, for every .",
+      "categories": [
+        "number-theory-crypto",
+        "factorization-arithmetic"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-011"
+    },
+    {
+      "id": "012",
+      "title": "Independent largest prime factors of consecutive integers",
+      "summary": "Resolves the Erd s--Pomerance joint Dickman conjecture: the logarithmic sizes of the largest prime factors of and are asymptotically independent in ordinary natural density. In particular, the integers satisfying have density .",
+      "categories": [
+        "number-theory-crypto",
+        "factorization-arithmetic"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-012"
+    },
+    {
+      "id": "014",
+      "title": "Restricted geometric Langlands, generic Ramanujan and Arthur parameters",
+      "summary": "Proves the restricted geometric Langlands equivalence for connected reductive groups on smooth projective connected curves over under the four stated Lie-theoretic characteristic hypotheses. Over arbitrary algebraically closed fields of characteristic , the same conclusion holds assuming additionally that is very good for the group and . Over global funct\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-014"
+    },
+    {
+      "id": "016",
+      "title": "Zilber--Pink in abelian varieties and the Siegel threefold",
+      "summary": "Proves the abelian Zilber--Pink conjecture over : every irreducible subvariety has finitely many maximal atypical subvarieties relative to its smallest containing torsion coset. It also proves the full curve case in the Siegel threefold for Hodge-generic curves defined over , without boundary or reduction assumptions.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-016"
+    },
+    {
+      "id": "030",
+      "title": "Modularity over imaginary quadratic fields",
+      "summary": "Proves the modularity conjecture for elliptic curves over imaginary quadratic fields: every elliptic curve over every imaginary quadratic field is modular, with matching local parameters at every place.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-030"
+    },
+    {
+      "id": "032",
+      "title": "The rational Hodge conjecture for CM abelian varieties and products of K3 surfaces",
+      "summary": "Proves the rational Hodge conjecture for every complex CM abelian variety, in every dimension and codimension. Through Milne's theorems, this also gives the Tate conjecture for all abelian varieties over finite fields and the Hodge standard conjecture for abelian varieties in every characteristic. Companion results prove rational Hodge for arbitrary produ\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-032"
+    },
+    {
+      "id": "054",
+      "title": "Counterexamples to Kuznetsov's rationality conjecture",
+      "summary": "For every sufficiently large admissible Hassett discriminant, a very general smooth complex cubic fourfold is irrational despite having both an untwisted geometric K3 category and an integral Hodge-theoretic K3 association. This disproves Kuznetsov's rationality conjecture and the sufficiency of the associated-K3 criterion for rationality; the discriminan\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-054"
+    },
+    {
+      "id": "057",
+      "title": "Campana's abelianity conjecture and special varieties",
+      "summary": "Proves Campana's abelianity conjecture: special compact K\\\"ahler manifolds have virtually abelian fundamental groups. Using this theorem, establishes the same conclusion for order-two root orbifolds of smooth projective complex fourfolds along one nonempty smooth connected divisor, when special in the stated differential-line sense. For smooth special com\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-057"
+    },
+    {
+      "id": "071",
+      "title": "Koebe's circle-domain conjecture and circle-domain rigidity",
+      "summary": "Resolves the existence part of Koebe's circle-domain conjecture: every domain in the Riemann sphere is conformally equivalent to a domain whose complementary components are round disks or points. It also proves that circle domains with conformally removable boundary are rigid, meaning every conformal equivalence to another circle domain is M\\\"obius, estab\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-071"
+    },
+    {
+      "id": "129",
+      "title": "Exponential state costs for two-way automata",
+      "summary": "Proves exponential lower bounds both for complementing two-way nondeterministic finite automata and for simulating one-way nondeterministic automata by two-way deterministic ones. The latter resolves the Sakoda--Sipser state-succinctness conjecture over growing finite alphabets; both results rule out polynomial state bounds independent of alphabet size.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-129"
+    },
+    {
+      "id": "140",
+      "title": "Memory--sample lower bounds for noiseless Gaussian regression",
+      "summary": "For fixed , a one-pass learner with persistent bits needs noiseless Gaussian samples to recover a unit vector to angular error with probability , uniformly in accuracy for large . Computation and randomized updates are unrestricted, but output uses only the terminal state, stopping index and fresh randomness.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-140"
+    },
+    {
+      "id": "225",
+      "title": "Gaussian free field limits for the balanced six-vertex model",
+      "summary": "The balanced square-lattice six-vertex height field with and converges to a Gaussian free field, including at the endpoint . The plane state is defined by balanced-torus limits. For unit height increments and Green kernel , the exact variance multiplier is .",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-225"
+    },
+    {
+      "id": "229",
+      "title": "Sharp three- and four-state reconstruction thresholds",
+      "summary": "Proves the exact reconstruction threshold , with nonreconstruction at equality, for three-state symmetric and four-state ferromagnetic broadcasting on regular trees ( ) and observed Poisson trees (mean and , respectively), with Poisson advantage averaged without conditioning on survival. The three-state theorem allows both signs of and gives the exact wea\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-229"
+    },
+    {
+      "id": "236",
+      "title": "The factor-of-IID threshold for free Ising states on trees",
+      "summary": "Determines when the free zero-field ferromagnetic Ising state on the infinite -regular tree is a factor of independent vertex labels: exactly when , including equality, for and . The construction uses no root and is almost surely equivariant for each fixed tree automorphism, resolving the ferromagnetic case of Lyons's question.",
+      "categories": [
+        "number-theory-crypto",
+        "spin-statistical"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-236"
+    },
+    {
+      "id": "260",
+      "title": "Spacetime Penrose inequalities and rigidity",
+      "summary": "Proves the sharp enclosing-area spacetime Penrose inequality for smooth one-ended asymptotically flat initial data in every spatial dimension , under dominant energy, weak future trapping, positive enclosing area, and the stated decay assumptions. It bounds invariant ADM mass below using minimum enclosing area, with equality rigidity under additional hori\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-260"
+    },
+    {
+      "id": "262",
+      "title": "Sharp one-dimensional Lieb--Thirring inequalities",
+      "summary": "Proves the sharp one-dimensional Lieb--Thirring inequality for and arbitrary finite-matrix potentials with : the optimal constant is the scalar one-bound-state value, independent of matrix size. All equality cases are direct sums, in one constant unitary basis, of scalar solitons with independent scales and centers, and zero channels.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-262"
+    },
+    {
+      "id": "263",
+      "title": "The ionization and generalized ionization conjectures",
+      "summary": "For the full nonrelativistic Coulomb model with two electron spin states, proves that a molecule with fixed nuclei of charges at least one and total charge strictly binds at most electrons. Neutral-atom first ionization energies and radii containing all but an expected half-electron have universal positive upper and lower bounds. The energy cost of removi\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-263"
+    },
+    {
+      "id": "266",
+      "title": "Exactly three mutually unbiased bases in dimension six",
+      "summary": "Proves , resolving Zauner s dimension-six mutually unbiased bases conjecture: three such bases exist in , but four cannot. The exclusion is a complete certified computation under the stated binary64 arithmetic and compiler conditions. An independent companion proves the Matolcsi--Ruzsa--Weiner Fourier-vanishing conjecture for order-six complex Hadamard ma\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-266"
+    },
+    {
+      "id": "269",
+      "title": "The Laughlin gap and stability under scalar disorder",
+      "summary": "Proves the fermionic Laughlin spectral-gap conjecture for the full interaction at filling on the round sphere. The unique ground state remains uniformly gapped under sufficiently weak bounded real scalar one-body potentials projected to the lowest Landau level. Both the gap and disorder threshold are uniform over all sufficiently large particle numbers an\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-269"
+    },
+    {
+      "id": "270",
+      "title": "Threshold and positive-energy bound states of the BFSS model",
+      "summary": "Proves that the undeformed relative BFSS model has exactly one normalizable zero-energy state for every finite , resolving the threshold-bound-state conjecture. For , a companion proves infinitely many normalizable positive-energy eigenstates with unbounded energies, contradicting the original BFSS paper s exclusion of additional bound states at .",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-270"
+    },
+    {
+      "id": "272",
+      "title": "Entanglement without secret key and the PPT-square conjecture",
+      "summary": "Constructs an entangled state on with zero distillable secret key for the specified local-instrument protocols that complete almost surely. These allow joint local processing and authenticated two-way public communication, with no other shared private resource and an eavesdropper holding the input purification and public record. A trace-preserving PPT cha\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-272"
+    },
+    {
+      "id": "276",
+      "title": "The classical capacity of generalized amplitude damping",
+      "summary": "Determines the unassisted classical capacity of every qubit generalized amplitude-damping channel, including all damping and thermal parameters. An explicit one-variable optimization gives the capacity, attained by independent two-state signal ensembles with collective decoding. Holevo capacity, minimum output entropy and regularized classical capacity ar\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-276"
+    },
+    {
+      "id": "278",
+      "title": "Failure of Kohn--Sham ensemble representation",
+      "summary": "Constructs a three-electron Coulomb molecule with two equal positive-integer-charge nuclei whose absolute ground-state density has no noninteracting ground-state ensemble representation by a single real spin-independent local potential in . This disproves Kohn--Sham ensemble representability for that potential class; the required nuclear charge is specifi\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-278"
+    },
+    {
+      "id": "281",
+      "title": "QAOA optimality for the SK model",
+      "summary": "Proves that QAOA approaches the ground-state energy of the Gaussian zero-field Sherrington--Kirkpatrick model when system size tends to infinity before circuit depth. For every accuracy, finite depth and deterministic angles independent of size and disorder achieve the required limiting expected energy per spin. This also yields leading-order optimal expe\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-281"
+    },
+    {
+      "id": "282",
+      "title": "Scale-to-conformal enhancement in four-dimensional QFT",
+      "summary": "Under the stated bounded-local-net and field-reconstruction hypotheses, proves that scale symmetry implies local conformal symmetry for four-dimensional unitary positive-energy theories with a discrete bounded-below scaling spectrum of finite multiplicity, finite scaling support and a physical local scale current. The stress tensor has a traceless improve\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-282"
+    },
+    {
+      "id": "290",
+      "title": "Connes' bicentralizer conjecture and relative bicentralizers",
+      "summary": "Proves Connes' bicentralizer conjecture for every type factor with separable predual and every faithful normal state. More generally, for every inclusion of von Neumann algebras with separable preduals admitting a faithful normal conditional expectation, constructs an amenable expected subalgebra with , resolving the relative bicentralizer conjecture.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-290"
+    },
+    {
+      "id": "297",
+      "title": "A ZFC counterexample to Naimark's problem",
+      "summary": "Gives an alternative to {Tanaka's ZFC construction} of a unital infinite-dimensional simple complex -algebra with a faithful tracial state and exactly one nonzero irreducible representation up to unitary equivalence. Thus the unrestricted compact-operator characterization fails without additional set-theoretic assumptions; the counterexample is nonseparable.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-297"
+    },
+    {
+      "id": "306",
+      "title": "The purely cosmetic surgery conjecture for knots in $S^3$",
+      "summary": "Distinct Dehn surgery slopes on a nontrivial smooth knot in never produce orientation-preservingly homeomorphic manifolds, proving the purely cosmetic surgery conjecture. The statement includes the meridional slope.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-306"
+    },
+    {
+      "id": "311",
+      "title": "Chai's invariant-ideal conjecture",
+      "summary": "Proves Chai's invariant-ideal conjecture for Lubin--Tate deformation rings over finite residue fields, at every prime and positive height . Through the implication of Barthel--Heard--Naumann, this proves the Hovey--Strickland conjecture: dualizable -local spectra have exactly thick tensor ideals, and their Balmer spectrum is a chain of points.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-311"
+    },
+    {
+      "id": "317",
+      "title": "Thomason model structures in every strict higher dimension",
+      "summary": "Resolves the Ara--Maltsiniotis conjecture: for every and , small strict globular -categories admit proper combinatorial Thomason model structures Quillen equivalent to simplicial sets. Thus strict higher categories model the homotopy theory of spaces in every stated dimension.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-317"
+    },
+    {
+      "id": "333",
+      "title": "Smooth isometric immersions of surfaces into $\\mathbb R^4$",
+      "summary": "Every closed smooth Riemannian surface admits a smooth isometric immersion into , resolving the closed-surface form of the four-dimensional isometric-immersion problem. This includes nonorientable surfaces and metrics of arbitrary Gaussian curvature.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-333"
+    },
+    {
+      "id": "339",
+      "title": "Katok's entropy rigidity conjecture",
+      "summary": "Proves Katok's entropy rigidity conjecture for closed connected Riemannian manifolds of dimension at least three with strictly negative sectional curvature: normalized Liouville measure maximizes entropy for the geodesic flow if and only if the metric is locally symmetric.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-339"
+    },
+    {
+      "id": "344",
+      "title": "The metric Blaschke conjecture",
+      "summary": "Proves the metric Blaschke conjecture: every closed connected Riemannian manifold of positive dimension whose injectivity radius equals its diameter is, up to scaling, a standard compact rank-one symmetric space.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-344"
+    },
+    {
+      "id": "345",
+      "title": "Infinitely many closed geodesics on spheres and three-manifolds",
+      "summary": "Proves that every smooth Riemannian metric on , , has infinitely many prime closed geodesics with pairwise distinct images. The same conclusion holds on every closed manifold admitting a finite smooth spherical cover and on every closed three-manifold, without orientability or nondegeneracy restrictions.",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-345"
+    },
+    {
+      "id": "348",
+      "title": "Nonnegatively curved Einstein four-manifolds and a topological gap",
+      "summary": "Classifies closed connected Einstein four-manifolds with positive Einstein constant and nonnegative sectional curvature: up to scaling, their universal Riemannian covers are the round , Fubini--Study , or a product of equal round two-spheres. A closed simply connected nonnegatively curved four-manifold is diffeomorphic to one of these whenever the scale-i\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-348"
+    },
+    {
+      "id": "360",
+      "title": "Villani\u2019s convexity conjecture and regular optimal transport",
+      "summary": "On every closed connected Riemannian manifold of dimension at least two satisfying weak Ma--Trudinger--Wang curvature, all tangent injectivity domains are convex, resolving Villani\u2019s conjecture in this setting. For squared-distance transport between measurable probability densities bounded above and away from zero, the optimal map and its inverse are H\\\"o\u2026",
+      "categories": [
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Touches integer factorization, elliptic-curve, or analytic-number-theory assumptions behind classical public-key cryptography.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-360"
+    },
+    {
+      "id": "069",
+      "title": "Quantum geometric Langlands at irrational level",
+      "summary": "Proves the unramified de Rham quantum geometric Langlands equivalence for every connected simple complex algebraic group on every smooth projective connected complex curve, at every shifted level . It identifies the full derived categories of twisted -modules for the group and its Langlands dual, retaining all global forms and connected components.",
+      "categories": [
+        "quantum-algorithms"
+      ],
+      "pqc_impact": "Directly shapes quantum threat models, algorithm timelines, or query-complexity assumptions used in security proofs.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-069"
+    },
+    {
+      "id": "267",
+      "title": "Positive-temperature Bose--Einstein condensation and quantum depletion",
+      "summary": "Proves Bose--Einstein condensation for the exact canonical Gibbs state of the three-dimensional hard-sphere gas: each fixed exclusion distance and sufficiently small fixed density admit a strictly positive temperature, independent of volume, with positive condensate fraction in the thermodynamic limit. At zero temperature, proves the Bogoliubov leading qu\u2026",
+      "categories": [
+        "quantum-algorithms",
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Directly shapes quantum threat models, algorithm timelines, or query-complexity assumptions used in security proofs.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-267"
+    },
+    {
+      "id": "268",
+      "title": "The spin-one Haldane gap",
+      "summary": "Proves the spin-one Haldane gap conjecture for the pure antiferromagnetic Heisenberg chain on even periodic rings: the spectral gap stays uniformly positive as the chain grows. A companion establishes a gap for odd open chains with endpoint field and gives boundary-selected infinite-volume states with topological index .",
+      "categories": [
+        "quantum-algorithms",
+        "number-theory-crypto"
+      ],
+      "pqc_impact": "Directly shapes quantum threat models, algorithm timelines, or query-complexity assumptions used in security proofs.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-268"
+    },
+    {
+      "id": "271",
+      "title": "Bloch's law and spontaneous ferromagnetic order",
+      "summary": "Proves Bloch's law with its exact coefficient for three-dimensional quantum Heisenberg ferromagnets at every positive quantum spin, allowing nonnegative symmetric finite-range couplings whose support generates . The thermodynamic limit precedes the zero-field derivative and low-temperature limit. The family also proves spontaneous magnetization for neares\u2026",
+      "categories": [
+        "quantum-algorithms",
+        "spin-statistical"
+      ],
+      "pqc_impact": "Directly shapes quantum threat models, algorithm timelines, or query-complexity assumptions used in security proofs.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-271"
+    },
+    {
+      "id": "279",
+      "title": "Exact quantum factoring over a fixed finite gate set",
+      "summary": "Gives a polynomial-time uniform quantum circuit family that outputs the complete prime factorization of every integer with probability one. Both gate count and qubit count are polynomial in the input length, and one fixed finite gate set suffices.",
+      "categories": [
+        "quantum-algorithms",
+        "number-theory-crypto",
+        "factorization-arithmetic"
+      ],
+      "pqc_impact": "Directly shapes quantum threat models, algorithm timelines, or query-complexity assumptions used in security proofs.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-279"
+    },
+    {
+      "id": "284",
+      "title": "The optimal randomized--quantum query exponent",
+      "summary": "Shows that the universal bound for total Boolean functions is sharp in its exponent, ruling out every smaller power and disproving the conjectured cubic relation. Here and are randomized and quantum worst-case bit-query complexities with error at most ; computation between queries is unrestricted.",
+      "categories": [
+        "quantum-algorithms"
+      ],
+      "pqc_impact": "Directly shapes quantum threat models, algorithm timelines, or query-complexity assumptions used in security proofs.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-284"
+    },
+    {
+      "id": "362",
+      "title": "Global smoothness for relativistic Vlasov--Maxwell",
+      "summary": "Proves large-data global existence and uniqueness for the three-dimensional, one-species relativistic Vlasov--Maxwell system. Smooth admissible initial data may be arbitrary provided the particle density is compactly supported and the electromagnetic fields have finite energy and bounded derivatives of every order; the solution remains smooth on every fin\u2026",
+      "categories": [
+        "quantum-algorithms"
+      ],
+      "pqc_impact": "Directly shapes quantum threat models, algorithm timelines, or query-complexity assumptions used in security proofs.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-362"
+    },
+    {
+      "id": "211",
+      "title": "Geometry, diffusion, and spectra of random planar maps",
+      "summary": "Critical Fortuin--Kasteleyn planar maps converge to Liouville quantum gravity spheres for and to the Brownian continuum random tree for , establishing the surface-to-tree geometric transition. For FK--Ising and spanning-tree-weighted maps, stationary random walks converge to Liouville Brownian motion on the limiting sphere. The FK--Ising spectral result a\u2026",
+      "categories": [
+        "spin-statistical"
+      ],
+      "pqc_impact": "Quantum many-body and statistical-physics results inform error correction, randomness, and hardware noise models.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-211"
+    },
+    {
+      "id": "218",
+      "title": "Conformal universality for weakly interacting and disordered Ising models",
+      "summary": "Weak finite-range square-symmetric even multispin perturbations of the square-lattice Ising model preserve critical bulk spin and energy limits; weak square-symmetric contour interactions also yield chordal interface limits. With sufficiently weak iid bond disorder of any fixed bounded nondegenerate mean-zero law, critical spin interfaces converge to the \u2026",
+      "categories": [
+        "spin-statistical"
+      ],
+      "pqc_impact": "Quantum many-body and statistical-physics results inform error correction, randomness, and hardware noise models.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-218"
+    },
+    {
+      "id": "221",
+      "title": "The M\\'ezard--Parisi formula for diluted spin glasses",
+      "summary": "Proves the M\\'ezard--Parisi hierarchical cavity formula for Poisson-diluted even-arity Ising models satisfying the Panchenko--Talagrand factorization and positivity assumptions, with only first-moment integrability. The limiting free energy equals the infimum over finite-depth hierarchical trial laws. This includes the Viana--Bray model, symmetric diluted\u2026",
+      "categories": [
+        "spin-statistical"
+      ],
+      "pqc_impact": "Quantum many-body and statistical-physics results inform error correction, randomness, and hardware noise models.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-221"
+    },
+    {
+      "id": "222",
+      "title": "Perceptron free energies and microscopic jamming",
+      "summary": "Determines finite-temperature variational free energies for Gaussian Ising perceptrons with bounded Borel log-potentials and Gaussian spherical perceptrons with bounded continuous potentials, at every positive pattern density. A spherical extension treats bi-orthogonally invariant disorder with compact limiting singular-value distributions and no outliers\u2026",
+      "categories": [
+        "spin-statistical"
+      ],
+      "pqc_impact": "Quantum many-body and statistical-physics results inform error correction, randomness, and hardware noise models.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-222"
+    },
+    {
+      "id": "234",
+      "title": "All-temperature pressure for orthogonally invariant Ising spin glasses",
+      "summary": "Gives an exact variational formula for the limiting pressure of orthogonally invariant Ising spin glasses at every fixed temperature, both almost surely and in expectation. The coupling matrix is a Haar-random rotation of a deterministic spectrum converging to a compactly supported law, with extreme eigenvalues converging to its support edges. The zero-fi\u2026",
+      "categories": [
+        "spin-statistical"
+      ],
+      "pqc_impact": "Quantum many-body and statistical-physics results inform error correction, randomness, and hardware noise models.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-234"
+    }
+  ]
+}

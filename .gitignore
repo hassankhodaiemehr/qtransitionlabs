@@ -1,4 +1,7 @@
 _site/
+_tmp_*/
+_tmp_*.md
+_tmp_*.tex
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata

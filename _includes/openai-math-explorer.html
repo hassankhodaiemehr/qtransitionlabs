@@ -1,0 +1,105 @@
+{% assign map = site.data.openai_math_pqc_map %}
+{% if map and map.entries %}
+<section class="oai-math-explorer reveal-target" aria-labelledby="oai-math-explorer-heading">
+  <header class="oai-math-explorer__header">
+    <h2 id="oai-math-explorer-heading">Interactive map: OpenAI math results with PQC relevance</h2>
+    <p class="oai-math-explorer__lede">
+      Filter {{ map.pqc_relevant_count }} curated families from the
+      <a href="{{ map.source }}" target="_blank" rel="noopener noreferrer">openai/math</a>
+      catalog ({{ map.manuscripts_total }} manuscripts, {{ map.families_total }} families).
+      Categories describe how each result touches post-quantum security planning—not verification status.
+    </p>
+  </header>
+
+  <div class="oai-math-metrics" role="status" aria-live="polite">
+    <div class="oai-math-metric">
+      <span class="oai-math-metric__value">{{ map.families_total }}</span>
+      <span class="oai-math-metric__label">Families in catalog</span>
+    </div>
+    <div class="oai-math-metric">
+      <span class="oai-math-metric__value">{{ map.pqc_relevant_count }}</span>
+      <span class="oai-math-metric__label">PQC-relevant (QTL map)</span>
+    </div>
+    <div class="oai-math-metric">
+      <span class="oai-math-metric__value" id="oai-math-visible-count">{{ map.pqc_relevant_count }}</span>
+      <span class="oai-math-metric__label">Showing now</span>
+    </div>
+  </div>
+
+  <div class="oai-math-toolbar">
+    <label class="oai-math-search-wrap">
+      <span class="visually-hidden">Search families</span>
+      <input type="search" id="oai-math-search" class="oai-math-search" placeholder="Search by title, family ID, or keyword…" autocomplete="off">
+    </label>
+    <button type="button" class="oai-math-reset" id="oai-math-reset" hidden>Clear filters</button>
+  </div>
+
+  <div class="oai-math-filter filter-bar" role="group" aria-label="Filter by PQC relevance category">
+    <button type="button" class="filter-btn oai-math-filter-btn active" data-oai-filter="all" aria-pressed="true">All mapped</button>
+    {% for cat in map.categories %}
+    <button type="button" class="filter-btn oai-math-filter-btn" data-oai-filter="{{ cat.id }}" aria-pressed="false" title="{{ cat.description }}">{{ cat.label }}</button>
+    {% endfor %}
+  </div>
+
+  <div class="oai-math-legend">
+    {% for cat in map.categories %}
+    <details class="oai-math-legend__item">
+      <summary>{{ cat.label }}</summary>
+      <p>{{ cat.description }}</p>
+    </details>
+    {% endfor %}
+  </div>
+
+  {% if map.featured_ids %}
+  <h3 class="oai-math-section-title">High-signal families for security leaders</h3>
+  <div class="oai-math-grid oai-math-grid--featured">
+    {% for fid in map.featured_ids %}
+      {% assign entry = map.entries | where: "id", fid | first %}
+      {% if entry %}
+      <article class="oai-math-card oai-math-card--featured" data-oai-id="{{ entry.id }}" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="{{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }}">
+        <div class="oai-math-card__top">
+          <span class="oai-math-card__id">Family {{ entry.id }}</span>
+          {% for c in entry.categories %}
+          <span class="oai-math-tag" data-tag="{{ c }}">{{ c | replace: '-', ' ' }}</span>
+          {% endfor %}
+        </div>
+        <h4 class="oai-math-card__title">{{ entry.title }}</h4>
+        <p class="oai-math-card__summary">{{ entry.summary }}</p>
+        <p class="oai-math-card__impact"><strong>PQC lens:</strong> {{ entry.pqc_impact }}</p>
+        <a class="oai-math-card__link" href="https://github.com/openai/math/blob/main/CONTENTS.md" target="_blank" rel="noopener noreferrer">Locate in manuscript map →</a>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <h3 class="oai-math-section-title">Full classified list</h3>
+  <div class="oai-math-grid" id="oai-math-list">
+    {% for entry in map.entries %}
+    {% unless map.featured_ids contains entry.id %}
+    <details class="oai-math-card" data-oai-id="{{ entry.id }}" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="{{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }}">
+      <summary>
+        <span class="oai-math-card__id">Family {{ entry.id }}</span>
+        <span class="oai-math-card__title">{{ entry.title }}</span>
+      </summary>
+      <div class="oai-math-card__body">
+        <div class="oai-math-card__tags">
+          {% for c in entry.categories %}
+          <span class="oai-math-tag" data-tag="{{ c }}">{{ c | replace: '-', ' ' }}</span>
+          {% endfor %}
+        </div>
+        <p class="oai-math-card__summary">{{ entry.summary }}</p>
+        <p class="oai-math-card__impact"><strong>PQC lens:</strong> {{ entry.pqc_impact }}</p>
+        <a class="oai-math-card__link" href="https://github.com/openai/math/blob/main/CONTENTS.md" target="_blank" rel="noopener noreferrer">Manuscript map on GitHub →</a>
+      </div>
+    </details>
+    {% endunless %}
+    {% endfor %}
+  </div>
+
+  <p class="oai-math-disclaimer">
+    <strong>Verification note:</strong> OpenAI states that not all manuscripts are formalized in Lean and that some unformalized results may contain errors.
+    Treat this explorer as a <em>planning radar</em> for where AI-accelerated mathematics may intersect cryptography—not as a substitute for peer review or standards bodies.
+  </p>
+</section>
+{% endif %}
