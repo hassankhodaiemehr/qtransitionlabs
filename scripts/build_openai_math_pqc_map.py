@@ -1,10 +1,11 @@
-"""Build OpenAI math catalog map (PQC-curated + full browseable families)."""
+"""Build OpenAI math catalog map (372 families + 722 manuscripts)."""
 import json
 import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from parse_contents_md import parse_contents
 from tex_plaintext import clean_tex, truncate_summary
 
 IMPACT = {
@@ -55,10 +56,12 @@ RULES = [
 ]
 
 PQC_CATEGORY_IDS = [k for k in IMPACT if k != "general-mathematics"]
+HEADLINE_FALLBACK = {"007", "017", "087", "102", "159", "197", "221", "271", "287", "362"}
 
 
 def clean_title(title: str) -> str:
-    if "\\" in title or "$" in title or "--" in title:
+    title = re.sub(r"<[^>]+>", "", title)
+    if "\\" in title or "$" in title or "--" in title or "`" in title:
         return clean_tex(title)
     return title.replace("--", "–")
 
@@ -69,26 +72,10 @@ def github_blob_to_raw(url: str) -> str:
     return url
 
 
-def parse_entries(text: str):
-    pattern = re.compile(
-        r"\\resultentry\{(\d+)\}\{([^{}]+)\}\{(.+?)\}\{\\href\{([^}]+)\}",
-        re.DOTALL,
-    )
-    entries = []
-    for m in pattern.finditer(text):
-        fid, title, desc, paper_url = m.group(1), m.group(2), m.group(3), m.group(4)
-        title = clean_title(title)
-        summary = truncate_summary(clean_tex(desc))
-        entries.append(
-            {
-                "id": fid,
-                "title": title,
-                "summary": summary,
-                "paper_url": paper_url,
-                "paper_pdf_url": github_blob_to_raw(paper_url) if paper_url.endswith(".pdf") else "",
-            }
-        )
-    return entries
+def paper_urls(path: str) -> tuple[str, str]:
+    blob = f"https://github.com/openai/math/blob/main/{path}"
+    raw = f"https://raw.githubusercontent.com/openai/math/main/{path}"
+    return blob, raw
 
 
 def classify_pqc(entry: dict) -> list[str]:
@@ -109,34 +96,75 @@ def primary_impact(categories: list[str]) -> str:
     return IMPACT[primary]
 
 
+def annotate_family(entry: dict) -> dict:
+    pqc_cats = classify_pqc(entry)
+    if not pqc_cats and entry["id"] in HEADLINE_FALLBACK:
+        pqc_cats = ["complexity-hardness"]
+    if pqc_cats:
+        entry["pqc_relevant"] = True
+        entry["categories"] = pqc_cats
+    else:
+        entry["pqc_relevant"] = False
+        entry["categories"] = ["general-mathematics"]
+    entry["pqc_impact"] = primary_impact(entry["categories"])
+    entry["repo_url"] = f"https://github.com/openai/math/tree/main#result-{entry['id']}"
+    entry["kind"] = "family"
+    return entry
+
+
 def main():
-    src = Path(sys.argv[1] if len(sys.argv) > 1 else "_tmp_overview.tex")
-    text = src.read_text(encoding="utf-8", errors="replace")
-    entries = parse_entries(text)
+    contents_path = Path(sys.argv[1] if len(sys.argv) > 1 else "_tmp_contents.md")
+    families_raw, manuscripts_raw = parse_contents(contents_path)
 
-    headline_fallback = {"007", "017", "087", "102", "159", "197", "221", "271", "287", "362"}
-
-    for e in entries:
-        pqc_cats = classify_pqc(e)
-        if not pqc_cats and e["id"] in headline_fallback:
-            pqc_cats = ["complexity-hardness"]
-        if pqc_cats:
-            e["pqc_relevant"] = True
-            e["categories"] = pqc_cats
-        else:
-            e["pqc_relevant"] = False
-            e["categories"] = ["general-mathematics"]
-        e["pqc_impact"] = primary_impact(e["categories"])
-        e["repo_url"] = f"https://github.com/openai/math/tree/main#result-{e['id']}"
+    entries = []
+    for f in families_raw:
+        paper_url, paper_pdf_url = "", ""
+        # attach first manuscript link for this family when available
+        first_ms = next((m for m in manuscripts_raw if m.family_id == f.id), None)
+        if first_ms:
+            paper_url, paper_pdf_url = paper_urls(first_ms.paper_path)
+        entry = annotate_family(
+            {
+                "id": f.id,
+                "title": clean_title(f.title),
+                "summary": truncate_summary(clean_tex(f.blurb)),
+                "paper_url": paper_url,
+                "paper_pdf_url": paper_pdf_url,
+            }
+        )
+        entries.append(entry)
 
     entries.sort(key=lambda e: int(e["id"]))
+    family_by_id = {e["id"]: e for e in entries}
+
+    manuscripts = []
+    for ms in manuscripts_raw:
+        fam = family_by_id.get(ms.family_id, {})
+        paper_url, paper_pdf_url = paper_urls(ms.paper_path)
+        manuscripts.append(
+            {
+                "id": ms.id,
+                "family_id": ms.family_id,
+                "kind": "manuscript",
+                "title": clean_title(ms.title),
+                "summary": truncate_summary(clean_tex(ms.abstract)),
+                "paper_url": paper_url,
+                "paper_pdf_url": paper_pdf_url,
+                "pqc_relevant": fam.get("pqc_relevant", False),
+                "categories": fam.get("categories", ["general-mathematics"]),
+                "pqc_impact": fam.get("pqc_impact", GENERAL_NOTE),
+                "repo_url": f"https://github.com/openai/math/tree/main#result-{ms.family_id}",
+            }
+        )
+
     pqc_count = sum(1 for e in entries if e["pqc_relevant"])
 
     out = {
         "source": "https://github.com/openai/math",
         "families_total": 372,
         "manuscripts_total": 722,
-        "catalog_count": len(entries),
+        "catalog_family_count": len(entries),
+        "catalog_manuscript_count": len(manuscripts),
         "pqc_relevant_count": pqc_count,
         "featured_ids": FEATURED_IDS,
         "categories": [
@@ -144,10 +172,14 @@ def main():
             for k, v in IMPACT.items()
         ],
         "entries": entries,
+        "manuscripts": manuscripts,
     }
     dest = Path("_data/openai_math_pqc_map.json")
     dest.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"Parsed {len(entries)} families; {pqc_count} PQC-relevant -> {dest}")
+    print(
+        f"Parsed {len(entries)} families, {len(manuscripts)} manuscripts; "
+        f"{pqc_count} PQC-relevant families -> {dest}"
+    )
 
 
 if __name__ == "__main__":

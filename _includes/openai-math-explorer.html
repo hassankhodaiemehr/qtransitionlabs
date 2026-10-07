@@ -4,21 +4,22 @@
   <header class="oai-math-explorer__header">
     <h2 id="oai-math-explorer-heading">Interactive map: OpenAI math catalog</h2>
     <p class="oai-math-explorer__lede">
-      Browse {{ map.catalog_count | default: map.entries.size }} families parsed from
-      <a href="{{ map.source }}" target="_blank" rel="noopener noreferrer">openai/math</a>
-      ({{ map.manuscripts_total }} manuscripts). Default view shows
-      {{ map.pqc_relevant_count }} PQC-curated families; switch to <strong>Full catalog</strong> to include general mathematics (e.g. Families 057, 071, 348, 360) with summaries and paper links—no GitHub dig required.
+      OpenAI’s <a href="{{ map.source }}" target="_blank" rel="noopener noreferrer">openai/math</a> release contains
+      <strong>{{ map.manuscripts_total }} manuscripts</strong> grouped into
+      <strong>{{ map.families_total }} result families</strong>.
+      Use <strong>All manuscripts (722)</strong> for every paper with on-site abstracts and PDF links,
+      <strong>All families (372)</strong> for grouped results, or <strong>PQC curated</strong> for the security-focused subset.
     </p>
   </header>
 
   <div class="oai-math-metrics" role="status" aria-live="polite">
     <div class="oai-math-metric">
-      <span class="oai-math-metric__value">{{ map.catalog_count | default: map.entries.size }}</span>
-      <span class="oai-math-metric__label">In this explorer</span>
+      <span class="oai-math-metric__value">{{ map.catalog_manuscript_count | default: map.manuscripts_total }}</span>
+      <span class="oai-math-metric__label">Manuscripts listed</span>
     </div>
     <div class="oai-math-metric">
-      <span class="oai-math-metric__value">{{ map.pqc_relevant_count }}</span>
-      <span class="oai-math-metric__label">PQC-curated</span>
+      <span class="oai-math-metric__value">{{ map.catalog_family_count | default: map.entries.size }}</span>
+      <span class="oai-math-metric__label">Families listed</span>
     </div>
     <div class="oai-math-metric">
       <span class="oai-math-metric__value" id="oai-math-visible-count">{{ map.pqc_relevant_count }}</span>
@@ -28,15 +29,16 @@
 
   <div class="oai-math-toolbar">
     <label class="oai-math-search-wrap">
-      <span class="visually-hidden">Search families</span>
-      <input type="search" id="oai-math-search" class="oai-math-search" placeholder="Search by title, family ID, or keyword…" autocomplete="off">
+      <span class="visually-hidden">Search catalog</span>
+      <input type="search" id="oai-math-search" class="oai-math-search" placeholder="Search by title, family ID, manuscript ID, or keyword…" autocomplete="off">
     </label>
     <button type="button" class="oai-math-reset" id="oai-math-reset" hidden>Clear filters</button>
   </div>
 
   <div class="oai-math-filter filter-bar" role="group" aria-label="Filter catalog">
-    <button type="button" class="filter-btn oai-math-filter-btn active" data-oai-filter="pqc" aria-pressed="true">PQC curated</button>
-    <button type="button" class="filter-btn oai-math-filter-btn" data-oai-filter="all" aria-pressed="false">Full catalog</button>
+    <button type="button" class="filter-btn oai-math-filter-btn active" data-oai-filter="pqc" aria-pressed="true">PQC curated (families)</button>
+    <button type="button" class="filter-btn oai-math-filter-btn" data-oai-filter="families" aria-pressed="false">All families (372)</button>
+    <button type="button" class="filter-btn oai-math-filter-btn" data-oai-filter="manuscripts" aria-pressed="false">All manuscripts ({{ map.catalog_manuscript_count | default: map.manuscripts_total }})</button>
     {% for cat in map.categories %}
     <button type="button" class="filter-btn oai-math-filter-btn" data-oai-filter="{{ cat.id }}" aria-pressed="false" title="{{ cat.description }}">{{ cat.label }}</button>
     {% endfor %}
@@ -57,7 +59,7 @@
     {% for fid in map.featured_ids %}
       {% assign entry = map.entries | where: "id", fid | first %}
       {% if entry and entry.pqc_relevant %}
-      <article class="oai-math-card oai-math-card--featured" data-oai-id="{{ entry.id }}" data-oai-pqc="true" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="{{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }}">
+      <article class="oai-math-card oai-math-card--featured" data-oai-kind="family" data-oai-id="{{ entry.id }}" data-oai-pqc="true" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="{{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }}">
         <div class="oai-math-card__top">
           <span class="oai-math-card__id">Family {{ entry.id }}</span>
           {% for c in entry.categories %}
@@ -77,11 +79,11 @@
   </div>
   {% endif %}
 
-  <h3 class="oai-math-section-title">Browse all families</h3>
+  <h3 class="oai-math-section-title">Browse catalog</h3>
   <div class="oai-math-grid" id="oai-math-list">
     {% for entry in map.entries %}
     {% unless map.featured_ids contains entry.id and entry.pqc_relevant %}
-    <details class="oai-math-card{% unless entry.pqc_relevant %} oai-math-card--general{% endunless %}" data-oai-id="{{ entry.id }}" data-oai-pqc="{{ entry.pqc_relevant }}" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="{{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }}">
+    <details class="oai-math-card oai-math-card--family{% unless entry.pqc_relevant %} oai-math-card--general{% endunless %}" data-oai-kind="family" data-oai-id="{{ entry.id }}" data-oai-pqc="{{ entry.pqc_relevant }}" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="family {{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }}">
       <summary>
         <span class="oai-math-card__id">Family {{ entry.id }}</span>
         <span class="oai-math-card__title">{{ entry.title }}</span>
@@ -111,11 +113,44 @@
     </details>
     {% endunless %}
     {% endfor %}
+
+    {% if map.manuscripts %}
+    {% for ms in map.manuscripts %}
+    <details class="oai-math-card oai-math-card--manuscript{% unless ms.pqc_relevant %} oai-math-card--general{% endunless %}" data-oai-kind="manuscript" data-oai-id="{{ ms.id }}" data-oai-family="{{ ms.family_id }}" data-oai-pqc="{{ ms.pqc_relevant }}" data-oai-categories="{{ ms.categories | join: ' ' }}" data-oai-text="manuscript {{ ms.id }} family {{ ms.family_id }} {{ ms.title | downcase }} {{ ms.summary | downcase }}">
+      <summary>
+        <span class="oai-math-card__id">{{ ms.id | upcase }} · Family {{ ms.family_id }}</span>
+        <span class="oai-math-card__title">{{ ms.title }}</span>
+      </summary>
+      <div class="oai-math-card__body">
+        <div class="oai-math-card__tags">
+          {% for c in ms.categories %}
+          {% assign cat_obj = map.categories | where: "id", c | first %}
+          <span class="oai-math-tag" data-tag="{{ c }}">{{ cat_obj.label | default: c }}</span>
+          {% endfor %}
+        </div>
+        <p class="oai-math-card__summary">{{ ms.summary }}</p>
+        <p class="oai-math-card__impact">
+          {% if ms.pqc_relevant %}
+          <strong>PQC lens (via Family {{ ms.family_id }}):</strong> {{ ms.pqc_impact }}
+          {% else %}
+          <strong>Catalog note:</strong> {{ ms.pqc_impact }}
+          {% endif %}
+        </p>
+        {% if ms.paper_url %}
+        <a class="oai-math-card__link" href="{{ ms.paper_url }}" target="_blank" rel="noopener noreferrer">View manuscript on GitHub →</a>
+        {% endif %}
+        {% if ms.paper_pdf_url %}
+        <a class="oai-math-card__link oai-math-card__link--secondary" href="{{ ms.paper_pdf_url }}" target="_blank" rel="noopener noreferrer">Open PDF (raw) →</a>
+        {% endif %}
+      </div>
+    </details>
+    {% endfor %}
+    {% endif %}
   </div>
 
   <p class="oai-math-disclaimer">
     <strong>Verification note:</strong> OpenAI states that not all manuscripts are formalized in Lean and that some unformalized results may contain errors.
-    Treat PQC-tagged families as a <em>planning radar</em>; general-math entries are provided for convenience browsing only.
+    Manuscript rows mirror every <code>preprints/*.pdf</code> link in <code>CONTENTS.md</code> ({{ map.catalog_manuscript_count }} listed; OpenAI’s header cites {{ map.manuscripts_total }} total). Family rows cover all {{ map.catalog_family_count }} families.
   </p>
 </section>
 {% endif %}

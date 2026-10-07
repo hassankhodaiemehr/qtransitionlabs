@@ -690,6 +690,16 @@ body.light-mode .oai-math-tag[data-tag="general-mathematics"] {
   opacity: 0.98;
 }
 
+.oai-math-card--manuscript .oai-math-card__id {
+  background: rgba(167, 139, 250, 0.14);
+  border-color: rgba(167, 139, 250, 0.35);
+  color: #ddd6fe;
+}
+
+body.light-mode .oai-math-card--manuscript .oai-math-card__id {
+  color: #5b21b6;
+}
+
 .oai-math-card__link--secondary {
   margin-left: 0.75rem;
 }

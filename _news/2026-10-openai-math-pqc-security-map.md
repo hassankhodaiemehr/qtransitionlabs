@@ -24,7 +24,7 @@ Three forces converge:
 
 ## How to read the interactive map below
 
-We classified **49 families** into seven PQC lenses. The explorer also includes the **full parsed catalog** (filter: **Full catalog** or **General math (non-PQC)**) so Families like **057, 071, 348, and 360** remain browsable on-site with summaries and manuscript links:
+We classified **49 families** into seven PQC lenses. The explorer lists all **372 families** and all **722 manuscripts** from OpenAI’s catalog—use **All manuscripts (722)** for every paper with abstract and PDF link, or **All families (372)** for grouped results (including Families **057, 071, 348, 360**):
 
 - **Quantum algorithms & physics** — factoring models, query complexity, quantum many-body results tied to hardware and error correction narratives  
 - **Number theory & ECC** — zeta/L-function progress, elliptic-curve structure, modularity—adjacent to classical PKI analysis  

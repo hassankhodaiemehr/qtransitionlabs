@@ -6,7 +6,7 @@
   var resetBtn = document.getElementById('oai-math-reset');
   var visibleCount = document.getElementById('oai-math-visible-count');
   var filterButtons = root.querySelectorAll('.oai-math-filter-btn');
-  var cards = root.querySelectorAll('.oai-math-card[data-oai-categories]');
+  var cards = root.querySelectorAll('.oai-math-card[data-oai-kind]');
   var featuredGrid = root.querySelector('.oai-math-grid--featured');
 
   var activeFilter = 'pqc';
@@ -17,15 +17,18 @@
   }
 
   function cardMatches(card) {
+    var kind = card.getAttribute('data-oai-kind') || 'family';
     var cats = card.getAttribute('data-oai-categories') || '';
     var isPqc = card.getAttribute('data-oai-pqc') === 'true';
     var text = card.getAttribute('data-oai-text') || '';
     var filterOk = false;
 
-    if (activeFilter === 'all') {
-      filterOk = true;
+    if (activeFilter === 'manuscripts') {
+      filterOk = kind === 'manuscript';
+    } else if (activeFilter === 'families') {
+      filterOk = kind === 'family';
     } else if (activeFilter === 'pqc') {
-      filterOk = isPqc;
+      filterOk = kind === 'family' && isPqc;
     } else {
       filterOk = cats.split(/\s+/).indexOf(activeFilter) !== -1;
     }
@@ -44,7 +47,7 @@
     });
 
     if (featuredGrid) {
-      featuredGrid.hidden = activeFilter !== 'pqc' && activeFilter !== 'all';
+      featuredGrid.hidden = activeFilter !== 'pqc';
     }
 
     if (visibleCount) visibleCount.textContent = String(shown);
