@@ -59,6 +59,8 @@ def clean_tex(s: str) -> str:
         (r"\$\\Re s>11/12\$", "Re(s) > 11/12"),
         (r"\$S\^4\$", "S⁴"),
         (r"\$\\mathbb\{CP\}\^2\$", "CP²"),
+        (r"\$\\mathbb\s+Q\(\\sqrt\{-3\}\)\$", "Q(√−3)"),
+        (r"\$\\mathbb Q\(\\sqrt\{-3\}\)\$", "Q(√−3)"),
         (r"\$\\mathbb\{S\}\^2\$", "S²"),
         (r"\\mathbb\{Q\}\(\\sqrt\{-3\}\)", "Q(√−3)"),
         (r"\\mathbb\{Q\}", "Q"),

@@ -339,7 +339,7 @@
     {
       "id": "003",
       "title": "The quasi-Riemann hypothesis",
-      "summary": "Proves that every Dirichlet L-function, including ζ(s), is zero-free in Re(s) > 7/8, resolving the quasi-Riemann hypothesis. The same half-plane is zero-free for every finite-order Hecke L-function over . A companion gives a different proof of the zero-free half-plane Re(s) > 11/12.",
+      "summary": "Proves that every Dirichlet L-function, including ζ(s), is zero-free in Re(s) > 7/8, resolving the quasi-Riemann hypothesis. The same half-plane is zero-free for every finite-order Hecke L-function over Q(√−3). A companion gives a different proof of the zero-free half-plane Re(s) > 11/12.",
       "categories": [
         "number-theory-crypto"
       ],
