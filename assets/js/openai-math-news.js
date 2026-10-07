@@ -6,8 +6,13 @@
   var resetBtn = document.getElementById('oai-math-reset');
   var visibleCount = document.getElementById('oai-math-visible-count');
   var filterButtons = root.querySelectorAll('.oai-math-filter-btn');
-  var cards = root.querySelectorAll('.oai-math-card[data-oai-kind]');
+  var familyCards = root.querySelectorAll('#oai-math-list .oai-math-card[data-oai-kind="family"], .oai-math-grid--featured .oai-math-card[data-oai-kind="family"]');
+  var manuscriptCards = root.querySelectorAll('#oai-math-manuscript-list .oai-math-card[data-oai-kind="manuscript"]');
   var featuredGrid = root.querySelector('.oai-math-grid--featured');
+  var familySectionTitle = document.getElementById('oai-math-families-heading');
+  var featuredSectionTitle = document.getElementById('oai-math-featured-heading');
+  var manuscriptHeading = document.getElementById('oai-math-manuscripts-heading');
+  var manuscriptGrid = document.getElementById('oai-math-manuscript-list');
 
   var activeFilter = 'pqc';
   var query = '';
@@ -37,18 +42,50 @@
     return filterOk && searchOk;
   }
 
+  function setCardVisibility(card, show) {
+    card.hidden = !show;
+    card.classList.toggle('is-filtered-out', !show);
+  }
+
   function update() {
     var shown = 0;
-    cards.forEach(function (card) {
+    var flatManuscripts = activeFilter === 'manuscripts';
+
+    if (familySectionTitle) familySectionTitle.hidden = flatManuscripts;
+    if (featuredSectionTitle) featuredSectionTitle.hidden = flatManuscripts;
+    if (manuscriptHeading) manuscriptHeading.hidden = !flatManuscripts;
+    if (manuscriptGrid) manuscriptGrid.hidden = !flatManuscripts;
+
+    if (featuredGrid) {
+      featuredGrid.hidden = flatManuscripts;
+      if (!flatManuscripts) {
+        featuredGrid.querySelectorAll('.oai-math-card[data-oai-kind="family"]').forEach(function (card) {
+          var show = cardMatches(card);
+          setCardVisibility(card, show);
+          if (show) shown += 1;
+        });
+      }
+    }
+
+    familyCards.forEach(function (card) {
+      if (flatManuscripts) {
+        setCardVisibility(card, false);
+        return;
+      }
       var show = cardMatches(card);
-      card.hidden = !show;
-      card.classList.toggle('is-filtered-out', !show);
+      setCardVisibility(card, show);
       if (show) shown += 1;
     });
 
-    if (featuredGrid) {
-      featuredGrid.hidden = activeFilter !== 'pqc';
-    }
+    manuscriptCards.forEach(function (card) {
+      if (!flatManuscripts) {
+        setCardVisibility(card, false);
+        return;
+      }
+      var show = cardMatches(card);
+      setCardVisibility(card, show);
+      if (show) shown += 1;
+    });
 
     if (visibleCount) visibleCount.textContent = String(shown);
 
@@ -90,6 +127,25 @@
       update();
     });
   }
+
+  root.addEventListener('click', function (event) {
+    var tabBtn = event.target.closest('.oai-math-tab-btn');
+    if (!tabBtn || !root.contains(tabBtn)) return;
+    var tabsRoot = tabBtn.closest('[data-oai-family-tabs]');
+    if (!tabsRoot) return;
+
+    var tabId = tabBtn.getAttribute('data-oai-tab');
+    tabsRoot.querySelectorAll('.oai-math-tab-btn').forEach(function (btn) {
+      var active = btn === tabBtn;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    tabsRoot.querySelectorAll('.oai-math-tabpanel').forEach(function (panel) {
+      var active = panel.getAttribute('data-oai-panel') === tabId;
+      panel.classList.toggle('is-active', active);
+      panel.hidden = !active;
+    });
+  });
 
   update();
 })();

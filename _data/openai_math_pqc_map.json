@@ -3954,8 +3954,8 @@
       "id": "282",
       "title": "From scale symmetry to local conformal symmetry in four-dimensional QFT.",
       "summary": "Under the stated bounded-local-net and field-reconstruction hypotheses, proves that scale symmetry implies local conformal symmetry for four-dimensional unitary positive-energy theories with a discrete bounded-below scaling spectrum of finite multiplicity, finite scaling support and a physical local scale current. The stress tensor has a traceless improvement with unchanged spacetime charges. The conclusion concerns local Ward identities, not a global conformal action on the whole net.",
-      "paper_url": "",
-      "paper_pdf_url": "",
+      "paper_url": "https://github.com/openai/math/blob/main/preprints/Scale-and-conformal-symmetry-in-four-dimensional-operational-quantum-field-theory-September-26-2026/main.pdf",
+      "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/Scale-and-conformal-symmetry-in-four-dimensional-operational-quantum-field-theory-September-26-2026/main.pdf",
       "pqc_relevant": false,
       "categories": [
         "general-mathematics"
@@ -6016,7 +6016,7 @@
       "id": "m048",
       "family_id": "022",
       "kind": "manuscript",
-      "title": "0,∞)`, divergence of `∑_qφ(q) (q)/q` implies ` |qx-γ | (q)`$ for infinitely many q, for almost every x. Here ϕ is Euler's totient and the norm is distance to the nearest integer. Numerators are unrestricted; no monotonicity or Diophantine condition on γ is needed. &emsp;[The Weak Inhomogeneous Duffin–Schaeffer Conjecture",
+      "title": "The Weak Inhomogeneous Duffin–Schaeffer Conjecture",
       "summary": "We prove the weak inhomogeneous Duffin–Schaeffer conjecture. For every fixed <i>γ</i> ∈ ℝ and finite-valued `: N→[0,∞)`, divergence of `∑(q≥1)φ(q) (q)/q` implies ` |qx-γ | (q)` for infinitely many <i>q</i>, for almost every <i>x</i>. Here <i>ϕ</i> is Euler's totient and ` |· |` is distance to the nearest integer. Numerators need not be reduced, and the shift satisfies no Diophantine restriction.",
       "paper_url": "https://github.com/openai/math/blob/main/preprints/The-weak-inhomogeneous-Duffin-Schaeffer-conjecture-September-25-2026/paper.pdf",
       "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/The-weak-inhomogeneous-Duffin-Schaeffer-conjecture-September-25-2026/paper.pdf",
@@ -13831,18 +13831,18 @@
     },
     {
       "id": "m566",
-      "family_id": "281",
+      "family_id": "282",
       "kind": "manuscript",
-      "title": "0,1)`. Thus its support has no gaps at any overlap scale below one. We use the covariance normalization ` (t)=t²/2`$. **282. From scale symmetry to local conformal symmetry in four-dimensional QFT.** Under the stated bounded-local-net and field-reconstruction hypotheses, proves that scale symmetry implies local conformal symmetry for four-dimensional unitary positive-energy theories with a discrete bounded-below scaling spectrum of finite multiplicity, finite scaling support and a physical local scale current. The stress tensor has a traceless improvement with unchanged spacetime charges. The conclusion concerns local Ward identities, not a global conformal action on the whole net. &emsp;[Scale and conformal symmetry in four-dimensional operational quantum field theory",
+      "title": "Scale and conformal symmetry in four-dimensional operational quantum field theory",
       "summary": "We prove that scale symmetry implies local conformal symmetry for a class of four-dimensional unitary, positive-energy quantum field theories with a Poincaré- and scale-invariant vacuum. The class has a discrete, bounded-below spectrum of scaling dimensions with finite multiplicities, and each original field has finite scaling support.",
       "paper_url": "https://github.com/openai/math/blob/main/preprints/Scale-and-conformal-symmetry-in-four-dimensional-operational-quantum-field-theory-September-26-2026/main.pdf",
       "paper_pdf_url": "https://raw.githubusercontent.com/openai/math/main/preprints/Scale-and-conformal-symmetry-in-four-dimensional-operational-quantum-field-theory-September-26-2026/main.pdf",
-      "pqc_relevant": true,
+      "pqc_relevant": false,
       "categories": [
-        "ai-verification"
+        "general-mathematics"
       ],
-      "pqc_impact": "Formal proof artifacts improve assurance for crypto implementations and protocol verification pipelines.",
-      "repo_url": "https://github.com/openai/math/tree/main#result-281"
+      "pqc_impact": "General mathematics result in the OpenAI catalog. QTL does not classify this family as directly relevant to post-quantum migration planning.",
+      "repo_url": "https://github.com/openai/math/tree/main#result-282"
     },
     {
       "id": "m567",

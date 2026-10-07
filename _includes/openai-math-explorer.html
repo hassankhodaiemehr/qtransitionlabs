@@ -7,8 +7,8 @@
       OpenAI’s <a href="{{ map.source }}" target="_blank" rel="noopener noreferrer">openai/math</a> release contains
       <strong>{{ map.manuscripts_total }} manuscripts</strong> grouped into
       <strong>{{ map.families_total }} result families</strong>.
-      Use <strong>All manuscripts (722)</strong> for every paper with on-site abstracts and PDF links,
-      <strong>All families (372)</strong> for grouped results, or <strong>PQC curated</strong> for the security-focused subset.
+      Expand a family to switch between <strong>Overview</strong> and each paper tab, or use
+      <strong>All manuscripts</strong> for a flat list.
     </p>
   </header>
 
@@ -54,12 +54,16 @@
   </div>
 
   {% if map.featured_ids %}
-  <h3 class="oai-math-section-title">High-signal families for security leaders</h3>
+  <h3 class="oai-math-section-title" id="oai-math-featured-heading">High-signal families for security leaders</h3>
   <div class="oai-math-grid oai-math-grid--featured">
     {% for fid in map.featured_ids %}
       {% assign entry = map.entries | where: "id", fid | first %}
       {% if entry and entry.pqc_relevant %}
-      <article class="oai-math-card oai-math-card--featured" data-oai-kind="family" data-oai-id="{{ entry.id }}" data-oai-pqc="true" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="{{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }}">
+      {% assign fam_manuscripts = map.manuscripts | where: "family_id", entry.id %}
+      {% capture ms_search %}
+      {% for ms in fam_manuscripts %}{{ ms.id }} {{ ms.title }} {{ ms.summary }} {% endfor %}
+      {% endcapture %}
+      <article class="oai-math-card oai-math-card--featured oai-math-card--family" data-oai-kind="family" data-oai-id="{{ entry.id }}" data-oai-pqc="true" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="family {{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }} {{ ms_search | downcase }}">
         <div class="oai-math-card__top">
           <span class="oai-math-card__id">Family {{ entry.id }}</span>
           {% for c in entry.categories %}
@@ -68,53 +72,40 @@
           {% endfor %}
         </div>
         <h4 class="oai-math-card__title">{{ entry.title }}</h4>
-        <p class="oai-math-card__summary">{{ entry.summary }}</p>
-        <p class="oai-math-card__impact"><strong>PQC lens:</strong> {{ entry.pqc_impact }}</p>
-        {% if entry.paper_url %}
-        <a class="oai-math-card__link" href="{{ entry.paper_url }}" target="_blank" rel="noopener noreferrer">View manuscript on GitHub →</a>
-        {% endif %}
+        {% include oai-math-family-body.html entry=entry map=map %}
       </article>
       {% endif %}
     {% endfor %}
   </div>
   {% endif %}
 
-  <h3 class="oai-math-section-title">Browse catalog</h3>
+  <h3 class="oai-math-section-title" id="oai-math-families-heading">Browse families</h3>
   <div class="oai-math-grid" id="oai-math-list">
     {% for entry in map.entries %}
     {% unless map.featured_ids contains entry.id and entry.pqc_relevant %}
-    <details class="oai-math-card oai-math-card--family{% unless entry.pqc_relevant %} oai-math-card--general{% endunless %}" data-oai-kind="family" data-oai-id="{{ entry.id }}" data-oai-pqc="{{ entry.pqc_relevant }}" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="family {{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }}">
+    {% assign fam_manuscripts = map.manuscripts | where: "family_id", entry.id %}
+    {% capture ms_search %}
+    {% for ms in fam_manuscripts %}{{ ms.id }} {{ ms.title }} {{ ms.summary }} {% endfor %}
+    {% endcapture %}
+    <details class="oai-math-card oai-math-card--family{% unless entry.pqc_relevant %} oai-math-card--general{% endunless %}" data-oai-kind="family" data-oai-id="{{ entry.id }}" data-oai-pqc="{{ entry.pqc_relevant }}" data-oai-categories="{{ entry.categories | join: ' ' }}" data-oai-text="family {{ entry.id }} {{ entry.title | downcase }} {{ entry.summary | downcase }} {{ ms_search | downcase }}">
       <summary>
         <span class="oai-math-card__id">Family {{ entry.id }}</span>
         <span class="oai-math-card__title">{{ entry.title }}</span>
+        {% if fam_manuscripts.size > 0 %}
+        <span class="oai-math-card__ms-count">{{ fam_manuscripts.size }} paper{% if fam_manuscripts.size != 1 %}s{% endif %}</span>
+        {% endif %}
       </summary>
       <div class="oai-math-card__body">
-        <div class="oai-math-card__tags">
-          {% for c in entry.categories %}
-          {% assign cat_obj = map.categories | where: "id", c | first %}
-          <span class="oai-math-tag" data-tag="{{ c }}">{{ cat_obj.label | default: c }}</span>
-          {% endfor %}
-        </div>
-        <p class="oai-math-card__summary">{{ entry.summary }}</p>
-        <p class="oai-math-card__impact">
-          {% if entry.pqc_relevant %}
-          <strong>PQC lens:</strong> {{ entry.pqc_impact }}
-          {% else %}
-          <strong>Catalog note:</strong> {{ entry.pqc_impact }}
-          {% endif %}
-        </p>
-        {% if entry.paper_url %}
-        <a class="oai-math-card__link" href="{{ entry.paper_url }}" target="_blank" rel="noopener noreferrer">View manuscript on GitHub →</a>
-        {% endif %}
-        {% if entry.paper_pdf_url %}
-        <a class="oai-math-card__link oai-math-card__link--secondary" href="{{ entry.paper_pdf_url }}" target="_blank" rel="noopener noreferrer">Open PDF (raw) →</a>
-        {% endif %}
+        {% include oai-math-family-body.html entry=entry map=map %}
       </div>
     </details>
     {% endunless %}
     {% endfor %}
+  </div>
 
-    {% if map.manuscripts %}
+  {% if map.manuscripts %}
+  <h3 class="oai-math-section-title oai-math-section-title--manuscripts" id="oai-math-manuscripts-heading" hidden>All manuscripts (flat list)</h3>
+  <div class="oai-math-grid oai-math-grid--manuscripts" id="oai-math-manuscript-list" hidden>
     {% for ms in map.manuscripts %}
     <details class="oai-math-card oai-math-card--manuscript{% unless ms.pqc_relevant %} oai-math-card--general{% endunless %}" data-oai-kind="manuscript" data-oai-id="{{ ms.id }}" data-oai-family="{{ ms.family_id }}" data-oai-pqc="{{ ms.pqc_relevant }}" data-oai-categories="{{ ms.categories | join: ' ' }}" data-oai-text="manuscript {{ ms.id }} family {{ ms.family_id }} {{ ms.title | downcase }} {{ ms.summary | downcase }}">
       <summary>
@@ -122,12 +113,6 @@
         <span class="oai-math-card__title">{{ ms.title }}</span>
       </summary>
       <div class="oai-math-card__body">
-        <div class="oai-math-card__tags">
-          {% for c in ms.categories %}
-          {% assign cat_obj = map.categories | where: "id", c | first %}
-          <span class="oai-math-tag" data-tag="{{ c }}">{{ cat_obj.label | default: c }}</span>
-          {% endfor %}
-        </div>
         <p class="oai-math-card__summary">{{ ms.summary }}</p>
         <p class="oai-math-card__impact">
           {% if ms.pqc_relevant %}
@@ -145,8 +130,8 @@
       </div>
     </details>
     {% endfor %}
-    {% endif %}
   </div>
+  {% endif %}
 
   <p class="oai-math-disclaimer">
     <strong>Verification note:</strong> OpenAI states that not all manuscripts are formalized in Lean and that some unformalized results may contain errors.

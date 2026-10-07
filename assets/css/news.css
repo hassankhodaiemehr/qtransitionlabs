@@ -690,6 +690,110 @@ body.light-mode .oai-math-tag[data-tag="general-mathematics"] {
   opacity: 0.98;
 }
 
+.oai-math-card__ms-count {
+  flex-shrink: 0;
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #8B949E;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(139, 148, 158, 0.12);
+}
+
+body.light-mode .oai-math-card__ms-count {
+  color: #64748B;
+}
+
+.oai-math-family-tabs {
+  margin-top: 0.75rem;
+}
+
+.oai-math-tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid #30363D;
+}
+
+body.light-mode .oai-math-tablist {
+  border-bottom-color: #E5E7EB;
+}
+
+.oai-math-tab-btn {
+  appearance: none;
+  border: 1px solid #30363D;
+  background: #0D1117;
+  color: #C9D1D9;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.55rem;
+  border-radius: 8px;
+  cursor: pointer;
+  max-width: 100%;
+  line-height: 1.2;
+}
+
+.oai-math-tab-btn:hover {
+  border-color: #58A6FF;
+  color: #58A6FF;
+}
+
+.oai-math-tab-btn.is-active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38BDF8;
+  color: #38BDF8;
+}
+
+body.light-mode .oai-math-tab-btn {
+  background: #F9FAFB;
+  border-color: #D1D5DB;
+  color: #374151;
+}
+
+body.light-mode .oai-math-tab-btn.is-active {
+  background: rgba(2, 132, 199, 0.1);
+  border-color: #0284C7;
+  color: #0284C7;
+}
+
+.oai-math-tabpanel[hidden] {
+  display: none !important;
+}
+
+.oai-math-ms-kicker {
+  margin: 0 0 0.35rem;
+}
+
+.oai-math-ms-title {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #F0F6FC;
+}
+
+body.light-mode .oai-math-ms-title {
+  color: #111827;
+}
+
+.oai-math-tag--count {
+  color: #A5B4FC;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.oai-math-card--featured .oai-math-family-tabs {
+  margin-top: 0.5rem;
+}
+
+.oai-math-grid--manuscripts[hidden],
+.oai-math-section-title--manuscripts[hidden] {
+  display: none !important;
+}
+
 .oai-math-card--manuscript .oai-math-card__id {
   background: rgba(167, 139, 250, 0.14);
   border-color: rgba(167, 139, 250, 0.35);

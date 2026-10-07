@@ -1,0 +1,54 @@
+{% assign fam_manuscripts = include.map.manuscripts | where: "family_id", include.entry.id %}
+
+<div class="oai-math-family-tabs" data-oai-family-tabs>
+  {% if fam_manuscripts.size > 0 %}
+  <div class="oai-math-tablist" role="tablist" aria-label="Family {{ include.entry.id }} — overview and manuscripts">
+    <button type="button" class="oai-math-tab-btn is-active" role="tab" id="oai-tab-{{ include.entry.id }}-overview" aria-selected="true" aria-controls="oai-panel-{{ include.entry.id }}-overview" data-oai-tab="overview">Overview</button>
+    {% for ms in fam_manuscripts %}
+    <button type="button" class="oai-math-tab-btn" role="tab" id="oai-tab-{{ include.entry.id }}-{{ ms.id }}" aria-selected="false" aria-controls="oai-panel-{{ include.entry.id }}-{{ ms.id }}" data-oai-tab="{{ ms.id }}" title="{{ ms.title | escape }}">{{ ms.id | upcase }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="oai-math-tabpanels">
+    <div class="oai-math-tabpanel is-active" role="tabpanel" id="oai-panel-{{ include.entry.id }}-overview" aria-labelledby="oai-tab-{{ include.entry.id }}-overview" data-oai-panel="overview">
+      <div class="oai-math-card__tags">
+        {% for c in include.entry.categories %}
+        {% assign cat_obj = include.map.categories | where: "id", c | first %}
+        <span class="oai-math-tag" data-tag="{{ c }}">{{ cat_obj.label | default: c }}</span>
+        {% endfor %}
+        {% if fam_manuscripts.size > 0 %}
+        <span class="oai-math-tag oai-math-tag--count">{{ fam_manuscripts.size }} manuscript{% if fam_manuscripts.size != 1 %}s{% endif %}</span>
+        {% endif %}
+      </div>
+      <p class="oai-math-card__summary">{{ include.entry.summary }}</p>
+      <p class="oai-math-card__impact">
+        {% if include.entry.pqc_relevant %}
+        <strong>PQC lens:</strong> {{ include.entry.pqc_impact }}
+        {% else %}
+        <strong>Catalog note:</strong> {{ include.entry.pqc_impact }}
+        {% endif %}
+      </p>
+      {% if include.entry.paper_url %}
+      <a class="oai-math-card__link" href="{{ include.entry.paper_url }}" target="_blank" rel="noopener noreferrer">Primary manuscript on GitHub →</a>
+      {% endif %}
+      {% if include.entry.repo_url %}
+      <a class="oai-math-card__link oai-math-card__link--secondary" href="{{ include.entry.repo_url }}" target="_blank" rel="noopener noreferrer">Family index on GitHub →</a>
+      {% endif %}
+    </div>
+
+    {% for ms in fam_manuscripts %}
+    <div class="oai-math-tabpanel" role="tabpanel" id="oai-panel-{{ include.entry.id }}-{{ ms.id }}" aria-labelledby="oai-tab-{{ include.entry.id }}-{{ ms.id }}" data-oai-panel="{{ ms.id }}" hidden>
+      <p class="oai-math-ms-kicker"><span class="oai-math-card__id">{{ ms.id | upcase }}</span></p>
+      <h5 class="oai-math-ms-title">{{ ms.title }}</h5>
+      <p class="oai-math-card__summary">{{ ms.summary }}</p>
+      {% if ms.paper_url %}
+      <a class="oai-math-card__link" href="{{ ms.paper_url }}" target="_blank" rel="noopener noreferrer">View manuscript on GitHub →</a>
+      {% endif %}
+      {% if ms.paper_pdf_url %}
+      <a class="oai-math-card__link oai-math-card__link--secondary" href="{{ ms.paper_pdf_url }}" target="_blank" rel="noopener noreferrer">Open PDF (raw) →</a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>

@@ -4,9 +4,11 @@ from dataclasses import dataclass
 from pathlib import Path
 
 FAMILY_HEADER_RE = re.compile(r"\*\*(\d{3})\.\s+([^*]+?)\*\*(.*?)(?=\n\n|\Z)", re.DOTALL)
+# Manuscript links in CONTENTS.md always start with &emsp; or a newline (never inline math like `$`[0,1)`$`).
 MANUSCRIPT_LINK_RE = re.compile(
-    r"(?:&emsp;)?\[([^\]]+)\]\((preprints/[^)]+\.pdf)\)"
+    r"(?:&emsp;|\n)\[([^\]]+)\]\((preprints/[^)]+\.pdf)\)"
 )
+MAX_MANUSCRIPT_TITLE_LEN = 220
 
 
 @dataclass
@@ -38,6 +40,9 @@ def parse_manuscripts(text: str) -> list[ManuscriptBlock]:
     manuscripts: list[ManuscriptBlock] = []
 
     for m in MANUSCRIPT_LINK_RE.finditer(text):
+        title = m.group(1).strip()
+        if len(title) > MAX_MANUSCRIPT_TITLE_LEN or "**" in title:
+            continue
         pos = m.start()
         family_id = family_markers[0][1] if family_markers else "000"
         for marker_pos, fid in family_markers:
@@ -46,7 +51,7 @@ def parse_manuscripts(text: str) -> list[ManuscriptBlock]:
         start = m.end()
         tail = text[start:]
         end_rel = len(tail)
-        for stop in re.finditer(r"&emsp;\[|\*\*\d{3}\.|</td>", tail):
+        for stop in re.finditer(r"(?:&emsp;|\n)\[|\*\*\d{3}\.|</td>", tail):
             end_rel = stop.start()
             break
         abstract = re.sub(r"\s+", " ", tail[:end_rel].strip())
@@ -54,7 +59,7 @@ def parse_manuscripts(text: str) -> list[ManuscriptBlock]:
             ManuscriptBlock(
                 id="",
                 family_id=family_id,
-                title=m.group(1).strip(),
+                title=title,
                 paper_path=m.group(2).strip(),
                 abstract=abstract,
             )
