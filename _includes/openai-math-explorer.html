@@ -9,6 +9,7 @@
       <strong>{{ map.families_total }} result families</strong>.
       Expand a family to switch between <strong>Overview</strong> and each paper tab, or use
       <strong>All manuscripts</strong> for a flat list.
+      <strong>PQC curated</strong> lists {{ map.pqc_relevant_count }} families with direct security-math relevance (Lean formalization alone does not qualify).
     </p>
   </header>
 
@@ -36,7 +37,7 @@
   </div>
 
   <div class="oai-math-filter filter-bar" role="group" aria-label="Filter catalog">
-    <button type="button" class="filter-btn oai-math-filter-btn active" data-oai-filter="pqc" aria-pressed="true">PQC curated (families)</button>
+    <button type="button" class="filter-btn oai-math-filter-btn active" data-oai-filter="pqc" aria-pressed="true">PQC curated ({{ map.pqc_relevant_count }})</button>
     <button type="button" class="filter-btn oai-math-filter-btn" data-oai-filter="families" aria-pressed="false">All families (372)</button>
     <button type="button" class="filter-btn oai-math-filter-btn" data-oai-filter="manuscripts" aria-pressed="false">All manuscripts ({{ map.catalog_manuscript_count | default: map.manuscripts_total }})</button>
     {% for cat in map.categories %}

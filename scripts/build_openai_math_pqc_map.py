@@ -78,13 +78,24 @@ def paper_urls(path: str) -> tuple[str, str]:
     return blob, raw
 
 
-def classify_pqc(entry: dict) -> list[str]:
+LEAN_TAG_RE = re.compile(r"lean formal|formalization|\[lean\]", re.I)
+
+
+def classify_substantive_pqc(entry: dict) -> list[str]:
+    """Security-relevant lenses only (excludes Lean metadata)."""
     blob = f"{entry['title']} {entry['summary']}".lower()
     cats = []
     for cat, rx in RULES:
+        if cat == "ai-verification":
+            continue
         if re.search(rx, blob, re.I):
             cats.append(cat)
     return cats
+
+
+def has_lean_formalization(entry: dict) -> bool:
+    blob = f"{entry['title']} {entry['summary']}".lower()
+    return bool(LEAN_TAG_RE.search(blob))
 
 
 def primary_impact(categories: list[str]) -> str:
@@ -97,15 +108,20 @@ def primary_impact(categories: list[str]) -> str:
 
 
 def annotate_family(entry: dict) -> dict:
-    pqc_cats = classify_pqc(entry)
+    pqc_cats = classify_substantive_pqc(entry)
     if not pqc_cats and entry["id"] in HEADLINE_FALLBACK:
         pqc_cats = ["complexity-hardness"]
+    lean = has_lean_formalization(entry)
     if pqc_cats:
         entry["pqc_relevant"] = True
-        entry["categories"] = pqc_cats
+        entry["categories"] = list(pqc_cats)
+        if lean:
+            entry["categories"].append("ai-verification")
     else:
         entry["pqc_relevant"] = False
         entry["categories"] = ["general-mathematics"]
+        if lean:
+            entry["categories"].append("ai-verification")
     entry["pqc_impact"] = primary_impact(entry["categories"])
     entry["repo_url"] = f"https://github.com/openai/math/tree/main#result-{entry['id']}"
     entry["kind"] = "family"

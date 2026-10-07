@@ -6,7 +6,7 @@ category: Research
 source_name: OpenAI
 source_title: "openai/math — Mathematics manuscript collection"
 source_url: https://github.com/openai/math/tree/main
-excerpt: "OpenAI released 722 manuscripts across 372 families from large-scale model evaluations. QTL maps 49 curated families with direct post-quantum security implications—and why AI-accelerated mathematics belongs in every crypto-agility program."
+excerpt: "OpenAI released 722 manuscripts across 372 families from large-scale model evaluations. QTL maps about 50 curated families with direct post-quantum security implications—and why AI-accelerated mathematics belongs in every crypto-agility program."
 script: /assets/js/openai-math-news.js
 ---
 
@@ -24,7 +24,7 @@ Three forces converge:
 
 ## How to read the interactive map below
 
-We classified **49 families** into seven PQC lenses. The explorer lists all **372 families** and all **722 manuscripts** from OpenAI’s catalog—use **All manuscripts (722)** for every paper with abstract and PDF link, or **All families (372)** for grouped results (including Families **057, 071, 348, 360**):
+We classified **about 50 families** into seven PQC lenses (keyword rules on titles and summaries; a Lean doc link alone is not enough). The explorer lists all **372 families** and all **722 manuscripts** from OpenAI’s catalog—use **All manuscripts (722)** for every paper with abstract and PDF link, or **All families (372)** for grouped results (including Families **057, 071, 348, 360**):
 
 - **Quantum algorithms & physics** — factoring models, query complexity, quantum many-body results tied to hardware and error correction narratives  
 - **Number theory & ECC** — zeta/L-function progress, elliptic-curve structure, modularity—adjacent to classical PKI analysis  
