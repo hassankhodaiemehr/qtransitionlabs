@@ -59,6 +59,13 @@ organization:
 baseurl: ""
 url: "https://www.qtransitionlabs.com"
 
+# Public visit counter (footer + /traffic/). Stats API runs on the Render demo service.
+analytics:
+  stats_api_url: "https://silmarils-demo.onrender.com"
+  # Optional privacy-friendly analytics (https://www.goatcounter.com) — full history & dashboards:
+  goatcounter_url: ""
+  public_stats_url: ""
+
 logo: "/assets/img/favicon.png"
 
 twitter:

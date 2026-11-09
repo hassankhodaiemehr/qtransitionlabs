@@ -10,8 +10,11 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
+from analytics_store import get_summary, init_db, record_pageview
 from demo_service import build_comparison, catalog_schemes, run_live_flow
 from tps_calculator import build_tps_comparison
+
+init_db()
 
 WEB_DIR = Path(__file__).resolve().parent / "web"
 
@@ -36,9 +39,25 @@ class SignRequest(BaseModel):
     )
 
 
+class VisitRequest(BaseModel):
+    path: str = Field(default="/", max_length=512)
+    visitor_id: str = Field(..., min_length=8, max_length=64)
+
+
 @app.get("/api/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
+
+
+@app.post("/api/analytics/visit")
+def post_analytics_visit(body: VisitRequest) -> dict[str, str]:
+    record_pageview(body.path, body.visitor_id)
+    return {"status": "ok"}
+
+
+@app.get("/api/analytics/summary")
+def get_analytics_summary() -> dict:
+    return get_summary()
 
 
 @app.get("/api/catalog")

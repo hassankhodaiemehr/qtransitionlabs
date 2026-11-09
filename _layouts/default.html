@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="{{ page.stylesheet | relative_url }}">
   {% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/enterprise.css' | relative_url }}">
+  {% include analytics-head.html %}
 </head>
 
 <body>
@@ -54,6 +55,15 @@
         <a href="{{ '/contact/' | relative_url }}">Contact</a>
       </nav>
     </div>
+    {% if site.analytics %}
+    <p class="footer-stats" aria-live="polite">
+      <span class="footer-stats__label">Visitors:</span>
+      <span class="footer-stats__value"><span data-qtl-stat="unique">…</span> unique</span>
+      <span class="footer-stats__sep" aria-hidden="true">·</span>
+      <span class="footer-stats__value"><span data-qtl-stat="pageviews">…</span> page views</span>
+      <a href="{{ '/traffic/' | relative_url }}" class="footer-stats__link">Details</a>
+    </p>
+    {% endif %}
     <p class="footer-copy">© {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
   </footer>
 

@@ -9,7 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY api.py demo_service.py blockchain_sim.py pqc_catalog.py silmarils_core.py tps_calculator.py ./
+COPY api.py analytics_store.py demo_service.py blockchain_sim.py pqc_catalog.py silmarils_core.py tps_calculator.py ./
 COPY web/ ./web/
 
 EXPOSE 8765

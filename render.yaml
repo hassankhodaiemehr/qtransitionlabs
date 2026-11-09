@@ -11,3 +11,5 @@ services:
     envVars:
       - key: PORT
         value: 8765
+      - key: VISITOR_DB_PATH
+        value: /tmp/qtl_site_visitors.sqlite

@@ -8,6 +8,10 @@
 4. Render reads `render.yaml` and creates service **silmarils-demo**.
 5. After deploy, verify: https://silmarils-demo.onrender.com/api/health
 
+The marketing site footer and [/traffic/](https://www.qtransitionlabs.com/traffic/) page read visit totals from `GET /api/analytics/summary` on this service (`analytics.stats_api_url` in `_config.yml`). SQLite is stored at `VISITOR_DB_PATH` (default `/tmp/…` on Render—survives restarts but resets on redeploy; add a Render disk and point `VISITOR_DB_PATH` at `/data/visitors.sqlite` for durable counts).
+
+Optional long-term analytics: set `analytics.goatcounter_url` in `_config.yml` after creating a free site at [GoatCounter](https://www.goatcounter.com).
+
 The QTL site iframe at `/demo/` uses `demo_url` from `_config.yml`.
 
 ## Local development

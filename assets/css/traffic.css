@@ -1,0 +1,125 @@
+.traffic-page .page-header {
+  margin-bottom: 2rem;
+}
+
+.traffic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.traffic-card {
+  padding: 1.25rem 1.35rem;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  background: #161b22;
+}
+
+.traffic-card__label {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.traffic-card__value {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #38bdf8;
+  font-variant-numeric: tabular-nums;
+}
+
+.traffic-card__hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  color: #8b949e;
+}
+
+.traffic-detail h2,
+.traffic-notes h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.traffic-path-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.traffic-path-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #30363d;
+  font-size: 0.92rem;
+}
+
+.traffic-path-list li:last-child {
+  border-bottom: none;
+}
+
+.traffic-path {
+  color: #c9d1d9;
+  word-break: break-all;
+}
+
+.traffic-views {
+  color: #38bdf8;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.traffic-path-list__placeholder {
+  color: #8b949e;
+}
+
+.traffic-notes ul {
+  color: #8b949e;
+  line-height: 1.65;
+}
+
+.traffic-since {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: #8b949e;
+}
+
+body.light-mode .traffic-card {
+  background: #fff;
+  border-color: #d0d7de;
+}
+
+body.light-mode .traffic-card__value {
+  color: #0284c7;
+}
+
+body.light-mode .traffic-card__label,
+body.light-mode .traffic-card__hint,
+body.light-mode .traffic-notes ul,
+body.light-mode .traffic-since {
+  color: #6b7280;
+}
+
+body.light-mode .traffic-path-list {
+  border-color: #d0d7de;
+}
+
+body.light-mode .traffic-path-list li {
+  border-color: #e5e7eb;
+}
+
+body.light-mode .traffic-path {
+  color: #374151;
+}
+
+body.light-mode .traffic-views {
+  color: #0284c7;
+}

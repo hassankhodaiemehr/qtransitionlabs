@@ -1,0 +1,15 @@
+{% if site.analytics %}
+<script>
+  window.QTL_ANALYTICS = {
+    statsApiUrl: {{ site.analytics.stats_api_url | default: '' | jsonify }},
+    goatcounterUrl: {{ site.analytics.goatcounter_url | default: '' | jsonify }},
+    publicStatsUrl: {{ site.analytics.public_stats_url | default: '' | jsonify }},
+    pagePath: {{ page.url | default: '/' | jsonify }}
+  };
+</script>
+{% if site.analytics.goatcounter_url and site.analytics.goatcounter_url != '' %}
+<script data-goatcounter="{{ site.analytics.goatcounter_url | append: '/count' }}"
+        async src="https://gc.zgo.at/count.js"></script>
+{% endif %}
+<script src="{{ '/assets/js/site-analytics.js' | relative_url }}" defer></script>
+{% endif %}
