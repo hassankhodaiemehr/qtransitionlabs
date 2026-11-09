@@ -3,6 +3,7 @@ title_separator: " | "
 description: "Research-led post-quantum security engineering—PQC migration programs, quantum-safe architecture, readiness tooling, and SILMARILS ledger authentication for critical infrastructure, government, and enterprise."
 tagline: "Quantum-Safe Security & Cryptographic Modernization"
 lang: en
+future: true
 
 theme: jekyll-theme-cayman
 

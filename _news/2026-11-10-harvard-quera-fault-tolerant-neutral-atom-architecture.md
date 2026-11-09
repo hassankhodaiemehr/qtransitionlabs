@@ -1,7 +1,7 @@
 ---
 title: "Harvard–MIT–QuEra Demonstrate Integrated Fault-Tolerant Neutral-Atom Architecture"
 description: "A Nature paper reports up to 448 neutral atoms executing surface-code QEC, logical teleportation, and mid-circuit reuse with below-threshold error suppression—integrating the elements needed for scalable universal quantum computation."
-date: 2026-11-10
+date: 2026-11-09
 category: Industry
 source_name: Nature
 source_title: "A fault-tolerant neutral-atom architecture for universal quantum computation"
@@ -17,8 +17,8 @@ Rather than reporting a single benchmark, the work chains the capabilities a sca
 
 - **Surface-code error correction** with repeated rounds, atom-loss handling, and machine-learning decoders—reporting roughly **2.14× below-threshold** performance in a four-round characterization circuit  
 - **Logical entanglement** via transversal gates and lattice surgery  
-- **Universal logic** through transversal teleportation with three-dimensional **\([[15,1,3]]\)** codes  
-- **Mid-circuit qubit reuse**, increasing effective cycle rates by about **two orders of magnitude** and enabling deep circuits with dozens of logical qubits and hundreds of logical teleportations using **\([[7,1,3]]\)** and high-rate **\([[16,6,4]]\)** codes  
+- **Universal logic** through transversal teleportation with three-dimensional `[[15,1,3]]` codes  
+- **Mid-circuit qubit reuse**, increasing effective cycle rates by about **two orders of magnitude** and enabling deep circuits with dozens of logical qubits and hundreds of logical teleportations using `[[7,1,3]]` and high-rate `[[16,6,4]]` codes  
 
 The emphasis is **architecture**: how physical entanglement, entropy removal, magic-state preparation, and teleportation interact when engineering a system—not merely whether one code distance beats a threshold once.
 
