@@ -67,7 +67,7 @@ permalink: /research/
 
   <div class="metrics-panel">
     <div class="metric-box">
-      <div class="metric-value">4</div>
+      <div class="metric-value">6</div>
       <div class="metric-label">Publications</div>
     </div>
     <div class="metric-box">
@@ -75,11 +75,11 @@ permalink: /research/
       <div class="metric-label">Surveys</div>
     </div>
     <div class="metric-box">
-      <div class="metric-value">2</div>
+      <div class="metric-value">4</div>
       <div class="metric-label">PQC / Signatures</div>
     </div>
     <div class="metric-box">
-      <div class="metric-value">2</div>
+      <div class="metric-value">4</div>
       <div class="metric-label">Blockchain</div>
     </div>
   </div>
@@ -93,6 +93,53 @@ permalink: /research/
   </div>
 
   <div class="timeline">
+
+    <div class="pub-item" data-tags="pqc signatures blockchain">
+      <div class="pub-title">SILMARILS-MV: Information-Theoretically Secure Multi-Verifier Signatures with Dealer-Free Key Issuance and Linear Aggregation for Permissioned Blockchains</div>
+      <div class="pub-authors"><strong>Khadijeh Bagheri, Hassan Khodaiemehr, Chen Feng</strong></div>
+      <div class="pub-venue">arXiv preprint, 2026. <a href="https://arxiv.org/abs/2610.31814" target="_blank" rel="noopener noreferrer">arXiv:2610.31814</a> · <a href="{{ '/news/2026-10-silmarils-mv-multiverifier-signatures/' | relative_url }}">QTL analysis</a> · <a href="{{ '/demo/' | relative_url }}">SILMARILS demo</a></div>
+      <div class="pub-tags">
+        <span class="pub-tag">PQC</span>
+        <span class="pub-tag">Signatures</span>
+        <span class="pub-tag">Blockchain</span>
+      </div>
+
+      <button type="button" class="bibtex-toggle" aria-expanded="false">Show BibTeX ▼</button>
+      <div class="bibtex-box">
+@misc{bagheri2026silmarilsmv,
+  title={SILMARILS-MV: Information-Theoretically Secure Multi-Verifier Signatures with Dealer-Free Key Issuance and Linear Aggregation for Permissioned Blockchains},
+  author={Khadijeh Bagheri and Hassan Khodaiemehr and Chen Feng},
+  year={2026},
+  eprint={2610.31814},
+  archivePrefix={arXiv},
+  primaryClass={cs.CR},
+  url={https://arxiv.org/abs/2610.31814},
+}
+      </div>
+    </div>
+
+    <div class="pub-item" data-tags="blockchain pqc">
+      <div class="pub-title">PQ-Vault: Provably Quantum-Safe Asset Custody for Unmodified Ethereum</div>
+      <div class="pub-authors"><strong>Hassan Khodaiemehr, Khadijeh Bagheri, Chen Feng</strong></div>
+      <div class="pub-venue">arXiv preprint, 2026. <a href="https://arxiv.org/abs/2610.29230" target="_blank" rel="noopener noreferrer">arXiv:2610.29230</a> · <a href="{{ '/news/2026-10-pq-vault-ethereum-custody/' | relative_url }}">QTL analysis</a></div>
+      <div class="pub-tags">
+        <span class="pub-tag">Blockchain</span>
+        <span class="pub-tag">PQC</span>
+      </div>
+
+      <button type="button" class="bibtex-toggle" aria-expanded="false">Show BibTeX ▼</button>
+      <div class="bibtex-box">
+@misc{khodaiemehr2026pqvault,
+  title={PQ-Vault: Provably Quantum-Safe Asset Custody for Unmodified Ethereum},
+  author={Hassan Khodaiemehr and Khadijeh Bagheri and Chen Feng},
+  year={2026},
+  eprint={2610.29230},
+  archivePrefix={arXiv},
+  primaryClass={cs.CR},
+  url={https://arxiv.org/abs/2610.29230},
+}
+      </div>
+    </div>
 
     <div class="pub-item" data-tags="pqc signatures">
       <div class="pub-title">SILMARILS: Information-Theoretic and Quantum-Secure Designated-Verifier Signatures</div>
