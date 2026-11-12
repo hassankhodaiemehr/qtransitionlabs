@@ -92,6 +92,21 @@
   color: #8b949e;
 }
 
+.traffic-api-hint {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #9e6a03;
+  background: rgba(210, 153, 34, 0.12);
+  color: #e3b341;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.traffic-api-hint a {
+  color: #58a6ff;
+}
+
 body.light-mode .traffic-card {
   background: #fff;
   border-color: #d0d7de;

@@ -43,7 +43,7 @@ stylesheet: /assets/css/traffic.css
     <h2>How this works</h2>
     <ul>
       <li>Each browser session records at most <strong>one pageview</strong> when you load a page (refreshing in the same session does not inflate counts).</li>
-      <li>Counts are stored in a database on QTL’s <strong>demo API</strong> service so totals persist across visits.</li>
+      <li>Counts are stored in a database on the <strong><code>qtl-analytics</code></strong> Render service (<code>analytics.stats_api_url</code> in site config).</li>
       <li>No cookies are required; a random ID in <code>localStorage</code> distinguishes returning browsers for unique-visitor estimates.</li>
       {% if site.analytics.public_stats_url and site.analytics.public_stats_url != '' %}
       <li>Extended analytics: <a href="{{ site.analytics.public_stats_url }}" target="_blank" rel="noopener noreferrer">full GoatCounter dashboard</a>.</li>
@@ -54,6 +54,10 @@ stylesheet: /assets/css/traffic.css
       {% endif %}
     </ul>
     <p class="traffic-since">Tracking active since <span data-qtl-stat-since">—</span> (UTC).</p>
+    <p class="traffic-api-hint" id="traffic-api-hint" hidden>
+      Could not reach the statistics API. In Render, run a <strong>Blueprint sync</strong> so <code>qtl-analytics</code> is deployed, then verify
+      <a href="https://qtl-analytics.onrender.com/api/health" target="_blank" rel="noopener noreferrer">/api/health</a>.
+    </p>
   </section>
 
 </div>

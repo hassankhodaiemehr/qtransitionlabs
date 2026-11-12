@@ -26,28 +26,6 @@
     }
   }
 
-  function recordVisit() {
-    if (sessionStorage.getItem(SESSION_HIT)) {
-      return;
-    }
-    var payload = {
-      path: config.pagePath || window.location.pathname || "/",
-      visitor_id: visitorId(),
-    };
-    fetch(statsApi + "/api/analytics/visit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      keepalive: true,
-    })
-      .then(function () {
-        try {
-          sessionStorage.setItem(SESSION_HIT, "1");
-        } catch (_e2) {}
-      })
-      .catch(function () {});
-  }
-
   function formatInt(n) {
     if (typeof n !== "number" || !isFinite(n)) {
       return "—";
@@ -59,9 +37,29 @@
     }
   }
 
+  function setStatsUnavailable() {
+    document.querySelectorAll("[data-qtl-stat]").forEach(function (el) {
+      if (el.textContent === "…" || el.textContent === "0") {
+        el.textContent = "—";
+      }
+    });
+    var hint = document.getElementById("traffic-api-hint");
+    if (hint) {
+      hint.hidden = false;
+    }
+    var topList = document.getElementById("traffic-top-paths");
+    if (topList && topList.querySelector(".traffic-path-list__placeholder")) {
+      topList.innerHTML =
+        "<li class=\"traffic-path-list__placeholder\">Statistics API unreachable. Deploy the <code>qtl-analytics</code> service on Render (see <code>analytics-service/</code>).</li>";
+    }
+  }
+
   function applySummary(data) {
+    if (!data) {
+      return;
+    }
     var els = document.querySelectorAll("[data-qtl-stat]");
-    if (!els.length || !data) {
+    if (!els.length) {
       return;
     }
     var map = {
@@ -77,15 +75,23 @@
       }
     });
     var sinceEl = document.querySelector("[data-qtl-stat-since]");
-    if (sinceEl && data.tracked_since) {
-      var d = new Date(data.tracked_since);
-      if (!isNaN(d.getTime())) {
-        sinceEl.textContent = d.toLocaleDateString(undefined, {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        });
+    if (sinceEl) {
+      if (data.tracked_since) {
+        var d = new Date(data.tracked_since);
+        if (!isNaN(d.getTime())) {
+          sinceEl.textContent = d.toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          });
+        }
+      } else {
+        sinceEl.textContent = "—";
       }
+    }
+    var hint = document.getElementById("traffic-api-hint");
+    if (hint) {
+      hint.hidden = true;
     }
     var topList = document.getElementById("traffic-top-paths");
     if (topList && data.top_paths && data.top_paths.length) {
@@ -100,11 +106,14 @@
           "</span>";
         topList.appendChild(li);
       });
+    } else if (topList && data.pageviews === 0) {
+      topList.innerHTML =
+        "<li class=\"traffic-path-list__placeholder\">No visits recorded yet.</li>";
     }
   }
 
   function refreshSummary() {
-    return fetch(statsApi + "/api/analytics/summary")
+    return fetch(statsApi + "/api/analytics/summary", { cache: "no-store" })
       .then(function (r) {
         if (!r.ok) {
           throw new Error("stats");
@@ -113,18 +122,45 @@
       })
       .then(applySummary)
       .catch(function () {
-        document.querySelectorAll("[data-qtl-stat]").forEach(function (el) {
-          if (el.textContent === "…") {
-            el.textContent = "—";
-          }
-        });
+        setStatsUnavailable();
       });
   }
 
-  recordVisit();
+  function recordVisit() {
+    if (sessionStorage.getItem(SESSION_HIT)) {
+      return refreshSummary();
+    }
+    var payload = {
+      path: config.pagePath || window.location.pathname || "/",
+      visitor_id: visitorId(),
+    };
+    return fetch(statsApi + "/api/analytics/visit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    })
+      .then(function (r) {
+        if (!r.ok) {
+          throw new Error("visit");
+        }
+        try {
+          sessionStorage.setItem(SESSION_HIT, "1");
+        } catch (_e2) {}
+        return refreshSummary();
+      })
+      .catch(function () {
+        return refreshSummary();
+      });
+  }
+
+  function start() {
+    recordVisit();
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", refreshSummary);
+    document.addEventListener("DOMContentLoaded", start);
   } else {
-    refreshSummary();
+    start();
   }
 })();
