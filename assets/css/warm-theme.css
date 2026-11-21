@@ -151,98 +151,157 @@ body.light-mode .hero-secondary {
   stroke: rgba(251, 146, 60, 0.22) !important;
 }
 
-/* Hero radar: spectrum-colored orbits (inner → outer) */
+/* Hero radar: all rings share one synchronized spectrum color */
 
 .hero.hero--ibm .quantum-scan {
   background: conic-gradient(
     from 0deg,
-    rgba(15, 98, 254, 0.32) 0deg,
-    rgba(56, 189, 248, 0.26) 55deg,
-    rgba(34, 197, 94, 0.22) 110deg,
-    rgba(251, 191, 36, 0.34) 165deg,
-    rgba(251, 146, 60, 0.28) 220deg,
-    rgba(244, 63, 94, 0.2) 255deg,
-    rgba(167, 139, 250, 0.3) 300deg,
-    rgba(15, 98, 254, 0.28) 325deg,
-    transparent 340deg,
+    rgba(69, 137, 255, 0.34) 0deg,
+    rgba(69, 137, 255, 0.08) 28deg,
+    transparent 40deg,
     transparent 360deg
   ) !important;
+  animation: quantumScan 7s linear infinite, radarHueSync 18s linear infinite !important;
 }
 
 .hero.hero--ibm .orbit-ring--1 .orbit {
-  border-color: rgba(15, 98, 254, 0.88) !important;
-  box-shadow: 0 0 26px rgba(69, 137, 255, 0.45) !important;
-}
-
-.hero.hero--ibm .orbit-ring--1 .orbit-comet {
-  background: #78a9ff !important;
-  box-shadow:
-    0 0 10px #4589ff,
-    -14px 0 18px rgba(69, 137, 255, 0.55),
-    -28px 0 26px rgba(69, 137, 255, 0.22) !important;
-}
-
-.hero.hero--ibm .orbit-ring--1 .orbit-node {
-  background: #4589ff !important;
-  box-shadow: 0 0 12px rgba(69, 137, 255, 0.9) !important;
-  animation: nodePulseSpectrum 3s ease-in-out infinite !important;
+  animation: orbitSpin 28s linear infinite, orbitSyncColor 18s linear infinite !important;
 }
 
 .hero.hero--ibm .orbit-ring--2 .orbit {
-  border-color: rgba(52, 211, 153, 0.82) !important;
-  box-shadow: 0 0 26px rgba(34, 197, 94, 0.35) !important;
-}
-
-.hero.hero--ibm .orbit-ring--2 .orbit-comet {
-  background: #6ee7b7 !important;
-  box-shadow:
-    0 0 10px #34d399,
-    -14px 0 18px rgba(52, 211, 153, 0.5),
-    -28px 0 26px rgba(34, 197, 94, 0.2) !important;
-}
-
-.hero.hero--ibm .orbit-ring--2 .orbit-node {
-  background: #34d399 !important;
-  box-shadow: 0 0 12px rgba(52, 211, 153, 0.88) !important;
-  animation: nodePulseSpectrum 3s ease-in-out infinite !important;
+  animation: orbitSpin 38s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
 }
 
 .hero.hero--ibm .orbit-ring--3 .orbit {
-  border-color: rgba(251, 191, 36, 0.88) !important;
-  box-shadow: 0 0 26px rgba(245, 158, 11, 0.4) !important;
-}
-
-.hero.hero--ibm .orbit-ring--3 .orbit-comet {
-  background: #fcd34d !important;
-  box-shadow:
-    0 0 10px #fbbf24,
-    -14px 0 18px rgba(251, 191, 36, 0.55),
-    -28px 0 26px rgba(245, 158, 11, 0.22) !important;
-}
-
-.hero.hero--ibm .orbit-ring--3 .orbit-node {
-  background: #fbbf24 !important;
-  box-shadow: 0 0 12px rgba(251, 191, 36, 0.9) !important;
-  animation: nodePulseSpectrum 3s ease-in-out infinite !important;
+  animation: orbitSpin 52s linear infinite, orbitSyncColor 18s linear infinite !important;
 }
 
 .hero.hero--ibm .orbit-ring--4 .orbit {
-  border-color: rgba(167, 139, 250, 0.85) !important;
-  box-shadow: 0 0 28px rgba(139, 92, 246, 0.38) !important;
+  animation: orbitSpin 68s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
 }
 
-.hero.hero--ibm .orbit-ring--4 .orbit-comet {
-  background: #c4b5fd !important;
-  box-shadow:
-    0 0 10px #a78bfa,
-    -14px 0 18px rgba(167, 139, 250, 0.52),
-    -28px 0 26px rgba(139, 92, 246, 0.22) !important;
+.hero.hero--ibm .orbit-comet {
+  animation: cometGlow 2.2s ease-in-out infinite, orbitCometSyncColor 18s linear infinite !important;
 }
 
-.hero.hero--ibm .orbit-ring--4 .orbit-node {
-  background: #a78bfa !important;
-  box-shadow: 0 0 12px rgba(167, 139, 250, 0.88) !important;
-  animation: nodePulseSpectrum 3s ease-in-out infinite !important;
+.hero.hero--ibm .orbit-node {
+  animation: nodePulseSpectrum 3s ease-in-out infinite, orbitNodeSyncColor 18s linear infinite !important;
+}
+
+.hero .qubit-core,
+.hero.hero--ibm .qubit-core {
+  animation: enterpriseCorePulse 6s ease-in-out infinite, orbitNodeSyncColor 18s linear infinite !important;
+}
+
+@keyframes radarHueSync {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes orbitSyncColor {
+  0%,
+  100% {
+    border-color: rgba(69, 137, 255, 0.88);
+    box-shadow: 0 0 26px rgba(69, 137, 255, 0.48);
+  }
+  16.667% {
+    border-color: rgba(56, 189, 248, 0.86);
+    box-shadow: 0 0 26px rgba(56, 189, 248, 0.45);
+  }
+  33.333% {
+    border-color: rgba(52, 211, 153, 0.86);
+    box-shadow: 0 0 26px rgba(34, 197, 94, 0.42);
+  }
+  50% {
+    border-color: rgba(251, 191, 36, 0.9);
+    box-shadow: 0 0 28px rgba(245, 158, 11, 0.45);
+  }
+  66.667% {
+    border-color: rgba(251, 146, 60, 0.88);
+    box-shadow: 0 0 26px rgba(234, 88, 12, 0.42);
+  }
+  83.333% {
+    border-color: rgba(167, 139, 250, 0.88);
+    box-shadow: 0 0 28px rgba(139, 92, 246, 0.45);
+  }
+}
+
+@keyframes orbitCometSyncColor {
+  0%,
+  100% {
+    background: #78a9ff;
+    box-shadow:
+      0 0 10px #4589ff,
+      -14px 0 18px rgba(69, 137, 255, 0.55),
+      -28px 0 26px rgba(69, 137, 255, 0.22);
+  }
+  16.667% {
+    background: #67e8f9;
+    box-shadow:
+      0 0 10px #22d3ee,
+      -14px 0 18px rgba(56, 189, 248, 0.55),
+      -28px 0 26px rgba(56, 189, 248, 0.22);
+  }
+  33.333% {
+    background: #6ee7b7;
+    box-shadow:
+      0 0 10px #34d399,
+      -14px 0 18px rgba(52, 211, 153, 0.55),
+      -28px 0 26px rgba(34, 197, 94, 0.22);
+  }
+  50% {
+    background: #fcd34d;
+    box-shadow:
+      0 0 10px #fbbf24,
+      -14px 0 18px rgba(251, 191, 36, 0.55),
+      -28px 0 26px rgba(245, 158, 11, 0.22);
+  }
+  66.667% {
+    background: #fdba74;
+    box-shadow:
+      0 0 10px #fb923c,
+      -14px 0 18px rgba(251, 146, 60, 0.55),
+      -28px 0 26px rgba(234, 88, 12, 0.22);
+  }
+  83.333% {
+    background: #c4b5fd;
+    box-shadow:
+      0 0 10px #a78bfa,
+      -14px 0 18px rgba(167, 139, 250, 0.55),
+      -28px 0 26px rgba(139, 92, 246, 0.22);
+  }
+}
+
+@keyframes orbitNodeSyncColor {
+  0%,
+  100% {
+    background: #4589ff;
+    box-shadow: 0 0 14px rgba(69, 137, 255, 0.92);
+  }
+  16.667% {
+    background: #22d3ee;
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.9);
+  }
+  33.333% {
+    background: #34d399;
+    box-shadow: 0 0 14px rgba(52, 211, 153, 0.9);
+  }
+  50% {
+    background: #fbbf24;
+    box-shadow: 0 0 14px rgba(251, 191, 36, 0.92);
+  }
+  66.667% {
+    background: #fb923c;
+    box-shadow: 0 0 14px rgba(251, 146, 60, 0.9);
+  }
+  83.333% {
+    background: #a78bfa;
+    box-shadow: 0 0 14px rgba(167, 139, 250, 0.92);
+  }
 }
 
 @keyframes nodePulseSpectrum {
@@ -255,23 +314,6 @@ body.light-mode .hero-secondary {
     opacity: 1;
     transform: scale(1.18);
   }
-}
-
-.hero .qubit-core,
-.hero.hero--ibm .qubit-core {
-  background: conic-gradient(
-    from 120deg,
-    #0f62fe,
-    #22c55e,
-    #fbbf24,
-    #fb923c,
-    #f43f5e,
-    #a78bfa,
-    #0f62fe
-  ) !important;
-  box-shadow:
-    0 0 22px rgba(251, 191, 36, 0.55),
-    0 0 44px rgba(69, 137, 255, 0.35) !important;
 }
 
 .hero.hero--ibm .hero-stat strong {
