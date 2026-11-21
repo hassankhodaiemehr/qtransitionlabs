@@ -158,6 +158,7 @@
   gap: 0.65rem;
   width: auto;
   max-width: calc(100vw - 2rem);
+  pointer-events: none;
 }
 
 .hero-atom-stack .atom-system {
@@ -181,19 +182,18 @@
   width: min(17.25rem, 100%);
   padding: 0.55rem 0.65rem 0.65rem;
   border-radius: 12px;
-  border: 1px solid hsl(var(--readout-phase-hue, 42) 78% 52% / 0.38);
-  background: rgba(22, 22, 22, 0.78);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  border: 1px solid hsl(var(--readout-phase-hue, 42) 78% 52% / 0.22);
+  background: rgba(22, 22, 22, 0.14);
+  backdrop-filter: blur(4px);
+  box-shadow: none;
   pointer-events: auto;
   font-size: 0.68rem;
   line-height: 1.45;
 }
 
 body.light-mode .hero-orbital-readout {
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(217, 119, 6, 0.28);
-  box-shadow: 0 8px 22px rgba(15, 98, 254, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(217, 119, 6, 0.18);
 }
 
 .hero-orbital-readout__toolbar {
@@ -229,6 +229,7 @@ body.light-mode .hero-orbital-readout__heading {
   border: 1px solid rgba(148, 163, 184, 0.35);
   border-radius: 999px;
   background: transparent;
+  pointer-events: auto;
   font: inherit;
   font-size: 0.58rem;
   font-weight: 600;
@@ -279,8 +280,9 @@ body.light-mode .hero-orbital-readout__tab.is-active {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-align: left;
-  color: rgba(148, 163, 184, 0.95);
-  border-bottom: 1px solid rgba(251, 191, 36, 0.16);
+  color: rgba(148, 163, 184, 0.82);
+  background: transparent;
+  border-bottom: 1px solid rgba(251, 191, 36, 0.1);
 }
 
 body.light-mode .hero-orbital-readout__table thead th {
@@ -290,7 +292,8 @@ body.light-mode .hero-orbital-readout__table thead th {
 .hero-orbital-readout__table tbody td {
   vertical-align: top;
   padding: 0.45rem 0.45rem 0.35rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  background: transparent;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
 }
 
 .hero-orbital-readout__table tfoot td {

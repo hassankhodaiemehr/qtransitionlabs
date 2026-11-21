@@ -545,6 +545,15 @@ body.light-mode .hero.hero--ibm::after {
   grid-template-columns: 1fr;
   gap: 2rem;
   align-items: start;
+  pointer-events: none;
+}
+
+.hero.hero--ibm .hero-inner .hero-content,
+.hero.hero--ibm .hero-inner .hero-cta-row,
+.hero.hero--ibm .hero-inner .hero-stats,
+.hero.hero--ibm .hero-inner a,
+.hero.hero--ibm .hero-inner button {
+  pointer-events: auto;
 }
 
 .hero.hero--ibm .hero-stats {

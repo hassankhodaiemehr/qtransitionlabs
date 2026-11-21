@@ -100,24 +100,33 @@ function initOrbitalReadout() {
     }
   }
 
-  var tabs = root.querySelectorAll('[data-orbit-tab]');
-  var panels = root.querySelectorAll('[data-orbit-panel]');
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      var id = tab.getAttribute('data-orbit-tab');
-      tabs.forEach(function (btn) {
-        var active = btn === tab;
-        btn.classList.toggle('is-active', active);
-        btn.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-      panels.forEach(function (panel) {
-        var show = panel.getAttribute('data-orbit-panel') === id;
-        panel.classList.toggle('is-active', show);
-        if (show) panel.removeAttribute('hidden');
-        else panel.setAttribute('hidden', '');
-      });
+  var tablist = root.querySelector('.hero-orbital-readout__tabs');
+  var tabs = root.querySelectorAll('.hero-orbital-readout__tab[data-orbit-tab]');
+  var panels = root.querySelectorAll('.hero-orbital-readout__panel[data-orbit-panel]');
+
+  function activateOrbitTab(id) {
+    tabs.forEach(function (btn) {
+      var active = btn.getAttribute('data-orbit-tab') === id;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-  });
+    panels.forEach(function (panel) {
+      var show = panel.getAttribute('data-orbit-panel') === id;
+      panel.classList.toggle('is-active', show);
+      if (show) panel.removeAttribute('hidden');
+      else panel.setAttribute('hidden', '');
+    });
+  }
+
+  if (tablist) {
+    tablist.addEventListener('click', function (event) {
+      var tab = event.target.closest('.hero-orbital-readout__tab[data-orbit-tab]');
+      if (!tab || !root.contains(tab)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      activateOrbitTab(tab.getAttribute('data-orbit-tab'));
+    });
+  }
 }
 
 function initPolicySignalPanel() {
