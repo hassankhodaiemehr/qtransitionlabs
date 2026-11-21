@@ -172,15 +172,29 @@ script: /assets/js/home.js
         <div class="hero-orbital-readout__panel" id="hero-orbit-panel-help" role="tabpanel" aria-labelledby="hero-orbit-tab-help" data-orbit-panel="help" hidden>
           <div class="hero-orbital-readout__help">
             <p class="hero-orbital-readout__help-title">Why silicon (Si)</p>
-            <p class="hero-orbital-readout__help-prose">Three radar rings match three highlight phases for silicon (<span class="hero-orbital-readout__sym">Z=14</span>): a semiconductor backbone and a platform for spin qubits, quantum dots, and PQC siliconization. Stylized shells walk <span class="hero-orbital-readout__sym">K</span> (core), <span class="hero-orbital-readout__sym">L</span> (inner), then <span class="hero-orbital-readout__sym">M</span> valence <span class="hero-orbital-readout__sym">3s²3p²</span>. Motion and color encode <span class="hero-orbital-readout__sym">|ψ|²</span> phase—not Bohr tracks.</p>
-            <p class="hero-orbital-readout__help-title">Cycle &amp; fields</p>
+            <p class="hero-orbital-readout__help-prose">Silicon is <span class="hero-orbital-readout__sym">Z=14</span>: fourteen protons fix the nuclear charge, and the ground configuration <span class="hero-orbital-readout__sym">[Ne] 3s²3p²</span> is why fabs, SOI, and most spin-qubit demos sit on Si. QTL uses Si here as a bridge—atomic structure on the left, post-quantum migration on the right—not a DFT or cryostat trace.</p>
+            <p class="hero-orbital-readout__help-prose">The animation is deliberately low-dimensional: three coplanar rings stand in for highlighting the <span class="hero-orbital-readout__sym">K</span>, <span class="hero-orbital-readout__sym">L</span>, and <span class="hero-orbital-readout__sym">M</span> shells while the radar hue walks the same story. Real orbitals are 3D clouds; these rings only mark which shell is in focus for each phase.</p>
+            <p class="hero-orbital-readout__help-title">What you are seeing</p>
             <dl class="hero-orbital-readout__help-defs">
-              <div><dt>3 phases · <span class="hero-orbital-readout__time">18&nbsp;sec</span></dt><dd>One ring per phase (<span class="hero-orbital-readout__time">6&nbsp;sec</span> each), spectrum-locked with the radar.</dd></div>
-              <div><dt><span class="hero-orbital-readout__sym">Z</span>, <span class="hero-orbital-readout__sym">n</span>, Shell</dt><dd>Element Si; principal <span class="hero-orbital-readout__sym">n</span> and K/L/M label for the lit ring.</dd></div>
-              <div><dt>Valence · quantum</dt><dd>Outer phase stresses <span class="hero-orbital-readout__sym">3p</span>—where solid-state and qubit engineering meet cryptography migration.</dd></div>
-              <div><dt><span class="hero-orbital-readout__sym">E<sub>bind</sub></span>, <span class="hero-orbital-readout__sym">|ψ|²</span></dt><dd>Illustrative binding (eV) and bars—not cryo lab readout.</dd></div>
+              <div><dt>Nucleus (center)</dt><dd>Textbook-style pack of protons (red) and neutrons (blue) inside a faint sphere—chemistry notation, not a diamond lattice or qubit dot.</dd></div>
+              <div><dt>Three rings</dt><dd>Stylized shells; the brightest ring is the active phase. Comets and blur suggest electron density and uncertainty, not fixed Bohr radii.</dd></div>
+              <div><dt>Radar sweep</dt><dd>Hue and scan share one <span class="hero-orbital-readout__time">18&nbsp;sec</span> clock with the Readout footer so color and numbers stay aligned.</dd></div>
             </dl>
-            <p class="hero-orbital-readout__help-note">Use Readout for live numbers. Values are pedagogical, not measurement.</p>
+            <p class="hero-orbital-readout__help-title">Three phases (<span class="hero-orbital-readout__time">6&nbsp;sec</span> each)</p>
+            <dl class="hero-orbital-readout__help-defs">
+              <div><dt>Ring 1 · <span class="hero-orbital-readout__sym">1s</span> · K</dt><dd>Core emphasis: deep binding, compact density—metaphor for roots of trust and long-lived key material.</dd></div>
+              <div><dt>Ring 2 · <span class="hero-orbital-readout__sym">2p</span> · L</dt><dd>Inner shell: first excited angular pattern (<span class="hero-orbital-readout__sym">ℓ=1</span>)—bridging core crypto to platform crypto.</dd></div>
+              <div><dt>Ring 3 · <span class="hero-orbital-readout__sym">3p</span> · M</dt><dd>Valence emphasis: where Si meets devices, firmware, TLS, and PQC rollout on silicon already in the field.</dd></div>
+            </dl>
+            <p class="hero-orbital-readout__help-title">Readout columns</p>
+            <dl class="hero-orbital-readout__help-defs">
+              <div><dt>Principal</dt><dd><span class="hero-orbital-readout__sym">Z</span>, principal <span class="hero-orbital-readout__sym">n</span>, shell letter (K/L/M), and illustrative ⟨<span class="hero-orbital-readout__sym">r</span>⟩ in Bohr radii <span class="hero-orbital-readout__sym">a₀</span>.</dd></div>
+              <div><dt>Angular &amp; spin</dt><dd>Orbital <span class="hero-orbital-readout__sym">ℓ</span> and letter (<span class="hero-orbital-readout__sym">s</span>/<span class="hero-orbital-readout__sym">p</span>/…), magnetic <span class="hero-orbital-readout__sym">m<sub>ℓ</sub></span> and <span class="hero-orbital-readout__sym">m<sub>s</sub></span>, plus phase angle <span class="hero-orbital-readout__sym">φ</span> (position in the <span class="hero-orbital-readout__time">18&nbsp;sec</span> cycle, in degrees).</dd></div>
+              <div><dt>Energy &amp; <span class="hero-orbital-readout__sym">|ψ|²</span></dt><dd>Pedagogical <span class="hero-orbital-readout__sym">E<sub>bind</sub></span> (eV), a Heisenberg-style lower bound, and bars for probability density and radial spread <span class="hero-orbital-readout__sym">Δr</span>—animated for intuition, not lab data.</dd></div>
+            </dl>
+            <p class="hero-orbital-readout__help-title">Timing vs orbitals</p>
+            <p class="hero-orbital-readout__help-prose">Durations use <span class="hero-orbital-readout__time">sec</span> (seconds) so they are not read as <span class="hero-orbital-readout__sym">s</span> subshell labels beside <span class="hero-orbital-readout__sym">1s</span> or <span class="hero-orbital-readout__sym">3s²</span>. Switch to Readout for live values; timing strings in the footer update with the active ring.</p>
+            <p class="hero-orbital-readout__help-note">Illustration only—not cryogenic spin readout, not a security benchmark.</p>
           </div>
         </div>
         </div>

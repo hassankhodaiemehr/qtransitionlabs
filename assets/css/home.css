@@ -418,6 +418,11 @@ body.light-mode #hero-orbit-panel-help {
 #hero-orbit-panel-help .hero-orbital-readout__help {
   text-align: justify;
   hyphens: auto;
+  max-height: min(44vh, 21rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 0.15rem;
+  scrollbar-width: thin;
 }
 
 #hero-orbit-panel-help .hero-orbital-readout__help-title {
@@ -433,7 +438,8 @@ body.light-mode #hero-orbit-panel-help .hero-orbital-readout__help-title {
   color: #d97706;
 }
 
-#hero-orbit-panel-help .hero-orbital-readout__help-prose + .hero-orbital-readout__help-title {
+#hero-orbit-panel-help .hero-orbital-readout__help-prose + .hero-orbital-readout__help-title,
+#hero-orbit-panel-help .hero-orbital-readout__help-defs + .hero-orbital-readout__help-title {
   margin-top: 0.45rem;
 }
 
