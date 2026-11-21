@@ -686,7 +686,7 @@ body.light-mode .hero-orbital-readout__sync-label {
 }
 
 /* Half-width readout beside atom — avoids growing hero height */
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .hero-atom-stack {
     flex-direction: row;
     align-items: flex-end;
@@ -749,7 +749,21 @@ body.light-mode .hero-orbital-readout__sync-label {
 
 }
 
-@media (max-width: 899px) {
+@media (max-width: 1023px) {
+  .hero.hero--ibm .hero-orbit-layer {
+    position: relative !important;
+    inset: auto !important;
+    height: auto;
+  }
+
+  .hero.hero--ibm .hero-atom-stack {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
+  }
+
   .hero-atom-stack {
     position: relative;
     left: auto;
@@ -757,15 +771,15 @@ body.light-mode .hero-orbital-readout__sync-label {
     top: auto;
     transform: none;
     width: 100%;
-    max-width: 20.5rem;
+    max-width: min(22.5rem, 100%);
     margin: 0 auto;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.85rem;
+    gap: 0;
   }
 
   .hero-atom-stack.is-readout-collapsed {
-    gap: 0.5rem;
+    row-gap: 0.5rem;
   }
 
   .hero-atom-stack.is-readout-collapsed .hero-orbital-readout {
@@ -776,16 +790,21 @@ body.light-mode .hero-orbital-readout__sync-label {
     width: 100%;
     max-width: none;
     box-sizing: border-box;
+    z-index: auto;
   }
 
   .hero-atom-stack .atom-system {
-    width: min(17.5rem, 72vw);
-    height: min(17.5rem, 72vw);
-    margin: 0 auto;
+    width: min(15.5rem, 68vw);
+    height: min(15.5rem, 68vw);
+    margin: 0 auto 0.35rem;
   }
 
   #hero-orbit-panel-help .hero-orbital-readout__help {
     max-height: min(38vh, 16rem);
+  }
+
+  .hero-orbit-layer > .particle {
+    display: none;
   }
 
   .hero-orbital-readout__table thead {

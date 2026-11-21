@@ -481,12 +481,13 @@ body.light-mode .hero.hero--ibm::after {
   }
 }
 
-@media (max-width: 899px) {
+@media (max-width: 1023px) {
   .hero.hero--ibm {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     padding-bottom: 2.25rem;
+    overflow: visible;
   }
 
   .hero.hero--ibm .hero-bg-layer {
@@ -500,10 +501,17 @@ body.light-mode .hero.hero--ibm::after {
     order: 2;
     z-index: 1;
     width: 100%;
+    height: auto;
+    min-height: 0;
     margin-top: 1.25rem;
-    padding: 0 0.25rem;
+    padding: 0 0.5rem;
     opacity: 1;
     overflow: visible;
+    pointer-events: none;
+  }
+
+  .hero.hero--ibm .hero-orbit-layer > .particle {
+    display: none;
   }
 
   .hero.hero--ibm .hero-inner {
@@ -522,30 +530,41 @@ body.light-mode .hero.hero--ibm::after {
     right: auto;
     top: auto;
     width: 100%;
-    max-width: 20.5rem;
+    max-width: min(22.5rem, 100%);
     margin: 0 auto;
     transform: none;
-    gap: 0.85rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    row-gap: 1.15rem;
     align-items: stretch;
+    pointer-events: none;
   }
 
   .hero.hero--ibm .hero-atom-stack .atom-system {
-    width: min(17.5rem, 72vw);
-    height: min(17.5rem, 72vw);
-    margin: 0 auto;
-    opacity: 0.72;
+    grid-row: 1;
+    width: min(15.5rem, 68vw);
+    height: min(15.5rem, 68vw);
+    margin: 0 auto 0.35rem;
+    opacity: 0.78;
     flex-shrink: 0;
+    isolation: isolate;
   }
 
-  .hero.hero--ibm .orbit-ring--3 { width: 92%; height: 92%; max-width: none; max-height: none; }
-  .hero.hero--ibm .orbit-ring--2 { width: 59.5%; height: 59.5%; }
-  .hero.hero--ibm .orbit-ring--1 { width: 38.75%; height: 38.75%; }
+  .hero.hero--ibm .orbit-ring--3 { width: 90%; height: 90%; max-width: none; max-height: none; }
+  .hero.hero--ibm .orbit-ring--2 { width: 58%; height: 58%; }
+  .hero.hero--ibm .orbit-ring--1 { width: 38%; height: 38%; }
 
   .hero.hero--ibm .hero-orbital-readout {
+    grid-row: 2;
+    position: relative;
+    z-index: 2;
     width: 100%;
     max-width: none;
     margin: 0;
     align-self: stretch;
+    pointer-events: auto;
+    box-sizing: border-box;
   }
 
   .hero.hero--ibm::after {
