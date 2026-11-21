@@ -395,10 +395,10 @@ body.light-mode .hero-orbital-readout__kv dd {
   color: #1e293b;
 }
 
-/* Help tab — one size for titles, prose, symbols, and defs (hero-stat scale) */
+/* Help tab — single copy scale for every block */
 .hero-orbital-readout__help {
-  --help-copy-size: 0.625rem;
-  --help-copy-leading: 1.42;
+  --help-copy-size: 0.6875rem;
+  --help-copy-leading: 1.45;
   font-family: "IBM Plex Sans", system-ui, sans-serif;
   font-size: var(--help-copy-size);
   line-height: var(--help-copy-leading);
@@ -408,16 +408,28 @@ body.light-mode .hero-orbital-readout__kv dd {
   hyphens: auto;
 }
 
+.hero-orbital-readout__help :where(
+  p,
+  h3,
+  dt,
+  dd,
+  li,
+  strong,
+  em,
+  .hero-orbital-readout__sym
+) {
+  font-size: var(--help-copy-size);
+  line-height: var(--help-copy-leading);
+}
+
 body.light-mode .hero-orbital-readout__help {
   color: #475569;
 }
 
 .hero-orbital-readout__help-title {
   margin: 0 0 0.3rem;
-  font-size: var(--help-copy-size);
-  line-height: var(--help-copy-leading);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   text-align: left;
   color: rgba(251, 191, 36, 0.9);
@@ -431,11 +443,13 @@ body.light-mode .hero-orbital-readout__help-title {
   margin-top: 0.45rem;
 }
 
+.hero-orbital-readout__help-prose strong {
+  font-weight: 600;
+}
+
 .hero-orbital-readout__help-prose,
 .hero-orbital-readout__help-note {
   margin: 0 0 0.4rem;
-  font-size: var(--help-copy-size);
-  line-height: var(--help-copy-leading);
   font-weight: 400;
   text-align: justify;
 }
@@ -466,8 +480,6 @@ body.light-mode .hero-orbital-readout__help-note strong {
 
 .hero-orbital-readout__sym {
   font-family: inherit;
-  font-size: var(--help-copy-size);
-  line-height: var(--help-copy-leading);
   font-weight: 400;
   font-style: normal;
   color: inherit;
@@ -494,17 +506,13 @@ body.light-mode .hero-orbital-readout__help-note strong {
 
 .hero-orbital-readout__help-defs dt {
   margin: 0;
-  font-size: var(--help-copy-size);
-  line-height: var(--help-copy-leading);
-  font-weight: 400;
+  font-weight: 600;
   text-align: left;
   color: inherit;
 }
 
 .hero-orbital-readout__help-defs dd {
   margin: 0;
-  font-size: var(--help-copy-size);
-  line-height: var(--help-copy-leading);
   font-weight: 400;
   text-align: justify;
   color: inherit;
@@ -906,8 +914,8 @@ body.light-mode .hero-orbital-readout__sync strong {
 }
 
 .orbit-ring--3 {
-  width: 320px;
-  height: 320px;
+  width: 294px;
+  height: 294px;
   z-index: 2;
 }
 
@@ -936,13 +944,42 @@ body.light-mode .hero-orbital-readout__sync strong {
   top: 50%;
   left: 50%;
   z-index: 5;
-  width: 26px;
-  height: 26px;
-  margin: -13px 0 0 -13px;
-  background: #58A6FF;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
   border-radius: 50%;
-  box-shadow: 0 0 22px #58A6FF, 0 0 44px #58A6FF;
+  overflow: hidden;
   animation: corePulse 6s ease-in-out infinite;
+}
+
+.qubit-core__label {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", "Consolas", monospace;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #f8fafc;
+  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.65);
+  pointer-events: none;
+}
+
+.qubit-core__sub {
+  position: absolute;
+  right: 2px;
+  bottom: 1px;
+  z-index: 3;
+  font-family: "IBM Plex Mono", "Consolas", monospace;
+  font-size: 0.42rem;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(248, 250, 252, 0.92);
+  text-shadow: 0 1px 1px rgba(15, 23, 42, 0.55);
+  pointer-events: none;
 }
 
 .qubit-core::after {

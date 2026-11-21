@@ -74,6 +74,8 @@ script: /assets/js/home.js
         </div>
       </div>
       <div class="qubit-core">
+        <span class="qubit-core__label" aria-hidden="true">Si</span>
+        <span class="qubit-core__sub" aria-hidden="true">14</span>
         <span class="qubit-flare"></span>
       </div>
     </div>

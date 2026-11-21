@@ -229,11 +229,16 @@ body.light-mode .hero-secondary {
     nodePositionJitter 4.7s ease-in-out infinite !important;
 }
 
-.hero .qubit-core,
-.hero.hero--ibm .qubit-core {
+.hero .qubit-core {
   animation:
     enterpriseCorePulse 6s ease-in-out infinite,
     orbitNodeSyncColor 18s linear infinite,
+    coreUncertainty 5.5s ease-in-out infinite !important;
+}
+
+.hero.hero--ibm .qubit-core {
+  animation:
+    siliconNucleusPulse 6s ease-in-out infinite,
     coreUncertainty 5.5s ease-in-out infinite !important;
 }
 
