@@ -219,7 +219,7 @@ body.light-mode .contact-page::before {
 
 .quantum-bar {
   position: relative;
-  height: 3.5rem;
+  height: 4.85rem;
   overflow: hidden;
   background:
     radial-gradient(ellipse 80% 120% at 20% 50%, rgba(15, 98, 254, 0.12), transparent 55%),
@@ -297,12 +297,74 @@ body.light-mode .quantum-bar__ticker {
   animation: quantumBarTicker 48s linear infinite;
 }
 
+.quantum-bar__stage {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  perspective: 680px;
+  perspective-origin: 50% 15%;
+  transform-style: preserve-3d;
+}
+
+.quantum-bar__deck {
+  position: absolute;
+  left: 3%;
+  right: 3%;
+  top: 22%;
+  bottom: 10%;
+  border-radius: 6px;
+  transform: rotateX(62deg) translateZ(-28px) scaleX(1.02);
+  transform-style: preserve-3d;
+  background:
+    linear-gradient(165deg, rgba(8, 20, 40, 0.55), rgba(15, 98, 254, 0.08) 45%, rgba(4, 8, 18, 0.65)),
+    repeating-linear-gradient(90deg, rgba(120, 169, 255, 0.14) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(0deg, rgba(120, 169, 255, 0.1) 0 1px, transparent 1px 14px);
+  border: 1px solid rgba(120, 169, 255, 0.22);
+  box-shadow:
+    0 22px 38px rgba(0, 0, 0, 0.45),
+    0 2px 0 rgba(120, 169, 255, 0.25),
+    inset 0 1px 0 rgba(180, 210, 255, 0.12);
+  animation: quantumBarDeckTilt 10s ease-in-out infinite alternate;
+}
+
+body.light-mode .quantum-bar__deck {
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.65), rgba(15, 98, 254, 0.06) 50%, rgba(230, 236, 245, 0.85)),
+    repeating-linear-gradient(90deg, rgba(15, 98, 254, 0.12) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(0deg, rgba(15, 98, 254, 0.08) 0 1px, transparent 1px 14px);
+  box-shadow:
+    0 16px 28px rgba(15, 98, 254, 0.12),
+    0 2px 0 rgba(15, 98, 254, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.quantum-bar__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(14deg) translateZ(18px);
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 10px 14px rgba(15, 98, 254, 0.25));
+}
+
 .quantum-bar__svg {
   position: relative;
   z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.quantum-bar__svg--overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  transform: rotateX(10deg) translateZ(32px);
+  transform-style: preserve-3d;
 }
 
 .quantum-bar__mesh line {
@@ -312,29 +374,6 @@ body.light-mode .quantum-bar__ticker {
 
 .quantum-bar__mesh line:nth-child(odd) {
   animation-delay: -2s;
-}
-
-.quantum-bar__density {
-  opacity: 0.85;
-  animation: quantumBarDensityPulse 5s ease-in-out infinite;
-}
-
-.quantum-bar__superpose {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.quantum-bar__wave--a {
-  animation: quantumBarWaveDrift 9s ease-in-out infinite alternate;
-}
-
-.quantum-bar__wave--b {
-  animation: quantumBarWaveDrift 7s ease-in-out infinite alternate-reverse;
-}
-
-.quantum-bar__wave--c {
-  animation: quantumBarWaveDrift 11s ease-in-out infinite alternate;
-  animation-delay: -3s;
 }
 
 .quantum-bar__ripple {
@@ -523,22 +562,12 @@ body.light-mode .quantum-bar__ticker {
   }
 }
 
-@keyframes quantumBarDensityPulse {
-  0%,
-  100% {
-    opacity: 0.65;
-  }
-  50% {
-    opacity: 0.95;
-  }
-}
-
-@keyframes quantumBarWaveDrift {
+@keyframes quantumBarDeckTilt {
   0% {
-    transform: translateX(-2.5%) scaleY(1);
+    transform: rotateX(58deg) translateZ(-32px) scaleX(1);
   }
   100% {
-    transform: translateX(2.5%) scaleY(1.18);
+    transform: rotateX(66deg) translateZ(-22px) scaleX(1.03);
   }
 }
 
@@ -619,10 +648,9 @@ body.light-mode .quantum-bar__ticker {
   .quantum-bar__lattice,
   .quantum-bar__ticker-track,
   .quantum-bar__mesh line,
-  .quantum-bar__density,
-  .quantum-bar__wave--a,
-  .quantum-bar__wave--b,
-  .quantum-bar__wave--c,
+  .quantum-bar__deck,
+  .quantum-bar__canvas,
+  .quantum-bar__svg--overlay,
   .quantum-bar__ripple,
   .quantum-bar__bloch-spin,
   .quantum-bar__orbit-path,
