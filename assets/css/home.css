@@ -187,8 +187,11 @@
   backdrop-filter: blur(4px);
   box-shadow: none;
   pointer-events: auto;
-  font-size: 0.68rem;
-  line-height: 1.45;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-muted, rgba(201, 209, 217, 0.88));
 }
 
 body.light-mode .hero-orbital-readout {
@@ -222,8 +225,8 @@ body.light-mode .hero-orbital-readout {
   border-radius: 999px;
   background: transparent;
   pointer-events: auto;
-  font-family: "IBM Plex Sans", system-ui, sans-serif;
-  font-size: 0.62rem;
+  font: inherit;
+  font-size: 0.75rem;
   line-height: 1;
   color: rgba(201, 209, 217, 0.9);
   cursor: pointer;
@@ -255,9 +258,9 @@ body.light-mode .hero-orbital-readout__collapse {
 
 .hero-orbital-readout__heading {
   margin: 0;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #fbbf24;
 }
@@ -280,7 +283,7 @@ body.light-mode .hero-orbital-readout__heading {
   background: transparent;
   pointer-events: auto;
   font: inherit;
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -332,7 +335,7 @@ body.light-mode .hero-orbital-readout__tab.is-active {
 
 .hero-orbital-readout__table thead th {
   padding: 0.35rem 0.45rem;
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -373,9 +376,9 @@ body.light-mode .hero-orbital-readout__table thead th {
 
 .hero-orbital-readout__kv dt {
   margin: 0;
-  font-size: 0.58rem;
+  font-size: inherit;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   color: rgba(148, 163, 184, 0.95);
 }
 
@@ -385,32 +388,31 @@ body.light-mode .hero-orbital-readout__kv dt {
 
 .hero-orbital-readout__kv dd {
   margin: 0;
-  font-family: "IBM Plex Mono", "Consolas", monospace;
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: #f0f6fc;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  font-family: inherit;
+  color: inherit;
 }
 
-body.light-mode .hero-orbital-readout__kv dd {
-  color: #1e293b;
+.hero-orbital-readout__kv dd sub,
+.hero-orbital-readout__sym sub,
+.hero-orbital-readout__sym sup {
+  font-size: 0.85em;
+  line-height: 0;
 }
 
 .hero-orbital-readout__help {
-  font-family: "IBM Plex Sans", system-ui, sans-serif;
-  font-size: 0.54rem;
-  line-height: 1.42;
-  color: rgba(201, 209, 217, 0.88);
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
   text-align: justify;
   hyphens: auto;
 }
 
-body.light-mode .hero-orbital-readout__help {
-  color: #475569;
-}
-
 .hero-orbital-readout__help-title {
   margin: 0 0 0.3rem;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -444,8 +446,8 @@ body.light-mode .hero-orbital-readout__help-prose em {
 
 .hero-orbital-readout__help-note {
   margin-bottom: 0;
-  font-size: 0.5rem;
-  color: rgba(148, 163, 184, 0.92);
+  font-size: inherit;
+  color: inherit;
 }
 
 .hero-orbital-readout__help-note strong {
@@ -459,16 +461,12 @@ body.light-mode .hero-orbital-readout__help-note strong {
 }
 
 .hero-orbital-readout__sym {
-  font-family: "IBM Plex Mono", "Consolas", monospace;
-  font-size: 0.58rem;
-  font-weight: 500;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   font-style: normal;
-  color: #f0f6fc;
+  color: inherit;
   white-space: nowrap;
-}
-
-body.light-mode .hero-orbital-readout__sym {
-  color: #1e293b;
 }
 
 .hero-orbital-readout__help-defs {
@@ -490,24 +488,19 @@ body.light-mode .hero-orbital-readout__sym {
 
 .hero-orbital-readout__help-defs dd {
   margin: 0;
-  font-size: 0.51rem;
-  line-height: 1.38;
-  font-weight: 400;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
   text-align: justify;
-  color: rgba(201, 209, 217, 0.82);
-}
-
-body.light-mode .hero-orbital-readout__help-defs dd {
-  color: #64748b;
+  color: inherit;
 }
 
 .hero-orbital-readout__hint {
-  font-size: 0.5rem;
+  font-size: inherit;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   color: rgba(148, 163, 184, 0.85);
-  font-family: "IBM Plex Sans", system-ui, sans-serif;
 }
 
 .hero-orbital-readout__tag {
@@ -515,7 +508,7 @@ body.light-mode .hero-orbital-readout__help-defs dd {
   margin-left: 0.25rem;
   padding: 0.05rem 0.35rem;
   border-radius: 999px;
-  font-size: 0.58rem;
+  font-size: inherit;
   background: rgba(251, 191, 36, 0.18);
   color: #fcd34d;
 }
@@ -540,10 +533,10 @@ body.light-mode .hero-orbital-readout__tag {
 }
 
 .hero-orbital-readout__meter-label {
-  font-family: "IBM Plex Mono", "Consolas", monospace;
-  font-size: 0.54rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
   color: rgba(148, 163, 184, 0.95);
 }
 
@@ -565,24 +558,20 @@ body.light-mode .hero-orbital-readout__tag {
 }
 
 .hero-orbital-readout__meter-value {
-  font-family: "IBM Plex Mono", "Consolas", monospace;
-  font-size: 0.68rem;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
   text-align: right;
-  color: #e2e8f0;
-}
-
-body.light-mode .hero-orbital-readout__meter-value {
-  color: #334155;
+  color: inherit;
 }
 
 .hero-orbital-readout__sync {
   margin: 0;
-  font-family: "IBM Plex Sans", system-ui, sans-serif;
-  font-size: 0.5rem;
+  font-size: inherit;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: inherit;
   text-align: justify;
-  color: rgba(201, 209, 217, 0.82);
+  color: inherit;
 }
 
 .hero-orbital-readout__sync strong {
@@ -634,9 +623,8 @@ body.light-mode .hero-orbital-readout__sync strong {
   }
 
   .hero-orbital-readout__table thead th {
-    font-size: 0.52rem;
     padding: 0.28rem 0.22rem;
-    line-height: 1.25;
+    line-height: 1.35;
   }
 
   .hero-orbital-readout__table tbody td {
@@ -644,7 +632,7 @@ body.light-mode .hero-orbital-readout__sync strong {
   }
 
   .hero-orbital-readout__kv > div {
-    grid-template-columns: 1.55rem 1fr;
+    grid-template-columns: 2.75rem 1fr;
     gap: 0.15rem;
   }
 
@@ -652,21 +640,13 @@ body.light-mode .hero-orbital-readout__sync strong {
     gap: 0.28rem;
   }
 
-  .hero-orbital-readout__kv dd {
-    font-size: 0.64rem;
-  }
-
   .hero-orbital-readout__meter {
-    grid-template-columns: 2.35rem 1fr 1.65rem;
+    grid-template-columns: 3.25rem 1fr 2.5rem;
     gap: 0.28rem;
   }
 
-  .hero-orbital-readout__meter-value {
-    font-size: 0.62rem;
-  }
-
   .hero-orbital-readout__help {
-    max-height: 11.5rem;
+    max-height: 14rem;
     overflow-y: auto;
   }
 
@@ -715,7 +695,7 @@ body.light-mode .hero-orbital-readout__sync strong {
     content: attr(data-col-label);
     display: block;
     margin-bottom: 0.25rem;
-    font-size: 0.58rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
