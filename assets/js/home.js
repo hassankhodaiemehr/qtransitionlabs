@@ -8,6 +8,8 @@ function initOrbitalReadout() {
   var root = document.getElementById('hero-orbital-readout');
   if (!root) return;
 
+  initOrbitalReadoutTabs(root);
+
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var cycleMs = 18000;
   var phaseCount = 6;
@@ -100,9 +102,12 @@ function initOrbitalReadout() {
     }
   }
 
-  var tablist = root.querySelector('.hero-orbital-readout__tabs');
+}
+
+function initOrbitalReadoutTabs(root) {
   var tabs = root.querySelectorAll('.hero-orbital-readout__tab[data-orbit-tab]');
   var panels = root.querySelectorAll('.hero-orbital-readout__panel[data-orbit-panel]');
+  if (!tabs.length || !panels.length) return;
 
   function activateOrbitTab(id) {
     tabs.forEach(function (btn) {
@@ -118,15 +123,13 @@ function initOrbitalReadout() {
     });
   }
 
-  if (tablist) {
-    tablist.addEventListener('click', function (event) {
-      var tab = event.target.closest('.hero-orbital-readout__tab[data-orbit-tab]');
-      if (!tab || !root.contains(tab)) return;
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function (event) {
       event.preventDefault();
       event.stopPropagation();
       activateOrbitTab(tab.getAttribute('data-orbit-tab'));
     });
-  }
+  });
 }
 
 function initPolicySignalPanel() {

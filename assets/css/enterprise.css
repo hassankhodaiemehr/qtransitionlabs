@@ -430,9 +430,10 @@ body.light-mode .hero.hero--ibm::after {
 }
 
 .hero.hero--ibm .hero-orbit-layer {
-  z-index: 3;
+  z-index: 6;
   opacity: 1;
   inset: 0;
+  pointer-events: none;
 }
 
 .hero.hero--ibm .hero-atom-stack {
@@ -548,11 +549,19 @@ body.light-mode .hero.hero--ibm::after {
   pointer-events: none;
 }
 
-.hero.hero--ibm .hero-inner .hero-content,
 .hero.hero--ibm .hero-inner .hero-cta-row,
 .hero.hero--ibm .hero-inner .hero-stats,
 .hero.hero--ibm .hero-inner a,
 .hero.hero--ibm .hero-inner button {
+  pointer-events: auto;
+}
+
+.hero.hero--ibm .hero-inner .hero-content {
+  pointer-events: none;
+  max-width: min(580px, 55vw);
+}
+
+.hero.hero--ibm .hero-inner .hero-content * {
   pointer-events: auto;
 }
 

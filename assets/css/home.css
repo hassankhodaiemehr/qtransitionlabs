@@ -178,7 +178,7 @@
 
 .hero-orbital-readout {
   position: relative;
-  z-index: 6;
+  z-index: 10;
   width: min(17.25rem, 100%);
   padding: 0.55rem 0.65rem 0.65rem;
   border-radius: 12px;
@@ -261,6 +261,14 @@ body.light-mode .hero-orbital-readout__tab.is-active {
   background: rgba(217, 119, 6, 0.1);
   border-color: rgba(217, 119, 6, 0.35);
   color: #c2410c;
+}
+
+.hero-orbital-readout__panel {
+  display: none;
+}
+
+.hero-orbital-readout__panel.is-active {
+  display: block;
 }
 
 .hero-orbital-readout__panel[hidden] {
