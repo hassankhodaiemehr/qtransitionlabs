@@ -758,15 +758,15 @@ body.light-mode .hero-orbital-readout__sync-label {
 
 @media (max-width: 1023px) {
   .hero.hero--ibm .hero-atom-stack {
-    left: 50%;
-    right: auto;
-    top: 28%;
-    transform: translate(calc(-50% - 2cm), calc(-50% + 2cm)) !important;
+    left: auto;
+    right: clamp(0.5rem, 3vw, 1.25rem);
+    top: clamp(0.75rem, 4vh, 1.5rem);
+    transform: translate(-0.35rem, 0.35rem) !important;
   }
 
   .hero.hero--ibm .hero-atom-stack .atom-system {
-    width: min(400px, calc(100vw - 2.5rem));
-    height: min(400px, calc(100vw - 2.5rem));
+    width: min(11.5rem, 42vw);
+    height: min(11.5rem, 42vw);
   }
 }
 

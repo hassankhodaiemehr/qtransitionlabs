@@ -504,20 +504,20 @@ body.light-mode .hero.hero--ibm::after {
 
   .hero.hero--ibm .hero-atom-stack {
     position: absolute !important;
-    left: 50%;
-    right: auto;
-    top: 28%;
+    left: auto;
+    right: clamp(0.5rem, 3vw, 1.25rem);
+    top: clamp(0.75rem, 4vh, 1.5rem);
     width: auto;
     max-width: none;
     margin: 0;
-    transform: translate(calc(-50% - 2cm), calc(-50% + 2cm)) !important;
+    transform: translate(-0.35rem, 0.35rem) !important;
     display: block;
     pointer-events: none;
   }
 
   .hero.hero--ibm .hero-atom-stack .atom-system {
-    width: min(400px, calc(100vw - 2.5rem));
-    height: min(400px, calc(100vw - 2.5rem));
+    width: min(11.5rem, 42vw);
+    height: min(11.5rem, 42vw);
     margin: 0;
     opacity: 0.62;
   }
@@ -531,7 +531,7 @@ body.light-mode .hero.hero--ibm::after {
     z-index: 2;
     width: 100%;
     max-width: none;
-    padding-top: min(9.5rem, 34vw);
+    padding-top: 0.35rem;
     gap: 1rem;
   }
 
