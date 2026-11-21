@@ -220,14 +220,43 @@ body.light-mode .contact-page::before {
 
 .quantum-bar {
   position: relative;
-  height: 3rem;
+  height: 3.15rem;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(15, 98, 254, 0.12) 0%, rgba(15, 98, 254, 0.04) 55%, var(--bg-base, #161616) 100%);
+  background: var(--bg-base, #161616);
 }
 
 body.light-mode .quantum-bar {
   background: #ffffff;
+}
+
+.quantum-bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(120, 169, 255, 0.28) 20%,
+    rgba(120, 169, 255, 0.45) 50%,
+    rgba(120, 169, 255, 0.28) 80%,
+    transparent
+  );
+}
+
+body.light-mode .quantum-bar::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(15, 98, 254, 0.15) 20%,
+    rgba(15, 98, 254, 0.28) 50%,
+    rgba(15, 98, 254, 0.15) 80%,
+    transparent
+  );
 }
 
 .quantum-bar__canvas {

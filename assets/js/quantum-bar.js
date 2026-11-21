@@ -25,9 +25,9 @@
         ];
       }
       return [
-        { color: 'rgba(69, 137, 255, 0.26)', amp: 9, freq: 0.0075, speed: 0.012, anchor: 0.86 },
-        { color: 'rgba(120, 169, 255, 0.22)', amp: 11, freq: 0.0055, speed: 0.018, anchor: 0.92 },
-        { color: 'rgba(56, 189, 248, 0.14)', amp: 7, freq: 0.01, speed: 0.009, anchor: 0.98 },
+        { stroke: 'rgba(88, 166, 255, 0.32)', amp: 8, freq: 0.0075, speed: 0.012, anchor: 0.9 },
+        { stroke: 'rgba(120, 169, 255, 0.62)', amp: 10, freq: 0.0055, speed: 0.018, anchor: 0.94 },
+        { fill: 'rgba(120, 169, 255, 0.07)', amp: 10, freq: 0.0055, speed: 0.018, anchor: 0.94 },
       ];
     }
 
@@ -48,6 +48,20 @@
       return base + primary + harmonic;
     }
 
+    function strokeWave(layer, t, step, style, lineWidth) {
+      ctx.beginPath();
+      for (var x = 0; x <= width; x += step) {
+        var y = waveY(x, layer, t);
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = style;
+      ctx.lineWidth = lineWidth;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    }
+
     function draw() {
       if (!width || !height) return;
       ctx.clearRect(0, 0, width, height);
@@ -55,29 +69,37 @@
 
       var t = tick;
       var step = width > 900 ? 8 : 6;
+      var set = layers();
 
-      layers().forEach(function (layer) {
-        ctx.beginPath();
-        ctx.moveTo(0, height);
-        for (var x = 0; x <= width; x += step) {
-          ctx.lineTo(x, waveY(x, layer, t));
-        }
-        ctx.lineTo(width, height);
-        ctx.closePath();
-        ctx.fillStyle = layer.color;
-        ctx.fill();
-      });
-
-      ctx.beginPath();
-      for (var x2 = 0; x2 <= width; x2 += step) {
-        var y = waveY(x2, layers()[1], t);
-        if (x2 === 0) ctx.moveTo(x2, y);
-        else ctx.lineTo(x2, y);
+      if (isLight()) {
+        set.forEach(function (layer) {
+          ctx.beginPath();
+          ctx.moveTo(0, height);
+          for (var x = 0; x <= width; x += step) {
+            ctx.lineTo(x, waveY(x, layer, t));
+          }
+          ctx.lineTo(width, height);
+          ctx.closePath();
+          ctx.fillStyle = layer.color;
+          ctx.fill();
+        });
+        strokeWave(set[1], t, step, 'rgba(0, 82, 204, 0.35)', 1.25);
+        return;
       }
-      ctx.strokeStyle = isLight() ? 'rgba(0, 82, 204, 0.35)' : 'rgba(166, 200, 255, 0.72)';
-      ctx.lineWidth = isLight() ? 1.25 : 1.5;
-      ctx.lineJoin = 'round';
-      ctx.stroke();
+
+      var fillLayer = set[2];
+      ctx.beginPath();
+      ctx.moveTo(0, height);
+      for (var xFill = 0; xFill <= width; xFill += step) {
+        ctx.lineTo(xFill, waveY(xFill, fillLayer, t));
+      }
+      ctx.lineTo(width, height);
+      ctx.closePath();
+      ctx.fillStyle = fillLayer.fill;
+      ctx.fill();
+
+      strokeWave(set[0], t, step, set[0].stroke, 1);
+      strokeWave(set[1], t, step, set[1].stroke, 1.35);
     }
 
     function frame() {
