@@ -693,23 +693,11 @@ body.light-mode .hero-orbital-readout__sync-label {
     gap: 0.55rem;
   }
 
-  .hero-atom-stack.is-readout-collapsed {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.4rem;
-  }
-
-  .hero-atom-stack.is-readout-collapsed .hero-orbital-readout {
-    order: -2;
-    margin-bottom: 0;
-  }
-
-  .hero-atom-stack.is-readout-collapsed .atom-system {
-    order: 0;
+  .hero-inner.is-readout-collapsed .hero-orbital-readout {
+    margin-bottom: 0.35rem;
   }
 
   .hero-orbital-readout {
-    order: -1;
     width: min(17.25rem, 22vw);
     margin-bottom: 0.35rem;
   }
@@ -750,88 +738,74 @@ body.light-mode .hero-orbital-readout__sync-label {
 }
 
 @media (max-width: 1023px) {
-  .hero.hero--ibm .hero-orbit-layer {
-    position: relative !important;
-    inset: auto !important;
-    height: auto;
-  }
-
-  .hero.hero--ibm .hero-atom-stack {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    left: auto !important;
-    transform: none !important;
-  }
-
-  .hero-atom-stack {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
-    max-width: min(22.5rem, 100%);
-    margin: 0 auto;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-
-  .hero-atom-stack.is-readout-collapsed {
-    row-gap: 0.5rem;
-  }
-
-  .hero-atom-stack.is-readout-collapsed .hero-orbital-readout {
-    order: 0;
-  }
-
   .hero-orbital-readout {
     width: 100%;
     max-width: none;
     box-sizing: border-box;
-    z-index: auto;
-  }
-
-  .hero-atom-stack .atom-system {
-    width: min(15.5rem, 68vw);
-    height: min(15.5rem, 68vw);
-    margin: 0 auto 0.35rem;
   }
 
   #hero-orbit-panel-help .hero-orbital-readout__help {
     max-height: min(38vh, 16rem);
   }
 
-  .hero-orbit-layer > .particle {
-    display: none;
+  .hero-orbital-readout__table thead {
+    display: table-header-group;
   }
 
-  .hero-orbital-readout__table thead {
-    display: none;
+  .hero-orbital-readout__table thead th {
+    width: 33.333%;
+    text-align: center;
+    padding: 0.22rem 0.12rem;
+    font-size: 0.48rem;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
   }
 
   .hero-orbital-readout__table tbody tr {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: table-row;
   }
 
   .hero-orbital-readout__table tbody td {
-    display: block;
+    display: table-cell;
+    width: 33.333%;
+    vertical-align: top;
+    padding: 0.22rem 0.12rem;
     border-bottom: 0;
-    padding: 0.35rem 0;
   }
 
   .hero-orbital-readout__table tbody td::before {
-    content: attr(data-col-label);
-    display: block;
-    margin-bottom: 0.25rem;
-    font-size: 0.58rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: rgba(148, 163, 184, 0.95);
+    content: none;
+    display: none;
+  }
+
+  #hero-orbit-panel-readout .hero-orbital-readout__kv > div {
+    grid-template-columns: 1.35rem 1fr;
+    gap: 0.08rem;
+  }
+
+  #hero-orbit-panel-readout .hero-orbital-readout__kv {
+    gap: 0.15rem;
+  }
+
+  #hero-orbit-panel-readout .hero-orbital-readout__meter {
+    grid-template-columns: 1fr;
+    gap: 0.12rem;
+  }
+
+  #hero-orbit-panel-readout .hero-orbital-readout__meter-label {
+    font-size: 0.46rem;
+  }
+
+  #hero-orbit-panel-readout .hero-orbital-readout__sync {
+    text-align: left;
+    font-size: 0.5rem;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-inner.is-readout-collapsed .hero-orbital-readout {
+    margin-top: 0.35rem;
   }
 }
 

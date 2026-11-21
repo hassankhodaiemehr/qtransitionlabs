@@ -136,7 +136,7 @@ function initOrbitalReadoutTabs(root) {
 
 function initOrbitalReadoutCollapse(root) {
   var btn = root.querySelector('[data-orbit-collapse]');
-  var stack = root.closest('.hero-atom-stack');
+  var stack = root.closest('.hero-inner');
   var icon = btn && btn.querySelector('.hero-orbital-readout__collapse-icon');
   if (!btn) return;
 

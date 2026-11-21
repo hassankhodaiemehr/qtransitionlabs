@@ -89,22 +89,59 @@ script: /assets/js/home.js
         </svg>
       </div>
     </div>
+    </div>
 
-      <aside class="hero-orbital-readout" id="hero-orbital-readout" aria-labelledby="hero-orbital-readout-heading">
-        <div class="hero-orbital-readout__toolbar">
-          <h2 class="hero-orbital-readout__heading" id="hero-orbital-readout-heading">Si · Z=14</h2>
-          <div class="hero-orbital-readout__actions">
-            <div class="hero-orbital-readout__tabs" role="tablist" aria-label="Quantum readout views">
-              <button type="button" class="hero-orbital-readout__tab is-active" role="tab" id="hero-orbit-tab-readout" aria-selected="true" aria-controls="hero-orbit-panel-readout" data-orbit-tab="readout">Readout</button>
-              <button type="button" class="hero-orbital-readout__tab" role="tab" id="hero-orbit-tab-help" aria-selected="false" aria-controls="hero-orbit-panel-help" data-orbit-tab="help">Help</button>
-            </div>
-            <button type="button" class="hero-orbital-readout__collapse" data-orbit-collapse aria-expanded="true" aria-controls="hero-orbital-readout-body" aria-label="Shrink readout to top bar" title="Shrink to top">
-              <span class="hero-orbital-readout__collapse-icon" aria-hidden="true">▴</span>
-            </button>
+    <div class="particle particle--sm" style="top:18%; left:16%;"></div>
+    <div class="particle" style="top:72%; left:78%;"></div>
+    <div class="particle particle--lg" style="top:40%; left:60%;"></div>
+    <div class="particle particle--sm" style="top:82%; left:28%;"></div>
+    <div class="particle" style="top:28%; left:82%;"></div>
+    <div class="particle particle--sm" style="top:55%; left:12%;"></div>
+    <div class="particle particle--lg" style="top:12%; left:68%;"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Post‑quantum security</span>
+      <h1>Quantum Transition Labs</h1>
+      <p class="hero-tagline">Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
+
+      <div class="hero-cta-row">
+        <a href="/contact/" class="hero-button">Schedule a consultation</a>
+        <a href="/pqc-readiness/" class="hero-secondary">Check PQC readiness</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>10+ years</strong>
+        PQC, coding theory &amp; blockchain security
+      </div>
+      <div class="hero-stat">
+        <strong>IEEE / IACR</strong>
+        Peer‑reviewed cryptography research
+      </div>
+      <div class="hero-stat">
+        <strong>Global</strong>
+        Remote &amp; on‑site engagements
+      </div>
+    </div>
+
+    <aside class="hero-orbital-readout" id="hero-orbital-readout" aria-labelledby="hero-orbital-readout-heading">
+      <div class="hero-orbital-readout__toolbar">
+        <h2 class="hero-orbital-readout__heading" id="hero-orbital-readout-heading">Si · Z=14</h2>
+        <div class="hero-orbital-readout__actions">
+          <div class="hero-orbital-readout__tabs" role="tablist" aria-label="Quantum readout views">
+            <button type="button" class="hero-orbital-readout__tab is-active" role="tab" id="hero-orbit-tab-readout" aria-selected="true" aria-controls="hero-orbit-panel-readout" data-orbit-tab="readout">Readout</button>
+            <button type="button" class="hero-orbital-readout__tab" role="tab" id="hero-orbit-tab-help" aria-selected="false" aria-controls="hero-orbit-panel-help" data-orbit-tab="help">Help</button>
           </div>
+          <button type="button" class="hero-orbital-readout__collapse" data-orbit-collapse aria-expanded="true" aria-controls="hero-orbital-readout-body" aria-label="Shrink readout to top bar" title="Shrink to top">
+            <span class="hero-orbital-readout__collapse-icon" aria-hidden="true">▴</span>
+          </button>
         </div>
+      </div>
 
-        <div class="hero-orbital-readout__body" id="hero-orbital-readout-body">
+      <div class="hero-orbital-readout__body" id="hero-orbital-readout-body">
         <div class="hero-orbital-readout__panel is-active" id="hero-orbit-panel-readout" role="tabpanel" aria-labelledby="hero-orbit-tab-readout" data-orbit-panel="readout">
           <table class="hero-orbital-readout__table">
             <thead>
@@ -200,45 +237,8 @@ script: /assets/js/home.js
             <p class="hero-orbital-readout__help-note">Illustrative visualization only. This animation is not a physical simulation, cryogenic spin-qubit measurement, device characterization result, or security-performance benchmark. It is designed to communicate the connection between atomic-scale physics and the future of post-quantum secure computing.</p>
           </div>
         </div>
-        </div>
-      </aside>
-    </div>
-
-    <div class="particle particle--sm" style="top:18%; left:16%;"></div>
-    <div class="particle" style="top:72%; left:78%;"></div>
-    <div class="particle particle--lg" style="top:40%; left:60%;"></div>
-    <div class="particle particle--sm" style="top:82%; left:28%;"></div>
-    <div class="particle" style="top:28%; left:82%;"></div>
-    <div class="particle particle--sm" style="top:55%; left:12%;"></div>
-    <div class="particle particle--lg" style="top:12%; left:68%;"></div>
-  </div>
-
-  <div class="hero-inner">
-    <div class="hero-content">
-      <span class="hero-eyebrow">Post‑quantum security</span>
-      <h1>Quantum Transition Labs</h1>
-      <p class="hero-tagline">Post‑quantum cryptography, secure architecture, and quantum‑resilient systems for critical infrastructure, governments, and high‑value digital platforms.</p>
-
-      <div class="hero-cta-row">
-        <a href="/contact/" class="hero-button">Schedule a consultation</a>
-        <a href="/pqc-readiness/" class="hero-secondary">Check PQC readiness</a>
       </div>
-    </div>
-
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <strong>10+ years</strong>
-        PQC, coding theory &amp; blockchain security
-      </div>
-      <div class="hero-stat">
-        <strong>IEEE / IACR</strong>
-        Peer‑reviewed cryptography research
-      </div>
-      <div class="hero-stat">
-        <strong>Global</strong>
-        Remote &amp; on‑site engagements
-      </div>
-    </div>
+    </aside>
   </div>
 </div>
 

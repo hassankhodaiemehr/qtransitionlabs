@@ -481,13 +481,27 @@ body.light-mode .hero.hero--ibm::after {
   }
 }
 
+@media (min-width: 1024px) {
+  .hero.hero--ibm .hero-inner {
+    position: static;
+  }
+
+  .hero.hero--ibm .hero-orbital-readout {
+    position: absolute;
+    top: calc(clamp(1.25rem, 5vh, 2rem) + 2cm);
+    right: calc(clamp(1.25rem, 6vw, 4.5rem) + 2cm + 400px + 0.55rem);
+    width: min(17.25rem, 22vw);
+    margin: 0;
+    z-index: 10;
+    grid-column: auto;
+  }
+}
+
 @media (max-width: 1023px) {
   .hero.hero--ibm {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding-bottom: 2.25rem;
-    overflow: visible;
+    display: block;
+    padding-bottom: 2.5rem;
+    overflow: hidden;
   }
 
   .hero.hero--ibm .hero-bg-layer {
@@ -496,83 +510,91 @@ body.light-mode .hero.hero--ibm::after {
   }
 
   .hero.hero--ibm .hero-orbit-layer {
-    position: relative;
-    inset: auto;
-    order: 2;
+    position: absolute !important;
+    inset: 0 !important;
     z-index: 1;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    margin-top: 1.25rem;
-    padding: 0 0.5rem;
+    height: 100%;
+    pointer-events: none;
     opacity: 1;
-    overflow: visible;
+  }
+
+  .hero.hero--ibm .hero-atom-stack {
+    position: absolute !important;
+    left: 50%;
+    right: auto;
+    top: 36%;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    transform: translate(-50%, -50%) !important;
+    display: block;
     pointer-events: none;
   }
 
-  .hero.hero--ibm .hero-orbit-layer > .particle {
-    display: none;
+  .hero.hero--ibm .hero-atom-stack .atom-system {
+    width: min(19rem, 82vw);
+    height: min(19rem, 82vw);
+    margin: 0;
+    opacity: 0.68;
   }
 
+  .hero.hero--ibm .orbit-ring--3 { width: 92%; height: 92%; max-width: 368px; max-height: 368px; }
+  .hero.hero--ibm .orbit-ring--2 { width: 59.5%; height: 59.5%; }
+  .hero.hero--ibm .orbit-ring--1 { width: 38.75%; height: 38.75%; }
+
   .hero.hero--ibm .hero-inner {
-    order: 1;
+    position: relative;
     z-index: 2;
     width: 100%;
+    max-width: none;
+    padding-top: min(9.5rem, 34vw);
+    gap: 0.85rem;
   }
 
   .hero.hero--ibm .hero-inner .hero-content {
     max-width: none;
   }
 
-  .hero.hero--ibm .hero-atom-stack {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    width: 100%;
-    max-width: min(22.5rem, 100%);
-    margin: 0 auto;
-    transform: none;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    row-gap: 1.15rem;
-    align-items: stretch;
-    pointer-events: none;
+  .hero.hero--ibm .hero-stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 0.75rem;
   }
 
-  .hero.hero--ibm .hero-atom-stack .atom-system {
-    grid-row: 1;
-    width: min(15.5rem, 68vw);
-    height: min(15.5rem, 68vw);
-    margin: 0 auto 0.35rem;
-    opacity: 0.78;
-    flex-shrink: 0;
-    isolation: isolate;
+  .hero.hero--ibm .hero-stat {
+    flex: 1 1 0;
+    min-width: 0;
+    border-right: 1px solid var(--border-default);
+    border-bottom: none;
+    text-align: center;
+    font-size: 0.58rem;
+    line-height: 1.35;
+    padding: 0.55rem 0.3rem;
   }
 
-  .hero.hero--ibm .orbit-ring--3 { width: 90%; height: 90%; max-width: none; max-height: none; }
-  .hero.hero--ibm .orbit-ring--2 { width: 58%; height: 58%; }
-  .hero.hero--ibm .orbit-ring--1 { width: 38%; height: 38%; }
+  .hero.hero--ibm .hero-stat strong {
+    font-size: 0.68rem;
+    margin-bottom: 0.2rem;
+  }
 
   .hero.hero--ibm .hero-orbital-readout {
-    grid-row: 2;
     position: relative;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     max-width: none;
-    margin: 0;
-    align-self: stretch;
-    pointer-events: auto;
+    margin: 0.65rem 0 0;
     box-sizing: border-box;
+    grid-column: 1 / -1;
   }
 
   .hero.hero--ibm::after {
     background: linear-gradient(
       180deg,
-      rgba(22, 22, 22, 0.88) 0%,
-      rgba(22, 22, 22, 0.72) 45%,
-      rgba(22, 22, 22, 0.35) 100%
+      rgba(22, 22, 22, 0.82) 0%,
+      rgba(22, 22, 22, 0.68) 40%,
+      rgba(22, 22, 22, 0.42) 70%,
+      rgba(22, 22, 22, 0.28) 100%
     );
   }
 
@@ -580,13 +602,10 @@ body.light-mode .hero.hero--ibm::after {
     background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.88) 0%,
-      rgba(255, 255, 255, 0.72) 45%,
-      rgba(255, 255, 255, 0.3) 100%
+      rgba(255, 255, 255, 0.72) 40%,
+      rgba(255, 255, 255, 0.45) 70%,
+      rgba(255, 255, 255, 0.28) 100%
     );
-  }
-
-  .hero.hero--ibm .hero-stats {
-    display: none;
   }
 }
 
@@ -604,6 +623,7 @@ body.light-mode .hero.hero--ibm::after {
 
 .hero.hero--ibm .hero-inner .hero-cta-row,
 .hero.hero--ibm .hero-inner .hero-stats,
+.hero.hero--ibm .hero-inner .hero-orbital-readout,
 .hero.hero--ibm .hero-inner a,
 .hero.hero--ibm .hero-inner button {
   pointer-events: auto;
@@ -623,6 +643,12 @@ body.light-mode .hero.hero--ibm::after {
   position: relative;
   z-index: 5;
   margin-top: 0.25rem;
+}
+
+.hero.hero--ibm .hero-orbital-readout {
+  grid-column: 1 / -1;
+  position: relative;
+  z-index: 5;
 }
 
 .hero.hero--ibm .hero-content {
@@ -746,17 +772,26 @@ body.light-mode .hero.hero--ibm .hero-stat strong {
   }
 
   .hero.hero--ibm .hero-stats {
-    flex-direction: column;
+  flex-direction: row;
+  flex-wrap: nowrap;
   }
 
   .hero.hero--ibm .hero-stat {
-    border-right: none;
-    border-bottom: 1px solid var(--border-default);
+    flex: 1 1 0;
+    min-width: 0;
+    border-right: 1px solid var(--border-default);
+    border-bottom: none;
     text-align: center;
+    font-size: 0.58rem;
+    padding: 0.55rem 0.3rem;
   }
 
   .hero.hero--ibm .hero-stat:last-child {
-    border-bottom: none;
+    border-right: none;
+  }
+
+  .hero.hero--ibm .hero-stat strong {
+    font-size: 0.68rem;
   }
 }
 
