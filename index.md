@@ -161,7 +161,7 @@ script: /assets/js/home.js
                 <td colspan="3">
                   <p class="hero-orbital-readout__sync" aria-live="polite">
                     Active ring: <strong data-orbit="active-shell">Si · n = 1 1s</strong>
-                    · 18&nbsp;s · 3 phases
+                    · 3 phases · <span class="hero-orbital-readout__time">18&nbsp;sec</span> spectrum cycle
                   </p>
                 </td>
               </tr>
@@ -175,7 +175,7 @@ script: /assets/js/home.js
             <p class="hero-orbital-readout__help-prose">Three radar rings match three highlight phases for silicon (<span class="hero-orbital-readout__sym">Z=14</span>): a semiconductor backbone and a platform for spin qubits, quantum dots, and PQC siliconization. Stylized shells walk <span class="hero-orbital-readout__sym">K</span> (core), <span class="hero-orbital-readout__sym">L</span> (inner), then <span class="hero-orbital-readout__sym">M</span> valence <span class="hero-orbital-readout__sym">3s²3p²</span>. Motion and color encode <span class="hero-orbital-readout__sym">|ψ|²</span> phase—not Bohr tracks.</p>
             <p class="hero-orbital-readout__help-title">Cycle &amp; fields</p>
             <dl class="hero-orbital-readout__help-defs">
-              <div><dt>3 · 18&nbsp;s</dt><dd>One ring per phase (<span class="hero-orbital-readout__sym">6&nbsp;s</span> each), spectrum-locked with the radar.</dd></div>
+              <div><dt>3 phases · <span class="hero-orbital-readout__time">18&nbsp;sec</span></dt><dd>One ring per phase (<span class="hero-orbital-readout__time">6&nbsp;sec</span> each), spectrum-locked with the radar.</dd></div>
               <div><dt><span class="hero-orbital-readout__sym">Z</span>, <span class="hero-orbital-readout__sym">n</span>, Shell</dt><dd>Element Si; principal <span class="hero-orbital-readout__sym">n</span> and K/L/M label for the lit ring.</dd></div>
               <div><dt>Valence · quantum</dt><dd>Outer phase stresses <span class="hero-orbital-readout__sym">3p</span>—where solid-state and qubit engineering meet cryptography migration.</dd></div>
               <div><dt><span class="hero-orbital-readout__sym">E<sub>bind</sub></span>, <span class="hero-orbital-readout__sym">|ψ|²</span></dt><dd>Illustrative binding (eV) and bars—not cryo lab readout.</dd></div>
