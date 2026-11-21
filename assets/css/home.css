@@ -756,6 +756,20 @@ body.light-mode .hero-orbital-readout__sync-label {
   gap: 0.18rem;
 }
 
+@media (max-width: 1023px) {
+  .hero.hero--ibm .hero-atom-stack {
+    left: 50%;
+    right: auto;
+    top: 28%;
+    transform: translate(calc(-50% - 2cm), calc(-50% + 2cm)) !important;
+  }
+
+  .hero.hero--ibm .hero-atom-stack .atom-system {
+    width: min(400px, calc(100vw - 2.5rem));
+    height: min(400px, calc(100vw - 2.5rem));
+  }
+}
+
 .quantum-pulse {
   position: absolute;
   inset: 0;
