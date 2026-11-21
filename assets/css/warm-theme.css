@@ -151,46 +151,103 @@ body.light-mode .hero-secondary {
   stroke: rgba(251, 146, 60, 0.22) !important;
 }
 
-/* Hero radar: all rings share one synchronized spectrum color */
+/* Hero radar: synchronized spectrum + orbital uncertainty (cloud / wobble) */
 
 .hero.hero--ibm .quantum-scan {
   background: conic-gradient(
     from 0deg,
-    rgba(69, 137, 255, 0.34) 0deg,
-    rgba(69, 137, 255, 0.08) 28deg,
-    transparent 40deg,
+    rgba(96, 165, 255, 0.62) 0deg,
+    rgba(96, 165, 255, 0.16) 32deg,
+    transparent 42deg,
     transparent 360deg
   ) !important;
   animation: quantumScan 7s linear infinite, radarHueSync 18s linear infinite !important;
 }
 
+.hero.hero--ibm .orbit-ring--1 {
+  animation: ringShellDrift1 7s ease-in-out infinite alternate !important;
+}
+
+.hero.hero--ibm .orbit-ring--2 {
+  animation: ringShellDrift2 8.4s ease-in-out infinite alternate-reverse !important;
+}
+
+.hero.hero--ibm .orbit-ring--3 {
+  animation: ringShellDrift3 6.2s ease-in-out infinite alternate !important;
+}
+
+.hero.hero--ibm .orbit-ring--4 {
+  animation: ringShellDrift4 9.1s ease-in-out infinite alternate-reverse !important;
+}
+
+.hero.hero--ibm .orbit {
+  border-width: 2px !important;
+}
+
+.hero.hero--ibm .orbit::before,
+.hero.hero--ibm .orbit::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.hero.hero--ibm .orbit::before {
+  inset: -6%;
+  border: 3px solid currentColor;
+  opacity: 0.42;
+  filter: blur(8px);
+  animation: orbitalCloudA 4.5s ease-in-out infinite alternate;
+}
+
+.hero.hero--ibm .orbit::after {
+  inset: -14%;
+  border: 10px solid currentColor;
+  opacity: 0.2;
+  filter: blur(16px);
+  animation: orbitalCloudB 6.8s ease-in-out infinite alternate-reverse;
+}
+
 .hero.hero--ibm .orbit-ring--1 .orbit {
-  animation: orbitSpin 28s linear infinite, orbitSyncColor 18s linear infinite !important;
+  animation: orbitSpinUncertain1 28s linear infinite, orbitSyncColor 18s linear infinite !important;
 }
 
 .hero.hero--ibm .orbit-ring--2 .orbit {
-  animation: orbitSpin 38s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
+  animation: orbitSpinUncertain2 38s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
 }
 
 .hero.hero--ibm .orbit-ring--3 .orbit {
-  animation: orbitSpin 52s linear infinite, orbitSyncColor 18s linear infinite !important;
+  animation: orbitSpinUncertain3 52s linear infinite, orbitSyncColor 18s linear infinite !important;
 }
 
 .hero.hero--ibm .orbit-ring--4 .orbit {
-  animation: orbitSpin 68s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
+  animation: orbitSpinUncertain4 68s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
 }
 
 .hero.hero--ibm .orbit-comet {
-  animation: cometGlow 2.2s ease-in-out infinite, orbitCometSyncColor 18s linear infinite !important;
+  animation:
+    cometUncertainty 3.1s ease-in-out infinite,
+    orbitCometSyncColor 18s linear infinite !important;
 }
 
 .hero.hero--ibm .orbit-node {
-  animation: nodePulseSpectrum 3s ease-in-out infinite, orbitNodeSyncColor 18s linear infinite !important;
+  animation:
+    nodePulseSpectrum 3s ease-in-out infinite,
+    orbitNodeSyncColor 18s linear infinite,
+    nodePositionJitter 4.7s ease-in-out infinite !important;
 }
 
 .hero .qubit-core,
 .hero.hero--ibm .qubit-core {
-  animation: enterpriseCorePulse 6s ease-in-out infinite, orbitNodeSyncColor 18s linear infinite !important;
+  animation:
+    enterpriseCorePulse 6s ease-in-out infinite,
+    orbitNodeSyncColor 18s linear infinite,
+    coreUncertainty 5.5s ease-in-out infinite !important;
+}
+
+.hero.hero--ibm .qubit-core::after {
+  opacity: 0.75 !important;
+  animation: coreHaloUncertainty 4.8s ease-in-out infinite alternate !important;
 }
 
 @keyframes radarHueSync {
@@ -202,117 +259,303 @@ body.light-mode .hero-secondary {
   }
 }
 
+@keyframes ringShellDrift1 {
+  0% {
+    transform: translate(-50%, -50%) scale(1.01, 0.99);
+  }
+  100% {
+    transform: translate(calc(-50% + 5px), calc(-50% - 4px)) scale(0.99, 1.02);
+  }
+}
+
+@keyframes ringShellDrift2 {
+  0% {
+    transform: translate(-50%, -50%) scale(0.99, 1.02);
+  }
+  100% {
+    transform: translate(calc(-50% - 4px), calc(-50% + 5px)) scale(1.02, 0.98);
+  }
+}
+
+@keyframes ringShellDrift3 {
+  0% {
+    transform: translate(-50%, -50%) scale(1.02, 1);
+  }
+  100% {
+    transform: translate(calc(-50% + 3px), calc(-50% + 4px)) scale(0.98, 1.03);
+  }
+}
+
+@keyframes ringShellDrift4 {
+  0% {
+    transform: translate(-50%, -50%) scale(1, 1.01);
+  }
+  100% {
+    transform: translate(calc(-50% - 6px), calc(-50% - 2px)) scale(1.01, 0.99);
+  }
+}
+
+@keyframes orbitSpinUncertain1 {
+  0% {
+    transform: rotate(0deg) scale(1.05, 0.93);
+    border-radius: 47% 53% 50% 50% / 49% 46% 54% 51%;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.94, 1.06);
+    border-radius: 52% 48% 46% 54% / 53% 49% 51% 47%;
+  }
+  100% {
+    transform: rotate(360deg) scale(1.03, 0.97);
+    border-radius: 49% 51% 53% 47% / 48% 52% 49% 51%;
+  }
+}
+
+@keyframes orbitSpinUncertain2 {
+  0% {
+    transform: rotate(0deg) scale(0.96, 1.05);
+    border-radius: 51% 49% 47% 53% / 50% 54% 46% 50%;
+  }
+  50% {
+    transform: rotate(-180deg) scale(1.04, 0.94);
+    border-radius: 48% 52% 54% 46% / 47% 49% 51% 53%;
+  }
+  100% {
+    transform: rotate(-360deg) scale(0.97, 1.03);
+    border-radius: 53% 47% 49% 51% / 52% 48% 50% 50%;
+  }
+}
+
+@keyframes orbitSpinUncertain3 {
+  0% {
+    transform: rotate(0deg) scale(1.04, 0.96);
+    border-radius: 46% 54% 52% 48% / 51% 47% 53% 49%;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.95, 1.05);
+    border-radius: 53% 47% 49% 51% / 48% 52% 49% 51%;
+  }
+  100% {
+    transform: rotate(360deg) scale(1.02, 0.98);
+    border-radius: 50% 50% 48% 52% / 46% 54% 50% 50%;
+  }
+}
+
+@keyframes orbitSpinUncertain4 {
+  0% {
+    transform: rotate(0deg) scale(0.95, 1.04);
+    border-radius: 52% 48% 50% 50% / 49% 51% 47% 53%;
+  }
+  50% {
+    transform: rotate(-180deg) scale(1.05, 0.93);
+    border-radius: 47% 53% 51% 49% / 54% 46% 52% 48%;
+  }
+  100% {
+    transform: rotate(-360deg) scale(0.98, 1.02);
+    border-radius: 49% 51% 46% 54% / 50% 50% 53% 47%;
+  }
+}
+
+@keyframes orbitalCloudA {
+  0% {
+    transform: scale(1.03, 0.94);
+    opacity: 0.32;
+  }
+  100% {
+    transform: scale(0.94, 1.06);
+    opacity: 0.5;
+  }
+}
+
+@keyframes orbitalCloudB {
+  0% {
+    transform: scale(0.96, 1.04);
+    opacity: 0.14;
+  }
+  100% {
+    transform: scale(1.06, 0.92);
+    opacity: 0.28;
+  }
+}
+
+@keyframes cometUncertainty {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.92;
+    filter: blur(0);
+  }
+  50% {
+    transform: translate(1px, 2px) scale(1.3);
+    opacity: 1;
+    filter: blur(0.4px);
+  }
+}
+
+@keyframes nodePositionJitter {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  33% {
+    translate: 1px -1px;
+  }
+  66% {
+    translate: -1px 1px;
+  }
+}
+
+@keyframes coreUncertainty {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  50% {
+    translate: 1px -1px;
+    scale: 1.06;
+  }
+}
+
+@keyframes coreHaloUncertainty {
+  0% {
+    scale: 1;
+    opacity: 0.6;
+  }
+  100% {
+    scale: 1.12;
+    opacity: 0.85;
+  }
+}
+
 @keyframes orbitSyncColor {
   0%,
   100% {
-    border-color: rgba(69, 137, 255, 0.88);
-    box-shadow: 0 0 26px rgba(69, 137, 255, 0.48);
+    color: #60a5fa;
+    border-color: rgba(96, 165, 255, 0.98);
+    box-shadow:
+      0 0 22px rgba(59, 130, 246, 0.65),
+      0 0 44px rgba(59, 130, 246, 0.28);
   }
   16.667% {
-    border-color: rgba(56, 189, 248, 0.86);
-    box-shadow: 0 0 26px rgba(56, 189, 248, 0.45);
+    color: #22d3ee;
+    border-color: rgba(34, 211, 238, 0.96);
+    box-shadow:
+      0 0 22px rgba(6, 182, 212, 0.62),
+      0 0 44px rgba(6, 182, 212, 0.26);
   }
   33.333% {
-    border-color: rgba(52, 211, 153, 0.86);
-    box-shadow: 0 0 26px rgba(34, 197, 94, 0.42);
+    color: #34d399;
+    border-color: rgba(52, 211, 153, 0.96);
+    box-shadow:
+      0 0 22px rgba(16, 185, 129, 0.6),
+      0 0 44px rgba(16, 185, 129, 0.24);
   }
   50% {
-    border-color: rgba(251, 191, 36, 0.9);
-    box-shadow: 0 0 28px rgba(245, 158, 11, 0.45);
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.98);
+    box-shadow:
+      0 0 24px rgba(245, 158, 11, 0.68),
+      0 0 48px rgba(245, 158, 11, 0.3);
   }
   66.667% {
-    border-color: rgba(251, 146, 60, 0.88);
-    box-shadow: 0 0 26px rgba(234, 88, 12, 0.42);
+    color: #fb923c;
+    border-color: rgba(251, 146, 60, 0.97);
+    box-shadow:
+      0 0 22px rgba(249, 115, 22, 0.64),
+      0 0 44px rgba(249, 115, 22, 0.28);
   }
   83.333% {
-    border-color: rgba(167, 139, 250, 0.88);
-    box-shadow: 0 0 28px rgba(139, 92, 246, 0.45);
+    color: #a78bfa;
+    border-color: rgba(167, 139, 250, 0.98);
+    box-shadow:
+      0 0 24px rgba(139, 92, 246, 0.66),
+      0 0 48px rgba(139, 92, 246, 0.28);
   }
 }
 
 @keyframes orbitCometSyncColor {
   0%,
   100% {
-    background: #78a9ff;
+    background: #93c5fd;
     box-shadow:
-      0 0 10px #4589ff,
-      -14px 0 18px rgba(69, 137, 255, 0.55),
-      -28px 0 26px rgba(69, 137, 255, 0.22);
+      0 0 12px #3b82f6,
+      0 0 22px rgba(59, 130, 246, 0.75),
+      -16px 0 22px rgba(59, 130, 246, 0.45);
   }
   16.667% {
     background: #67e8f9;
     box-shadow:
-      0 0 10px #22d3ee,
-      -14px 0 18px rgba(56, 189, 248, 0.55),
-      -28px 0 26px rgba(56, 189, 248, 0.22);
+      0 0 12px #06b6d4,
+      0 0 22px rgba(6, 182, 212, 0.72),
+      -16px 0 22px rgba(6, 182, 212, 0.42);
   }
   33.333% {
     background: #6ee7b7;
     box-shadow:
-      0 0 10px #34d399,
-      -14px 0 18px rgba(52, 211, 153, 0.55),
-      -28px 0 26px rgba(34, 197, 94, 0.22);
+      0 0 12px #10b981,
+      0 0 22px rgba(16, 185, 129, 0.72),
+      -16px 0 22px rgba(16, 185, 129, 0.42);
   }
   50% {
-    background: #fcd34d;
+    background: #fde047;
     box-shadow:
-      0 0 10px #fbbf24,
-      -14px 0 18px rgba(251, 191, 36, 0.55),
-      -28px 0 26px rgba(245, 158, 11, 0.22);
+      0 0 14px #f59e0b,
+      0 0 26px rgba(245, 158, 11, 0.78),
+      -16px 0 24px rgba(245, 158, 11, 0.48);
   }
   66.667% {
     background: #fdba74;
     box-shadow:
-      0 0 10px #fb923c,
-      -14px 0 18px rgba(251, 146, 60, 0.55),
-      -28px 0 26px rgba(234, 88, 12, 0.22);
+      0 0 12px #f97316,
+      0 0 22px rgba(249, 115, 22, 0.75),
+      -16px 0 22px rgba(249, 115, 22, 0.45);
   }
   83.333% {
     background: #c4b5fd;
     box-shadow:
-      0 0 10px #a78bfa,
-      -14px 0 18px rgba(167, 139, 250, 0.55),
-      -28px 0 26px rgba(139, 92, 246, 0.22);
+      0 0 12px #8b5cf6,
+      0 0 22px rgba(139, 92, 246, 0.75),
+      -16px 0 22px rgba(139, 92, 246, 0.45);
   }
 }
 
 @keyframes orbitNodeSyncColor {
   0%,
   100% {
-    background: #4589ff;
-    box-shadow: 0 0 14px rgba(69, 137, 255, 0.92);
+    background: #60a5fa;
+    box-shadow: 0 0 16px rgba(59, 130, 246, 1), 0 0 32px rgba(59, 130, 246, 0.45);
   }
   16.667% {
     background: #22d3ee;
-    box-shadow: 0 0 14px rgba(56, 189, 248, 0.9);
+    box-shadow: 0 0 16px rgba(6, 182, 212, 0.98), 0 0 32px rgba(6, 182, 212, 0.42);
   }
   33.333% {
     background: #34d399;
-    box-shadow: 0 0 14px rgba(52, 211, 153, 0.9);
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.98), 0 0 32px rgba(16, 185, 129, 0.42);
   }
   50% {
-    background: #fbbf24;
-    box-shadow: 0 0 14px rgba(251, 191, 36, 0.92);
+    background: #facc15;
+    box-shadow: 0 0 18px rgba(234, 179, 8, 1), 0 0 36px rgba(234, 179, 8, 0.48);
   }
   66.667% {
     background: #fb923c;
-    box-shadow: 0 0 14px rgba(251, 146, 60, 0.9);
+    box-shadow: 0 0 16px rgba(249, 115, 22, 0.98), 0 0 32px rgba(249, 115, 22, 0.45);
   }
   83.333% {
     background: #a78bfa;
-    box-shadow: 0 0 14px rgba(167, 139, 250, 0.92);
+    box-shadow: 0 0 16px rgba(139, 92, 246, 1), 0 0 32px rgba(139, 92, 246, 0.45);
   }
 }
 
 @keyframes nodePulseSpectrum {
   0%,
   100% {
-    opacity: 0.88;
-    transform: scale(1);
+    opacity: 0.78;
+    filter: brightness(0.95);
   }
   50% {
     opacity: 1;
-    transform: scale(1.18);
+    filter: brightness(1.15);
   }
 }
 
@@ -416,4 +659,41 @@ footer.footer {
   background:
     linear-gradient(180deg, rgba(251, 191, 36, 0.06) 0%, transparent 45%),
     var(--bg-base);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero.hero--ibm .orbit-ring--1,
+  .hero.hero--ibm .orbit-ring--2,
+  .hero.hero--ibm .orbit-ring--3,
+  .hero.hero--ibm .orbit-ring--4,
+  .hero.hero--ibm .orbit::before,
+  .hero.hero--ibm .orbit::after,
+  .hero.hero--ibm .orbit-comet,
+  .hero.hero--ibm .orbit-node,
+  .hero.hero--ibm .qubit-core,
+  .hero.hero--ibm .qubit-core::after,
+  .hero.hero--ibm .quantum-scan {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .hero.hero--ibm .orbit-ring--1 .orbit {
+    animation: orbitSpin 28s linear infinite, orbitSyncColor 18s linear infinite !important;
+    border-radius: 50% !important;
+  }
+
+  .hero.hero--ibm .orbit-ring--2 .orbit {
+    animation: orbitSpin 38s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
+    border-radius: 50% !important;
+  }
+
+  .hero.hero--ibm .orbit-ring--3 .orbit {
+    animation: orbitSpin 52s linear infinite, orbitSyncColor 18s linear infinite !important;
+    border-radius: 50% !important;
+  }
+
+  .hero.hero--ibm .orbit-ring--4 .orbit {
+    animation: orbitSpin 68s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
+    border-radius: 50% !important;
+  }
 }
