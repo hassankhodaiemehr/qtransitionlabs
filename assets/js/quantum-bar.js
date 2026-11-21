@@ -19,16 +19,29 @@
     function layers() {
       if (isLight()) {
         return [
-          { color: 'rgba(15, 98, 254, 0.09)', amp: 7, freq: 0.0075, speed: 0.012, anchor: 0.88 },
-          { color: 'rgba(56, 189, 248, 0.1)', amp: 9, freq: 0.0055, speed: 0.018, anchor: 0.94 },
-          { color: 'rgba(129, 140, 248, 0.07)', amp: 5, freq: 0.01, speed: 0.009, anchor: 0.98 },
+          { color: 'rgba(251, 191, 36, 0.12)', amp: 9, freq: 0.0075, speed: 0.012 },
+          { color: 'rgba(56, 189, 248, 0.1)', amp: 11, freq: 0.0055, speed: 0.018 },
+          { color: 'rgba(251, 146, 60, 0.08)', amp: 7, freq: 0.01, speed: 0.009 },
         ];
       }
       return [
-        { stroke: 'rgba(88, 166, 255, 0.32)', amp: 8, freq: 0.0075, speed: 0.012, anchor: 0.9 },
-        { stroke: 'rgba(120, 169, 255, 0.62)', amp: 10, freq: 0.0055, speed: 0.018, anchor: 0.94 },
-        { fill: 'rgba(120, 169, 255, 0.07)', amp: 10, freq: 0.0055, speed: 0.018, anchor: 0.94 },
+        { color: 'rgba(251, 191, 36, 0.16)', amp: 10, freq: 0.0075, speed: 0.012 },
+        { color: 'rgba(251, 146, 60, 0.12)', amp: 12, freq: 0.0055, speed: 0.018 },
+        { color: 'rgba(167, 139, 250, 0.1)', amp: 8, freq: 0.01, speed: 0.009 },
       ];
+    }
+
+    function palette() {
+      if (isLight()) {
+        return {
+          axis: 'rgba(15, 98, 254, 0.2)',
+          crest: 'rgba(217, 119, 6, 0.42)',
+        };
+      }
+      return {
+        axis: 'rgba(251, 191, 36, 0.28)',
+        crest: 'rgba(253, 224, 171, 0.58)',
+      };
     }
 
     function resize() {
@@ -41,25 +54,14 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    function waveY(x, layer, t) {
-      var base = height * layer.anchor;
-      var primary = Math.sin(x * layer.freq + t * layer.speed) * layer.amp;
-      var harmonic = Math.sin(x * layer.freq * 2.15 + t * layer.speed * 1.55) * (layer.amp * 0.32);
-      return base + primary + harmonic;
+    function centerY() {
+      return height * 0.5;
     }
 
-    function strokeWave(layer, t, step, style, lineWidth) {
-      ctx.beginPath();
-      for (var x = 0; x <= width; x += step) {
-        var y = waveY(x, layer, t);
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = style;
-      ctx.lineWidth = lineWidth;
-      ctx.lineJoin = 'round';
-      ctx.lineCap = 'round';
-      ctx.stroke();
+    function waveY(x, layer, t, mid) {
+      var primary = Math.sin(x * layer.freq + t * layer.speed) * layer.amp;
+      var harmonic = Math.sin(x * layer.freq * 2.15 + t * layer.speed * 1.55) * (layer.amp * 0.32);
+      return mid + primary + harmonic;
     }
 
     function draw() {
@@ -69,37 +71,40 @@
 
       var t = tick;
       var step = width > 900 ? 8 : 6;
+      var mid = centerY();
+      var colors = palette();
       var set = layers();
 
-      if (isLight()) {
-        set.forEach(function (layer) {
-          ctx.beginPath();
-          ctx.moveTo(0, height);
-          for (var x = 0; x <= width; x += step) {
-            ctx.lineTo(x, waveY(x, layer, t));
-          }
-          ctx.lineTo(width, height);
-          ctx.closePath();
-          ctx.fillStyle = layer.color;
-          ctx.fill();
-        });
-        strokeWave(set[1], t, step, 'rgba(0, 82, 204, 0.35)', 1.25);
-        return;
-      }
-
-      var fillLayer = set[2];
       ctx.beginPath();
-      ctx.moveTo(0, height);
-      for (var xFill = 0; xFill <= width; xFill += step) {
-        ctx.lineTo(xFill, waveY(xFill, fillLayer, t));
-      }
-      ctx.lineTo(width, height);
-      ctx.closePath();
-      ctx.fillStyle = fillLayer.fill;
-      ctx.fill();
+      ctx.moveTo(0, mid);
+      ctx.lineTo(width, mid);
+      ctx.strokeStyle = colors.axis;
+      ctx.lineWidth = 1;
+      ctx.stroke();
 
-      strokeWave(set[0], t, step, set[0].stroke, 1);
-      strokeWave(set[1], t, step, set[1].stroke, 1.35);
+      set.forEach(function (layer) {
+        ctx.beginPath();
+        ctx.moveTo(0, mid);
+        for (var x = 0; x <= width; x += step) {
+          ctx.lineTo(x, waveY(x, layer, t, mid));
+        }
+        ctx.lineTo(width, mid);
+        ctx.closePath();
+        ctx.fillStyle = layer.color;
+        ctx.fill();
+      });
+
+      ctx.beginPath();
+      for (var x2 = 0; x2 <= width; x2 += step) {
+        var y = waveY(x2, set[1], t, mid);
+        if (x2 === 0) ctx.moveTo(x2, y);
+        else ctx.lineTo(x2, y);
+      }
+      ctx.strokeStyle = colors.crest;
+      ctx.lineWidth = 1.3;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
     }
 
     function frame() {

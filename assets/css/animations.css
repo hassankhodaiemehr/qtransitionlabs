@@ -220,7 +220,7 @@ body.light-mode .contact-page::before {
 
 .quantum-bar {
   position: relative;
-  height: 3.15rem;
+  height: 3.5rem;
   overflow: hidden;
   background: var(--bg-base, #161616);
 }
@@ -241,9 +241,9 @@ body.light-mode .quantum-bar {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(120, 169, 255, 0.28) 20%,
-    rgba(120, 169, 255, 0.45) 50%,
-    rgba(120, 169, 255, 0.28) 80%,
+    rgba(251, 191, 36, 0.22) 18%,
+    rgba(120, 169, 255, 0.35) 50%,
+    rgba(251, 146, 60, 0.2) 82%,
     transparent
   );
 }
@@ -252,9 +252,9 @@ body.light-mode .quantum-bar::after {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(15, 98, 254, 0.15) 20%,
-    rgba(15, 98, 254, 0.28) 50%,
-    rgba(15, 98, 254, 0.15) 80%,
+    rgba(251, 191, 36, 0.28) 18%,
+    rgba(15, 98, 254, 0.22) 50%,
+    rgba(251, 146, 60, 0.2) 82%,
     transparent
   );
 }
