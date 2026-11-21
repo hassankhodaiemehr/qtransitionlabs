@@ -219,297 +219,70 @@ body.light-mode .contact-page::before {
 
 .quantum-bar {
   position: relative;
-  height: 4.85rem;
+  height: 4rem;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 80% 120% at 20% 50%, rgba(15, 98, 254, 0.12), transparent 55%),
-    radial-gradient(ellipse 70% 100% at 85% 40%, rgba(129, 140, 248, 0.1), transparent 50%),
-    linear-gradient(180deg, rgba(15, 98, 254, 0.07) 0%, transparent 85%),
+    linear-gradient(180deg, rgba(15, 98, 254, 0.05) 0%, transparent 70%),
     var(--bg-base, #0d1117);
 }
 
 body.light-mode .quantum-bar {
   background:
-    radial-gradient(ellipse 80% 120% at 20% 50%, rgba(15, 98, 254, 0.14), transparent 55%),
-    radial-gradient(ellipse 70% 100% at 85% 40%, rgba(129, 140, 248, 0.12), transparent 50%),
-    linear-gradient(180deg, rgba(15, 98, 254, 0.09) 0%, transparent 85%),
+    linear-gradient(180deg, rgba(15, 98, 254, 0.07) 0%, transparent 70%),
     var(--bg-base, #f6f8fa);
 }
 
 .quantum-bar__aurora {
   position: absolute;
-  inset: -40% -10%;
-  opacity: 0.55;
+  inset: -20% 0;
+  opacity: 0.35;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 30% 50%, rgba(56, 189, 248, 0.2), transparent 42%),
-    radial-gradient(circle at 72% 60%, rgba(15, 98, 254, 0.16), transparent 38%);
-  filter: blur(12px);
-  animation: quantumBarAurora 14s ease-in-out infinite alternate;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(56, 189, 248, 0.12), transparent 60%);
+  filter: blur(16px);
+  animation: quantumBarAurora 18s ease-in-out infinite alternate;
 }
 
 .quantum-bar__lattice {
   position: absolute;
   inset: 0;
-  opacity: 0.4;
-  background-image:
-    linear-gradient(90deg, rgba(120, 169, 255, 0.14) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(120, 169, 255, 0.1) 1px, transparent 1px);
-  background-size: 20px 100%, 100% 10px;
-  animation: quantumBarLatticeShift 14s linear infinite;
+  opacity: 0.18;
+  background-image: linear-gradient(90deg, rgba(120, 169, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 100%;
+  animation: quantumBarLatticeShift 24s linear infinite;
   pointer-events: none;
-}
-
-.quantum-bar__lattice--fine {
-  opacity: 0.22;
-  background-size: 10px 100%, 100% 5px;
-  animation-duration: 22s;
-  animation-direction: reverse;
-  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
-}
-
-.quantum-bar__ticker {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 0.15rem;
-  opacity: 0.2;
-  overflow: hidden;
-  pointer-events: none;
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-}
-
-body.light-mode .quantum-bar__ticker {
-  opacity: 0.28;
-}
-
-.quantum-bar__ticker-track {
-  display: flex;
-  gap: 1.25rem;
-  white-space: nowrap;
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent, #0f62fe);
-  animation: quantumBarTicker 48s linear infinite;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
 .quantum-bar__stage {
   position: relative;
   z-index: 1;
   height: 100%;
-  perspective: 680px;
-  perspective-origin: 50% 15%;
-  transform-style: preserve-3d;
-}
-
-.quantum-bar__deck {
-  position: absolute;
-  left: 3%;
-  right: 3%;
-  top: 22%;
-  bottom: 10%;
-  border-radius: 6px;
-  transform: rotateX(62deg) translateZ(-28px) scaleX(1.02);
-  transform-style: preserve-3d;
-  background:
-    linear-gradient(165deg, rgba(8, 20, 40, 0.55), rgba(15, 98, 254, 0.08) 45%, rgba(4, 8, 18, 0.65)),
-    repeating-linear-gradient(90deg, rgba(120, 169, 255, 0.14) 0 1px, transparent 1px 22px),
-    repeating-linear-gradient(0deg, rgba(120, 169, 255, 0.1) 0 1px, transparent 1px 14px);
-  border: 1px solid rgba(120, 169, 255, 0.22);
-  box-shadow:
-    0 22px 38px rgba(0, 0, 0, 0.45),
-    0 2px 0 rgba(120, 169, 255, 0.25),
-    inset 0 1px 0 rgba(180, 210, 255, 0.12);
-  animation: quantumBarDeckTilt 10s ease-in-out infinite alternate;
-}
-
-body.light-mode .quantum-bar__deck {
-  background:
-    linear-gradient(165deg, rgba(255, 255, 255, 0.65), rgba(15, 98, 254, 0.06) 50%, rgba(230, 236, 245, 0.85)),
-    repeating-linear-gradient(90deg, rgba(15, 98, 254, 0.12) 0 1px, transparent 1px 22px),
-    repeating-linear-gradient(0deg, rgba(15, 98, 254, 0.08) 0 1px, transparent 1px 14px);
-  box-shadow:
-    0 16px 28px rgba(15, 98, 254, 0.12),
-    0 2px 0 rgba(15, 98, 254, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .quantum-bar__canvas {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform: rotateX(14deg) translateZ(18px);
-  transform-style: preserve-3d;
-  filter: drop-shadow(0 10px 14px rgba(15, 98, 254, 0.25));
-}
-
-.quantum-bar__svg {
-  position: relative;
-  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
 }
-
-.quantum-bar__svg--overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  transform: rotateX(10deg) translateZ(32px);
-  transform-style: preserve-3d;
-}
-
-.quantum-bar__mesh line {
-  stroke-dasharray: 2 10;
-  animation: quantumBarMeshPulse 6s ease-in-out infinite;
-}
-
-.quantum-bar__mesh line:nth-child(odd) {
-  animation-delay: -2s;
-}
-
-.quantum-bar__ripple {
-  transform-origin: center;
-  transform-box: fill-box;
-  opacity: 0;
-  animation: quantumBarRipple 3.6s ease-out infinite;
-}
-
-.quantum-bar__ripple:nth-child(2) {
-  animation-delay: 1.2s;
-}
-
-.quantum-bar__ripple:nth-child(3) {
-  animation-delay: 2.4s;
-}
-
-.quantum-bar__bloch {
-  transform-box: fill-box;
-}
-
-.quantum-bar__bloch-spin {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.quantum-bar__bloch--a .quantum-bar__bloch-spin {
-  animation: quantumBarBlochSpin 10s linear infinite;
-}
-
-.quantum-bar__bloch--b .quantum-bar__bloch-spin {
-  animation: quantumBarBlochSpin 13s linear infinite reverse;
-}
-
-.quantum-bar__orbit-path {
-  stroke-dasharray: 3 5;
-  animation: quantumBarEntangleFlow 8s linear infinite;
-}
-
-.quantum-bar__node {
-  filter: drop-shadow(0 0 5px rgba(15, 98, 254, 0.95));
-}
-
-.quantum-bar__node--1 {
-  animation: quantumBarNodeTravel 16s linear infinite;
-}
-
-.quantum-bar__node--2 {
-  animation: quantumBarNodeTravel 20s linear infinite;
-  animation-delay: -7s;
-  opacity: 0.85;
-}
-
-.quantum-bar__node--3 {
-  animation: quantumBarNodeTravel 13s linear infinite;
-  animation-delay: -4s;
-  opacity: 0.7;
-}
-
-.quantum-bar__node--4 {
-  animation: quantumBarNodeTravel 22s linear infinite;
-  animation-delay: -11s;
-  opacity: 0.6;
-}
-
-.quantum-bar__node--5 {
-  animation: quantumBarNodeTravel 9s linear infinite;
-  animation-delay: -2s;
-  opacity: 0.5;
-}
-
-.quantum-bar__link {
-  stroke-dasharray: 4 8;
-  animation: quantumBarEntangleFlow 5s linear infinite;
-}
-
-.quantum-bar__link:nth-child(2) {
-  animation-delay: 0.8s;
-}
-
-.quantum-bar__link:nth-child(3) {
-  animation-delay: 1.6s;
-}
-
-.quantum-bar__link:nth-child(4) {
-  animation-delay: 2.4s;
-}
-
-.quantum-bar__link:nth-child(5) {
-  animation-delay: 3.2s;
-}
-
-.quantum-bar__link:nth-child(6) {
-  animation-delay: 4s;
-}
-
-.quantum-bar__sparks {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.quantum-bar__spark {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: #78a9ff;
-  box-shadow: 0 0 8px rgba(15, 98, 254, 0.8);
-  opacity: 0;
-  animation: quantumBarSpark 4.5s ease-in-out infinite;
-}
-
-.quantum-bar__spark:nth-child(1) { left: 8%; top: 35%; animation-delay: 0s; }
-.quantum-bar__spark:nth-child(2) { left: 24%; top: 58%; animation-delay: 0.9s; }
-.quantum-bar__spark:nth-child(3) { left: 41%; top: 28%; animation-delay: 1.8s; }
-.quantum-bar__spark:nth-child(4) { left: 58%; top: 62%; animation-delay: 2.6s; }
-.quantum-bar__spark:nth-child(5) { left: 74%; top: 32%; animation-delay: 3.4s; }
-.quantum-bar__spark:nth-child(6) { left: 90%; top: 52%; animation-delay: 4.1s; }
 
 .quantum-bar__scan {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 2;
   pointer-events: none;
+  opacity: 0.45;
   background: linear-gradient(
     105deg,
     transparent 0%,
-    transparent 40%,
-    rgba(120, 169, 255, 0.14) 50%,
-    transparent 60%,
+    transparent 44%,
+    rgba(120, 169, 255, 0.08) 50%,
+    transparent 56%,
     transparent 100%
   );
-  background-size: 240% 100%;
-  animation: quantumBarScan 7s ease-in-out infinite;
+  background-size: 280% 100%;
+  animation: quantumBarScan 14s ease-in-out infinite;
 }
 
 .quantum-bar__glow {
@@ -518,125 +291,40 @@ body.light-mode .quantum-bar__deck {
   right: 0;
   bottom: 0;
   height: 1px;
-  z-index: 4;
+  z-index: 3;
   pointer-events: none;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(120, 169, 255, 0.55) 20%,
-    rgba(15, 98, 254, 0.85) 50%,
-    rgba(120, 169, 255, 0.55) 80%,
+    rgba(120, 169, 255, 0.35) 22%,
+    rgba(15, 98, 254, 0.55) 50%,
+    rgba(120, 169, 255, 0.35) 78%,
     transparent
   );
-  animation: quantumBarGlowLine 6s ease-in-out infinite alternate;
 }
 
 @keyframes quantumBarAurora {
   0% {
-    transform: translateX(-3%) scale(1);
+    opacity: 0.28;
   }
   100% {
-    transform: translateX(4%) scale(1.08);
+    opacity: 0.42;
   }
 }
 
 @keyframes quantumBarLatticeShift {
   to {
-    background-position: 20px 0, 0 0;
-  }
-}
-
-@keyframes quantumBarTicker {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes quantumBarMeshPulse {
-  0%,
-  100% {
-    stroke-opacity: 0.55;
-  }
-  50% {
-    stroke-opacity: 1;
-  }
-}
-
-@keyframes quantumBarDeckTilt {
-  0% {
-    transform: rotateX(58deg) translateZ(-32px) scaleX(1);
-  }
-  100% {
-    transform: rotateX(66deg) translateZ(-22px) scaleX(1.03);
-  }
-}
-
-@keyframes quantumBarRipple {
-  0% {
-    transform: scale(0.35);
-    opacity: 0.85;
-  }
-  100% {
-    transform: scale(3.8);
-    opacity: 0;
-  }
-}
-
-@keyframes quantumBarBlochSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes quantumBarNodeTravel {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(1220px);
-  }
-}
-
-@keyframes quantumBarEntangleFlow {
-  to {
-    stroke-dashoffset: -48;
-  }
-}
-
-@keyframes quantumBarSpark {
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-  12% {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-  28% {
-    opacity: 0.35;
-    transform: scale(0.8);
+    background-position: 24px 0;
   }
 }
 
 @keyframes quantumBarScan {
   0%,
   100% {
-    background-position: 130% 0;
+    background-position: 120% 0;
   }
   50% {
-    background-position: -30% 0;
-  }
-}
-
-@keyframes quantumBarGlowLine {
-  0% {
-    opacity: 0.45;
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0.5px);
+    background-position: -20% 0;
   }
 }
 
@@ -646,24 +334,8 @@ body.light-mode .quantum-bar__deck {
   .contact-page::before,
   .quantum-bar__aurora,
   .quantum-bar__lattice,
-  .quantum-bar__ticker-track,
-  .quantum-bar__mesh line,
-  .quantum-bar__deck,
-  .quantum-bar__canvas,
-  .quantum-bar__svg--overlay,
-  .quantum-bar__ripple,
-  .quantum-bar__bloch-spin,
-  .quantum-bar__orbit-path,
-  .quantum-bar__node,
-  .quantum-bar__link,
-  .quantum-bar__spark,
-  .quantum-bar__scan,
-  .quantum-bar__glow {
+  .quantum-bar__scan {
     animation: none !important;
-  }
-
-  .quantum-bar__node {
-    transform: translateX(50vw);
   }
 
   .reveal-target {

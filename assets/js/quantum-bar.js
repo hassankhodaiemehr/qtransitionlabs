@@ -1,13 +1,24 @@
 (function () {
+  function smoothstep(edge0, edge1, x) {
+    var t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+    return t * t * (3 - 2 * t);
+  }
+
+  function envelope(x, width, t) {
+    var u = x / width;
+    var center = 0.5 + 0.08 * Math.sin(t * 0.35);
+    var widthBell = 0.38 + 0.06 * Math.sin(t * 0.55 + 0.6);
+    return smoothstep(center - widthBell, center, u) * (1 - smoothstep(center, center + widthBell, u));
+  }
+
   function chirpWave(x, width, t) {
     var u = x / width;
-    var freq = 0.014 + 0.042 * Math.sin(Math.PI * u);
-    var phase = freq * x * 7.2 + t * 0.9 + Math.sin(u * Math.PI * 2 + t * 0.45) * 1.1;
-    return Math.sin(phase);
+    var freq = 0.006 + 0.01 * Math.sin(Math.PI * u);
+    return Math.sin(freq * x * 5.5 + t * 0.55);
   }
 
   function carrierWave(x, width, t) {
-    return Math.sin(x * 0.036 - t * 2.35 + Math.sin(t * 0.55) * 0.6);
+    return Math.sin(x * 0.022 - t * 0.95);
   }
 
   function initQuantumBar() {
@@ -20,6 +31,7 @@
     var animId = 0;
     var t0 = performance.now();
     var visible = true;
+    var smoothY = [];
 
     function isLight() {
       return document.body.classList.contains('light-mode');
@@ -31,45 +43,105 @@
       canvas.width = Math.max(1, Math.floor(rect.width * dpr));
       canvas.height = Math.max(1, Math.floor(rect.height * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      smoothY = [];
     }
 
-    function colors() {
+    function palette() {
       if (isLight()) {
         return {
-          fill: 'rgba(15, 98, 254, ',
-          stroke: 'rgba(0, 70, 200, 0.85)',
-          highlight: '#0f62fe',
-          glow: 'rgba(15, 98, 254, 0.45)',
-          ghost: 'rgba(56, 189, 248, 0.35)',
+          fillTop: 'rgba(15, 98, 254, 0.14)',
+          fillBottom: 'rgba(15, 98, 254, 0.02)',
+          stroke: 'rgba(0, 82, 204, 0.75)',
+          depth: 'rgba(56, 189, 248, 0.22)',
+          center: 'rgba(0, 94, 210, 0.2)',
         };
       }
       return {
-        fill: 'rgba(15, 98, 254, ',
-        stroke: 'rgba(120, 169, 255, 0.92)',
-        highlight: '#b4d2ff',
-        glow: 'rgba(69, 137, 255, 0.75)',
-        ghost: 'rgba(129, 140, 248, 0.4)',
+        fillTop: 'rgba(120, 169, 255, 0.16)',
+        fillBottom: 'rgba(15, 98, 254, 0.03)',
+        stroke: 'rgba(150, 190, 255, 0.88)',
+        depth: 'rgba(69, 137, 255, 0.18)',
+        center: 'rgba(120, 169, 255, 0.12)',
       };
     }
 
-    function samplePoints(width, height, t) {
-      var cy = height * 0.54;
-      var amp = height * 0.31;
-      var points = [];
-      var step = Math.max(1, Math.floor(width / 280));
+    function sampleWave(width, height, t) {
+      var cy = height * 0.5;
+      var amp = height * 0.2;
+      var step = Math.max(1, Math.floor(width / 320));
+      var raw = [];
 
       for (var x = 0; x <= width; x += step) {
-        var chirp = chirpWave(x, width, t);
-        var carrier = carrierWave(x, width, t);
-        var product = chirp * carrier;
-        points.push({
-          x: x,
-          y: cy + amp * product,
-          product: product,
-          depth: 0.35 + 0.65 * Math.abs(product),
-        });
+        var env = envelope(x, width, t);
+        var modulated = chirpWave(x, width, t) * carrierWave(x, width, t);
+        var blended = carrierWave(x, width, t) * 0.65 + modulated * 0.35;
+        var y = cy + amp * blended * (0.45 + 0.55 * env);
+        raw.push({ x: x, y: y });
       }
-      return { points: points, cy: cy, baseline: cy + height * 0.14 };
+
+      if (smoothY.length !== raw.length) {
+        smoothY = raw.map(function (p) {
+          return p.y;
+        });
+      } else {
+        var smooth = 0.22;
+        for (var i = 0; i < raw.length; i++) {
+          smoothY[i] += (raw[i].y - smoothY[i]) * smooth;
+        }
+      }
+
+      return raw.map(function (p, i) {
+        return { x: p.x, y: smoothY[i] };
+      });
+    }
+
+    function drawPath(pts, w, h, colors) {
+      var cy = h * 0.5;
+
+      var fillGrad = ctx.createLinearGradient(0, cy - h * 0.22, 0, cy + h * 0.28);
+      fillGrad.addColorStop(0, colors.fillTop);
+      fillGrad.addColorStop(1, colors.fillBottom);
+
+      ctx.beginPath();
+      ctx.moveTo(0, cy);
+      pts.forEach(function (p) {
+        ctx.lineTo(p.x, p.y);
+      });
+      ctx.lineTo(w, cy);
+      ctx.closePath();
+      ctx.fillStyle = fillGrad;
+      ctx.fill();
+
+      ctx.beginPath();
+      pts.forEach(function (p, i) {
+        var y = p.y + 3;
+        if (i === 0) ctx.moveTo(p.x, y);
+        else ctx.lineTo(p.x, y);
+      });
+      ctx.strokeStyle = colors.depth;
+      ctx.lineWidth = 1.25;
+      ctx.stroke();
+
+      ctx.beginPath();
+      pts.forEach(function (p, i) {
+        if (i === 0) ctx.moveTo(p.x, p.y);
+        else ctx.lineTo(p.x, p.y);
+      });
+      ctx.strokeStyle = colors.stroke;
+      ctx.lineWidth = 1.6;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.shadowColor = colors.depth;
+      ctx.shadowBlur = 6;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      ctx.beginPath();
+      ctx.moveTo(0, cy);
+      ctx.lineTo(w, cy);
+      ctx.strokeStyle = colors.center;
+      ctx.lineWidth = 1;
+      ctx.stroke();
     }
 
     function draw(t) {
@@ -77,56 +149,9 @@
       var h = canvas.clientHeight;
       if (!w || !h) return;
 
-      var palette = colors();
-      var sample = samplePoints(w, h, t);
-      var pts = sample.points;
-
       ctx.clearRect(0, 0, w, h);
-
-      for (var layer = 5; layer >= 0; layer--) {
-        var depth = layer * (h * 0.028);
-        var alpha = 0.06 + layer * 0.11;
-
-        ctx.beginPath();
-        pts.forEach(function (p, i) {
-          var y = p.y + depth + p.depth * layer * 1.6;
-          if (i === 0) ctx.moveTo(p.x, y);
-          else ctx.lineTo(p.x, y);
-        });
-        ctx.lineTo(w, sample.baseline + depth);
-        ctx.lineTo(0, sample.baseline + depth);
-        ctx.closePath();
-        ctx.fillStyle = palette.fill + alpha * 0.55 + ')';
-        ctx.fill();
-      }
-
-      ctx.beginPath();
-      pts.forEach(function (p, i) {
-        if (i === 0) ctx.moveTo(p.x, p.y);
-        else ctx.lineTo(p.x, p.y);
-      });
-      var grad = ctx.createLinearGradient(0, 0, w, 0);
-      grad.addColorStop(0, palette.ghost);
-      grad.addColorStop(0.5, palette.highlight);
-      grad.addColorStop(1, palette.ghost);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 2.2;
-      ctx.shadowColor = palette.glow;
-      ctx.shadowBlur = 10;
-      ctx.stroke();
-      ctx.shadowBlur = 0;
-
-      ctx.beginPath();
-      pts.forEach(function (p, i) {
-        var y = sample.cy + (p.y - sample.cy) * 0.55 + h * 0.06;
-        if (i === 0) ctx.moveTo(p.x, y);
-        else ctx.lineTo(p.x, y);
-      });
-      ctx.strokeStyle = palette.ghost;
-      ctx.lineWidth = 1;
-      ctx.globalAlpha = 0.55;
-      ctx.stroke();
-      ctx.globalAlpha = 1;
+      var pts = sampleWave(w, h, t);
+      drawPath(pts, w, h, palette());
     }
 
     function frame(now) {
@@ -134,17 +159,13 @@
         animId = requestAnimationFrame(frame);
         return;
       }
-      var t = (now - t0) * 0.001;
-      draw(t);
+      draw((now - t0) * 0.001);
       if (!reduced) animId = requestAnimationFrame(frame);
     }
 
     resize();
     draw(0);
-
-    if (!reduced) {
-      animId = requestAnimationFrame(frame);
-    }
+    if (!reduced) animId = requestAnimationFrame(frame);
 
     window.addEventListener('resize', function () {
       resize();
@@ -166,10 +187,6 @@
         }, 0);
       });
     }
-
-    return function cancel() {
-      if (animId) cancelAnimationFrame(animId);
-    };
   }
 
   if (document.readyState === 'loading') {
