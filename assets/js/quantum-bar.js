@@ -25,9 +25,9 @@
         ];
       }
       return [
-        { color: 'rgba(15, 98, 254, 0.14)', amp: 8, freq: 0.0075, speed: 0.012, anchor: 0.88 },
-        { color: 'rgba(120, 169, 255, 0.11)', amp: 10, freq: 0.0055, speed: 0.018, anchor: 0.94 },
-        { color: 'rgba(129, 140, 248, 0.08)', amp: 6, freq: 0.01, speed: 0.009, anchor: 0.98 },
+        { color: 'rgba(69, 137, 255, 0.26)', amp: 9, freq: 0.0075, speed: 0.012, anchor: 0.86 },
+        { color: 'rgba(120, 169, 255, 0.22)', amp: 11, freq: 0.0055, speed: 0.018, anchor: 0.92 },
+        { color: 'rgba(56, 189, 248, 0.14)', amp: 7, freq: 0.01, speed: 0.009, anchor: 0.98 },
       ];
     }
 
@@ -74,8 +74,8 @@
         if (x2 === 0) ctx.moveTo(x2, y);
         else ctx.lineTo(x2, y);
       }
-      ctx.strokeStyle = isLight() ? 'rgba(0, 82, 204, 0.28)' : 'rgba(120, 169, 255, 0.42)';
-      ctx.lineWidth = 1.25;
+      ctx.strokeStyle = isLight() ? 'rgba(0, 82, 204, 0.35)' : 'rgba(166, 200, 255, 0.72)';
+      ctx.lineWidth = isLight() ? 1.25 : 1.5;
       ctx.lineJoin = 'round';
       ctx.stroke();
     }
