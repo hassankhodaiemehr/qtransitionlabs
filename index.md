@@ -160,7 +160,8 @@ script: /assets/js/home.js
               <tr>
                 <td colspan="3">
                   <p class="hero-orbital-readout__sync" aria-live="polite">
-                    Active ring: <strong data-orbit="active-shell">Si · n = 1 1s</strong>
+                    <span class="hero-orbital-readout__sync-label">Active ring:</span>
+                    <strong data-orbit="active-shell">Si · n = 1 1s</strong>
                     · 3 phases · <span class="hero-orbital-readout__time">18&nbsp;sec</span> spectrum cycle
                   </p>
                 </td>

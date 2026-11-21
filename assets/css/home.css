@@ -571,20 +571,29 @@ body.light-mode .hero-orbital-readout__meter-value {
 .hero-orbital-readout__sync {
   margin: 0;
   font-family: "IBM Plex Sans", system-ui, sans-serif;
-  font-size: 0.5rem;
+  font-size: 0.625rem;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 1.42;
   text-align: justify;
-  color: rgba(201, 209, 217, 0.82);
+  color: var(--text-muted, rgba(201, 209, 217, 0.88));
+}
+
+body.light-mode .hero-orbital-readout__sync {
+  color: #475569;
+}
+
+.hero-orbital-readout__sync-label {
+  font-weight: 600;
+  color: rgba(251, 191, 36, 0.92);
+}
+
+body.light-mode .hero-orbital-readout__sync-label {
+  color: #d97706;
 }
 
 .hero-orbital-readout__sync strong {
-  color: #fde68a;
   font-weight: 600;
-}
-
-body.light-mode .hero-orbital-readout__sync strong {
-  color: #d97706;
+  color: inherit;
 }
 
 .hero-orbital-readout__time {
