@@ -99,6 +99,25 @@ function initOrbitalReadout() {
       obs.observe(hero);
     }
   }
+
+  var tabs = root.querySelectorAll('[data-orbit-tab]');
+  var panels = root.querySelectorAll('[data-orbit-panel]');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var id = tab.getAttribute('data-orbit-tab');
+      tabs.forEach(function (btn) {
+        var active = btn === tab;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      panels.forEach(function (panel) {
+        var show = panel.getAttribute('data-orbit-panel') === id;
+        panel.classList.toggle('is-active', show);
+        if (show) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      });
+    });
+  });
 }
 
 function initPolicySignalPanel() {

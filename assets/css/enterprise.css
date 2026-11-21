@@ -435,13 +435,17 @@ body.light-mode .hero.hero--ibm::after {
   inset: 0;
 }
 
-.hero.hero--ibm .atom-system {
+.hero.hero--ibm .hero-atom-stack {
   top: clamp(1.25rem, 5vh, 2rem);
   right: clamp(1.25rem, 6vw, 4.5rem);
   left: auto;
+  width: auto;
+  transform: translate(-2cm, 2cm);
+}
+
+.hero.hero--ibm .hero-atom-stack .atom-system {
   width: 400px;
   height: 400px;
-  transform: translate(-2cm, 2cm);
   opacity: 0.62;
   overflow: visible;
 }
@@ -486,12 +490,17 @@ body.light-mode .hero.hero--ibm::after {
     inset: 0;
   }
 
-  .atom-system {
+  .hero.hero--ibm .hero-atom-stack {
     left: 50%;
-    top: 38%;
+    right: auto;
+    top: 28%;
+    width: auto;
+    transform: translate(calc(-50% - 2cm), calc(-50% + 2cm));
+  }
+
+  .hero.hero--ibm .hero-atom-stack .atom-system {
     width: min(400px, calc(100vw - 2.5rem));
     height: min(400px, calc(100vw - 2.5rem));
-    transform: translate(calc(-50% - 2cm), calc(-50% + 2cm));
     opacity: 0.62;
   }
 

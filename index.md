@@ -34,6 +34,7 @@ script: /assets/js/home.js
   </div>
 
   <div class="hero-orbit-layer">
+    <div class="hero-atom-stack">
     <div class="atom-system" aria-hidden="true">
       <div class="quantum-pulse">
         <span class="quantum-pulse__ring"></span>
@@ -83,64 +84,93 @@ script: /assets/js/home.js
       <div class="qubit-core">
         <span class="qubit-flare"></span>
       </div>
+    </div>
 
       <aside class="hero-orbital-readout" id="hero-orbital-readout" aria-labelledby="hero-orbital-readout-heading">
-        <p class="hero-orbital-readout__heading" id="hero-orbital-readout-heading">Quantum state (illustrative)</p>
-        <p class="hero-orbital-readout__note">Stylized |ψ|² clouds — not classical orbits.</p>
-        <dl class="hero-orbital-readout__grid">
-          <div class="hero-orbital-readout__cell">
-            <dt>n</dt>
-            <dd><span data-orbit="n">1</span> <span class="hero-orbital-readout__hint">principal</span></dd>
+        <div class="hero-orbital-readout__toolbar">
+          <h2 class="hero-orbital-readout__heading" id="hero-orbital-readout-heading">Quantum state</h2>
+          <div class="hero-orbital-readout__tabs" role="tablist" aria-label="Quantum readout views">
+            <button type="button" class="hero-orbital-readout__tab is-active" role="tab" id="hero-orbit-tab-readout" aria-selected="true" aria-controls="hero-orbit-panel-readout" data-orbit-tab="readout">Readout</button>
+            <button type="button" class="hero-orbital-readout__tab" role="tab" id="hero-orbit-tab-help" aria-selected="false" aria-controls="hero-orbit-panel-help" data-orbit-tab="help">Help</button>
           </div>
-          <div class="hero-orbital-readout__cell">
-            <dt>ℓ</dt>
-            <dd><span data-orbit="l">0</span> <span class="hero-orbital-readout__tag" data-orbit="l-name">s</span></dd>
-          </div>
-          <div class="hero-orbital-readout__cell">
-            <dt>m<sub>ℓ</sub></dt>
-            <dd data-orbit="ml">0</dd>
-          </div>
-          <div class="hero-orbital-readout__cell">
-            <dt>m<sub>s</sub></dt>
-            <dd data-orbit="ms">+½</dd>
-          </div>
-          <div class="hero-orbital-readout__cell hero-orbital-readout__cell--wide">
-            <dt>φ</dt>
-            <dd><span data-orbit="phi">0</span>° <span class="hero-orbital-readout__hint">orbital phase</span></dd>
-          </div>
-          <div class="hero-orbital-readout__cell">
-            <dt>E<sub>n</sub></dt>
-            <dd><span data-orbit="energy">−13.60</span> eV</dd>
-          </div>
-          <div class="hero-orbital-readout__cell">
-            <dt>Shell</dt>
-            <dd><span data-orbit="shell">K</span> <span class="hero-orbital-readout__hint">n=<span data-orbit="n-inline">1</span></span></dd>
-          </div>
-          <div class="hero-orbital-readout__cell hero-orbital-readout__cell--wide">
-            <dt>Δx·Δp / ℏ</dt>
-            <dd data-orbit="uncertainty">≥ 0.52</dd>
-          </div>
-        </dl>
-        <div class="hero-orbital-readout__meters">
-          <label class="hero-orbital-readout__meter">
-            <span class="hero-orbital-readout__meter-label">|ψ|² peak</span>
-            <span class="hero-orbital-readout__meter-track" aria-hidden="true">
-              <span class="hero-orbital-readout__meter-fill" data-orbit-fill="psi"></span>
-            </span>
-            <span class="hero-orbital-readout__meter-value" data-orbit="psi">0.74</span>
-          </label>
-          <label class="hero-orbital-readout__meter">
-            <span class="hero-orbital-readout__meter-label">Δr (σ)</span>
-            <span class="hero-orbital-readout__meter-track" aria-hidden="true">
-              <span class="hero-orbital-readout__meter-fill" data-orbit-fill="delta-r"></span>
-            </span>
-            <span class="hero-orbital-readout__meter-value" data-orbit="delta-r">0.41</span>
-          </label>
         </div>
-        <p class="hero-orbital-readout__sync" aria-live="polite">
-          Active shell: <strong data-orbit="active-shell">n = 1</strong>
-          · ⟨r⟩ ≈ <span data-orbit="r-expect">0.53</span> a₀
-        </p>
+
+        <div class="hero-orbital-readout__panel is-active" id="hero-orbit-panel-readout" role="tabpanel" aria-labelledby="hero-orbit-tab-readout" data-orbit-panel="readout">
+          <table class="hero-orbital-readout__table">
+            <thead>
+              <tr>
+                <th scope="col">Principal</th>
+                <th scope="col">Angular</th>
+                <th scope="col">Energy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-col-label="Principal &amp; shell">
+                  <dl class="hero-orbital-readout__kv">
+                    <div><dt>n</dt><dd><span data-orbit="n">1</span></dd></div>
+                    <div><dt>Shell</dt><dd><span data-orbit="shell">K</span> <span class="hero-orbital-readout__hint">(n=<span data-orbit="n-inline">1</span>)</span></dd></div>
+                    <div><dt>⟨r⟩</dt><dd><span data-orbit="r-expect">0.53</span> a₀</dd></div>
+                  </dl>
+                </td>
+                <td data-col-label="Angular &amp; spin">
+                  <dl class="hero-orbital-readout__kv">
+                    <div><dt>ℓ</dt><dd><span data-orbit="l">0</span> <span class="hero-orbital-readout__tag" data-orbit="l-name">s</span></dd></div>
+                    <div><dt>m<sub>ℓ</sub></dt><dd data-orbit="ml">0</dd></div>
+                    <div><dt>m<sub>s</sub></dt><dd data-orbit="ms">+½</dd></div>
+                    <div><dt>φ</dt><dd><span data-orbit="phi">0</span>°</dd></div>
+                  </dl>
+                </td>
+                <td data-col-label="Energy &amp; |ψ|²">
+                  <dl class="hero-orbital-readout__kv">
+                    <div><dt>E<sub>n</sub></dt><dd><span data-orbit="energy">−13.60</span> eV</dd></div>
+                    <div><dt>Δx·Δp / ℏ</dt><dd data-orbit="uncertainty">≥ 0.52</dd></div>
+                  </dl>
+                  <div class="hero-orbital-readout__meters">
+                    <label class="hero-orbital-readout__meter">
+                      <span class="hero-orbital-readout__meter-label">|ψ|²</span>
+                      <span class="hero-orbital-readout__meter-track" aria-hidden="true">
+                        <span class="hero-orbital-readout__meter-fill" data-orbit-fill="psi"></span>
+                      </span>
+                      <span class="hero-orbital-readout__meter-value" data-orbit="psi">0.74</span>
+                    </label>
+                    <label class="hero-orbital-readout__meter">
+                      <span class="hero-orbital-readout__meter-label">Δr (σ)</span>
+                      <span class="hero-orbital-readout__meter-track" aria-hidden="true">
+                        <span class="hero-orbital-readout__meter-fill" data-orbit-fill="delta-r"></span>
+                      </span>
+                      <span class="hero-orbital-readout__meter-value" data-orbit="delta-r">0.41</span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3">
+                  <p class="hero-orbital-readout__sync" aria-live="polite">
+                    Active shell: <strong data-orbit="active-shell">n = 1</strong>
+                    · 18&nbsp;s spectrum cycle
+                  </p>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="hero-orbital-readout__panel" id="hero-orbit-panel-help" role="tabpanel" aria-labelledby="hero-orbit-tab-help" data-orbit-panel="help" hidden>
+          <div class="hero-orbital-readout__help">
+            <p><strong>What this is.</strong> A live readout beside the hero radar: hydrogen-like quantum numbers and density cues that track the same <strong>18&nbsp;second</strong> color cycle as the rings above.</p>
+            <ul>
+              <li><strong>n</strong> — principal quantum number (shell size); <strong>Shell</strong> is the K/L/M/N label.</li>
+              <li><strong>ℓ</strong> — orbital shape (s, p, d); <strong>m<sub>ℓ</sub></strong> and <strong>m<sub>s</sub></strong> are magnetic and spin projections.</li>
+              <li><strong>φ</strong> — phase angle advanced smoothly through each cycle.</li>
+              <li><strong>E<sub>n</sub></strong> — binding energy scale (eV); <strong>Δx·Δp/ℏ</strong> reminds that conjugate variables stay bounded.</li>
+              <li><strong>|ψ|²</strong> and <strong>Δr</strong> meters — stylized probability peak and radial spread, not planet-like paths.</li>
+            </ul>
+            <p>The highlighted ring marks which shell index matches the current phase. Values are tuned for visualization, not a laboratory measurement.</p>
+          </div>
+        </div>
       </aside>
     </div>
 
