@@ -437,11 +437,13 @@ body.light-mode .hero.hero--ibm::after {
 }
 
 .hero.hero--ibm .hero-atom-stack {
+  position: absolute;
   top: clamp(1.25rem, 5vh, 2rem);
   right: clamp(1.25rem, 6vw, 4.5rem);
   left: auto;
   width: auto;
   transform: translate(-2cm, 2cm);
+  pointer-events: none;
 }
 
 .hero.hero--ibm .hero-atom-stack .atom-system {
@@ -494,41 +496,51 @@ body.light-mode .hero.hero--ibm::after {
   }
 
   .hero.hero--ibm .hero-orbit-layer {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1;
+    position: absolute;
+    inset: 0;
+    z-index: 6;
     height: 100%;
     pointer-events: none;
     opacity: 1;
   }
 
+  /* Same radar placement and scale as desktop */
   .hero.hero--ibm .hero-atom-stack {
-    position: absolute !important;
+    position: absolute;
+    top: clamp(1.25rem, 5vh, 2rem);
+    right: clamp(1.25rem, 6vw, 4.5rem);
     left: auto;
-    right: clamp(0.5rem, 3vw, 1.25rem);
-    top: clamp(0.75rem, 4vh, 1.5rem);
     width: auto;
-    max-width: none;
-    margin: 0;
-    transform: translate(-0.35rem, 0.35rem) !important;
-    display: block;
+    transform: translate(-2cm, 2cm);
     pointer-events: none;
   }
 
   .hero.hero--ibm .hero-atom-stack .atom-system {
-    width: min(11.5rem, 42vw);
-    height: min(11.5rem, 42vw);
-    margin: 0;
+    width: 400px;
+    height: 400px;
     opacity: 0.62;
   }
 
-  .hero.hero--ibm .orbit-ring--3 { width: 92%; height: 92%; max-width: 368px; max-height: 368px; }
-  .hero.hero--ibm .orbit-ring--2 { width: 59.5%; height: 59.5%; }
-  .hero.hero--ibm .orbit-ring--1 { width: 38.75%; height: 38.75%; }
+  .hero.hero--ibm .orbit-ring--3 {
+    width: 368px;
+    height: 368px;
+    max-width: none;
+    max-height: none;
+  }
+
+  .hero.hero--ibm .orbit-ring--2 {
+    width: 238px;
+    height: 238px;
+  }
+
+  .hero.hero--ibm .orbit-ring--1 {
+    width: 155px;
+    height: 155px;
+  }
 
   .hero.hero--ibm .hero-inner {
     position: relative;
-    z-index: 2;
+    z-index: 4;
     width: 100%;
     max-width: none;
     padding-top: 0.35rem;
@@ -537,26 +549,6 @@ body.light-mode .hero.hero--ibm::after {
 
   .hero.hero--ibm .hero-inner .hero-content {
     max-width: none;
-  }
-
-  .hero.hero--ibm::after {
-    background: linear-gradient(
-      180deg,
-      rgba(22, 22, 22, 0.82) 0%,
-      rgba(22, 22, 22, 0.68) 40%,
-      rgba(22, 22, 22, 0.42) 70%,
-      rgba(22, 22, 22, 0.28) 100%
-    );
-  }
-
-  body.light-mode .hero.hero--ibm::after {
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.88) 0%,
-      rgba(255, 255, 255, 0.72) 40%,
-      rgba(255, 255, 255, 0.45) 70%,
-      rgba(255, 255, 255, 0.28) 100%
-    );
   }
 }
 
