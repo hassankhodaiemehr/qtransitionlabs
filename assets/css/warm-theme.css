@@ -236,15 +236,32 @@ body.light-mode .hero-secondary {
     coreUncertainty 5.5s ease-in-out infinite !important;
 }
 
-.hero.hero--ibm .qubit-core {
+.hero.hero--ibm .qubit-core--si-chem {
   animation:
     siliconNucleusPulse 6s ease-in-out infinite,
     coreUncertainty 5.5s ease-in-out infinite !important;
 }
 
-.hero.hero--ibm .qubit-core::after {
+.hero.hero--ibm .qubit-core__chem circle[fill="#ef4444"] {
+  animation: nucleonPulse 3.2s ease-in-out infinite alternate;
+}
+
+.hero.hero--ibm .qubit-core__chem circle[fill="#3b82f6"] {
+  animation: nucleonPulse 3.2s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes nucleonPulse {
+  0% { opacity: 0.88; }
+  100% { opacity: 1; }
+}
+
+.hero.hero--ibm .qubit-core:not(.qubit-core--si-chem)::after {
   opacity: 0.75 !important;
   animation: coreHaloUncertainty 4.8s ease-in-out infinite alternate !important;
+}
+
+.hero.hero--ibm .qubit-core--si-chem::after {
+  display: none !important;
 }
 
 @keyframes radarHueSync {

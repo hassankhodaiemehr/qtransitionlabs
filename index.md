@@ -73,10 +73,20 @@ script: /assets/js/home.js
           <div class="orbit-node"></div>
         </div>
       </div>
-      <div class="qubit-core">
-        <span class="qubit-core__label" aria-hidden="true">Si</span>
-        <span class="qubit-core__sub" aria-hidden="true">14</span>
-        <span class="qubit-flare"></span>
+      <div class="qubit-core qubit-core--si-chem" aria-hidden="true">
+        <svg class="qubit-core__chem" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Silicon nucleus (schematic)">
+          <circle cx="24" cy="24" r="18" fill="rgba(15,23,42,0.25)" stroke="rgba(148,163,184,0.35)" stroke-width="0.6"/>
+          <circle cx="24" cy="23" r="4.2" fill="#ef4444"/>
+          <circle cx="28.5" cy="21.5" r="3.5" fill="#3b82f6"/>
+          <circle cx="19.5" cy="25" r="3.3" fill="#ef4444"/>
+          <circle cx="26" cy="27.5" r="3.2" fill="#3b82f6"/>
+          <circle cx="21" cy="20" r="2.8" fill="#ef4444"/>
+          <circle cx="29" cy="25.5" r="2.6" fill="#3b82f6"/>
+          <circle cx="22.5" cy="27" r="2.4" fill="#ef4444"/>
+          <circle cx="26.5" cy="19.5" r="2.3" fill="#3b82f6"/>
+          <circle cx="20" cy="23.5" r="2.2" fill="#ef4444"/>
+          <circle cx="27.5" cy="23" r="2.1" fill="#3b82f6"/>
+        </svg>
       </div>
     </div>
 
@@ -161,16 +171,16 @@ script: /assets/js/home.js
 
         <div class="hero-orbital-readout__panel" id="hero-orbit-panel-help" role="tabpanel" aria-labelledby="hero-orbit-tab-help" data-orbit-panel="help" hidden>
           <div class="hero-orbital-readout__help">
-            <h3 class="hero-orbital-readout__help-title">Why silicon (Si)</h3>
-            <p class="hero-orbital-readout__help-prose">Three radar rings match three highlight phases for <strong>silicon</strong> (<span class="hero-orbital-readout__sym">Z=14</span>): a semiconductor backbone and a platform for spin qubits, quantum dots, and PQC siliconization. Stylized shells walk <span class="hero-orbital-readout__sym">K</span> (core), <span class="hero-orbital-readout__sym">L</span> (inner), then <span class="hero-orbital-readout__sym">M</span> valence <span class="hero-orbital-readout__sym">3s²3p²</span>. Motion and color encode <span class="hero-orbital-readout__sym">|ψ|²</span> phase—not Bohr tracks.</p>
-            <h3 class="hero-orbital-readout__help-title">Cycle &amp; fields</h3>
+            <p class="hero-orbital-readout__help-title">Why silicon (Si)</p>
+            <p class="hero-orbital-readout__help-prose">Three radar rings match three highlight phases for silicon (<span class="hero-orbital-readout__sym">Z=14</span>): a semiconductor backbone and a platform for spin qubits, quantum dots, and PQC siliconization. Stylized shells walk <span class="hero-orbital-readout__sym">K</span> (core), <span class="hero-orbital-readout__sym">L</span> (inner), then <span class="hero-orbital-readout__sym">M</span> valence <span class="hero-orbital-readout__sym">3s²3p²</span>. Motion and color encode <span class="hero-orbital-readout__sym">|ψ|²</span> phase—not Bohr tracks.</p>
+            <p class="hero-orbital-readout__help-title">Cycle &amp; fields</p>
             <dl class="hero-orbital-readout__help-defs">
               <div><dt>3 · 18&nbsp;s</dt><dd>One ring per phase (<span class="hero-orbital-readout__sym">6&nbsp;s</span> each), spectrum-locked with the radar.</dd></div>
               <div><dt><span class="hero-orbital-readout__sym">Z</span>, <span class="hero-orbital-readout__sym">n</span>, Shell</dt><dd>Element Si; principal <span class="hero-orbital-readout__sym">n</span> and K/L/M label for the lit ring.</dd></div>
               <div><dt>Valence · quantum</dt><dd>Outer phase stresses <span class="hero-orbital-readout__sym">3p</span>—where solid-state and qubit engineering meet cryptography migration.</dd></div>
               <div><dt><span class="hero-orbital-readout__sym">E<sub>bind</sub></span>, <span class="hero-orbital-readout__sym">|ψ|²</span></dt><dd>Illustrative binding (eV) and bars—not cryo lab readout.</dd></div>
             </dl>
-            <p class="hero-orbital-readout__help-note">Use <strong>Readout</strong> for live numbers. Values are pedagogical, not measurement.</p>
+            <p class="hero-orbital-readout__help-note">Use Readout for live numbers. Values are pedagogical, not measurement.</p>
           </div>
         </div>
         </div>

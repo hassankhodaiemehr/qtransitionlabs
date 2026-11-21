@@ -395,127 +395,97 @@ body.light-mode .hero-orbital-readout__kv dd {
   color: #1e293b;
 }
 
-/* Help tab — single copy scale for every block */
-.hero-orbital-readout__help {
-  --help-copy-size: 0.6875rem;
-  --help-copy-leading: 1.45;
+/* Help tab — one inherited size only (no heading/sub scaling) */
+#hero-orbit-panel-help {
   font-family: "IBM Plex Sans", system-ui, sans-serif;
-  font-size: var(--help-copy-size);
-  line-height: var(--help-copy-leading);
+  font-size: 0.625rem;
+  line-height: 1.42;
   font-weight: 400;
   color: var(--text-muted, rgba(201, 209, 217, 0.88));
+}
+
+body.light-mode #hero-orbit-panel-help {
+  color: #475569;
+}
+
+#hero-orbit-panel-help .hero-orbital-readout__help,
+#hero-orbit-panel-help .hero-orbital-readout__help * {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-family: inherit !important;
+}
+
+#hero-orbit-panel-help .hero-orbital-readout__help {
   text-align: justify;
   hyphens: auto;
 }
 
-.hero-orbital-readout__help :where(
-  p,
-  h3,
-  dt,
-  dd,
-  li,
-  strong,
-  em,
-  .hero-orbital-readout__sym
-) {
-  font-size: var(--help-copy-size);
-  line-height: var(--help-copy-leading);
-}
-
-body.light-mode .hero-orbital-readout__help {
-  color: #475569;
-}
-
-.hero-orbital-readout__help-title {
+#hero-orbit-panel-help .hero-orbital-readout__help-title {
   margin: 0 0 0.3rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   text-align: left;
-  color: rgba(251, 191, 36, 0.9);
+  color: rgba(251, 191, 36, 0.92);
 }
 
-body.light-mode .hero-orbital-readout__help-title {
+body.light-mode #hero-orbit-panel-help .hero-orbital-readout__help-title {
   color: #d97706;
 }
 
-.hero-orbital-readout__help-title:not(:first-child) {
+#hero-orbit-panel-help .hero-orbital-readout__help-prose + .hero-orbital-readout__help-title {
   margin-top: 0.45rem;
 }
 
-.hero-orbital-readout__help-prose strong {
-  font-weight: 600;
+#hero-orbit-panel-help .hero-orbital-readout__help-defs {
+  margin-top: 0.45rem;
 }
 
-.hero-orbital-readout__help-prose,
-.hero-orbital-readout__help-note {
+#hero-orbit-panel-help .hero-orbital-readout__help-prose,
+#hero-orbit-panel-help .hero-orbital-readout__help-note {
   margin: 0 0 0.4rem;
   font-weight: 400;
-  text-align: justify;
 }
 
-.hero-orbital-readout__help-prose em {
-  font-style: italic;
-  color: rgba(201, 209, 217, 0.78);
-}
-
-body.light-mode .hero-orbital-readout__help-prose em {
-  color: #64748b;
-}
-
-.hero-orbital-readout__help-note {
+#hero-orbit-panel-help .hero-orbital-readout__help-note {
   margin-bottom: 0;
-  color: var(--text-muted, rgba(148, 163, 184, 0.92));
 }
 
-.hero-orbital-readout__help-note strong {
-  font-weight: 600;
-  font-size: inherit;
-  color: rgba(253, 230, 138, 0.95);
+#hero-orbit-panel-help .hero-orbital-readout__help-prose em {
+  font-style: italic;
 }
 
-body.light-mode .hero-orbital-readout__help-note strong {
-  color: #c2410c;
-}
-
-.hero-orbital-readout__sym {
-  font-family: inherit;
-  font-weight: 400;
-  font-style: normal;
-  color: inherit;
+#hero-orbit-panel-help .hero-orbital-readout__sym {
+  font-weight: inherit;
   white-space: nowrap;
 }
 
-.hero-orbital-readout__sym sub,
-.hero-orbital-readout__sym sup {
-  font-size: 0.85em;
-  line-height: 0;
+#hero-orbit-panel-help sub,
+#hero-orbit-panel-help sup {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  vertical-align: baseline;
 }
 
-.hero-orbital-readout__help-defs {
-  margin: 0;
+#hero-orbit-panel-help .hero-orbital-readout__help-defs {
+  margin: 0.45rem 0 0;
   display: grid;
   gap: 0.32rem;
 }
 
-.hero-orbital-readout__help-defs > div {
+#hero-orbit-panel-help .hero-orbital-readout__help-defs > div {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 0.12rem;
 }
 
-.hero-orbital-readout__help-defs dt {
+#hero-orbit-panel-help .hero-orbital-readout__help-defs dt {
   margin: 0;
   font-weight: 600;
-  text-align: left;
-  color: inherit;
 }
 
-.hero-orbital-readout__help-defs dd {
+#hero-orbit-panel-help .hero-orbital-readout__help-defs dd {
   margin: 0;
   font-weight: 400;
-  text-align: justify;
-  color: inherit;
 }
 
 .hero-orbital-readout__hint {
@@ -952,34 +922,21 @@ body.light-mode .hero-orbital-readout__sync strong {
   animation: corePulse 6s ease-in-out infinite;
 }
 
-.qubit-core__label {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "IBM Plex Mono", "Consolas", monospace;
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: #f8fafc;
-  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.65);
-  pointer-events: none;
+.qubit-core--si-chem {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
 }
 
-.qubit-core__sub {
-  position: absolute;
-  right: 2px;
-  bottom: 1px;
-  z-index: 3;
-  font-family: "IBM Plex Mono", "Consolas", monospace;
-  font-size: 0.42rem;
-  font-weight: 500;
-  line-height: 1;
-  color: rgba(248, 250, 252, 0.92);
-  text-shadow: 0 1px 1px rgba(15, 23, 42, 0.55);
-  pointer-events: none;
+.qubit-core__chem {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .qubit-core::after {
