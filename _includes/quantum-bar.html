@@ -1,0 +1,181 @@
+<div class="quantum-bar" role="presentation" aria-hidden="true">
+  <div class="quantum-bar__aurora"></div>
+  <div class="quantum-bar__lattice"></div>
+  <div class="quantum-bar__lattice quantum-bar__lattice--fine"></div>
+
+  <div class="quantum-bar__ticker">
+    <div class="quantum-bar__ticker-track">
+      <span>Superposition</span>
+      <span aria-hidden="true">·</span>
+      <span>Entanglement</span>
+      <span aria-hidden="true">·</span>
+      <span>Lattice · LWE</span>
+      <span aria-hidden="true">·</span>
+      <span>ML-KEM</span>
+      <span aria-hidden="true">·</span>
+      <span>ML-DSA</span>
+      <span aria-hidden="true">·</span>
+      <span>Crypto-agility</span>
+      <span aria-hidden="true">·</span>
+      <span>HNDL risk</span>
+      <span aria-hidden="true">·</span>
+      <span>NIST PQC</span>
+      <span aria-hidden="true">·</span>
+      <span>Phase coherence</span>
+      <span aria-hidden="true">·</span>
+      <span>Superposition</span>
+      <span aria-hidden="true">·</span>
+      <span>Entanglement</span>
+      <span aria-hidden="true">·</span>
+      <span>Lattice · LWE</span>
+      <span aria-hidden="true">·</span>
+      <span>ML-KEM</span>
+      <span aria-hidden="true">·</span>
+      <span>ML-DSA</span>
+      <span aria-hidden="true">·</span>
+      <span>Crypto-agility</span>
+      <span aria-hidden="true">·</span>
+      <span>HNDL risk</span>
+      <span aria-hidden="true">·</span>
+      <span>NIST PQC</span>
+      <span aria-hidden="true">·</span>
+      <span>Phase coherence</span>
+    </div>
+  </div>
+
+  <svg class="quantum-bar__svg" viewBox="0 0 1200 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="qbar-wave-a" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(15, 98, 254, 0.45)" />
+        <stop offset="50%" stop-color="rgba(120, 169, 255, 0.95)" />
+        <stop offset="100%" stop-color="rgba(15, 98, 254, 0.45)" />
+      </linearGradient>
+      <linearGradient id="qbar-wave-b" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(56, 189, 248, 0.4)" />
+        <stop offset="100%" stop-color="rgba(129, 140, 248, 0.65)" />
+      </linearGradient>
+      <linearGradient id="qbar-wave-c" x1="100%" y1="0%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="rgba(167, 139, 250, 0.35)" />
+        <stop offset="100%" stop-color="rgba(15, 98, 254, 0.5)" />
+      </linearGradient>
+      <linearGradient id="qbar-density" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="rgba(15, 98, 254, 0.22)" />
+        <stop offset="50%" stop-color="rgba(120, 169, 255, 0.08)" />
+        <stop offset="100%" stop-color="rgba(129, 140, 248, 0.18)" />
+      </linearGradient>
+      <radialGradient id="qbar-node-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="rgba(180, 210, 255, 1)" />
+        <stop offset="100%" stop-color="rgba(15, 98, 254, 0)" />
+      </radialGradient>
+    </defs>
+
+    <g class="quantum-bar__mesh" stroke="rgba(56, 189, 248, 0.1)" stroke-width="0.65">
+      <line x1="0" y1="14" x2="200" y2="42" />
+      <line x1="200" y1="42" x2="420" y2="10" />
+      <line x1="420" y1="10" x2="640" y2="46" />
+      <line x1="640" y1="46" x2="860" y2="12" />
+      <line x1="860" y1="12" x2="1080" y2="40" />
+      <line x1="1080" y1="40" x2="1200" y2="22" />
+      <line x1="120" y1="28" x2="380" y2="28" />
+      <line x1="380" y1="28" x2="620" y2="8" />
+      <line x1="620" y1="8" x2="900" y2="48" />
+      <line x1="900" y1="48" x2="1150" y2="18" />
+      <line x1="280" y1="4" x2="520" y2="52" />
+      <line x1="720" y1="6" x2="980" y2="50" />
+    </g>
+
+    <path
+      class="quantum-bar__density"
+      fill="url(#qbar-density)"
+      d="M-60,28 C60,10 140,46 240,28 S440,10 540,28 S740,46 840,28 S1040,10 1140,28 L1260,28 C1140,40 1040,18 940,34 S740,48 640,28 S440,12 340,30 S140,44 40,28 S-40,14 -60,28 Z"
+    />
+
+    <g class="quantum-bar__superpose" fill="none">
+      <path
+        class="quantum-bar__wave quantum-bar__wave--a"
+        d="M-80,28 C40,10 120,46 200,28 S360,10 440,28 S600,46 680,28 S840,10 920,28 S1080,46 1160,28 S1240,10 1320,28"
+        stroke="url(#qbar-wave-a)"
+        stroke-width="1.5"
+      />
+      <path
+        class="quantum-bar__wave quantum-bar__wave--b"
+        d="M-80,32 C40,40 120,18 200,32 S360,40 440,32 S600,18 680,32 S840,40 920,32 S1080,18 1160,32 S1240,40 1320,32"
+        stroke="url(#qbar-wave-b)"
+        stroke-width="1.15"
+        opacity="0.8"
+      />
+      <path
+        class="quantum-bar__wave quantum-bar__wave--c"
+        d="M-80,24 C70,34 180,14 290,26 S510,38 620,22 S830,12 940,30 S1100,42 1210,26 S1320,16 1320,24"
+        stroke="url(#qbar-wave-c)"
+        stroke-width="0.9"
+        opacity="0.55"
+        stroke-dasharray="3 6"
+      />
+    </g>
+
+    <g class="quantum-bar__anchors" fill="rgba(120, 169, 255, 0.95)">
+      <circle cx="200" cy="28" r="2.4" />
+      <circle cx="600" cy="28" r="2.8" />
+      <circle cx="1000" cy="28" r="2.2" />
+    </g>
+
+    <g class="quantum-bar__pulses" fill="none" stroke="rgba(15, 98, 254, 0.55)" stroke-width="1">
+      <circle class="quantum-bar__ripple" cx="200" cy="28" r="6" />
+      <circle class="quantum-bar__ripple" cx="600" cy="28" r="6" />
+      <circle class="quantum-bar__ripple" cx="1000" cy="28" r="6" />
+    </g>
+
+    <g class="quantum-bar__entangle" stroke="rgba(78, 153, 255, 0.28)" stroke-width="0.75">
+      <line class="quantum-bar__link" x1="200" y1="28" x2="420" y2="10" />
+      <line class="quantum-bar__link" x1="420" y1="10" x2="600" y2="28" />
+      <line class="quantum-bar__link" x1="600" y1="28" x2="860" y2="12" />
+      <line class="quantum-bar__link" x1="860" y1="12" x2="1000" y2="28" />
+      <line class="quantum-bar__link" x1="280" y1="44" x2="720" y2="12" />
+      <line class="quantum-bar__link" x1="520" y1="8" x2="980" y2="48" />
+    </g>
+
+    <g class="quantum-bar__bloch quantum-bar__bloch--a" transform="translate(88,28)">
+      <circle r="16" fill="rgba(15, 98, 254, 0.06)" stroke="rgba(120, 169, 255, 0.35)" stroke-width="0.75" />
+      <g class="quantum-bar__bloch-spin">
+        <line x1="0" y1="0" x2="0" y2="-12" stroke="rgba(180, 210, 255, 0.9)" stroke-width="1.25" stroke-linecap="round" />
+        <circle r="2" cy="-12" fill="url(#qbar-node-glow)" />
+      </g>
+    </g>
+
+    <g class="quantum-bar__bloch quantum-bar__bloch--b" transform="translate(1112,28)">
+      <circle r="16" fill="rgba(15, 98, 254, 0.06)" stroke="rgba(120, 169, 255, 0.35)" stroke-width="0.75" />
+      <g class="quantum-bar__bloch-spin">
+        <line x1="0" y1="0" x2="10" y2="-8" stroke="rgba(180, 210, 255, 0.9)" stroke-width="1.25" stroke-linecap="round" />
+        <circle r="2" cx="10" cy="-8" fill="url(#qbar-node-glow)" />
+      </g>
+    </g>
+
+    <g class="quantum-bar__orbit" transform="translate(600,28)">
+      <ellipse class="quantum-bar__orbit-path" rx="26" ry="11" fill="none" stroke="rgba(120, 169, 255, 0.45)" stroke-width="0.85" />
+      <circle class="quantum-bar__orbit-dot" r="2.5" fill="#78a9ff">
+        <animateMotion dur="7s" repeatCount="indefinite" path="M 26,0 A 26,11 0 1,1 -26,0 A 26,11 0 1,1 26,0" />
+      </circle>
+    </g>
+
+    <g class="quantum-bar__nodes">
+      <circle class="quantum-bar__node quantum-bar__node--1" cx="-20" cy="28" r="2.4" fill="url(#qbar-node-glow)" />
+      <circle class="quantum-bar__node quantum-bar__node--2" cx="-20" cy="22" r="1.8" fill="rgba(120,169,255,0.85)" />
+      <circle class="quantum-bar__node quantum-bar__node--3" cx="-20" cy="34" r="1.5" fill="rgba(129,140,248,0.75)" />
+      <circle class="quantum-bar__node quantum-bar__node--4" cx="-20" cy="28" r="1.2" fill="rgba(56,189,248,0.7)" />
+      <circle class="quantum-bar__node quantum-bar__node--5" cx="-20" cy="26" r="1" fill="rgba(180,210,255,0.65)" />
+    </g>
+  </svg>
+
+  <div class="quantum-bar__sparks" aria-hidden="true">
+    <span class="quantum-bar__spark"></span>
+    <span class="quantum-bar__spark"></span>
+    <span class="quantum-bar__spark"></span>
+    <span class="quantum-bar__spark"></span>
+    <span class="quantum-bar__spark"></span>
+    <span class="quantum-bar__spark"></span>
+  </div>
+
+  <div class="quantum-bar__scan"></div>
+  <div class="quantum-bar__glow"></div>
+</div>
