@@ -42,11 +42,6 @@ function initOrbitalReadout() {
   }
 
   function tick(now) {
-    if (!visible) {
-      animId = requestAnimationFrame(tick);
-      return;
-    }
-
     var elapsed = reduced ? 0 : now - started;
     var phasePos = (elapsed % cycleMs) / cycleMs;
     var phaseIndex = Math.min(phaseCount - 1, Math.floor(phasePos * phaseCount));
@@ -87,6 +82,11 @@ function initOrbitalReadout() {
       var num = m ? parseInt(m[1], 10) : 0;
       ring.classList.toggle('is-quantum-active', num === phase.ring);
     });
+
+    if (!visible) {
+      if (!reduced) animId = requestAnimationFrame(tick);
+      return;
+    }
 
     if (!reduced) animId = requestAnimationFrame(tick);
   }

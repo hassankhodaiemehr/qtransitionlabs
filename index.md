@@ -65,7 +65,7 @@ script: /assets/js/home.js
           <div class="orbit-node"></div>
         </div>
       </div>
-      <div class="orbit-ring orbit-ring--1">
+      <div class="orbit-ring orbit-ring--1 is-quantum-active">
         <div class="orbit">
           <span class="orbit-comet"></span>
           <div class="orbit-node"></div>

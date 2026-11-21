@@ -216,6 +216,59 @@ body.light-mode .hero-secondary {
   animation: orbitSpinUncertain4 68s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
 }
 
+/* Only the readout-active shell gets full spectrum glow */
+.hero.hero--ibm .orbit-ring:not(.is-quantum-active) {
+  opacity: 0.42;
+  transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+.hero.hero--ibm .orbit-ring.is-quantum-active {
+  opacity: 1;
+  z-index: 8;
+}
+
+.hero.hero--ibm .orbit-ring--1:not(.is-quantum-active) .orbit {
+  animation: orbitSpinUncertain1 28s linear infinite !important;
+  color: rgba(96, 165, 255, 0.42);
+  border-color: rgba(96, 165, 255, 0.38) !important;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.14) !important;
+}
+
+.hero.hero--ibm .orbit-ring--2:not(.is-quantum-active) .orbit {
+  animation: orbitSpinUncertain2 38s linear infinite reverse !important;
+  color: rgba(96, 165, 255, 0.42);
+  border-color: rgba(96, 165, 255, 0.38) !important;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.14) !important;
+}
+
+.hero.hero--ibm .orbit-ring--3:not(.is-quantum-active) .orbit {
+  animation: orbitSpinUncertain4 68s linear infinite reverse !important;
+  color: rgba(96, 165, 255, 0.42);
+  border-color: rgba(96, 165, 255, 0.38) !important;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.14) !important;
+}
+
+.hero.hero--ibm .orbit-ring:not(.is-quantum-active) .orbit::before {
+  opacity: 0.14 !important;
+  animation: none !important;
+}
+
+.hero.hero--ibm .orbit-ring:not(.is-quantum-active) .orbit::after {
+  opacity: 0.08 !important;
+  animation: none !important;
+}
+
+.hero.hero--ibm .orbit-ring:not(.is-quantum-active) .orbit-comet,
+.hero.hero--ibm .orbit-ring:not(.is-quantum-active) .orbit-node {
+  opacity: 0.32;
+  filter: saturate(0.5);
+}
+
+.hero.hero--ibm .orbit-ring.is-quantum-active .orbit {
+  border-width: 2.5px !important;
+  filter: brightness(1.14) saturate(1.08);
+}
+
 .hero.hero--ibm .orbit-comet {
   animation:
     cometUncertainty 3.1s ease-in-out infinite,
