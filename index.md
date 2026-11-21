@@ -112,6 +112,7 @@ script: /assets/js/home.js
       </div>
     </div>
 
+    <div class="hero-metrics-band">
     <div class="hero-stats">
       <div class="hero-stat">
         <strong>10+ years</strong>
@@ -208,37 +209,44 @@ script: /assets/js/home.js
         </div>
 
         <div class="hero-orbital-readout__panel" id="hero-orbit-panel-help" role="tabpanel" aria-labelledby="hero-orbit-tab-help" data-orbit-panel="help" hidden>
-          <div class="hero-orbital-readout__help">
-            <p class="hero-orbital-readout__help-title">Why Silicon (Si)</p>
-            <p class="hero-orbital-readout__help-prose">Silicon (<span class="hero-orbital-readout__sym">Z=14</span>) sits at the foundation of modern computing. Fourteen protons define its nuclear charge, while its ground-state electronic configuration, <span class="hero-orbital-readout__sym">[Ne] 3s² 3p²</span>, underpins the semiconductor technologies that power contemporary electronics, silicon photonics, and many quantum-device platforms.</p>
-            <p class="hero-orbital-readout__help-prose">At QTL, silicon serves as a visual metaphor: a bridge between the fundamental physics that enabled the digital age and the post-quantum infrastructure that will secure its future. This animation is intended as an educational and design element, not a simulation, DFT model, or experimental cryogenic readout.</p>
-            <p class="hero-orbital-readout__help-title">Visual Design</p>
-            <p class="hero-orbital-readout__help-prose">The animation intentionally reduces a complex quantum system to a simple, intuitive representation. Three concentric rings highlight the <span class="hero-orbital-readout__sym">K</span>, <span class="hero-orbital-readout__sym">L</span>, and <span class="hero-orbital-readout__sym">M</span> electron shells, while a synchronized radar sweep and color transition guide the viewer through successive phases of the silicon atom. Real atomic orbitals exist as three-dimensional probability distributions; the rings merely indicate which shell is being emphasized at any given moment.</p>
-            <p class="hero-orbital-readout__help-title">What You&rsquo;re Seeing</p>
-            <dl class="hero-orbital-readout__help-defs">
-              <div><dt>Nucleus</dt><dd>A stylized nucleus composed of protons (red) and neutrons (blue) contained within a translucent sphere. This is a conventional atomic illustration rather than a depiction of a crystal lattice, quantum dot, or device structure.</dd></div>
-              <div><dt>Electron Shells</dt><dd>Three animated rings represent the atom&rsquo;s principal shells. The currently active ring glows brightest, while orbiting particles and motion blur suggest electron probability density rather than fixed trajectories or classical Bohr orbits.</dd></div>
-              <div><dt>Radar Sweep</dt><dd>A synchronized radar scan and color palette share a common <span class="hero-orbital-readout__time">18&nbsp;sec</span> cycle with the system readout, ensuring that visual transitions and displayed metrics remain aligned throughout the animation.</dd></div>
-            </dl>
-            <p class="hero-orbital-readout__help-title">Three Phases</p>
-            <dl class="hero-orbital-readout__help-defs">
-              <div><dt>Phase 1 · K shell · <span class="hero-orbital-readout__sym">1s</span> state</dt><dd>The innermost shell represents stability, confinement, and persistence. It serves as a visual analogy for roots of trust, foundational security primitives, and long-term cryptographic integrity.</dd></div>
-              <div><dt>Phase 2 · L shell · <span class="hero-orbital-readout__sym">2p</span> state</dt><dd>The second phase introduces greater structure and complexity. It symbolizes the transition from foundational cryptography toward platform-level security and system-wide trust architectures.</dd></div>
-              <div><dt>Phase 3 · M shell · <span class="hero-orbital-readout__sym">3p</span> state</dt><dd>The outer shell highlights silicon&rsquo;s role in real-world deployment. Here, silicon meets firmware, hardware security modules, TLS infrastructure, and the ongoing migration toward post-quantum cryptography across deployed systems.</dd></div>
-            </dl>
-            <p class="hero-orbital-readout__help-title">Readout Panel</p>
-            <dl class="hero-orbital-readout__help-defs">
-              <div><dt>Principal parameters</dt><dd>Displays the atomic number <span class="hero-orbital-readout__sym">Z</span>, principal quantum number <span class="hero-orbital-readout__sym">n</span>, shell designation (<span class="hero-orbital-readout__sym">K</span>, <span class="hero-orbital-readout__sym">L</span>, <span class="hero-orbital-readout__sym">M</span>), and an illustrative average radius ⟨<span class="hero-orbital-readout__sym">r</span>⟩ expressed in Bohr radii (<span class="hero-orbital-readout__sym">a₀</span>).</dd></div>
-              <div><dt>Angular &amp; spin properties</dt><dd>Shows the orbital quantum number <span class="hero-orbital-readout__sym">ℓ</span>, orbital type (<span class="hero-orbital-readout__sym">s</span>, <span class="hero-orbital-readout__sym">p</span>, …), magnetic quantum numbers <span class="hero-orbital-readout__sym">m<sub>ℓ</sub></span> and <span class="hero-orbital-readout__sym">m<sub>s</sub></span>, together with the phase angle <span class="hero-orbital-readout__sym">φ</span>, indicating the current position within the <span class="hero-orbital-readout__time">18&nbsp;sec</span> animation cycle.</dd></div>
-              <div><dt>Energy &amp; probability density</dt><dd>Presents educational visualizations of binding energy (<span class="hero-orbital-readout__sym">E<sub>bind</sub></span>), a Heisenberg-inspired uncertainty indicator, and animated bars representing probability density and radial spread (<span class="hero-orbital-readout__sym">Δr</span>). These values are illustrative and designed to build intuition rather than reflect experimental measurements.</dd></div>
-            </dl>
-            <p class="hero-orbital-readout__help-title">Timing &amp; Interpretation</p>
-            <p class="hero-orbital-readout__help-prose">Animation timing is expressed in seconds (<span class="hero-orbital-readout__time">sec</span>) to avoid confusion with orbital labels such as <span class="hero-orbital-readout__sym">1s</span> or <span class="hero-orbital-readout__sym">3s²</span>. The footer and readout update continuously to reflect the currently highlighted shell.</p>
-            <p class="hero-orbital-readout__help-note">Illustrative visualization only. This animation is not a physical simulation, cryogenic spin-qubit measurement, device characterization result, or security-performance benchmark. It is designed to communicate the connection between atomic-scale physics and the future of post-quantum secure computing.</p>
+          <div class="hero-orbital-readout__help hero-orbital-readout__help--grid">
+            <div class="hero-orbital-readout__help-col">
+              <p class="hero-orbital-readout__help-title">Why Silicon (Si)</p>
+              <p class="hero-orbital-readout__help-prose">Silicon (<span class="hero-orbital-readout__sym">Z=14</span>) sits at the foundation of modern computing. Fourteen protons define its nuclear charge, while its ground-state electronic configuration, <span class="hero-orbital-readout__sym">[Ne] 3s² 3p²</span>, underpins the semiconductor technologies that power contemporary electronics, silicon photonics, and many quantum-device platforms.</p>
+              <p class="hero-orbital-readout__help-prose">At QTL, silicon serves as a visual metaphor: a bridge between the fundamental physics that enabled the digital age and the post-quantum infrastructure that will secure its future. This animation is an educational and design element, not a simulation, DFT model, or experimental cryogenic readout.</p>
+              <p class="hero-orbital-readout__help-title">Visual design</p>
+              <p class="hero-orbital-readout__help-prose">Three concentric rings highlight the <span class="hero-orbital-readout__sym">K</span>, <span class="hero-orbital-readout__sym">L</span>, and <span class="hero-orbital-readout__sym">M</span> shells while a synchronized radar sweep walks successive phases. Real orbitals are 3D probability clouds; the rings only show which shell is emphasized.</p>
+            </div>
+            <div class="hero-orbital-readout__help-col">
+              <p class="hero-orbital-readout__help-title">What you&rsquo;re seeing</p>
+              <dl class="hero-orbital-readout__help-defs">
+                <div><dt>Nucleus</dt><dd>Protons (red) and neutrons (blue) in a translucent sphere—atomic illustration, not a lattice or qubit dot.</dd></div>
+                <div><dt>Electron shells</dt><dd>Three rings; the active ring glows brightest. Motion suggests probability density, not Bohr tracks.</dd></div>
+                <div><dt>Radar sweep</dt><dd>Scan and palette share a <span class="hero-orbital-readout__time">18&nbsp;sec</span> cycle with this readout.</dd></div>
+              </dl>
+              <p class="hero-orbital-readout__help-title">Three phases</p>
+              <dl class="hero-orbital-readout__help-defs">
+                <div><dt>Phase 1 · K · <span class="hero-orbital-readout__sym">1s</span></dt><dd>Stability and roots of trust, foundational primitives, long-lived integrity.</dd></div>
+                <div><dt>Phase 2 · L · <span class="hero-orbital-readout__sym">2p</span></dt><dd>Platform-level security and system-wide trust architectures.</dd></div>
+                <div><dt>Phase 3 · M · <span class="hero-orbital-readout__sym">3p</span></dt><dd>Deployment: firmware, HSMs, TLS, and PQC on silicon in the field.</dd></div>
+              </dl>
+            </div>
+            <div class="hero-orbital-readout__help-col">
+              <p class="hero-orbital-readout__help-title">Readout columns</p>
+              <dl class="hero-orbital-readout__help-defs">
+                <div><dt>Principal</dt><dd><span class="hero-orbital-readout__sym">Z</span>, <span class="hero-orbital-readout__sym">n</span>, shell (<span class="hero-orbital-readout__sym">K</span>/<span class="hero-orbital-readout__sym">L</span>/<span class="hero-orbital-readout__sym">M</span>), illustrative ⟨<span class="hero-orbital-readout__sym">r</span>⟩ in <span class="hero-orbital-readout__sym">a₀</span>.</dd></div>
+                <div><dt>Angular &amp; spin</dt><dd><span class="hero-orbital-readout__sym">ℓ</span>, <span class="hero-orbital-readout__sym">s</span>/<span class="hero-orbital-readout__sym">p</span>, <span class="hero-orbital-readout__sym">m<sub>ℓ</sub></span>, <span class="hero-orbital-readout__sym">m<sub>s</sub></span>, phase <span class="hero-orbital-readout__sym">φ</span> within the <span class="hero-orbital-readout__time">18&nbsp;sec</span> cycle.</dd></div>
+                <div><dt>Energy &amp; <span class="hero-orbital-readout__sym">|ψ|²</span></dt><dd><span class="hero-orbital-readout__sym">E<sub>bind</sub></span>, uncertainty indicator, and bars for density and <span class="hero-orbital-readout__sym">Δr</span>—pedagogical only.</dd></div>
+              </dl>
+              <p class="hero-orbital-readout__help-title">Timing</p>
+              <p class="hero-orbital-readout__help-prose">Durations use <span class="hero-orbital-readout__time">sec</span>, not subshell <span class="hero-orbital-readout__sym">s</span> labels. The footer tracks the active shell.</p>
+              <p class="hero-orbital-readout__help-note">Illustration only—not simulation, cryogenic readout, or security benchmark.</p>
+            </div>
           </div>
         </div>
       </div>
     </aside>
+    </div>
   </div>
 </div>
 

@@ -491,11 +491,62 @@ body.light-mode #hero-orbit-panel-help {
 #hero-orbit-panel-help .hero-orbital-readout__help {
   text-align: justify;
   hyphens: auto;
-  max-height: min(44vh, 21rem);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding-right: 0.15rem;
-  scrollbar-width: thin;
+}
+
+.hero-orbital-readout__help--grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  align-items: stretch;
+}
+
+.hero-orbital-readout__help-col {
+  min-width: 0;
+  padding: 0 0.45rem;
+  border-right: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.hero-orbital-readout__help-col:first-child {
+  padding-left: 0;
+}
+
+.hero-orbital-readout__help-col:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+body.light-mode .hero-orbital-readout__help-col {
+  border-right-color: rgba(100, 116, 139, 0.28);
+}
+
+.hero-metrics-band .hero-orbital-readout__table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.hero-metrics-band .hero-orbital-readout__table thead {
+  display: table-header-group;
+}
+
+.hero-metrics-band .hero-orbital-readout__table thead th {
+  width: 33.333%;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.hero-metrics-band .hero-orbital-readout__table tbody tr {
+  display: table-row;
+}
+
+.hero-metrics-band .hero-orbital-readout__table tbody td {
+  display: table-cell;
+  width: 33.333%;
+  vertical-align: top;
+}
+
+.hero-metrics-band .hero-orbital-readout__table tbody td::before {
+  content: none;
+  display: none;
 }
 
 #hero-orbit-panel-help .hero-orbital-readout__help-title {
@@ -685,128 +736,24 @@ body.light-mode .hero-orbital-readout__sync-label {
   box-shadow: 0 0 24px rgba(15, 98, 254, 0.45);
 }
 
-/* Half-width readout beside atom — avoids growing hero height */
-@media (min-width: 1024px) {
-  .hero-atom-stack {
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 0.55rem;
-  }
-
-  .hero-inner.is-readout-collapsed .hero-orbital-readout {
-    margin-bottom: 0.35rem;
-  }
-
-  .hero-orbital-readout {
-    width: min(17.25rem, 22vw);
-    margin-bottom: 0.35rem;
-  }
-
-  .hero-orbital-readout.is-collapsed {
-    width: min(17.25rem, 22vw);
-    align-self: flex-end;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__table thead th {
-    font-size: 0.48rem;
-    padding: 0.22rem 0.18rem;
-    line-height: 1.22;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__table tbody td {
-    padding: 0.26rem 0.18rem 0.22rem;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__kv > div {
-    grid-template-columns: 1.45rem 1fr;
-    gap: 0.12rem;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__kv dd {
-    font-size: 0.52rem;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__meter {
-    grid-template-columns: 2.15rem 1fr 1.45rem;
-    gap: 0.2rem;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__meter-value {
-    font-size: 0.5rem;
-  }
-
+.hero-metrics-band #hero-orbit-panel-readout .hero-orbital-readout__table thead th {
+  font-size: 0.5rem;
+  padding: 0.25rem 0.2rem;
+  letter-spacing: 0.04em;
 }
 
-@media (max-width: 1023px) {
-  .hero-orbital-readout {
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-  }
-
-  #hero-orbit-panel-help .hero-orbital-readout__help {
-    max-height: min(38vh, 16rem);
-  }
-
-  .hero-orbital-readout__table thead {
-    display: table-header-group;
-  }
-
-  .hero-orbital-readout__table thead th {
-    width: 33.333%;
-    text-align: center;
-    padding: 0.22rem 0.12rem;
-    font-size: 0.48rem;
-    line-height: 1.2;
-    letter-spacing: 0.03em;
-  }
-
-  .hero-orbital-readout__table tbody tr {
-    display: table-row;
-  }
-
-  .hero-orbital-readout__table tbody td {
-    display: table-cell;
-    width: 33.333%;
-    vertical-align: top;
-    padding: 0.22rem 0.12rem;
-    border-bottom: 0;
-  }
-
-  .hero-orbital-readout__table tbody td::before {
-    content: none;
-    display: none;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__kv > div {
-    grid-template-columns: 1.35rem 1fr;
-    gap: 0.08rem;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__kv {
-    gap: 0.15rem;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__meter {
-    grid-template-columns: 1fr;
-    gap: 0.12rem;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__meter-label {
-    font-size: 0.46rem;
-  }
-
-  #hero-orbit-panel-readout .hero-orbital-readout__sync {
-    text-align: left;
-    font-size: 0.5rem;
-    line-height: 1.3;
-  }
+.hero-metrics-band #hero-orbit-panel-readout .hero-orbital-readout__table tbody td {
+  padding: 0.28rem 0.2rem 0.22rem;
 }
 
-@media (max-width: 1023px) {
-  .hero-inner.is-readout-collapsed .hero-orbital-readout {
-    margin-top: 0.35rem;
-  }
+.hero-metrics-band #hero-orbit-panel-readout .hero-orbital-readout__kv > div {
+  grid-template-columns: 1.45rem 1fr;
+  gap: 0.1rem;
+}
+
+.hero-metrics-band #hero-orbit-panel-readout .hero-orbital-readout__meter {
+  grid-template-columns: 2rem 1fr 1.35rem;
+  gap: 0.18rem;
 }
 
 .quantum-pulse {

@@ -481,22 +481,6 @@ body.light-mode .hero.hero--ibm::after {
   }
 }
 
-@media (min-width: 1024px) {
-  .hero.hero--ibm .hero-inner {
-    position: static;
-  }
-
-  .hero.hero--ibm .hero-orbital-readout {
-    position: absolute;
-    top: calc(clamp(1.25rem, 5vh, 2rem) + 2cm);
-    right: calc(clamp(1.25rem, 6vw, 4.5rem) + 2cm + 400px + 0.55rem);
-    width: min(17.25rem, 22vw);
-    margin: 0;
-    z-index: 10;
-    grid-column: auto;
-  }
-}
-
 @media (max-width: 1023px) {
   .hero.hero--ibm {
     display: block;
@@ -547,45 +531,12 @@ body.light-mode .hero.hero--ibm::after {
     z-index: 2;
     width: 100%;
     max-width: none;
-    padding-top: min(9.5rem, 34vw);
-    gap: 0.85rem;
+    padding-top: min(8rem, 30vw);
+    gap: 1rem;
   }
 
   .hero.hero--ibm .hero-inner .hero-content {
     max-width: none;
-  }
-
-  .hero.hero--ibm .hero-stats {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin-top: 0.75rem;
-  }
-
-  .hero.hero--ibm .hero-stat {
-    flex: 1 1 0;
-    min-width: 0;
-    border-right: 1px solid var(--border-default);
-    border-bottom: none;
-    text-align: center;
-    font-size: 0.58rem;
-    line-height: 1.35;
-    padding: 0.55rem 0.3rem;
-  }
-
-  .hero.hero--ibm .hero-stat strong {
-    font-size: 0.68rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .hero.hero--ibm .hero-orbital-readout {
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    max-width: none;
-    margin: 0.65rem 0 0;
-    box-sizing: border-box;
-    grid-column: 1 / -1;
   }
 
   .hero.hero--ibm::after {
@@ -623,6 +574,7 @@ body.light-mode .hero.hero--ibm::after {
 
 .hero.hero--ibm .hero-inner .hero-cta-row,
 .hero.hero--ibm .hero-inner .hero-stats,
+.hero.hero--ibm .hero-inner .hero-metrics-band,
 .hero.hero--ibm .hero-inner .hero-orbital-readout,
 .hero.hero--ibm .hero-inner a,
 .hero.hero--ibm .hero-inner button {
@@ -638,17 +590,54 @@ body.light-mode .hero.hero--ibm::after {
   pointer-events: auto;
 }
 
-.hero.hero--ibm .hero-stats {
+.hero.hero--ibm .hero-metrics-band {
   grid-column: 1 / -1;
+  width: 100%;
   position: relative;
   z-index: 5;
-  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.hero.hero--ibm .hero-orbital-readout {
-  grid-column: 1 / -1;
-  position: relative;
-  z-index: 5;
+.hero.hero--ibm .hero-metrics-band .hero-stats {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.hero.hero--ibm .hero-metrics-band .hero-orbital-readout {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0.65rem 0.75rem 0.75rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  border: 1px solid var(--border-default);
+  border-top: none;
+  background: rgba(38, 38, 38, 0.75);
+  backdrop-filter: blur(8px);
+  box-shadow: none;
+}
+
+body.light-mode .hero.hero--ibm .hero-metrics-band .hero-orbital-readout {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.hero.hero--ibm .hero-metrics-band .hero-orbital-readout__toolbar {
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.45rem;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.hero.hero--ibm .hero-stats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.hero.hero--ibm .hero-stat {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
 }
 
 .hero.hero--ibm .hero-content {
