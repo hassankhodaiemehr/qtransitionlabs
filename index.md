@@ -89,12 +89,18 @@ script: /assets/js/home.js
       <aside class="hero-orbital-readout" id="hero-orbital-readout" aria-labelledby="hero-orbital-readout-heading">
         <div class="hero-orbital-readout__toolbar">
           <h2 class="hero-orbital-readout__heading" id="hero-orbital-readout-heading">Quantum state</h2>
-          <div class="hero-orbital-readout__tabs" role="tablist" aria-label="Quantum readout views">
-            <button type="button" class="hero-orbital-readout__tab is-active" role="tab" id="hero-orbit-tab-readout" aria-selected="true" aria-controls="hero-orbit-panel-readout" data-orbit-tab="readout">Readout</button>
-            <button type="button" class="hero-orbital-readout__tab" role="tab" id="hero-orbit-tab-help" aria-selected="false" aria-controls="hero-orbit-panel-help" data-orbit-tab="help">Help</button>
+          <div class="hero-orbital-readout__actions">
+            <div class="hero-orbital-readout__tabs" role="tablist" aria-label="Quantum readout views">
+              <button type="button" class="hero-orbital-readout__tab is-active" role="tab" id="hero-orbit-tab-readout" aria-selected="true" aria-controls="hero-orbit-panel-readout" data-orbit-tab="readout">Readout</button>
+              <button type="button" class="hero-orbital-readout__tab" role="tab" id="hero-orbit-tab-help" aria-selected="false" aria-controls="hero-orbit-panel-help" data-orbit-tab="help">Help</button>
+            </div>
+            <button type="button" class="hero-orbital-readout__collapse" data-orbit-collapse aria-expanded="true" aria-controls="hero-orbital-readout-body" aria-label="Shrink readout to top bar" title="Shrink to top">
+              <span class="hero-orbital-readout__collapse-icon" aria-hidden="true">▴</span>
+            </button>
           </div>
         </div>
 
+        <div class="hero-orbital-readout__body" id="hero-orbital-readout-body">
         <div class="hero-orbital-readout__panel is-active" id="hero-orbit-panel-readout" role="tabpanel" aria-labelledby="hero-orbit-tab-readout" data-orbit-panel="readout">
           <table class="hero-orbital-readout__table">
             <thead>
@@ -160,16 +166,18 @@ script: /assets/js/home.js
 
         <div class="hero-orbital-readout__panel" id="hero-orbit-panel-help" role="tabpanel" aria-labelledby="hero-orbit-tab-help" data-orbit-panel="help" hidden>
           <div class="hero-orbital-readout__help">
-            <p><strong>What this is.</strong> A live readout beside the hero radar: hydrogen-like quantum numbers and density cues that track the same <strong>18&nbsp;second</strong> color cycle as the rings above.</p>
-            <ul>
-              <li><strong>n</strong> — principal quantum number (shell size); <strong>Shell</strong> is the K/L/M/N label.</li>
-              <li><strong>ℓ</strong> — orbital shape (s, p, d); <strong>m<sub>ℓ</sub></strong> and <strong>m<sub>s</sub></strong> are magnetic and spin projections.</li>
-              <li><strong>φ</strong> — phase angle advanced smoothly through each cycle.</li>
-              <li><strong>E<sub>n</sub></strong> — binding energy scale (eV); <strong>Δx·Δp/ℏ</strong> reminds that conjugate variables stay bounded.</li>
-              <li><strong>|ψ|²</strong> and <strong>Δr</strong> meters — stylized probability peak and radial spread, not planet-like paths.</li>
-            </ul>
-            <p>The highlighted ring marks which shell index matches the current phase. Values are tuned for visualization, not a laboratory measurement.</p>
+            <h3 class="hero-orbital-readout__help-title">The visualization</h3>
+            <p class="hero-orbital-readout__help-prose">The hero radar is a <em>design metaphor</em> for a hydrogen-like state, not a literal atomic-scale drawing. Concentric rings stand for principal shells (<span class="hero-orbital-readout__sym">n</span>); ring color, wobble, blur, and comets suggest phase and <span class="hero-orbital-readout__sym">|ψ|²</span> uncertainty—not fixed planetary tracks. All rings share one <span class="hero-orbital-readout__sym">18&nbsp;s</span> spectrum cycle; the bright ring is the shell index that matches this readout phase.</p>
+            <h3 class="hero-orbital-readout__help-title">Readout fields</h3>
+            <dl class="hero-orbital-readout__help-defs">
+              <div><dt><span class="hero-orbital-readout__sym">n</span>, Shell, ⟨r⟩</dt><dd>Principal level, K/L/M/N label, and stylized mean radius in Bohr radii.</dd></div>
+              <div><dt><span class="hero-orbital-readout__sym">ℓ</span>, <span class="hero-orbital-readout__sym">m<sub>ℓ</sub></span>, <span class="hero-orbital-readout__sym">m<sub>s</sub></span>, <span class="hero-orbital-readout__sym">φ</span></dt><dd>Orbital type (s/p/d), magnetic and spin projections, and phase swept across each cycle.</dd></div>
+              <div><dt><span class="hero-orbital-readout__sym">E<sub>n</sub></span>, <span class="hero-orbital-readout__sym">Δx·Δp/ℏ</span></dt><dd>Illustrative binding energy (eV) and a Heisenberg reminder (bounded below ½).</dd></div>
+              <div><dt><span class="hero-orbital-readout__sym">|ψ|²</span>, <span class="hero-orbital-readout__sym">Δr</span></dt><dd>Stylized probability peak and radial spread bars—not measured lab data.</dd></div>
+            </dl>
+            <p class="hero-orbital-readout__help-note">Numbers advance with the animation for effect; open <strong>Readout</strong> to watch live values.</p>
           </div>
+        </div>
         </div>
       </aside>
     </div>

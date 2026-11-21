@@ -9,6 +9,7 @@ function initOrbitalReadout() {
   if (!root) return;
 
   initOrbitalReadoutTabs(root);
+  initOrbitalReadoutCollapse(root);
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var cycleMs = 18000;
@@ -129,6 +130,40 @@ function initOrbitalReadoutTabs(root) {
       event.stopPropagation();
       activateOrbitTab(tab.getAttribute('data-orbit-tab'));
     });
+  });
+}
+
+function initOrbitalReadoutCollapse(root) {
+  var btn = root.querySelector('[data-orbit-collapse]');
+  var stack = root.closest('.hero-atom-stack');
+  var icon = btn && btn.querySelector('.hero-orbital-readout__collapse-icon');
+  if (!btn) return;
+
+  var storageKey = 'qtl-hero-orbit-readout-collapsed';
+
+  function setCollapsed(collapsed) {
+    root.classList.toggle('is-collapsed', collapsed);
+    if (stack) stack.classList.toggle('is-readout-collapsed', collapsed);
+    btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    btn.setAttribute(
+      'aria-label',
+      collapsed ? 'Expand quantum readout panel' : 'Shrink readout to top bar'
+    );
+    btn.setAttribute('title', collapsed ? 'Expand panel' : 'Shrink to top');
+    if (icon) icon.textContent = collapsed ? '▾' : '▴';
+    try {
+      sessionStorage.setItem(storageKey, collapsed ? '1' : '0');
+    } catch (err) { /* ignore */ }
+  }
+
+  try {
+    if (sessionStorage.getItem(storageKey) === '1') setCollapsed(true);
+  } catch (err) { /* ignore */ }
+
+  btn.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    setCollapsed(!root.classList.contains('is-collapsed'));
   });
 }
 
