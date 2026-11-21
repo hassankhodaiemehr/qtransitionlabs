@@ -443,6 +443,7 @@ body.light-mode .hero.hero--ibm::after {
   height: 400px;
   transform: translate(-2cm, 2cm);
   opacity: 0.62;
+  overflow: visible;
 }
 
 .hero.hero--ibm .orbit-ring--4 {

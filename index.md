@@ -83,6 +83,65 @@ script: /assets/js/home.js
       <div class="qubit-core">
         <span class="qubit-flare"></span>
       </div>
+
+      <aside class="hero-orbital-readout" id="hero-orbital-readout" aria-labelledby="hero-orbital-readout-heading">
+        <p class="hero-orbital-readout__heading" id="hero-orbital-readout-heading">Quantum state (illustrative)</p>
+        <p class="hero-orbital-readout__note">Stylized |ψ|² clouds — not classical orbits.</p>
+        <dl class="hero-orbital-readout__grid">
+          <div class="hero-orbital-readout__cell">
+            <dt>n</dt>
+            <dd><span data-orbit="n">1</span> <span class="hero-orbital-readout__hint">principal</span></dd>
+          </div>
+          <div class="hero-orbital-readout__cell">
+            <dt>ℓ</dt>
+            <dd><span data-orbit="l">0</span> <span class="hero-orbital-readout__tag" data-orbit="l-name">s</span></dd>
+          </div>
+          <div class="hero-orbital-readout__cell">
+            <dt>m<sub>ℓ</sub></dt>
+            <dd data-orbit="ml">0</dd>
+          </div>
+          <div class="hero-orbital-readout__cell">
+            <dt>m<sub>s</sub></dt>
+            <dd data-orbit="ms">+½</dd>
+          </div>
+          <div class="hero-orbital-readout__cell hero-orbital-readout__cell--wide">
+            <dt>φ</dt>
+            <dd><span data-orbit="phi">0</span>° <span class="hero-orbital-readout__hint">orbital phase</span></dd>
+          </div>
+          <div class="hero-orbital-readout__cell">
+            <dt>E<sub>n</sub></dt>
+            <dd><span data-orbit="energy">−13.60</span> eV</dd>
+          </div>
+          <div class="hero-orbital-readout__cell">
+            <dt>Shell</dt>
+            <dd><span data-orbit="shell">K</span> <span class="hero-orbital-readout__hint">n=<span data-orbit="n-inline">1</span></span></dd>
+          </div>
+          <div class="hero-orbital-readout__cell hero-orbital-readout__cell--wide">
+            <dt>Δx·Δp / ℏ</dt>
+            <dd data-orbit="uncertainty">≥ 0.52</dd>
+          </div>
+        </dl>
+        <div class="hero-orbital-readout__meters">
+          <label class="hero-orbital-readout__meter">
+            <span class="hero-orbital-readout__meter-label">|ψ|² peak</span>
+            <span class="hero-orbital-readout__meter-track" aria-hidden="true">
+              <span class="hero-orbital-readout__meter-fill" data-orbit-fill="psi"></span>
+            </span>
+            <span class="hero-orbital-readout__meter-value" data-orbit="psi">0.74</span>
+          </label>
+          <label class="hero-orbital-readout__meter">
+            <span class="hero-orbital-readout__meter-label">Δr (σ)</span>
+            <span class="hero-orbital-readout__meter-track" aria-hidden="true">
+              <span class="hero-orbital-readout__meter-fill" data-orbit-fill="delta-r"></span>
+            </span>
+            <span class="hero-orbital-readout__meter-value" data-orbit="delta-r">0.41</span>
+          </label>
+        </div>
+        <p class="hero-orbital-readout__sync" aria-live="polite">
+          Active shell: <strong data-orbit="active-shell">n = 1</strong>
+          · ⟨r⟩ ≈ <span data-orbit="r-expect">0.53</span> a₀
+        </p>
+      </aside>
     </div>
 
     <div class="particle particle--sm" style="top:18%; left:16%;"></div>

@@ -1,7 +1,105 @@
 (function () {
   initHomeCounters();
   initPolicySignalPanel();
+  initOrbitalReadout();
 })();
+
+function initOrbitalReadout() {
+  var root = document.getElementById('hero-orbital-readout');
+  if (!root) return;
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cycleMs = 18000;
+  var phaseCount = 6;
+  var shellLabels = ['K', 'L', 'M', 'N'];
+  var lLabels = ['s', 'p', 'd', 'f'];
+  var phases = [
+    { n: 1, l: 0, ml: 0, ms: '+½', energy: '-13.60', ring: 1 },
+    { n: 2, l: 0, ml: 0, ms: '-½', energy: '-3.40', ring: 2 },
+    { n: 2, l: 1, ml: 1, ms: '+½', energy: '-3.40', ring: 2 },
+    { n: 3, l: 1, ml: 0, ms: '-½', energy: '-1.51', ring: 3 },
+    { n: 3, l: 2, ml: 2, ms: '+½', energy: '-1.51', ring: 3 },
+    { n: 4, l: 2, ml: -1, ms: '-½', energy: '-0.85', ring: 4 },
+  ];
+  var rings = document.querySelectorAll('.atom-system .orbit-ring');
+  var started = performance.now();
+  var animId = 0;
+  var visible = true;
+
+  function text(sel, value) {
+    var el = root.querySelector('[data-orbit="' + sel + '"]');
+    if (el) el.textContent = value;
+  }
+
+  function fill(sel, ratio) {
+    var el = root.querySelector('[data-orbit-fill="' + sel + '"]');
+    if (el) el.style.width = Math.max(0, Math.min(100, ratio * 100)) + '%';
+  }
+
+  function rExpect(n) {
+    return (0.28 * n * n).toFixed(2);
+  }
+
+  function tick(now) {
+    if (!visible) {
+      animId = requestAnimationFrame(tick);
+      return;
+    }
+
+    var elapsed = reduced ? 0 : now - started;
+    var phasePos = (elapsed % cycleMs) / cycleMs;
+    var phaseIndex = Math.min(phaseCount - 1, Math.floor(phasePos * phaseCount));
+    var phase = phases[phaseIndex];
+    var localT = (phasePos * phaseCount) % 1;
+
+    var phi = Math.round(phasePos * 360);
+    var psi = 0.52 + 0.4 * Math.sin(localT * Math.PI * 2 + phaseIndex * 0.55);
+    var deltaR = 0.38 + 0.44 * Math.cos(localT * Math.PI * 2 * 1.15 + phaseIndex * 0.4);
+    var uncertainty = 0.5 + 0.22 * (psi * deltaR);
+
+    text('n', String(phase.n));
+    text('n-inline', String(phase.n));
+    text('l', String(phase.l));
+    text('l-name', lLabels[phase.l] || 'f');
+    text('ml', phase.ml >= 0 ? '+' + phase.ml : String(phase.ml));
+    text('ms', phase.ms);
+    text('phi', String(phi));
+    text('energy', phase.energy);
+    text('shell', shellLabels[phase.n - 1] || 'N');
+    text('uncertainty', '≥ ' + uncertainty.toFixed(2));
+    text('psi', psi.toFixed(2));
+    text('delta-r', deltaR.toFixed(2));
+    text('r-expect', rExpect(phase.n));
+    text('active-shell', 'n = ' + phase.n + ' (' + (lLabels[phase.l] || 'f') + ')');
+
+    fill('psi', psi);
+    fill('delta-r', deltaR);
+
+    var phaseHues = [198, 42, 24, 142, 42, 24];
+    root.style.setProperty('--readout-phase-hue', String(phaseHues[phaseIndex] || 42));
+
+    rings.forEach(function (ring) {
+      var m = ring.className.match(/orbit-ring--(\d)/);
+      var num = m ? parseInt(m[1], 10) : 0;
+      ring.classList.toggle('is-quantum-active', num === phase.ring);
+    });
+
+    if (!reduced) animId = requestAnimationFrame(tick);
+  }
+
+  if (reduced) tick(started);
+  else animId = requestAnimationFrame(tick);
+
+  if ('IntersectionObserver' in window) {
+    var hero = document.querySelector('.hero.hero--ibm');
+    if (hero) {
+      var obs = new IntersectionObserver(function (entries) {
+        visible = !!(entries[0] && entries[0].isIntersecting);
+      }, { threshold: 0.05 });
+      obs.observe(hero);
+    }
+  }
+}
 
 function initPolicySignalPanel() {
   var root = document.getElementById('home-policy-signals');
