@@ -173,10 +173,6 @@ body.light-mode .hero-secondary {
 }
 
 .hero.hero--ibm .orbit-ring--3 {
-  animation: ringShellDrift3 6.2s ease-in-out infinite alternate !important;
-}
-
-.hero.hero--ibm .orbit-ring--4 {
   animation: ringShellDrift4 9.1s ease-in-out infinite alternate-reverse !important;
 }
 
@@ -217,10 +213,6 @@ body.light-mode .hero-secondary {
 }
 
 .hero.hero--ibm .orbit-ring--3 .orbit {
-  animation: orbitSpinUncertain3 52s linear infinite, orbitSyncColor 18s linear infinite !important;
-}
-
-.hero.hero--ibm .orbit-ring--4 .orbit {
   animation: orbitSpinUncertain4 68s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
 }
 
@@ -665,7 +657,6 @@ footer.footer {
   .hero.hero--ibm .orbit-ring--1,
   .hero.hero--ibm .orbit-ring--2,
   .hero.hero--ibm .orbit-ring--3,
-  .hero.hero--ibm .orbit-ring--4,
   .hero.hero--ibm .orbit::before,
   .hero.hero--ibm .orbit::after,
   .hero.hero--ibm .orbit-comet,
@@ -688,11 +679,6 @@ footer.footer {
   }
 
   .hero.hero--ibm .orbit-ring--3 .orbit {
-    animation: orbitSpin 52s linear infinite, orbitSyncColor 18s linear infinite !important;
-    border-radius: 50% !important;
-  }
-
-  .hero.hero--ibm .orbit-ring--4 .orbit {
     animation: orbitSpin 68s linear infinite reverse, orbitSyncColor 18s linear infinite !important;
     border-radius: 50% !important;
   }

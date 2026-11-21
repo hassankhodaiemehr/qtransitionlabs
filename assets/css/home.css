@@ -397,8 +397,8 @@ body.light-mode .hero-orbital-readout__kv dd {
 
 /* Help tab — one size for titles, prose, symbols, and defs (hero-stat scale) */
 .hero-orbital-readout__help {
-  --help-copy-size: 0.875rem;
-  --help-copy-leading: 1.65;
+  --help-copy-size: 0.625rem;
+  --help-copy-leading: 1.42;
   font-family: "IBM Plex Sans", system-ui, sans-serif;
   font-size: var(--help-copy-size);
   line-height: var(--help-copy-leading);
@@ -824,7 +824,6 @@ body.light-mode .hero-orbital-readout__sync strong {
 
 .orbit-ring--2 .orbit-comet { animation-delay: 0.5s; }
 .orbit-ring--3 .orbit-comet { animation-delay: 1s; }
-.orbit-ring--4 .orbit-comet { animation-delay: 1.5s; }
 
 @keyframes cometGlow {
   0%, 100% { opacity: 0.65; transform: scale(1); }
@@ -907,15 +906,9 @@ body.light-mode .hero-orbital-readout__sync strong {
 }
 
 .orbit-ring--3 {
-  width: 310px;
-  height: 310px;
-  z-index: 2;
-}
-
-.orbit-ring--4 {
   width: 320px;
   height: 320px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .orbit {
@@ -931,8 +924,7 @@ body.light-mode .hero-orbital-readout__sync strong {
 
 .orbit-ring--1 .orbit { animation-duration: 28s; }
 .orbit-ring--2 .orbit { animation-duration: 38s; animation-direction: reverse; }
-.orbit-ring--3 .orbit { animation-duration: 52s; }
-.orbit-ring--4 .orbit { animation-duration: 68s; animation-direction: reverse; }
+.orbit-ring--3 .orbit { animation-duration: 52s; animation-direction: reverse; }
 
 @keyframes orbitSpin {
   from { transform: rotate(0deg); }

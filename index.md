@@ -49,14 +49,6 @@ script: /assets/js/home.js
           <line x1="160" y1="160" x2="46" y2="128"/><line x1="160" y1="160" x2="118" y2="48"/>
         </g>
       </svg>
-      <div class="orbit-ring orbit-ring--4">
-        <div class="orbit">
-          <span class="orbit-comet"></span>
-          <div class="orbit-node"></div>
-          <div class="orbit-node"></div>
-          <div class="orbit-node"></div>
-        </div>
-      </div>
       <div class="orbit-ring orbit-ring--3">
         <div class="orbit">
           <span class="orbit-comet"></span>
@@ -88,7 +80,7 @@ script: /assets/js/home.js
 
       <aside class="hero-orbital-readout" id="hero-orbital-readout" aria-labelledby="hero-orbital-readout-heading">
         <div class="hero-orbital-readout__toolbar">
-          <h2 class="hero-orbital-readout__heading" id="hero-orbital-readout-heading">Quantum state</h2>
+          <h2 class="hero-orbital-readout__heading" id="hero-orbital-readout-heading">Si · Z=14</h2>
           <div class="hero-orbital-readout__actions">
             <div class="hero-orbital-readout__tabs" role="tablist" aria-label="Quantum readout views">
               <button type="button" class="hero-orbital-readout__tab is-active" role="tab" id="hero-orbit-tab-readout" aria-selected="true" aria-controls="hero-orbit-panel-readout" data-orbit-tab="readout">Readout</button>
@@ -114,6 +106,7 @@ script: /assets/js/home.js
               <tr>
                 <td data-col-label="Principal &amp; shell">
                   <dl class="hero-orbital-readout__kv">
+                    <div><dt>Z</dt><dd>14 <span class="hero-orbital-readout__hint">(Si)</span></dd></div>
                     <div><dt>n</dt><dd><span data-orbit="n">1</span></dd></div>
                     <div><dt>Shell</dt><dd><span data-orbit="shell">K</span> <span class="hero-orbital-readout__hint">(n=<span data-orbit="n-inline">1</span>)</span></dd></div>
                     <div><dt>⟨r⟩</dt><dd><span data-orbit="r-expect">0.53</span> a₀</dd></div>
@@ -129,7 +122,7 @@ script: /assets/js/home.js
                 </td>
                 <td data-col-label="Energy &amp; |ψ|²">
                   <dl class="hero-orbital-readout__kv">
-                    <div><dt>E<sub>n</sub></dt><dd><span data-orbit="energy">−13.60</span> eV</dd></div>
+                    <div><dt>E<sub>bind</sub></dt><dd><span data-orbit="energy">−1782</span> eV</dd></div>
                     <div><dt>Δx·Δp / ℏ</dt><dd data-orbit="uncertainty">≥ 0.52</dd></div>
                   </dl>
                   <div class="hero-orbital-readout__meters">
@@ -155,8 +148,8 @@ script: /assets/js/home.js
               <tr>
                 <td colspan="3">
                   <p class="hero-orbital-readout__sync" aria-live="polite">
-                    Active shell: <strong data-orbit="active-shell">n = 1</strong>
-                    · 18&nbsp;s spectrum cycle
+                    Active ring: <strong data-orbit="active-shell">Si · n = 1 1s</strong>
+                    · 18&nbsp;s · 3 phases
                   </p>
                 </td>
               </tr>
@@ -166,16 +159,16 @@ script: /assets/js/home.js
 
         <div class="hero-orbital-readout__panel" id="hero-orbit-panel-help" role="tabpanel" aria-labelledby="hero-orbit-tab-help" data-orbit-panel="help" hidden>
           <div class="hero-orbital-readout__help">
-            <h3 class="hero-orbital-readout__help-title">The visualization</h3>
-            <p class="hero-orbital-readout__help-prose">The hero radar is a <em>design metaphor</em> for a hydrogen-like state, not a literal atomic-scale drawing. Concentric rings stand for principal shells (<span class="hero-orbital-readout__sym">n</span>); ring color, wobble, blur, and comets suggest phase and <span class="hero-orbital-readout__sym">|ψ|²</span> uncertainty—not fixed planetary tracks. All rings share one <span class="hero-orbital-readout__sym">18&nbsp;s</span> spectrum cycle; the bright ring is the shell index that matches this readout phase.</p>
-            <h3 class="hero-orbital-readout__help-title">Readout fields</h3>
+            <h3 class="hero-orbital-readout__help-title">Why silicon (Si)</h3>
+            <p class="hero-orbital-readout__help-prose">Three radar rings match three highlight phases for <strong>silicon</strong> (<span class="hero-orbital-readout__sym">Z=14</span>): a semiconductor backbone and a platform for spin qubits, quantum dots, and PQC siliconization. Stylized shells walk <span class="hero-orbital-readout__sym">K</span> (core), <span class="hero-orbital-readout__sym">L</span> (inner), then <span class="hero-orbital-readout__sym">M</span> valence <span class="hero-orbital-readout__sym">3s²3p²</span>. Motion and color encode <span class="hero-orbital-readout__sym">|ψ|²</span> phase—not Bohr tracks.</p>
+            <h3 class="hero-orbital-readout__help-title">Cycle &amp; fields</h3>
             <dl class="hero-orbital-readout__help-defs">
-              <div><dt><span class="hero-orbital-readout__sym">n</span>, Shell, ⟨r⟩</dt><dd>Principal level, K/L/M/N label, and stylized mean radius in Bohr radii.</dd></div>
-              <div><dt><span class="hero-orbital-readout__sym">ℓ</span>, <span class="hero-orbital-readout__sym">m<sub>ℓ</sub></span>, <span class="hero-orbital-readout__sym">m<sub>s</sub></span>, <span class="hero-orbital-readout__sym">φ</span></dt><dd>Orbital type (s/p/d), magnetic and spin projections, and phase swept across each cycle.</dd></div>
-              <div><dt><span class="hero-orbital-readout__sym">E<sub>n</sub></span>, <span class="hero-orbital-readout__sym">Δx·Δp/ℏ</span></dt><dd>Illustrative binding energy (eV) and a Heisenberg reminder (bounded below ½).</dd></div>
-              <div><dt><span class="hero-orbital-readout__sym">|ψ|²</span>, <span class="hero-orbital-readout__sym">Δr</span></dt><dd>Stylized probability peak and radial spread bars—not measured lab data.</dd></div>
+              <div><dt>3 · 18&nbsp;s</dt><dd>One ring per phase (<span class="hero-orbital-readout__sym">6&nbsp;s</span> each), spectrum-locked with the radar.</dd></div>
+              <div><dt><span class="hero-orbital-readout__sym">Z</span>, <span class="hero-orbital-readout__sym">n</span>, Shell</dt><dd>Element Si; principal <span class="hero-orbital-readout__sym">n</span> and K/L/M label for the lit ring.</dd></div>
+              <div><dt>Valence · quantum</dt><dd>Outer phase stresses <span class="hero-orbital-readout__sym">3p</span>—where solid-state and qubit engineering meet cryptography migration.</dd></div>
+              <div><dt><span class="hero-orbital-readout__sym">E<sub>bind</sub></span>, <span class="hero-orbital-readout__sym">|ψ|²</span></dt><dd>Illustrative binding (eV) and bars—not cryo lab readout.</dd></div>
             </dl>
-            <p class="hero-orbital-readout__help-note">Numbers advance with the animation for effect; open <strong>Readout</strong> to watch live values.</p>
+            <p class="hero-orbital-readout__help-note">Use <strong>Readout</strong> for live numbers. Values are pedagogical, not measurement.</p>
           </div>
         </div>
         </div>

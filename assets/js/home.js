@@ -13,16 +13,14 @@ function initOrbitalReadout() {
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var cycleMs = 18000;
-  var phaseCount = 6;
-  var shellLabels = ['K', 'L', 'M', 'N'];
+  var phaseCount = 3;
+  var shellLabels = ['K', 'L', 'M'];
   var lLabels = ['s', 'p', 'd', 'f'];
+  /* Three phases = three radar rings; stylized silicon (Z=14). */
   var phases = [
-    { n: 1, l: 0, ml: 0, ms: '+½', energy: '-13.60', ring: 1 },
-    { n: 2, l: 0, ml: 0, ms: '-½', energy: '-3.40', ring: 2 },
-    { n: 2, l: 1, ml: 1, ms: '+½', energy: '-3.40', ring: 2 },
-    { n: 3, l: 1, ml: 0, ms: '-½', energy: '-1.51', ring: 3 },
-    { n: 3, l: 2, ml: 2, ms: '+½', energy: '-1.51', ring: 3 },
-    { n: 4, l: 2, ml: -1, ms: '-½', energy: '-0.85', ring: 4 },
+    { n: 1, l: 0, ml: 0, ms: '+½', energy: '-1782', ring: 1, subshell: '1s' },
+    { n: 2, l: 1, ml: 0, ms: '-½', energy: '-127', ring: 2, subshell: '2p' },
+    { n: 3, l: 1, ml: 1, ms: '+½', energy: '-8.2', ring: 3, subshell: '3p' },
   ];
   var rings = document.querySelectorAll('.atom-system .orbit-ring');
   var started = performance.now();
@@ -68,17 +66,20 @@ function initOrbitalReadout() {
     text('ms', phase.ms);
     text('phi', String(phi));
     text('energy', phase.energy);
-    text('shell', shellLabels[phase.n - 1] || 'N');
+    text('shell', shellLabels[phase.n - 1] || 'M');
     text('uncertainty', '≥ ' + uncertainty.toFixed(2));
     text('psi', psi.toFixed(2));
     text('delta-r', deltaR.toFixed(2));
     text('r-expect', rExpect(phase.n));
-    text('active-shell', 'n = ' + phase.n + ' (' + (lLabels[phase.l] || 'f') + ')');
+    text(
+      'active-shell',
+      'Si · n = ' + phase.n + ' ' + (phase.subshell || lLabels[phase.l] || 's')
+    );
 
     fill('psi', psi);
     fill('delta-r', deltaR);
 
-    var phaseHues = [198, 42, 24, 142, 42, 24];
+    var phaseHues = [198, 42, 142];
     root.style.setProperty('--readout-phase-hue', String(phaseHues[phaseIndex] || 42));
 
     rings.forEach(function (ring) {
