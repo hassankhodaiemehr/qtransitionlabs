@@ -15,6 +15,12 @@
   --accent-glow: rgba(15, 98, 254, 0.25);
   --link: #78a9ff;
   --link-hover: #a6c8ff;
+  --warm-amber: #fbbf24;
+  --warm-amber-soft: rgba(251, 191, 36, 0.2);
+  --warm-coral: #fb923c;
+  --warm-coral-soft: rgba(251, 146, 60, 0.16);
+  --warm-violet: #a78bfa;
+  --warm-violet-soft: rgba(167, 139, 250, 0.14);
 }
 
 html {
@@ -112,6 +118,10 @@ body.light-mode {
   --accent-glow: rgba(15, 98, 254, 0.2);
   --link: #0f62fe;
   --link-hover: #0353e9;
+  --warm-amber: #f59e0b;
+  --warm-amber-soft: rgba(245, 158, 11, 0.14);
+  --warm-coral-soft: rgba(251, 146, 60, 0.12);
+  --warm-violet-soft: rgba(139, 92, 246, 0.1);
   background: #FFFFFF;
   background-image: radial-gradient(ellipse 90% 55% at 50% -15%, rgba(59, 130, 246, 0.06), transparent);
   color: #1A1F36;
