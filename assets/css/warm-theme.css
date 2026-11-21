@@ -1,20 +1,95 @@
 /* ==========================================================================
-   Warm accent layer — amber / coral highlights on IBM blue (site-wide)
+   Warm theme — amber / coral primaries with IBM blue as secondary depth
    ========================================================================== */
+
+:root {
+  --accent-cool: #0f62fe;
+  --accent-cool-hover: #0353e9;
+  --accent: #d97706;
+  --accent-hover: #b45309;
+  --accent-glow: rgba(251, 191, 36, 0.38);
+  --link: #fbbf24;
+  --link-hover: #fde68a;
+}
+
+body.light-mode {
+  --accent: #c2410c;
+  --accent-hover: #9a3412;
+  --accent-glow: rgba(234, 88, 12, 0.28);
+  --link: #d97706;
+  --link-hover: #b45309;
+}
+
+/* Ambient warmth */
 
 body {
   background-color: var(--bg-base);
   background-image:
-    radial-gradient(ellipse 52% 42% at 94% -6%, var(--warm-amber-soft), transparent 58%),
-    radial-gradient(ellipse 58% 48% at 6% -4%, rgba(56, 189, 248, 0.07), transparent 56%),
-    radial-gradient(ellipse 44% 32% at 50% 102%, var(--warm-violet-soft), transparent 62%);
+    radial-gradient(ellipse 60% 50% at 92% -4%, rgba(251, 191, 36, 0.14), transparent 54%),
+    radial-gradient(ellipse 55% 46% at 8% -2%, rgba(251, 146, 60, 0.1), transparent 52%),
+    radial-gradient(ellipse 50% 38% at 50% 105%, rgba(167, 139, 250, 0.12), transparent 58%),
+    radial-gradient(ellipse 40% 32% at 72% 88%, rgba(15, 98, 254, 0.05), transparent 60%);
 }
 
 body.light-mode {
   background-image:
-    radial-gradient(ellipse 52% 42% at 94% -6%, var(--warm-amber-soft), transparent 58%),
-    radial-gradient(ellipse 58% 48% at 6% -4%, rgba(59, 130, 246, 0.09), transparent 56%),
-    radial-gradient(ellipse 44% 32% at 50% 102%, var(--warm-violet-soft), transparent 62%);
+    radial-gradient(ellipse 60% 50% at 92% -4%, rgba(251, 191, 36, 0.18), transparent 54%),
+    radial-gradient(ellipse 55% 46% at 8% -2%, rgba(251, 146, 60, 0.12), transparent 52%),
+    radial-gradient(ellipse 50% 38% at 50% 105%, rgba(167, 139, 250, 0.1), transparent 58%),
+    radial-gradient(ellipse 40% 32% at 72% 88%, rgba(59, 130, 246, 0.06), transparent 60%);
+}
+
+/* Links */
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Buttons */
+
+.button,
+.hero-button,
+.nav-cta {
+  background: linear-gradient(
+    118deg,
+    #ea580c 0%,
+    var(--accent) 48%,
+    color-mix(in srgb, var(--accent-cool) 55%, var(--accent) 45%) 100%
+  ) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 18px var(--accent-glow) !important;
+}
+
+.button:hover,
+.hero-button:hover,
+.nav-cta:hover,
+.nav-cta--active {
+  background: linear-gradient(
+    118deg,
+    #c2410c 0%,
+    var(--accent-hover) 45%,
+    color-mix(in srgb, var(--accent-cool-hover) 45%, var(--accent-hover) 55%) 100%
+  ) !important;
+  box-shadow: 0 6px 22px rgba(251, 146, 60, 0.35) !important;
+}
+
+.hero-secondary {
+  border-color: color-mix(in srgb, var(--accent) 78%, var(--accent-cool) 22%) !important;
+  color: var(--accent) !important;
+}
+
+.hero-secondary:hover {
+  background: rgba(251, 191, 36, 0.1) !important;
+  border-color: var(--accent-hover) !important;
+  color: var(--accent-hover) !important;
+}
+
+body.light-mode .hero-secondary {
+  color: var(--accent) !important;
 }
 
 /* Navigation */
@@ -22,99 +97,176 @@ body.light-mode {
 .nav-link.active,
 .nav-dropdown__toggle.active,
 .nav-dropdown.is-open .nav-dropdown__toggle.active {
-  border-bottom-color: color-mix(in srgb, var(--accent) 55%, var(--warm-amber) 45%);
-}
-
-.nav-cta {
-  background: linear-gradient(
-    105deg,
-    var(--accent) 0%,
-    color-mix(in srgb, var(--accent) 82%, var(--warm-coral) 18%) 100%
-  ) !important;
-}
-
-.nav-cta:hover,
-.nav-cta--active {
-  background: linear-gradient(
-    105deg,
-    var(--accent-hover) 0%,
-    color-mix(in srgb, var(--accent-hover) 75%, #ea580c 25%) 100%
-  ) !important;
+  border-bottom-color: var(--accent);
 }
 
 /* Section rhythm */
 
-.section-eyebrow {
-  color: color-mix(in srgb, var(--accent) 68%, #d97706 32%);
+.section-eyebrow,
+.hero.hero--ibm .hero-eyebrow,
+.home-about-facts__title,
+.page-header .section-eyebrow {
+  color: var(--accent);
 }
 
-.section-title::after {
-  width: 3.25rem;
-  background: linear-gradient(
-    90deg,
-    var(--accent),
-    var(--warm-amber),
-    var(--warm-coral)
-  );
+.section-title::after,
+.page-header h1::after {
+  width: 3.5rem;
+  background: linear-gradient(90deg, var(--accent), #fbbf24, var(--accent-cool));
 }
 
 /* Homepage hero */
 
 .hero-aurora {
   background:
-    radial-gradient(ellipse 48% 38% at 78% 28%, var(--warm-coral-soft), transparent 68%),
-    radial-gradient(ellipse 50% 40% at 18% 32%, rgba(56, 189, 248, 0.2), transparent 70%),
-    radial-gradient(ellipse 45% 35% at 80% 60%, var(--warm-violet-soft), transparent 70%);
+    radial-gradient(ellipse 52% 42% at 76% 26%, rgba(251, 146, 60, 0.22), transparent 65%),
+    radial-gradient(ellipse 50% 40% at 22% 34%, rgba(251, 191, 36, 0.16), transparent 68%),
+    radial-gradient(ellipse 42% 34% at 82% 62%, rgba(167, 139, 250, 0.14), transparent 70%);
+  opacity: 0.92;
 }
 
 .hero-lattice {
   background-image:
-    radial-gradient(circle, rgba(251, 191, 36, 0.28) 1.5px, transparent 1.5px),
-    radial-gradient(circle, rgba(56, 189, 248, 0.34) 1.5px, transparent 1.5px);
+    radial-gradient(circle, rgba(251, 191, 36, 0.42) 1.5px, transparent 1.5px),
+    radial-gradient(circle, rgba(251, 146, 60, 0.22) 1.5px, transparent 1.5px);
 }
 
 .hero-lattice::after {
-  background-image: radial-gradient(circle, rgba(251, 146, 60, 0.2) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(217, 119, 6, 0.28) 1px, transparent 1px);
 }
 
-.hero.hero--ibm .hero-eyebrow {
-  color: color-mix(in srgb, var(--accent) 62%, #f59e0b 38%);
+.hero-qmesh-links {
+  stroke: rgba(251, 191, 36, 0.18) !important;
 }
 
-.hero.hero--ibm .hero-secondary:hover {
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--warm-amber) 50%);
-  background: color-mix(in srgb, rgba(15, 98, 254, 0.08) 70%, rgba(251, 191, 36, 0.12) 30%);
+.hero-qmesh-nodes {
+  fill: rgba(251, 146, 60, 0.65) !important;
 }
 
-/* Buttons & links */
+.hero-qwave--1 {
+  stroke: rgba(251, 191, 36, 0.28) !important;
+}
 
-.button:hover,
-.hero-button:hover {
+.hero-qwave--2 {
+  stroke: rgba(251, 146, 60, 0.22) !important;
+}
+
+.hero.hero--ibm .orbit {
+  border-color: rgba(251, 191, 36, 0.75) !important;
+  box-shadow: 0 0 28px rgba(251, 146, 60, 0.35) !important;
+}
+
+.hero .qubit-core,
+.hero.hero--ibm .qubit-core {
+  background: linear-gradient(145deg, #f59e0b, #ea580c) !important;
   box-shadow:
-    0 0 22px var(--accent-glow),
-    0 0 28px var(--warm-amber-soft);
+    0 0 22px rgba(251, 191, 36, 0.75),
+    0 0 44px rgba(234, 88, 12, 0.35) !important;
 }
 
-a:hover {
-  color: color-mix(in srgb, var(--link-hover) 80%, #fcd34d 20%);
+.hero.hero--ibm .orbit-node {
+  background: #fbbf24 !important;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.85) !important;
+}
+
+.hero.hero--ibm .hero-stat strong {
+  color: #fde68a;
+}
+
+body.light-mode .hero.hero--ibm .hero-stat strong {
+  color: var(--accent);
+}
+
+/* Policy signals & pills */
+
+.home-signal.is-active,
+.home-signal:hover,
+.home-signal:focus-visible {
+  border-color: #fbbf24 !important;
+  background: rgba(251, 191, 36, 0.12) !important;
+}
+
+.home-signal.is-active {
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.32) !important;
+}
+
+.home-signals__panel.is-open {
+  border-color: rgba(251, 191, 36, 0.45) !important;
+}
+
+body.light-mode .home-signal.is-active,
+body.light-mode .home-signal:hover,
+body.light-mode .home-signal:focus-visible {
+  border-color: var(--accent) !important;
+  background: rgba(251, 191, 36, 0.14) !important;
+  color: var(--accent-hover) !important;
+}
+
+/* Homepage content links */
+
+.home-about-facts__solutions a,
+.home-about-facts__row a,
+.home-pillar__link {
+  color: var(--link) !important;
+}
+
+.home-about-facts__solutions a:hover,
+.home-about-facts__row a:hover {
+  color: var(--link-hover) !important;
+}
+
+.home-solutions__card:hover,
+.home-pillar:hover {
+  border-color: rgba(251, 191, 36, 0.45) !important;
+}
+
+/* Cards & metrics */
+
+.cap-card:hover,
+.home-news-card:hover,
+.service-card:hover {
+  border-color: rgba(251, 191, 36, 0.4) !important;
+}
+
+.home-metrics strong,
+.metric-box strong {
+  color: color-mix(in srgb, var(--accent) 75%, #fde68a 25%);
 }
 
 /* Footer */
 
 footer.footer {
-  border-top-color: color-mix(in srgb, var(--border-default) 85%, var(--warm-amber) 15%);
+  border-top-color: color-mix(in srgb, var(--border-default) 70%, var(--accent) 30%);
+}
+
+.footer-stats__link {
+  color: var(--link) !important;
 }
 
 /* Inner-page banners */
 
 .page-banner-orb--1 {
-  background: color-mix(in srgb, rgba(56, 189, 248, 0.22) 65%, var(--warm-amber-soft) 35%);
+  background: rgba(251, 191, 36, 0.26);
 }
 
 .page-banner-orb--2 {
-  background: color-mix(in srgb, rgba(129, 140, 248, 0.18) 55%, var(--warm-coral-soft) 45%);
+  background: rgba(251, 146, 60, 0.22);
 }
 
 .page-banner-orb--3 {
-  background: color-mix(in srgb, rgba(15, 98, 254, 0.15) 50%, var(--warm-violet-soft) 50%);
+  background: color-mix(in srgb, rgba(167, 139, 250, 0.24) 60%, rgba(251, 191, 36, 0.16) 40%);
+}
+
+.page-banner-grid {
+  background-image:
+    linear-gradient(rgba(251, 191, 36, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 191, 36, 0.08) 1px, transparent 1px) !important;
+}
+
+/* Education / quantum bar harmony */
+
+.quantum-bar {
+  background:
+    linear-gradient(180deg, rgba(251, 191, 36, 0.06) 0%, transparent 45%),
+    var(--bg-base);
 }
