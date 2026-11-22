@@ -7,6 +7,7 @@ source_name: Nature
 source_title: "Mathematicians astounded by AI and human-written proofs of iconic Riemann hypothesis"
 source_url: https://www.nature.com/articles/d41586-026-03812-7
 excerpt: "Dual November 2026 announcements—a Claude-assisted sketch from Anthropic and a human preprint from Stanford—must still pass expert review. Proving RH would reshape prime-number theory, not replace Shor—or your ML-KEM roadmap."
+script: /assets/js/riemann-hypothesis-viz.js
 ---
 
 On **20 November 2026**, the mathematics world saw back-to-back announcements that two independent efforts may have proved the **Riemann hypothesis (RH)**—one of the Clay Millennium Prize Problems and a benchmark for how tightly **prime numbers** are scattered among the integers. [*Nature*](https://www.nature.com/articles/d41586-026-03812-7) reports that **Levent Alpöge** at Anthropic published a proof sketch developed with **Claude**, while hours later **Ravi Vakil** released a rival **human-written preprint** by **Alessandro Maria Masullo** (Stanford PhD 2020) ahead of a planned peer polish. Neither claim is yet the consensus of the field: Alpöge's release is described as difficult to read and partly encoded in **Lean**; Masullo's draft is early. Experts including **James Maynard** and **Tristan Buckmaster** express cautious optimism that verification may succeed—but warn that digestion could take months or years.
@@ -52,18 +53,18 @@ Alpöge describes roughly **six weeks** of work with a **non-public Anthropic Cl
     </div>
     <div class="rh-proof-scale__metric">
       <strong>Lean 4.33</strong>
-      <span>+ Mathlib 4.33.1; also targets **GRH** for Dirichlet <em>L</em>-functions</span>
+      <span>Mathlib 4.33.1; also claims <strong>GRH</strong> for Dirichlet <em>L</em>-functions</span>
     </div>
     <div class="rh-proof-scale__metric">
       <strong>4 pages</strong>
-      <span>human-readable *Nature* sketch—versus the machine-checked library above</span>
+      <span>Human-readable press sketch versus the machine-checked library above</span>
     </div>
   </div>
   <div class="rh-proof-scale__bar-wrap" aria-hidden="true">
     <div class="rh-proof-scale__bar-label">
       <span>Public narrative (pages)</span>
       <span>Formal verification corpus</span>
-    </motion-div>
+    </div>
     <div class="rh-proof-scale__bar" title="Schematic: tiny public sketch vs massive Lean library">
       <div class="rh-proof-scale__bar-fill rh-proof-scale__bar-fill--human" aria-hidden="true" title="~4-page public sketch"></div>
       <div class="rh-proof-scale__bar-fill rh-proof-scale__bar-fill--lean"></div>
@@ -108,7 +109,7 @@ Alpöge describes roughly **six weeks** of work with a **non-public Anthropic Cl
 </table>
 </div>
 
-Masullo's line of work and Alpöge's formal corpus may converge or diverge after refereeing. **Cryptographic policy should not branch on either headline until claims are stable in the research record**—but you should update **AI + formal-methods** risk intake now.
+<p class="news-table-followup">Masullo's human preprint and Alpöge's Lean library may converge or diverge after refereeing. <strong>Cryptographic policy should not branch on either headline</strong> until claims are stable in the research record. Do add <strong>AI + formal-methods</strong> outputs to quarterly threat intake.</p>
 
 ## Cryptography: direct and indirect effects
 
@@ -149,7 +150,7 @@ Masullo's line of work and Alpöge's formal corpus may converge or diverge after
 </table>
 </div>
 
-Organizations should continue **RSA/ECC deprecation** and **PQ TLS** plans. RH verification would belong in the **research radar**, not the **incident queue**.
+<p class="news-table-followup">Continue <strong>RSA/ECC deprecation</strong> and <strong>PQ TLS</strong> plans. A verified RH belongs on the <strong>research radar</strong>, not the incident queue.</p>
 
 ### Post-quantum cryptography (lattices, hashes, codes)
 

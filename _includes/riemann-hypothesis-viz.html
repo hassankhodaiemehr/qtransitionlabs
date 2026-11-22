@@ -1,76 +1,82 @@
-<figure class="rh-viz" aria-labelledby="rh-viz-caption">
+<figure class="rh-viz" data-rh-viz aria-labelledby="rh-viz-caption">
+  <div class="rh-viz__head">
+    <p class="rh-viz__eyebrow">Interactive schematic</p>
+    <h3 class="rh-viz__title">ζ(<em>s</em>) on the critical line &amp; zero locations</h3>
+    <p class="rh-viz__lede">
+      Along <strong>s = ½ + <em>it</em></strong>, the Riemann zeta function oscillates and drops to
+      <strong>zeros</strong> at iconic heights <em>t</em> (14.13, 21.02, …). RH claims every nontrivial zero lies on this line.
+    </p>
+  </div>
   <div class="rh-viz__frame">
-    <svg class="rh-viz__svg" viewBox="0 0 640 360" role="img" aria-labelledby="rh-viz-title rh-viz-desc">
-      <title id="rh-viz-title">Riemann zeta zeros on the critical line</title>
-      <desc id="rh-viz-desc">Animated schematic: nontrivial zeros of the zeta function lying on the vertical line where the real part equals one half, linking prime distribution to complex analysis.</desc>
-      <defs>
-        <linearGradient id="rh-viz-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="rgba(15, 98, 254, 0.12)"/>
-          <stop offset="100%" stop-color="rgba(147, 51, 234, 0.08)"/>
-        </linearGradient>
-        <linearGradient id="rh-critical-glow" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="rgba(56, 189, 248, 0.05)"/>
-          <stop offset="50%" stop-color="rgba(56, 189, 248, 0.35)"/>
-          <stop offset="100%" stop-color="rgba(56, 189, 248, 0.05)"/>
-        </linearGradient>
-        <filter id="rh-zero-glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-        <pattern id="rh-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-          <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(148, 163, 184, 0.12)" stroke-width="0.5"/>
-        </pattern>
-      </defs>
-      <rect width="640" height="360" fill="url(#rh-viz-bg)"/>
-      <rect width="640" height="360" fill="url(#rh-grid)"/>
-      <rect x="52" y="40" width="536" height="280" fill="rgba(2, 6, 23, 0.35)" stroke="rgba(148, 163, 184, 0.25)" rx="4"/>
-      <!-- Critical strip -->
-      <rect class="rh-viz__strip" x="318" y="40" width="4" height="280" fill="url(#rh-critical-glow)"/>
-      <line class="rh-viz__critical-line" x1="320" y1="40" x2="320" y2="320" stroke="rgba(56, 189, 248, 0.85)" stroke-width="2" stroke-dasharray="6 4"/>
-      <line class="rh-viz__scan" x1="52" y1="0" x2="588" y2="0" stroke="rgba(251, 191, 36, 0.55)" stroke-width="1"/>
-      <!-- Axes -->
-      <line x1="52" y1="320" x2="588" y2="320" stroke="rgba(148, 163, 184, 0.5)" stroke-width="1"/>
-      <line x1="52" y1="40" x2="52" y2="320" stroke="rgba(148, 163, 184, 0.5)" stroke-width="1"/>
-      <text x="310" y="348" fill="rgba(201, 209, 217, 0.85)" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Re(s)</text>
-      <text x="18" y="185" fill="rgba(201, 209, 217, 0.85)" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif" transform="rotate(-90 18 185)">Im(s)</text>
-      <text x="328" y="56" fill="rgba(56, 189, 248, 0.95)" font-size="10" font-weight="600" font-family="IBM Plex Sans, system-ui, sans-serif">Re(s) = ½</text>
-      <text x="60" y="56" fill="rgba(251, 191, 36, 0.9)" font-size="10" font-family="IBM Plex Sans, system-ui, sans-serif">ζ(s) = 0 ⇔ primes · error terms</text>
-      <!-- First nontrivial zeros (Im parts scaled to plot) -->
-      <g class="rh-viz__zeros" filter="url(#rh-zero-glow)">
-        <circle class="rh-viz__zero rh-viz__zero--1" cx="320" cy="248" r="5" fill="#38bdf8"/>
-        <circle class="rh-viz__zero rh-viz__zero--2" cx="320" cy="218" r="5" fill="#60a5fa"/>
-        <circle class="rh-viz__zero rh-viz__zero--3" cx="320" cy="192" r="5" fill="#818cf8"/>
-        <circle class="rh-viz__zero rh-viz__zero--4" cx="320" cy="168" r="5" fill="#a78bfa"/>
-        <circle class="rh-viz__zero rh-viz__zero--5" cx="320" cy="148" r="5" fill="#c084fc"/>
-        <circle class="rh-viz__zero rh-viz__zero--6" cx="320" cy="128" r="5" fill="#e879f9"/>
-      </g>
-      <!-- Prime ticks (schematic) -->
-      <g class="rh-viz__primes" opacity="0.75">
-        <rect x="68" y="302" width="3" height="14" fill="rgba(251, 191, 36, 0.7)"/>
-        <rect x="82" y="298" width="3" height="18" fill="rgba(251, 191, 36, 0.55)"/>
-        <rect x="96" y="296" width="3" height="20" fill="rgba(251, 191, 36, 0.8)"/>
-        <rect x="118" y="300" width="3" height="16" fill="rgba(251, 191, 36, 0.5)"/>
-        <rect x="140" y="294" width="3" height="22" fill="rgba(251, 191, 36, 0.65)"/>
-        <rect x="168" y="301" width="3" height="15" fill="rgba(251, 191, 36, 0.55)"/>
-        <rect x="200" y="297" width="3" height="19" fill="rgba(251, 191, 36, 0.7)"/>
-        <rect x="240" y="303" width="3" height="13" fill="rgba(251, 191, 36, 0.45)"/>
-        <rect x="400" y="299" width="3" height="17" fill="rgba(251, 191, 36, 0.6)"/>
-        <rect x="440" y="295" width="3" height="21" fill="rgba(251, 191, 36, 0.75)"/>
-        <rect x="480" y="301" width="3" height="15" fill="rgba(251, 191, 36, 0.5)"/>
-        <rect x="520" y="298" width="3" height="18" fill="rgba(251, 191, 36, 0.65)"/>
-        <rect x="560" y="304" width="3" height="12" fill="rgba(251, 191, 36, 0.55)"/>
-      </g>
-      <text x="60" y="332" fill="rgba(148, 163, 184, 0.8)" font-size="9" font-family="IBM Plex Sans, system-ui, sans-serif">prime density (schematic) →</text>
-    </svg>
-    <div class="rh-viz__badge" aria-hidden="true">
-      <span class="rh-viz__badge-pulse"></span>
-      RH: all nontrivial zeros on critical line
+    <div class="rh-viz__panels">
+      <div class="rh-viz__panel">
+        <div class="rh-viz__panel-head">
+          <span class="rh-viz__panel-kicker">Panel A</span>
+          <span class="rh-viz__panel-title">|ζ(½ + <em>it</em>)| magnitude</span>
+        </div>
+        <svg class="rh-viz__mag-svg" viewBox="0 0 580 240" role="img" aria-label="Magnitude of zeta on the critical line versus t">
+          <defs>
+            <linearGradient id="rh-mag-fill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(56, 189, 248, 0.45)"/>
+              <stop offset="100%" stop-color="rgba(56, 189, 248, 0.02)"/>
+            </linearGradient>
+            <linearGradient id="rh-mag-stroke" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="50%" stop-color="#818cf8"/>
+              <stop offset="100%" stop-color="#e879f9"/>
+            </linearGradient>
+            <filter id="rh-glow-strong" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="4" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <rect width="580" height="240" class="rh-viz__panel-bg" rx="8"/>
+          <text x="58" y="24" class="rh-viz__axis-title">ζ(s) = Σ n<sup>−s</sup> (Re s &gt; 1); continued to critical line</text>
+          <line x1="58" y1="204" x2="558" y2="204" class="rh-viz__axis"/>
+          <line x1="58" y1="36" x2="58" y2="204" class="rh-viz__axis"/>
+          <text x="300" y="228" class="rh-viz__axis-label" text-anchor="middle">imaginary part <tspan font-style="italic">t</tspan></text>
+          <text x="22" y="122" class="rh-viz__axis-label" transform="rotate(-90 22 122)">|ζ(½+<tspan font-style="italic">it</tspan>)|</text>
+          <text x="68" y="222" class="rh-viz__tick">0</text>
+          <text x="154" y="222" class="rh-viz__tick">10</text>
+          <text x="250" y="222" class="rh-viz__tick">20</text>
+          <text x="346" y="222" class="rh-viz__tick">30</text>
+          <text x="442" y="222" class="rh-viz__tick">40</text>
+          <text x="538" y="222" class="rh-viz__tick">50</text>
+        </svg>
+      </div>
+      <div class="rh-viz__panel">
+        <div class="rh-viz__panel-head">
+          <span class="rh-viz__panel-kicker">Panel B</span>
+          <span class="rh-viz__panel-title">Critical strip — Re(<em>s</em>) vs Im(<em>s</em>)</span>
+        </div>
+        <svg class="rh-viz__plane-svg" viewBox="0 0 580 320" role="img" aria-label="Complex plane with critical line and zeta zeros">
+          <defs>
+            <linearGradient id="rh-strip-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(15, 98, 254, 0.04)"/>
+              <stop offset="50%" stop-color="rgba(56, 189, 248, 0.16)"/>
+              <stop offset="100%" stop-color="rgba(147, 51, 234, 0.08)"/>
+            </linearGradient>
+          </defs>
+          <rect width="580" height="320" class="rh-viz__panel-bg" rx="8"/>
+          <text x="70" y="22" class="rh-viz__axis-title">Nontrivial zeros on <tspan font-weight="600">Re(s) = ½</tspan> (known first 10)</text>
+          <text x="70" y="308" class="rh-viz__tick">Re(s)=0</text>
+          <text x="285" y="308" class="rh-viz__tick" text-anchor="middle">½</text>
+          <text x="546" y="308" class="rh-viz__tick" text-anchor="end">1</text>
+          <text x="20" y="288" class="rh-viz__tick">Im=0</text>
+          <text x="20" y="88" class="rh-viz__tick">Im≈50</text>
+        </svg>
+      </div>
+    </div>
+    <div class="rh-viz__hud" aria-live="polite">
+      <div class="rh-viz__hud-item"><span class="rh-viz__hud-key"><em>t</em></span><strong data-rh-t-value>0.00</strong></div>
+      <div class="rh-viz__hud-item"><span class="rh-viz__hud-key">|ζ(½+<em>it</em>)|</span><strong data-rh-zeta-value>—</strong></div>
+      <div class="rh-viz__hud-chip" data-rh-zero-chip>Scanning critical line s = ½ + it</div>
     </div>
   </div>
   <figcaption class="rh-viz__caption" id="rh-viz-caption">
-    <strong>Schematic.</strong> The Riemann hypothesis claims every nontrivial zero of ζ(<em>s</em>) has real part ½ (cyan line). That constraint is what ties chaotic-looking primes to analytic error bounds—not a factoring algorithm.
+    <strong>Educational model.</strong> The magnitude curve is a smooth visual surrogate (not a certified numerical ζ evaluation). Zeros align with classical heights on the critical line. RH states no zero appears off the orange line in the strip 0 &lt; Re(<em>s</em>) &lt; 1.
   </figcaption>
 </figure>
