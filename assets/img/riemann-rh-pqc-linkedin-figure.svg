@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Riemann hypothesis and cryptography  what changes for PQC</title>
-  <desc id="desc">Schematic |¶(½+it)| curve with zeros and crypto impact summary for security teams.</desc>
+  <title id="title">Riemann hypothesis and cryptography: what changes for PQC</title>
+  <desc id="desc">Schematic absolute zeta on critical line with zeros and crypto impact summary for security teams.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0f172a"/>
@@ -20,18 +21,17 @@
   <rect x="48" y="48" width="1104" height="534" rx="18" fill="rgba(2,6,23,0.45)" stroke="rgba(56,189,248,0.28)"/>
 
   <text x="72" y="98" fill="#f0f6fc" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="34" font-weight="700">Riemann Hypothesis &amp; cryptography</text>
-  <text x="72" y="132" fill="#94a3b8" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="20" font-weight="500">What changes for PQC programs  and what does not</text>
+  <text x="72" y="132" fill="#94a3b8" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="20" font-weight="500">What changes for PQC programs &#8212; and what does not</text>
   <text x="72" y="160" fill="#38bdf8" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="0.06em">QUANTUM TRANSITION LABS</text>
 
-  <!-- Left: |¶| schematic -->
   <rect x="72" y="190" width="520" height="330" rx="12" fill="rgba(15,23,42,0.7)" stroke="rgba(148,163,184,0.2)"/>
-  <text x="92" y="220" fill="#e2e8f0" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="16" font-weight="600">|¶(½ + it)| on the critical line</text>
+  <text x="92" y="220" fill="#e2e8f0" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="16" font-weight="600">|&#950;(&#189; + it)| on the critical line</text>
   <text x="92" y="242" fill="#64748b" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="12">Zeros where the curve meets the axis</text>
 
   <line x1="92" y1="470" x2="572" y2="470" stroke="rgba(148,163,184,0.45)" stroke-width="1.25"/>
   <line x1="92" y1="270" x2="92" y2="470" stroke="rgba(148,163,184,0.45)" stroke-width="1.25"/>
   <line x1="352" y1="270" x2="352" y2="470" stroke="#fb923c" stroke-width="2" stroke-dasharray="6 4" opacity="0.85"/>
-  <text x="362" y="258" fill="#fb923c" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="11" font-weight="600">Re(s)=½</text>
+  <text x="362" y="258" fill="#fb923c" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="11" font-weight="600">Re(s)=&#189;</text>
 
   <path fill="url(#curveFill)" d="M92 470 L92 410 C120 380,150 360,180 395 C210 430,235 340,265 355 C295 370,315 290,345 410 C375 430,405 360,435 400 C465 420,495 320,525 380 L572 350 L572 470 Z"/>
   <path fill="none" stroke="url(#curveStroke)" stroke-width="2.75" stroke-linecap="round" d="M92 410 C120 380,150 360,180 395 C210 430,235 340,265 355 C295 370,315 290,345 410 C375 430,405 360,435 400 C465 420,495 320,525 380 L572 350"/>
@@ -42,21 +42,20 @@
   <text x="178" y="498" fill="#fbbf24" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="11" text-anchor="middle">14.13</text>
   <text x="268" y="498" fill="#fbbf24" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="11" text-anchor="middle">21.02</text>
   <text x="342" y="498" fill="#fbbf24" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="11" text-anchor="middle">25.01</text>
-  <text x="332" y="498" fill="#94a3b8" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="11" text-anchor="middle">imaginary t ’</text>
+  <text x="568" y="498" fill="#94a3b8" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="11" text-anchor="end">imaginary t &#8594;</text>
 
-  <!-- Right: impact cards -->
   <rect x="620" y="190" width="496" height="100" rx="12" fill="rgba(34,197,94,0.1)" stroke="rgba(74,222,128,0.35)"/>
   <text x="644" y="224" fill="#4ade80" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="700">RSA / ECC / legacy TLS</text>
-  <text x="644" y="252" fill="#e2e8f0" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15">No instant break from RH alone  keep deprecation &amp; PQ TLS.</text>
+  <text x="644" y="252" fill="#e2e8f0" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15">No instant break from RH alone &#8212; keep deprecation &amp; PQ TLS.</text>
 
   <rect x="620" y="308" width="496" height="100" rx="12" fill="rgba(56,189,248,0.1)" stroke="rgba(56,189,248,0.35)"/>
-  <text x="644" y="342" fill="#38bdf8" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="700">ML-KEM · ML-DSA · SLH-DSA</text>
-  <text x="644" y="370" fill="#e2e8f0" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15">Roadmap unchanged  reductions are not to ¶ zeros.</text>
+  <text x="644" y="342" fill="#38bdf8" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="700">ML-KEM &#183; ML-DSA &#183; SLH-DSA</text>
+  <text x="644" y="370" fill="#e2e8f0" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15">Roadmap unchanged &#8212; reductions are not to &#950; zeros.</text>
 
   <rect x="620" y="426" width="496" height="94" rx="12" fill="rgba(251,191,36,0.1)" stroke="rgba(251,191,36,0.4)"/>
-  <text x="644" y="460" fill="#fbbf24" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="700">CRQC · harvest-now-decrypt-later</text>
-  <text x="644" y="488" fill="#e2e8f0" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15">Still the primary migration driver  separate from RH headlines.</text>
+  <text x="644" y="460" fill="#fbbf24" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="700">CRQC &#183; harvest-now-decrypt-later</text>
+  <text x="644" y="488" fill="#e2e8f0" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15">Still the primary migration driver &#8212; separate from RH headlines.</text>
 
   <rect x="620" y="536" width="496" height="56" rx="10" fill="rgba(15,98,254,0.18)" stroke="rgba(56,189,248,0.4)"/>
-  <text x="868" y="571" fill="#bae6fd" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="middle">Live mpmath ¶ simulator + tables ’ qtransitionlabs.com/news</text>
+  <text x="868" y="571" fill="#bae6fd" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="middle">Live mpmath &#950; simulator + tables &#8594; qtransitionlabs.com/news</text>
 </svg>
