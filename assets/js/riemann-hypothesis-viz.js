@@ -20,15 +20,27 @@
     root.getAttribute('data-zeta-data') ||
     '/assets/data/riemann-zeta-critical-line.json';
 
+  function normalizeDataset(raw) {
+    if (!raw || !raw.samples) return null;
+    var samples = raw.samples;
+    if (samples.length && Array.isArray(samples[0])) {
+      samples = samples.map(function (row) {
+        return { t: row[0], mag: row[1], re: row[2], im: row[3] };
+      });
+    }
+    return { meta: raw.meta || {}, samples: samples };
+  }
+
   var T_MAX = 52;
   var MAG = { l: 58, t: 36, w: 500, h: 138, padR: 18, padB: 28, baseline: 174 };
   var REIM = { l: 58, t: 196, w: 500, h: 54 };
   var PL = { l: 70, t: 28, w: 500, h: 248, padR: 24, padB: 32 };
 
-  function el(svg, name, attrs) {
+  function el(name, attrs) {
     var node = document.createElementNS('http://www.w3.org/2000/svg', name);
     Object.keys(attrs || {}).forEach(function (k) {
-      node.setAttribute(k, attrs[k]);
+      var v = attrs[k];
+      if (v !== undefined && v !== null) node.setAttribute(k, v);
     });
     return node;
   }
@@ -161,7 +173,7 @@
     var vmax = meta.vmax || 3.7;
     var paths = buildPaths(samples, vmax);
 
-    var magG = el(MAG_SVG, 'g', { class: 'rh-viz__mag-layer' });
+    var magG = el('g', { class: 'rh-viz__mag-layer' });
     magG.appendChild(el('line', { class: 'rh-viz__reim-mid', x1: MAG.l, x2: MAG.l + MAG.w, y1: REIM.t + REIM.h / 2, y2: REIM.t + REIM.h / 2 }));
     magG.appendChild(el('path', { class: 'rh-viz__mag-area', d: paths.magArea }));
     magG.appendChild(el('path', { class: 'rh-viz__mag-line', d: paths.magLine }));
@@ -201,7 +213,7 @@
     magG.appendChild(magCursor);
     MAG_SVG.appendChild(magG);
 
-    var plG = el(PLANE_SVG, 'g', { class: 'rh-viz__plane-layer' });
+    var plG = el('g', { class: 'rh-viz__plane-layer' });
     plG.appendChild(el('rect', { class: 'rh-viz__strip-shade', x: PL.l, y: PL.t, width: PL.w, height: PL.h }));
     plG.appendChild(el('rect', { class: 'rh-viz__strip-critical', x: PL.l + PL.w * 0.5 - 2, y: PL.t, width: 4, height: PL.h }));
     plG.appendChild(
@@ -354,14 +366,38 @@
     root.classList.add('rh-viz--ready');
   }
 
+  function fail(message) {
+    root.classList.add('rh-viz--error');
+    if (ZERO_CHIP) ZERO_CHIP.textContent = message;
+  }
+
+  function begin(dataset) {
+    var normalized = normalizeDataset(dataset);
+    if (!normalized) {
+      fail('Numerical ζ dataset is empty or invalid.');
+      return;
+    }
+    try {
+      boot(normalized);
+    } catch (err) {
+      if (typeof console !== 'undefined' && console.error) console.error(err);
+      fail('Could not render ζ simulation (' + (err && err.message ? err.message : 'unknown error') + ').');
+    }
+  }
+
+  if (window.RIEMANN_ZETA_CRITICAL) {
+    begin(window.RIEMANN_ZETA_CRITICAL);
+    return;
+  }
+
   fetch(DATA_URL)
     .then(function (r) {
-      if (!r.ok) throw new Error('load failed');
+      if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     })
-    .then(boot)
-    .catch(function () {
-      root.classList.add('rh-viz--error');
-      if (ZERO_CHIP) ZERO_CHIP.textContent = 'Could not load numerical ζ dataset.';
+    .then(begin)
+    .catch(function (err) {
+      if (typeof console !== 'undefined' && console.error) console.error(err);
+      fail('Could not load numerical ζ dataset (fetch failed).');
     });
 })();
