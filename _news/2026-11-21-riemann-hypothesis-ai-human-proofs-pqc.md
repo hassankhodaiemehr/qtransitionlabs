@@ -13,6 +13,8 @@ On **20 November 2026**, the mathematics world saw back-to-back announcements th
 
 For security and PQC program leads, the headline is easy to misread. A proof of RH is **not** a proof that RSA is broken, **not** a substitute for **cryptographically relevant quantum computer (CRQC)** threat modeling, and **not** a reason to delay **NIST-standardized post-quantum algorithms**. It *is* a signal that **AI-accelerated pure mathematics** is now touching the same analytic number theory that sits one conceptual layer beneath classical public-key cryptography.
 
+{% include riemann-hypothesis-viz.html %}
+
 ## What the Riemann hypothesis actually controls
 
 The hypothesis concerns the **Riemann zeta function** ζ(*s*) and the location of its nontrivial **zeros**. RH states that those zeros lie on the critical line Re(*s*) = ½. If true, it implies that primes behave, in a precise sense, as **randomly distributed** as possible among the positive integers—tight control on **prime gaps**, error terms in the **prime number theorem**, and a large web of results in **analytic number theory**.
@@ -25,16 +27,127 @@ What RH does **not** by itself provide:
 
 Factoring hardness used in deployed RSA is an **average-case engineering assumption** on semiprimes; RH is a **global statement about the distribution of all primes**. Progress on RH can sharpen **heuristics** and **special-case attacks**, but it is not interchangeable with "factoring is easy."
 
+## Claude, Lean, and the scale of the AI-assisted proof
+
+Alpöge describes roughly **six weeks** of work with a **non-public Anthropic Claude** model—human strategy and number theory, with the model helping draft and refine formal steps. What he released publicly is unusual in *format*, not just in *claim*:
+
+<div class="rh-proof-scale">
+  <h3>Proof artifact scale (Anthropic / Claude track)</h3>
+  <div class="rh-proof-scale__grid">
+    <div class="rh-proof-scale__metric">
+      <strong>~17M</strong>
+      <span>lines of Lean source (per Lean/Mathlib community statement)</span>
+    </div>
+    <div class="rh-proof-scale__metric">
+      <strong>250K+</strong>
+      <span>printed pages if the formal corpus were typeset (BBC / press estimates)</span>
+    </div>
+    <div class="rh-proof-scale__metric">
+      <strong>175,187</strong>
+      <span>Lean modules compiled in independent verification runs</span>
+    </div>
+    <div class="rh-proof-scale__metric">
+      <strong>~61.6&nbsp;GB</strong>
+      <span>exported proof blob reproduced byte-for-byte in sandbox rebuilds</span>
+    </div>
+    <div class="rh-proof-scale__metric">
+      <strong>Lean 4.33</strong>
+      <span>+ Mathlib 4.33.1; also targets **GRH** for Dirichlet <em>L</em>-functions</span>
+    </div>
+    <div class="rh-proof-scale__metric">
+      <strong>4 pages</strong>
+      <span>human-readable *Nature* sketch—versus the machine-checked library above</span>
+    </div>
+  </div>
+  <div class="rh-proof-scale__bar-wrap" aria-hidden="true">
+    <div class="rh-proof-scale__bar-label">
+      <span>Public narrative (pages)</span>
+      <span>Formal verification corpus</span>
+    </motion-div>
+    <div class="rh-proof-scale__bar" title="Schematic: tiny public sketch vs massive Lean library">
+      <div class="rh-proof-scale__bar-fill rh-proof-scale__bar-fill--human" aria-hidden="true" title="~4-page public sketch"></div>
+      <div class="rh-proof-scale__bar-fill rh-proof-scale__bar-fill--lean"></div>
+    </div>
+  </div>
+  <p class="rh-proof-scale__note">
+    The <a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">Lean and Mathlib communities</a> reported large-scale replay: compilation, statement matching against Mathlib's <code>RiemannHypothesis</code>, and multiple independent proof checkers (<a href="https://math.mit.edu/~drew/grh/" target="_blank" rel="noopener noreferrer">MIT verification hub</a>). That is a different question from "every expert has internalized the mathematics"—Terence Tao and others still expect a long digestion phase. For CISOs, the lesson is <strong>verification surface area</strong>: AI can inflate formal artifacts faster than humans can narrate them.
+  </p>
+</div>
+
+<div class="news-data-table-wrap">
+<table class="news-data-table">
+<caption class="visually-hidden">AI-assisted Riemann proof workflow versus Masullo human preprint</caption>
+<thead>
+<tr>
+<th scope="col">Track</th>
+<th scope="col">Authors &amp; tools</th>
+<th scope="col">Artifact</th>
+<th scope="col">Verification status (Nov 2026)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anthropic / Claude</td>
+<td>Levent Alpöge + non-public <strong>Claude</strong>; Lean 4 / Mathlib</td>
+<td>~17M-line library; ~250K+ page equivalent; ~61.6&nbsp;GB export</td>
+<td>Machine-checked replay advancing; expert mathematical digestion ongoing</td>
+</tr>
+<tr>
+<td>Stanford human</td>
+<td>Alessandro Maria Masullo; classical analytic write-up</td>
+<td>Early preprint (Vakil "hurried" release)</td>
+<td>Peer review and polish not yet complete</td>
+</tr>
+<tr>
+<td>Public narrative</td>
+<td><em>Nature</em>, BBC, Scientific American</td>
+<td>4-page sketch + commentary</td>
+<td>Breaking news; not a crypto operational signal</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+Masullo's line of work and Alpöge's formal corpus may converge or diverge after refereeing. **Cryptographic policy should not branch on either headline until claims are stable in the research record**—but you should update **AI + formal-methods** risk intake now.
+
 ## Cryptography: direct and indirect effects
 
 ### Classical public-key (RSA, DH, legacy TLS)
 
-| Effect | Likelihood if RH is verified | Operational impact |
-|--------|------------------------------|---------------------|
-| Instant break of RSA-2048 | **None** from RH alone | No change to key sizes or sunset deadlines |
-| Sharper **prime-counting** and **smooth-number** estimates | **Moderate** over time | May refine analysis of subexponential factoring heuristics (e.g. NFS tuning, **Coppersmith**-style bounds on related problems) |
-| Better understanding of **prime gaps** | **High** | Influences how cryptographers reason about **random prime generation**, **RSA key validation**, and **probabilistic protocols** that assume "random-looking" primes |
-| New **number-theoretic** attack tools | **Low–moderate** (long horizon) | Expert communities could analyze **structured RSA instances** or weak parameter choices faster—not a wholesale collapse of modular PKI |
+<div class="news-data-table-wrap">
+<table class="news-data-table">
+<caption class="visually-hidden">Cryptographic effects if the Riemann hypothesis is verified</caption>
+<thead>
+<tr>
+<th scope="col">Effect</th>
+<th scope="col">Likelihood if RH verified</th>
+<th scope="col">Operational impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instant break of RSA-2048</td>
+<td><span class="news-data-table__tag news-data-table__tag--none">None</span> from RH alone</td>
+<td>No change to key sizes or sunset deadlines</td>
+</tr>
+<tr>
+<td>Sharper prime-counting &amp; smooth-number estimates</td>
+<td><span class="news-data-table__tag news-data-table__tag--med">Moderate</span> (long horizon)</td>
+<td>May refine subexponential factoring heuristics (NFS, Coppersmith-style bounds)</td>
+</tr>
+<tr>
+<td>Better understanding of prime gaps</td>
+<td><span class="news-data-table__tag news-data-table__tag--med">High</span> (theory)</td>
+<td>Informs random prime generation, RSA validation, probabilistic protocols</td>
+</tr>
+<tr>
+<td>New number-theoretic attack tooling</td>
+<td><span class="news-data-table__tag news-data-table__tag--low">Low–moderate</span></td>
+<td>Faster analysis of structured RSA instances—not wholesale modular PKI collapse</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 Organizations should continue **RSA/ECC deprecation** and **PQ TLS** plans. RH verification would belong in the **research radar**, not the **incident queue**.
 
