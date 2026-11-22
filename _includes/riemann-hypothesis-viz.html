@@ -1,10 +1,16 @@
-<figure class="rh-viz" data-rh-viz aria-labelledby="rh-viz-caption">
+<figure
+  class="rh-viz"
+  data-rh-viz
+  data-zeta-data="{{ '/assets/data/riemann-zeta-critical-line.json' | relative_url }}"
+  aria-labelledby="rh-viz-caption"
+>
   <div class="rh-viz__head">
-    <p class="rh-viz__eyebrow">Interactive schematic</p>
-    <h3 class="rh-viz__title">ζ(<em>s</em>) on the critical line &amp; zero locations</h3>
+    <p class="rh-viz__eyebrow">Numerical simulation</p>
+    <h3 class="rh-viz__title">ζ(½ + <em>it</em>) along the critical line</h3>
     <p class="rh-viz__lede">
-      Along <strong>s = ½ + <em>it</em></strong>, the Riemann zeta function oscillates and drops to
-      <strong>zeros</strong> at iconic heights <em>t</em> (14.13, 21.02, …). RH claims every nontrivial zero lies on this line.
+      Curves are sampled at Δ<em>t</em> = 0.04 from <em>t</em> = 0 to 52 using
+      <strong>mpmath</strong> analytic continuation of ζ(<em>s</em>). Use the slider or run the scan to watch
+      |ζ|, Re&nbsp;ζ, and Im&nbsp;ζ along the line where RH asserts all nontrivial zeros lie.
     </p>
   </div>
   <div class="rh-viz__frame">
@@ -12,56 +18,53 @@
       <div class="rh-viz__panel">
         <div class="rh-viz__panel-head">
           <span class="rh-viz__panel-kicker">Panel A</span>
-          <span class="rh-viz__panel-title">|ζ(½ + <em>it</em>)| magnitude</span>
+          <span class="rh-viz__panel-title">|ζ(½ + <em>it</em>)|, Re&nbsp;ζ, Im&nbsp;ζ vs <em>t</em></span>
         </div>
-        <svg class="rh-viz__mag-svg" viewBox="0 0 580 240" role="img" aria-label="Magnitude of zeta on the critical line versus t">
+        <svg class="rh-viz__mag-svg" viewBox="0 0 580 280" role="img" aria-label="Numerical zeta values on the critical line versus t">
           <defs>
             <linearGradient id="rh-mag-fill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="rgba(56, 189, 248, 0.45)"/>
+              <stop offset="0%" stop-color="rgba(56, 189, 248, 0.35)"/>
               <stop offset="100%" stop-color="rgba(56, 189, 248, 0.02)"/>
             </linearGradient>
             <linearGradient id="rh-mag-stroke" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stop-color="#38bdf8"/>
               <stop offset="50%" stop-color="#818cf8"/>
-              <stop offset="100%" stop-color="#e879f9"/>
+              <stop offset="100%" stop-color="#a78bfa"/>
             </linearGradient>
-            <filter id="rh-glow-strong" x="-80%" y="-80%" width="260%" height="260%">
-              <feGaussianBlur stdDeviation="4" result="blur"/>
-              <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
           </defs>
-          <rect width="580" height="240" class="rh-viz__panel-bg" rx="8"/>
-          <text x="58" y="24" class="rh-viz__axis-title">ζ(s) = Σ n<sup>−s</sup> (Re s &gt; 1); continued to critical line</text>
-          <line x1="58" y1="204" x2="558" y2="204" class="rh-viz__axis"/>
-          <line x1="58" y1="36" x2="58" y2="204" class="rh-viz__axis"/>
-          <text x="300" y="228" class="rh-viz__axis-label" text-anchor="middle">imaginary part <tspan font-style="italic">t</tspan></text>
-          <text x="22" y="122" class="rh-viz__axis-label" transform="rotate(-90 22 122)">|ζ(½+<tspan font-style="italic">it</tspan>)|</text>
-          <text x="68" y="222" class="rh-viz__tick">0</text>
-          <text x="154" y="222" class="rh-viz__tick">10</text>
-          <text x="250" y="222" class="rh-viz__tick">20</text>
-          <text x="346" y="222" class="rh-viz__tick">30</text>
-          <text x="442" y="222" class="rh-viz__tick">40</text>
-          <text x="538" y="222" class="rh-viz__tick">50</text>
+          <rect width="580" height="280" class="rh-viz__panel-bg" rx="8"/>
+          <text x="58" y="22" class="rh-viz__axis-title">ζ(½+<tspan font-style="italic">it</tspan>) computed with mpmath · 28-digit precision batch</text>
+          <line x1="58" y1="174" x2="558" y2="174" class="rh-viz__axis"/>
+          <line x1="58" y1="36" x2="58" y2="174" class="rh-viz__axis"/>
+          <line x1="58" y1="250" x2="558" y2="250" class="rh-viz__axis rh-viz__axis--light"/>
+          <text x="300" y="272" class="rh-viz__axis-label" text-anchor="middle">imaginary part <tspan font-style="italic">t</tspan></text>
+          <text x="22" y="108" class="rh-viz__axis-label" transform="rotate(-90 22 108)">|ζ|</text>
+          <text x="22" y="226" class="rh-viz__axis-label" transform="rotate(-90 22 226)">Re / Im</text>
+          <text x="62" y="190" class="rh-viz__legend rh-viz__legend--re">Re ζ</text>
+          <text x="62" y="202" class="rh-viz__legend rh-viz__legend--im">Im ζ</text>
+          <text x="68" y="268" class="rh-viz__tick">0</text>
+          <text x="154" y="268" class="rh-viz__tick">10</text>
+          <text x="250" y="268" class="rh-viz__tick">20</text>
+          <text x="346" y="268" class="rh-viz__tick">30</text>
+          <text x="442" y="268" class="rh-viz__tick">40</text>
+          <text x="538" y="268" class="rh-viz__tick">50</text>
         </svg>
       </div>
       <div class="rh-viz__panel">
         <div class="rh-viz__panel-head">
           <span class="rh-viz__panel-kicker">Panel B</span>
-          <span class="rh-viz__panel-title">Critical strip — Re(<em>s</em>) vs Im(<em>s</em>)</span>
+          <span class="rh-viz__panel-title">Critical strip — zero locations on Re(<em>s</em>) = ½</span>
         </div>
-        <svg class="rh-viz__plane-svg" viewBox="0 0 580 320" role="img" aria-label="Complex plane with critical line and zeta zeros">
+        <svg class="rh-viz__plane-svg" viewBox="0 0 580 320" role="img" aria-label="Complex plane with critical line and detected zero heights">
           <defs>
             <linearGradient id="rh-strip-grad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stop-color="rgba(15, 98, 254, 0.04)"/>
-              <stop offset="50%" stop-color="rgba(56, 189, 248, 0.16)"/>
-              <stop offset="100%" stop-color="rgba(147, 51, 234, 0.08)"/>
+              <stop offset="50%" stop-color="rgba(56, 189, 248, 0.14)"/>
+              <stop offset="100%" stop-color="rgba(147, 51, 234, 0.06)"/>
             </linearGradient>
           </defs>
           <rect width="580" height="320" class="rh-viz__panel-bg" rx="8"/>
-          <text x="70" y="22" class="rh-viz__axis-title">Nontrivial zeros on <tspan font-weight="600">Re(s) = ½</tspan> (known first 10)</text>
+          <text x="70" y="22" class="rh-viz__axis-title">Marker tracks ½ + <tspan font-style="italic">it</tspan> · zeros from |ζ| minima in dataset</text>
           <text x="70" y="308" class="rh-viz__tick">Re(s)=0</text>
           <text x="285" y="308" class="rh-viz__tick" text-anchor="middle">½</text>
           <text x="546" y="308" class="rh-viz__tick" text-anchor="end">1</text>
@@ -70,13 +73,20 @@
         </svg>
       </div>
     </div>
+    <div class="rh-viz__controls">
+      <button type="button" class="rh-viz__play" data-rh-play aria-pressed="true">Pause</button>
+      <label class="rh-viz__slider-label" for="rh-viz-slider"><em>t</em></label>
+      <input class="rh-viz__slider" id="rh-viz-slider" data-rh-slider type="range" min="0" max="52" step="0.04" value="14.13"/>
+    </div>
     <div class="rh-viz__hud" aria-live="polite">
-      <div class="rh-viz__hud-item"><span class="rh-viz__hud-key"><em>t</em></span><strong data-rh-t-value>0.00</strong></div>
-      <div class="rh-viz__hud-item"><span class="rh-viz__hud-key">|ζ(½+<em>it</em>)|</span><strong data-rh-zeta-value>—</strong></div>
-      <div class="rh-viz__hud-chip" data-rh-zero-chip>Scanning critical line s = ½ + it</div>
+      <div class="rh-viz__hud-item"><span class="rh-viz__hud-key"><em>t</em></span><strong data-rh-t-value>0.000</strong></div>
+      <div class="rh-viz__hud-item"><span class="rh-viz__hud-key">|ζ|</span><strong data-rh-zeta-value>—</strong></div>
+      <div class="rh-viz__hud-item"><span class="rh-viz__hud-key">Re&nbsp;ζ</span><strong data-rh-re-value>—</strong></div>
+      <div class="rh-viz__hud-item"><span class="rh-viz__hud-key">Im&nbsp;ζ</span><strong data-rh-im-value>—</strong></div>
+      <div class="rh-viz__hud-chip" data-rh-zero-chip>Loading numerical ζ dataset…</div>
     </div>
   </div>
   <figcaption class="rh-viz__caption" id="rh-viz-caption">
-    <strong>Educational model.</strong> The magnitude curve is a smooth visual surrogate (not a certified numerical ζ evaluation). Zeros align with classical heights on the critical line. RH states no zero appears off the orange line in the strip 0 &lt; Re(<em>s</em>) &lt; 1.
+    <strong>Data-driven.</strong> Points come from evaluating ζ(½ + <em>it</em>) with mpmath (not a hand-drawn loop). Zeros on the plot are local minima of |ζ| in the sample; they match published heights to ~10<sup>−2</sup> in <em>t</em> at this step size.
   </figcaption>
 </figure>

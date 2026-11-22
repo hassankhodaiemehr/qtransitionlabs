@@ -997,10 +997,45 @@ body.light-mode .rh-viz__tick {
 .rh-viz__mag-line {
   fill: none;
   stroke: url(#rh-mag-stroke);
-  stroke-width: 2.75;
+  stroke-width: 2.25;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: url(#rh-glow-strong);
+}
+
+.rh-viz__re-line {
+  fill: none;
+  stroke: rgba(251, 191, 36, 0.85);
+  stroke-width: 1.25;
+}
+
+.rh-viz__im-line {
+  fill: none;
+  stroke: rgba(167, 139, 250, 0.85);
+  stroke-width: 1.25;
+  stroke-dasharray: 4 3;
+}
+
+.rh-viz__reim-mid {
+  stroke: rgba(148, 163, 184, 0.25);
+  stroke-width: 0.75;
+}
+
+.rh-viz__axis--light {
+  stroke-opacity: 0.35;
+}
+
+.rh-viz__legend {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 8.5px;
+  font-weight: 600;
+}
+
+.rh-viz__legend--re {
+  fill: rgba(251, 191, 36, 0.9);
+}
+
+.rh-viz__legend--im {
+  fill: rgba(167, 139, 250, 0.95);
 }
 
 .rh-viz__mag-zero-stem {
@@ -1040,9 +1075,7 @@ body.light-mode .rh-viz__tick {
 .rh-viz__cursor-dot {
   fill: #38bdf8;
   stroke: #e0f2fe;
-  stroke-width: 2;
-  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.85));
-  animation: rh-cursor-pulse 1.1s ease-in-out infinite;
+  stroke-width: 1.75;
 }
 
 .rh-viz__strip-shade {
@@ -1076,31 +1109,69 @@ body.light-mode .rh-viz__tick {
 .rh-viz__plane-zero.is-active .rh-viz__plane-zero-ring {
   stroke: #fef08a;
   opacity: 1;
-  animation: rh-zero-ring-burst 0.9s ease-out infinite;
 }
 
 .rh-viz__plane-zero-dot {
   fill: #60a5fa;
 }
 
-.rh-viz__plane-trail {
-  fill: rgba(56, 189, 248, 0.18);
-  animation: rh-trail-breathe 1.4s ease-in-out infinite;
-}
-
 .rh-viz__plane-dot {
   fill: #38bdf8;
   stroke: #f0f9ff;
   stroke-width: 1.5;
-  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.9));
+}
+
+.rh-viz__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  margin: 0 0.85rem;
+  padding: 0.55rem 0.15rem 0;
+}
+
+.rh-viz__play {
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  background: rgba(15, 98, 254, 0.2);
+  color: #e0f2fe;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+body.light-mode .rh-viz__play {
+  background: #e0f2fe;
+  color: #0c4a6e;
+  border-color: #7dd3fc;
+}
+
+.rh-viz__play:hover {
+  border-color: rgba(56, 189, 248, 0.8);
+}
+
+.rh-viz__slider-label {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+.rh-viz__slider {
+  flex: 1 1 12rem;
+  min-width: 8rem;
+  accent-color: #0f62fe;
+}
+
+.rh-viz--error .rh-viz__frame {
+  border-color: rgba(248, 113, 113, 0.5);
 }
 
 .rh-viz__hud {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.65rem 1rem;
-  margin: 0.65rem 0.85rem 0.85rem;
+  gap: 0.5rem 0.85rem;
+  margin: 0.55rem 0.85rem 0.85rem;
   padding: 0.65rem 0.85rem;
   border-radius: 12px;
   background: rgba(2, 6, 23, 0.55);
@@ -1145,7 +1216,6 @@ body.light-mode .rh-viz__hud-item strong {
   color: #fef9c3;
   background: rgba(251, 191, 36, 0.18);
   border-color: rgba(251, 191, 36, 0.5);
-  animation: rh-chip-flash 0.8s ease-in-out infinite;
 }
 
 body.light-mode .rh-viz__hud-chip {
@@ -1163,27 +1233,6 @@ body.light-mode .rh-viz__hud-chip.is-hot {
 @keyframes rh-critical-pulse {
   0%, 100% { stroke-opacity: 0.55; stroke-width: 2; }
   50% { stroke-opacity: 1; stroke-width: 3.25; }
-}
-
-@keyframes rh-cursor-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.18); }
-}
-
-@keyframes rh-zero-ring-burst {
-  0% { transform: scale(0.85); opacity: 0.9; }
-  70% { transform: scale(1.25); opacity: 0.2; }
-  100% { transform: scale(1.35); opacity: 0; }
-}
-
-@keyframes rh-trail-breathe {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
-}
-
-@keyframes rh-chip-flash {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.15); }
 }
 
 .rh-viz__caption {
@@ -1505,10 +1554,6 @@ body.light-mode .news-data-table__tag--med {
 
 @media (prefers-reduced-motion: reduce) {
   .rh-viz__critical-line,
-  .rh-viz__cursor-dot,
-  .rh-viz__plane-trail,
-  .rh-viz__hud-chip.is-hot,
-  .rh-viz__plane-zero.is-active .rh-viz__plane-zero-ring,
   .rh-proof-scale__bar-fill {
     animation: none !important;
   }
